@@ -8,7 +8,7 @@
   },
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
-  "exports": {
+  "_exports": {
     "./package.json": "./package.json",
     ".": {
       "types": "./dist/index.d.ts",
