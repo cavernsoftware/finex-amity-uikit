@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import React, { createContext, PropsWithChildren, ReactNode, useContext, useState } from 'react';
 import { PrimaryButton } from '~/core/components/Button/styles';
 
 export type ConfirmType = {
@@ -32,7 +32,7 @@ export const ConfirmContext = createContext<ConfirmContextProps>({
 
 export const useConfirmContext = () => useContext(ConfirmContext);
 
-export const ConfirmProvider: React.FC = ({ children }) => {
+export const ConfirmProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [confirmData, setConfirmData] = useState<ConfirmType | null>(null);
 
   const closeConfirm = () => {

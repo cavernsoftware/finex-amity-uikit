@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import React, { createContext, ReactNode, useContext, useState, PropsWithChildren } from 'react';
 
 import CheckCircle from '~/v4/icons/CheckCircle';
 import ExclamationCircle from '~/v4/icons/ExclamationCircle';
@@ -36,7 +36,7 @@ export const NotificationContext = createContext<NotificationContextProps>({
 
 const DEFAULT_NOTIFICATION_DURATION = 3000;
 
-export const NotificationProvider: React.FC = ({ children }) => {
+export const NotificationProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [notifications, setNotifications] = useState<Notification[]>([]);
 
   const removeNotification = (id: number) =>
