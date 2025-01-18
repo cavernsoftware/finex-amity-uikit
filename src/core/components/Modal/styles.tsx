@@ -70,10 +70,10 @@ export const StyledModalWindow = ({
   return <ModalWindow {...props} />;
 };
 
-export const Header = styled.div<{ clean?: boolean }>`
+export const Header = styled.div<{ $clean?: boolean }>`
   padding: 16px 16px 12px 16px;
-  ${({ clean, theme }) =>
-    !clean &&
+  ${({ $clean, theme }) =>
+    !$clean &&
     css`
       border-bottom: 1px solid ${theme.palette.base.shade4};
     `};
@@ -82,19 +82,19 @@ export const Header = styled.div<{ clean?: boolean }>`
   align-items: center;
 `;
 
-export const Content = styled.div<{ isText?: boolean }>`
-  ${({ isText }) =>
-    isText &&
+export const Content = styled.div<{ $isText?: boolean }>`
+  ${({ $isText }) =>
+    $isText &&
     css`
       padding: 20px 16px;
     `}
 `;
 
-export const Footer = styled.div<{ clean?: boolean }>`
+export const Footer = styled.div<{ $clean?: boolean }>`
   padding: 16px 12px;
   padding-top: 4px;
-  ${({ clean, theme }) =>
-    !clean &&
+  ${({ $clean, theme }) =>
+    !$clean &&
     css`
       border-top: 1px solid ${theme.palette.base.shade4};
       padding-top: 16px;

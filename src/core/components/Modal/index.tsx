@@ -43,15 +43,15 @@ const Modal = ({
         data-qa-anchor={dataQaAnchor}
       >
         {(title || onCancel) && (
-          <Header clean={clean}>
+          <Header $clean={clean}>
             {title}
             {onCancel && <CloseIcon onClick={onCancel} />}
           </Header>
         )}
 
-        <Content isText={isText}>{children}</Content>
+        <Content $isText={isText}>{children}</Content>
 
-        {footer && <Footer clean={clean}>{footer}</Footer>}
+        {footer && <Footer $clean={clean}>{footer}</Footer>}
       </StyledModalWindow>
     </Overlay>
   );
