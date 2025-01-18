@@ -13,13 +13,23 @@ import useSDK from '~/core/hooks/useSDK';
 import UserInfo from '~/social/components/UserInfo';
 import useFollowStatus from '~/core/hooks/useFollowStatus';
 import { isPrivateNetwork } from '~/helpers/utils';
+import { FormattedMessage, useIntl } from 'react-intl';
+import { CommunitySideMenuOverlay } from '../NewsFeed/styles';
+import {
+  StyledBarsIcon,
+  HeadTitle,
+  MobileContainer,
+  StyledCommunitySideMenu,
+} from '../NewsFeed/styles';
 
 interface UserFeedProps {
   userId?: string | null;
   socialSettings: Amity.SocialSettings | null;
+  isOpen: boolean;
+  toggleOpen: () => void;
 }
 
-const UserFeed = ({ userId, socialSettings }: UserFeedProps) => {
+const UserFeed = ({ userId, socialSettings, isOpen, toggleOpen }: UserFeedProps) => {
   const { currentUserId } = useSDK();
 
   const [activeTab, setActiveTab] = useState(UserFeedTabs.TIMELINE);
@@ -44,6 +54,15 @@ const UserFeed = ({ userId, socialSettings }: UserFeedProps) => {
   return (
     // key prop is necessary here, without it this part will never re-render !!!
     <Wrapper>
+      <CommunitySideMenuOverlay isOpen={isOpen} onClick={toggleOpen} />
+      <StyledCommunitySideMenu isOpen={isOpen} />
+      <MobileContainer>
+        <StyledBarsIcon onClick={toggleOpen} />
+        <HeadTitle>
+          <FormattedMessage id="sidebar.profile" />
+        </HeadTitle>
+      </MobileContainer>
+
       <UserInfo
         key={userId}
         userId={userId}

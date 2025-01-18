@@ -119,7 +119,12 @@ const Community = () => {
           )}
 
           {page.type === PageTypes.UserFeed && (
-            <UserFeedPage userId={page.userId} socialSettings={socialSettings} />
+            <UserFeedPage
+              userId={page.userId}
+              socialSettings={socialSettings}
+              isOpen={open}
+              toggleOpen={toggleOpen}
+            />
           )}
 
           {page.type === PageTypes.UserEdit && <ProfileSettings userId={page.userId} />}
