@@ -38,7 +38,7 @@ const Main = styled.div`
 
 const Side = styled.div`
   grid-area: side;
-  overflow: auto;
+  overflow: visible;
 `;
 
 interface LayoutProps {

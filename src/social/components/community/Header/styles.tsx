@@ -43,6 +43,8 @@ export const CommunityHeaderContainer = styled.a.withConfig({
       grid-template-areas: 'avatar title';
       align-items: center;
     `}
+
+  width: 100%;
 `;
 
 export const CommunityHeaderAvatar = styled(Avatar)`

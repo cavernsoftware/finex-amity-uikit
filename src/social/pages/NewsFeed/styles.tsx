@@ -61,6 +61,7 @@ export const StyledCommunitySideMenu = styled(CommunitySideMenu).withConfig({
   z-index: 1001;
   transform: translateX(${({ isOpen }) => (isOpen ? 0 : '-100%')});
   transition: transform 0.3s ease-in-out;
+  overflow: visible;
 `;
 
 export const StyledBarsIcon = styled(BarsIcon)`

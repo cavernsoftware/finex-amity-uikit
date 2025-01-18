@@ -14,7 +14,7 @@ const MenuList = styled.div`
   min-height: 3em;
   max-height: 200px;
   background: #fff;
-  border-radius: 4px;
+  // border-radius: 4px;
   cursor: pointer;
 `;
 

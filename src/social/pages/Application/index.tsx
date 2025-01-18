@@ -29,6 +29,7 @@ const ApplicationContainer = styled.div`
 
 const StyledCommunitySideMenu = styled(CommunitySideMenu)`
   display: none;
+  overflow: visible;
 
   @media (min-width: 768px) {
     min-height: 100%;

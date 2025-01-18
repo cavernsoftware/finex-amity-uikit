@@ -6,16 +6,11 @@ import UserHeader from '~/social/components/UserHeader';
 
 import useCommunitiesList from '~/social/hooks/useCommunitiesList';
 import { useNavigation } from '~/social/providers/NavigationProvider';
-import {
-  SocialSearchContainer,
-  SocialSearchInput,
-  SearchIcon,
-  SearchIconContainer,
-} from './styles';
+import { SocialSearchContainer, SearchIcon, SearchIconContainer } from './styles';
 import { useUserQueryByDisplayName } from '~/core/hooks/useUserQuery';
 import { isNonNullable } from '~/helpers/utils';
 import Tabs from '~/core/components/Tabs';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Menu from '~/core/components/Menu';
 import { useInputAutocomplete } from '~/core/components/InputAutocomplete';
 import InputText from '~/core/components/InputText';
@@ -24,16 +19,43 @@ import Button from '~/core/components/Button';
 import { useCustomComponent } from '~/core/providers/CustomComponentsProvider';
 import useCommunitiesCollection from '~/social/hooks/collections/useCommunitiesCollection';
 
-const Container = styled.div`
+export const Container = styled.div<{ isOpen?: boolean }>`
   position: relative;
+  overflow: visible;
+  width: 100%;
+  transition: width 0.1s ease-in-out;
+
+  ${({ isOpen }) =>
+    isOpen &&
+    css`
+      width: 50vw;
+
+      @media (max-width: 48em) {
+        width: calc(100vw - 2rem);
+      }
+    `}
+`;
+
+const SocialSearchInputText = styled(InputText)`
+  // background: var(--mantine-color-white);
+`;
+
+const SocialSearchTabs = styled(Tabs)`
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 6px 6px 0 0;
+  border: none;
 `;
 
 const SuggestionsMenu = styled(Menu)`
   z-index: 10;
   position: absolute;
-  top: calc(100% + 0.25rem);
+  top: 100%;
   width: 100%;
   color: ${({ theme }) => theme.palette.base.main};
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 6px 6px;
+  border: none;
+  overflow: hidden;
 `;
 
 const CommunitySocialSearchTab = ({
@@ -139,8 +161,8 @@ const SocialSearch = ({ className, sticky = false, searchBy }: SocialSearchProps
     <SocialSearchContainer className={className} sticky={sticky}>
       <FormattedMessage id="exploreHeader.searchCommunityPlaceholder">
         {([placeholder]) => (
-          <Container ref={containerRef}>
-            <InputText
+          <Container ref={containerRef} isOpen={isOpen}>
+            <SocialSearchInputText
               data-qa-anchor="social-search-input"
               value={searchValue}
               prepend={
@@ -154,7 +176,7 @@ const SocialSearch = ({ className, sticky = false, searchBy }: SocialSearchProps
               onClick={() => open()}
             />
             {isOpen ? (
-              <Tabs
+              <SocialSearchTabs
                 tabs={[
                   { value: 'communities', label: 'Groups' },
                   {
