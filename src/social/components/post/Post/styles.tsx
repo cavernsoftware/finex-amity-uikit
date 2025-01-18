@@ -32,7 +32,7 @@ export const PostContainer = styled(PlainPostContainer)`
   padding-bottom: 8px;
   background: ${({ theme }) => theme.palette.system.background};
   border: 1px solid #edeef2;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-bottom: 12px;
 
   @media (max-width: 48em) {

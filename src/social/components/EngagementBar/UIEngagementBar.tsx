@@ -44,14 +44,17 @@ const UIEngagementBar = ({
     <EngagementBarContainer>
       <Counters>
         {totalLikes > 0 && (
-          <span data-qa-anchor="engagement-bar-like-counter">
+          <span data-qa-anchor="engagement-bar-like-counter" style={{ opacity: 0.7, fontSize: 12 }}>
             {millify(totalLikes || 0)}{' '}
             <FormattedMessage id="plural.like" values={{ amount: totalLikes }} />
           </span>
         )}
 
         {commentsCount > 0 && (
-          <span data-qa-anchor="engagement-bar-comment-counter">
+          <span
+            data-qa-anchor="engagement-bar-comment-counter"
+            style={{ opacity: 0.7, fontSize: 12 }}
+          >
             {millify(commentsCount || 0)}{' '}
             <FormattedMessage id="plural.comment" values={{ amount: commentsCount }} />
           </span>

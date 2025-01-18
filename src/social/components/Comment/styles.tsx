@@ -32,6 +32,10 @@ export const OptionMenu = styled(UIOptionMenu)`
 
 export const CommentBlock = styled.div`
   border-bottom: 1px solid #e3e4e8;
+
+  &:last-child {
+    border-bottom: none;
+  }
 `;
 
 const encodeHexColor = (hex: string) => hex.replace('#', '%23');

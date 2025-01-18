@@ -18,6 +18,10 @@ export const InteractionBar = styled.div`
   display: flex;
   padding: 2px 0;
   border-bottom: 1px solid #e3e4e8;
+
+  &:last-child {
+    border-bottom: none;
+  }
 `;
 
 export const CommentIcon = styled(Comment).attrs({ width: 16, height: 16 })`
