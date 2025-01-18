@@ -10,15 +10,15 @@ import { useCustomComponent } from '~/core/providers/CustomComponentsProvider';
 
 const ItemContainer = styled.div`
   display: grid;
-  grid-template-columns: 118px auto;
+  grid-template-columns: 118px 1fr;
   cursor: pointer;
   counter-increment: trending;
-  min-width: 425px;
   height: 118px;
   border: 1px solid #ebecef;
   border-radius: 8px;
   background: ${({ theme }) => theme.palette.system.background};
   overflow: hidden;
+  width: 100%;
 `;
 
 const Cover = styled.div.withConfig({
@@ -74,10 +74,10 @@ const Description = styled.p`
 const TrendingCommunityName = styled(CommunityName)`
   ${({ theme }) => theme.typography.title};
 
-  &:before {
-    content: counter(trending, decimal-leading-zero);
-    margin-right: 0.375em;
-  }
+  // &:before {
+  //   content: counter(trending, decimal-leading-zero);
+  //   margin-right: 0.375em;
+  // }
 `;
 
 interface UITrendingItemProps {

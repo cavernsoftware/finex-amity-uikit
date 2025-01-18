@@ -16,7 +16,7 @@ export const VerifiedIcon = styled(Verified).attrs<{ icon?: ReactNode }>({
 
 // the padding-right is to avoid cutting too short when the name ends with an emoji (due to the flex + text-overflow combination)
 export const Name = styled.div`
-  padding-right: 1ch;
+  // padding-right: 1ch;
 `;
 
 export const NameContainer = styled.div.withConfig({

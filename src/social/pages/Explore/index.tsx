@@ -24,6 +24,11 @@ export const Wrapper = styled.div`
   height: 100%;
   margin: 0 auto;
   overflow-y: auto;
+
+  @media (max-width: 48em) {
+    padding: 20px;
+    padding-top: 0;
+  }
 `;
 
 interface ExplorePageProps {
