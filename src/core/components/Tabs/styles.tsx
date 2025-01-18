@@ -8,7 +8,7 @@ export const TabsContainer = styled.nav`
 
 export const TabsList = styled.ul`
   margin: 0;
-  padding: 0 16px;
+  padding: 10px 10px;
   list-style-type: none;
 `;
 
@@ -17,7 +17,7 @@ export const TabItem = styled.li`
 `;
 
 export const TabButton = styled.button`
-  padding: 0.75em;
+  padding: 0.3em 0.75em 0.3em 0.75em;
   margin-right: 0.5em;
   background-color: #ffffff;
   border: none;
@@ -26,6 +26,8 @@ export const TabButton = styled.button`
   outline: none;
   color: ${({ theme }) => theme.v4.colors.base.shade3};
   text-align: center;
+  border-radius: 10px;
+  font-size: 0.9em;
 
   &:hover {
     color: #818698;
@@ -33,8 +35,9 @@ export const TabButton = styled.button`
 
   &.active {
     ${({ theme }) => `
-      border-bottom: 2px solid ${theme.v4.colors.primary.default};
+      // border-bottom: 2px solid ${theme.v4.colors.primary.default};
       color: ${theme.v4.colors.primary.default};
+      background: var(--mantine-color-blue-light);
     `}
   }
 

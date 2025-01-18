@@ -94,7 +94,7 @@ export const Radio = styled.input.attrs({ type: 'radio' })`
 `;
 
 export const Form = styled.form`
-  min-width: 520px;
+  // min-width: 520px;
 
   @media (max-width: 768px) {
     min-width: 100%;
@@ -189,7 +189,8 @@ export const Footer = styled.div<{ edit?: boolean }>`
   border-top: 1px solid ${({ theme }) => theme.palette.base.shade4};
   padding: ${({ edit }) => (edit ? `12px 0` : `12px 16px`)};
   display: flex;
-  justify-content: ${({ edit }) => (edit ? 'flex-start' : 'flex-end')};
+  // justify-content: ${({ edit }) => (edit ? 'flex-start' : 'flex-end')};
+  justify-content: flex-end;
 `;
 
 export const UploadOverlay = styled.div`

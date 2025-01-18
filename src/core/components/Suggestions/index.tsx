@@ -23,7 +23,8 @@ const Placeholder = styled.div`
   z-index: 1;
   position: relative;
   background: #fff;
-  padding: 18px 72px 18px 72px;
+  padding: 0;
+  min-height: 70px;
   color: ${({ theme }) => theme.palette.base.shade3};
   font-size: 14px;
   display: flex;

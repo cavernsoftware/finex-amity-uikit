@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Button, { PrimaryButton } from '~/core/components/Button';
 import { Plus } from '~/icons';
 
@@ -9,7 +9,7 @@ export const ExtraActionContainer = styled.div`
   background: ${({ theme }) => theme.palette.system.background};
   align-self: flex-start;
   padding: 16px;
-  width: 330px;
+  // width: 330px;
   flex-shrink: 0;
   @media (max-width: 768px) {
     width: 100%;
@@ -36,10 +36,21 @@ export const ExtraActionPrimaryButton = styled(PrimaryButton)`
   width: 100%;
 `;
 
-export const ExtraActionButton = styled(Button)`
+export const ExtraActionButton = styled(Button)<{ destructive?: boolean }>`
   padding: 10px 16px;
   justify-content: center;
   width: 100%;
+
+  ${({ destructive, theme }) =>
+    destructive &&
+    css`
+      color: ${theme.palette.alert.main};
+      border-color: ${theme.palette.alert.main};
+
+      &:hover {
+        background: ${theme.palette.alert.shade3};
+      }
+    `}
 `;
 
 export const PlusIcon = styled(Plus).attrs<{ icon?: ReactNode }>({ width: 15, height: 15 })`

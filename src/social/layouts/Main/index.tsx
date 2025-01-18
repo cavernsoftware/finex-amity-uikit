@@ -13,6 +13,7 @@ const Container = styled.div`
   height: 100%;
   padding: 0 0 0 0;
   background: #f7f7f8;
+  min-height: 100dvh;
 `;
 
 const Main = styled.div`
@@ -26,6 +27,12 @@ const Main = styled.div`
   @media (max-width: 768px) {
     max-width: unset;
     min-width: unset;
+  }
+
+  padding: 20px;
+  padding-left: 6px;
+  @media (max-width: 48em) {
+    padding: 0;
   }
 `;
 

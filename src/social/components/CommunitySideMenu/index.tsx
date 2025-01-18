@@ -6,8 +6,15 @@ import SideSectionMyCommunity from '~/social/components/SideSectionMyCommunity';
 import UiKitSocialSearch from '~/social/components/SocialSearch';
 
 const SocialSearch = styled(UiKitSocialSearch)`
-  background: ${({ theme }) => theme.palette.system.background};
-  padding: 0.5rem;
+  background: transparent;
+  padding: 20px 14px 0 14px;
+  box-shadow: none;
+  font-size: 0.9em;
+
+  @media (max-width: 48em) {
+    padding: 14px;
+    background: ${({ theme }) => theme.palette.system.background};
+  }
 `;
 
 export interface CommunitySideMenuProps {

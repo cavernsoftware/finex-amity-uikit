@@ -15,7 +15,7 @@ export const SDKSearch = {
   name: 'Search bar',
 
   args: {
-    placeholder: 'Search communities',
+    placeholder: 'Search community',
   },
 
   argTypes: {

@@ -3,23 +3,22 @@ import styled from 'styled-components';
 
 const Container = styled.div<{ withHeader?: boolean }>`
   display: grid;
-  grid-template-areas: 'main side';
-  grid-template-columns: auto min-content;
+  grid-template-areas: 'main' 'side';
+  grid-template-columns: auto;
 
   ${({ withHeader }) =>
     withHeader &&
     `
-    grid-template-areas: 'header header' 'main side';
-    grid-template-columns: auto min-content;
-    grid-template-rows: min-content auto;
+    grid-template-areas: 'header' 'main' 'side';
+    grid-template-columns: auto;
+    grid-template-rows: min-content auto auto;
   `}
 
   width: 100%;
-  height: 100%;
+  // height: 100%;
   grid-gap: 20px;
   overflow: hidden;
   margin: 0 auto;
-  padding: 20px 0;
 
   @media (max-width: 768px) {
     grid-template-areas:
@@ -58,7 +57,7 @@ const Side = styled.div`
   grid-area: side;
   width: 100%;
   height: 100%;
-  max-width: 20rem;
+  // max-width: 20rem;
   overflow: auto;
 
   @media (max-width: 768px) {
