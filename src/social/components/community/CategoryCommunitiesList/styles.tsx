@@ -10,4 +10,12 @@ export const Grid = styled.div`
 export const ListEmptyState = styled(EmptyState)`
   margin-right: auto;
   margin-left: auto;
+  border-radius: 8px;
+  border: 1px solid #edeef2;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;

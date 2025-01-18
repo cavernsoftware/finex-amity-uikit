@@ -81,7 +81,7 @@ export const CommentContent = styled.div`
   color: ${({ theme }) => theme.palette.neutral.main};
   background-color: ${({ theme }) => theme.palette.base.shade4};
   border-radius: 0 12px 12px 12px;
-  padding: 12px;
+  padding: 6px 12px;
   display: inline-block;
   white-space: pre-wrap;
   ${({ theme }) => theme.typography.body}

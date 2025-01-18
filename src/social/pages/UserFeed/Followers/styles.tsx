@@ -5,9 +5,15 @@ import EmptyState from '~/core/components/EmptyState';
 
 export const StyledTabs = styled(UITabs)`
   background: ${({ theme }) => theme.palette.system.background};
-  border-radius: 4px 4px 0 0;
   border: 1px solid #edeef2;
   margin-bottom: 12px;
+  border-radius: 8px;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;
 
 export const UserHeaderContainer = styled.div`
@@ -39,8 +45,8 @@ export const Grid = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   & > * {
-    margin-bottom: 0.5rem;
-    margin-right: 0.5rem;
+    // margin-bottom: 0.5rem;
+    // margin-right: 0.5rem;
   }
 `;
 
@@ -51,4 +57,13 @@ export const Header = styled.div`
 
 export const ListEmptyState = styled(EmptyState)`
   width: 100%;
+
+  border-radius: 8px;
+  border: 1px solid #edeef2;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;

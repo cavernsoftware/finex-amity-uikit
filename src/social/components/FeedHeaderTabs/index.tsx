@@ -6,9 +6,15 @@ import { useCustomComponent } from '~/core/providers/CustomComponentsProvider';
 
 const FeedHeaderTabs = styled(UITabs)`
   background: ${({ theme }) => theme.palette.system.background};
-  border-radius: 4px 4px 0 0;
+  border-radius: 8px;
   border: 1px solid #edeef2;
   margin-bottom: 12px;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;
 
 type FeedHeaderTabsProps = React.ComponentProps<typeof FeedHeaderTabs>;

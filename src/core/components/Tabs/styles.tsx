@@ -2,8 +2,14 @@ import styled from 'styled-components';
 
 export const TabsContainer = styled.nav`
   background: ${({ theme }) => theme.palette.system.background};
-  border-radius: 4px;
+  border-radius: 8px;
   border: 1px solid #edeef2;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;
 
 export const TabsList = styled.ul`
@@ -17,7 +23,7 @@ export const TabItem = styled.li`
 `;
 
 export const TabButton = styled.button`
-  padding: 0.5em 0.75em 0.3em 0.75em;
+  padding: 0.6em 0.75em 0.3em 0.75em;
   line-height: 1;
   margin-right: 0.5em;
   background-color: #ffffff;

@@ -22,7 +22,7 @@ export const PencilIcon = styled(Pencil).attrs({ height: 15, width: 15 })`
 
 export const Container = styled.div`
   border: 1px solid #ebecef;
-  border-radius: 4px;
+  border-radius: 8px;
   background: ${({ theme }) => theme.palette.system.background};
   flex-shrink: 0;
   align-self: flex-start;
@@ -31,7 +31,6 @@ export const Container = styled.div`
 
   @media (max-width: 48em) {
     border-radius: 0;
-    border-top: 0;
     border-right: none;
     border-left: none;
   }
