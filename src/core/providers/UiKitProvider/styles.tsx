@@ -8,7 +8,7 @@ export const UIStyles = styled.div`
   color: ${({ theme }) => theme.palette.base.main};
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  // overflow: hidden;
   input,
   div {
     box-sizing: border-box;
@@ -16,8 +16,8 @@ export const UIStyles = styled.div`
 
   // CSS resets to avoid inheriting from other other libraries e.g. antd.
   & * {
-    font-size: ${({ theme }) => theme.typography.body.fontSize};
-    line-height: 1.5;
+    // font-size: ${({ theme }) => theme.typography.body.fontSize};
+    // line-height: 1.5;
   }
 
   & pre {

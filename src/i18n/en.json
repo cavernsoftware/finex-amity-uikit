@@ -21,7 +21,7 @@
   "exploreHeader.createCommunityTitle": "or create your own!",
   "exploreHeader.createCommunityButton": "Create community",
   "backTitle": "Back",
-  "createCommunity": "Create Community",
+  "createCommunity": "Create Group",
   "moderator": "Moderator",
   "moderatorMenu.promoteToModerator": "Promote to moderator",
   "moderatorMenu.dismissModerator": "Dismiss moderator",
@@ -125,7 +125,7 @@
   "ProfileSettings.editProfile": "Edit profile",
   "ProfileSettings.returnTo": "Return to ",
 
-  "SideSectionMyCommunity.myCommunity": "My Community",
+  "SideSectionMyCommunity.myCommunity": "My Groups",
 
   "file.reUpload": "Click to re-upload the file",
 
@@ -193,7 +193,7 @@
 
   "profile.setting": "Profile Settings",
 
-  "sidesectioncommunity.newfeed": "NewsFeed",
+  "sidesectioncommunity.newfeed": "Feed",
   "sidesectioncommunity.explore": "Explore",
   "sidesectioncommunity.community": "Community",
 

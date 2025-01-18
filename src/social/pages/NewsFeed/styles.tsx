@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   height: 100%;
   max-width: 700px;
   margin: 0 auto;
-  padding: 28px 0;
+  padding: 0 0;
   overflow-y: auto;
 `;
 
@@ -58,7 +58,7 @@ export const StyledCommunitySideMenu = styled(CommunitySideMenu).withConfig({
   left: 0;
   min-height: 100%;
   height: 100%;
-  z-index: 999;
+  z-index: 1001;
   transform: translateX(${({ isOpen }) => (isOpen ? 0 : '-100%')});
   transition: transform 0.3s ease-in-out;
 `;

@@ -17,12 +17,13 @@ import { styled } from 'styled-components';
 
 const StyledMobileContainer = styled(MobileContainer)`
   background-color: #f7f7f8;
+  padding: 0;
 `;
 
 export const Wrapper = styled.div`
   height: 100%;
   margin: 0 auto;
-  padding: 28px 0;
+  padding: 0px 20px;
   overflow-y: auto;
 `;
 
@@ -50,7 +51,7 @@ const ExplorePage = ({ isOpen, toggleOpen, hideSideMenu }: ExplorePageProps) => 
       <PageContainer>
         <RecommendedList />
         <TrendingList />
-        <CategoriesCard />
+        {/* <CategoriesCard /> */}
       </PageContainer>
     </Wrapper>
   );
