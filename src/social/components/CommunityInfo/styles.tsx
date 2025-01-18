@@ -30,6 +30,7 @@ export const Container = styled.div`
   flex-shrink: 0;
   align-self: flex-start;
   margin-bottom: 12px;
+  overflow: hidden;
 `;
 
 export const Cover = styled.div.withConfig({

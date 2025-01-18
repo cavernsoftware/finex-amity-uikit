@@ -11,7 +11,7 @@ export const Container = styled.div`
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  min-width: 600px;
+  // min-width: 600px;
 
   @media (max-width: 768px) {
     min-width: 100%;

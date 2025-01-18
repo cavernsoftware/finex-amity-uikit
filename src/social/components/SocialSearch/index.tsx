@@ -19,14 +19,14 @@ import Button from '~/core/components/Button';
 import { useCustomComponent } from '~/core/providers/CustomComponentsProvider';
 import useCommunitiesCollection from '~/social/hooks/collections/useCommunitiesCollection';
 
-export const Container = styled.div<{ isOpen?: boolean }>`
+export const Container = styled.div<{ $isOpen?: boolean }>`
   position: relative;
   overflow: visible;
   width: 100%;
   transition: width 0.1s ease-in-out;
 
-  ${({ isOpen }) =>
-    isOpen &&
+  ${({ $isOpen }) =>
+    $isOpen &&
     css`
       width: 50vw;
 
@@ -161,7 +161,7 @@ const SocialSearch = ({ className, sticky = false, searchBy }: SocialSearchProps
     <SocialSearchContainer className={className} sticky={sticky}>
       <FormattedMessage id="exploreHeader.searchCommunityPlaceholder">
         {([placeholder]) => (
-          <Container ref={containerRef} isOpen={isOpen}>
+          <Container ref={containerRef} $isOpen={isOpen}>
             <SocialSearchInputText
               data-qa-anchor="social-search-input"
               value={searchValue}

@@ -5,6 +5,7 @@ import UserProfileForm from '~/social/components/UserProfileForm';
 import BackLink from '~/core/components/BackLink';
 
 import { backgroundImage as UserImage } from '~/icons/User';
+import ChevronLeftIcon from '~/icons/ChevronLeft';
 import useUser from '~/core/hooks/useUser';
 
 import { useNavigation } from '~/social/providers/NavigationProvider';
@@ -70,9 +71,12 @@ const ProfileSettings = ({ userId }: ProfileSettingsProps) => {
           <Avatar avatar={avatarFileUrl} backgroundImage={UserImage} />
         </AvatarContainer>
         <div>
-          <BackLink
-            text={formatMessage({ id: 'ProfileSettings.returnTo' }) + (user?.displayName || '')}
-          />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <ChevronLeftIcon height=".9em" width=".9em" />
+            <BackLink
+              text={formatMessage({ id: 'ProfileSettings.returnTo' }) + (user?.displayName || '')}
+            />
+          </div>
           <PageTitle>
             <FormattedMessage id="profile.setting" />
           </PageTitle>
