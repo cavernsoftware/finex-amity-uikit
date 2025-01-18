@@ -291,7 +291,7 @@ export const MembersField = styled(Field)`
 
 export const FormBody = styled.div``;
 
-export const CategorySelectorInput = styled.input`
+export const CategorySelectorInput = styled.textarea`
   outline: none;
   border: none;
 `;

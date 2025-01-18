@@ -16,7 +16,7 @@ export const Selector = styled.div`
   overflow-y: auto;
 `;
 
-export const UserSelectorInput = styled.input`
+export const UserSelectorInput = styled.textarea`
   outline: none;
   border: none;
   width: 100%;

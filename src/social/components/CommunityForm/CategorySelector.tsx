@@ -29,7 +29,7 @@ const CategorySelector = ({
   const toggle = () => setIsOpen(!isOpen);
   const { formatMessage } = useIntl();
 
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  const inputRef = useRef<HTMLTextAreaElement | null>(null);
 
   const handleChange = (value: string) => {
     setQuery(value);
@@ -75,7 +75,6 @@ const CategorySelector = ({
           <CategorySelectorInput
             ref={inputRef}
             data-qa-anchor="category-selector-input"
-            type="text"
             value={query}
             placeholder={formatMessage({ id: 'selectACategory' })}
             onChange={(e) => handleChange(e.target.value)}

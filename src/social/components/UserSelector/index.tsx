@@ -46,7 +46,7 @@ const UserSelector = ({ value, onChange, parentContainer = null }: UserSelectorP
     setQuery('');
   };
 
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  const inputRef = useRef<HTMLTextAreaElement | null>(null);
 
   const handleChange = (value: string) => {
     setQuery(value);
@@ -75,7 +75,6 @@ const UserSelector = ({ value, onChange, parentContainer = null }: UserSelectorP
           <UserSelectorInput
             ref={inputRef}
             data-qa-anchor="user-selector-input"
-            type="text"
             value={query}
             placeholder={formatMessage({ id: 'UserSelector.placeholder' })}
             onChange={(e) => handleChange(e.target.value)}
