@@ -213,7 +213,7 @@ const CommunityMembers = ({ communityId }: CommunityMembersProps) => {
   return (
     <CommunityMembersContainer>
       <CommunityMembersHeader>
-        Community Members • {community?.membersCount || 0}
+        Group Members • {community?.membersCount || 0}
       </CommunityMembersHeader>
       <CommunityMembersTabs tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
 

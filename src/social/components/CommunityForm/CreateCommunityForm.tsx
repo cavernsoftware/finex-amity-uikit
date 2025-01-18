@@ -237,7 +237,7 @@ const CreateCommunityForm = ({
         </FormBlock>
 
         {!isPublic && (
-          <FormBlock title="Community members">
+          <FormBlock title="Group members">
             <MembersField error={errors.userIds}>
               <Label className="required">
                 <FormattedMessage id="community.addmembers" />

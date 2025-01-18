@@ -3,6 +3,7 @@ export { default as Category } from './Category';
 export { default as Community } from './Community';
 export { default as CommunityAlt } from './CommunityAlt';
 export { default as User } from './User';
+export { default as UserRegular } from './UserRegular';
 export { default as ArrowLeft } from './ArrowLeft';
 export { default as ArrowRight } from './ArrowRight';
 export { default as EmptyFeed } from './EmptyFeed';

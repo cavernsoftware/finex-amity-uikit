@@ -57,7 +57,7 @@
 
   "community.createSuccess": "Your group was successfully created",
   "community.updateSuccess": "Your group was successfully updated",
-  "community.editProfile": "Edit profile",
+  "community.editProfile": "Edit group",
   "community.join": "Join",
   "community.communitySettings": "Group Settings",
   "community.returnTo": "Return to {communityName}",
@@ -195,7 +195,8 @@
 
   "sidesectioncommunity.newfeed": "Feed",
   "sidesectioncommunity.explore": "Explore",
-  "sidesectioncommunity.community": "Group",
+  "sidesectioncommunity.community": "Community",
+  "sidesectioncommunity.profile": "Profile",
 
   "communityFeed.join": "Join community to interact with all posts",
   "communityFeed.members": "Members",
