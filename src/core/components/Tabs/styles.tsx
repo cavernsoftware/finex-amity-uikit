@@ -17,7 +17,8 @@ export const TabItem = styled.li`
 `;
 
 export const TabButton = styled.button`
-  padding: 0.3em 0.75em 0.3em 0.75em;
+  padding: 0.5em 0.75em 0.3em 0.75em;
+  line-height: 1;
   margin-right: 0.5em;
   background-color: #ffffff;
   border: none;

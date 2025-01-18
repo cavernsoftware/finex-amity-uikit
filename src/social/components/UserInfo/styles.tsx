@@ -22,12 +22,19 @@ export const PencilIcon = styled(Pencil).attrs({ height: 15, width: 15 })`
 
 export const Container = styled.div`
   border: 1px solid #ebecef;
-  border-radius: 8px;
+  border-radius: 4px;
   background: ${({ theme }) => theme.palette.system.background};
   flex-shrink: 0;
   align-self: flex-start;
   padding: 20px;
   margin-bottom: 14px;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-top: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;
 
 export const Header = styled.div`

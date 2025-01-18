@@ -34,6 +34,12 @@ export const PostContainer = styled(PlainPostContainer)`
   border: 1px solid #edeef2;
   border-radius: 4px;
   margin-bottom: 12px;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;
 
 export const PostHeadContainer = styled.div`

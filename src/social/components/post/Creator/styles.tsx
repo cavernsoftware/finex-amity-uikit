@@ -16,6 +16,13 @@ export const PostCreatorContainer = styled.div`
   background: ${({ theme }) => theme.palette.system.background};
   border-radius: 4px;
   margin-bottom: 12px;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    // border-top: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;
 
 export const Footer = styled.div`

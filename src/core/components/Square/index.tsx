@@ -7,6 +7,7 @@ const Frame = styled.div<{ percent: number; className?: string }>`
   height: 0;
   padding-bottom: ${({ percent }) => percent}%;
   overflow: hidden;
+  margin-top: 1em;
 `;
 
 const Cell = styled.div`
