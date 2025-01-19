@@ -40,17 +40,19 @@ export const Header = styled.div`
   display: flex;
   align-items: flex-start;
   margin-bottom: 16px;
+  gap: 20px;
 `;
 
 export const Avatar = styled(UIAvatar)`
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
   margin-right: auto;
 `;
 
 export const ActionButtonContainer = styled.div`
   display: flex;
   margin-right: 8px;
+  gap: 14px;
 
   > button {
     min-width: 160px;
@@ -102,8 +104,8 @@ export const OptionMenu = styled(UIOptionMenu)`
     padding: 10px;
     border: 1px solid #e3e4e8;
     border-radius: 4px;
-    height: 40px;
-    width: 40px;
+    height: 43px;
+    width: 43px;
 
     > * {
       margin: 0;
@@ -150,4 +152,10 @@ export const TitleEllipse = styled.div`
 export const ProfileNameWrapper = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const ProfileInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `;

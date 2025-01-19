@@ -16,6 +16,7 @@ const actionItemContainerStyles = css`
   display: flex;
   align-items: center;
   padding: 5px 8px;
+  border-radius: 8px;
   margin-bottom: 6px;
   color: ${({ theme }) => theme.palette.neutral.main};
   justify-content: left;
@@ -38,7 +39,7 @@ export const AnchorActionItem = styled.a.withConfig({
   shouldForwardProp: (prop) => prop !== 'active',
 })<{ active?: boolean }>`
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 8px;
   ${actionItemContainerStyles}
   ${({ theme }) => theme.typography.bodyBold}
    ${({ active, theme }) =>

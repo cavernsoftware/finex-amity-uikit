@@ -17,7 +17,7 @@ export const CommunityHeaderContainer = styled.a.withConfig({
   grid-template-rows: min-content min-content;
   grid-gap: 0 0.75em;
   padding: 0.5em;
-  border-radius: 4px;
+  border-radius: 8px;
   align-items: center;
   color: ${({ theme }) => theme.palette.base.main};
 

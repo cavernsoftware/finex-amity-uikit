@@ -28,6 +28,7 @@ import {
   PendingIconContainer,
   ActionButtonContainer,
   ProfileNameWrapper,
+  ProfileInfo,
 } from './styles';
 
 import { isNonNullable } from '~/helpers/utils';
@@ -139,67 +140,70 @@ const UIUserInfo = ({
           avatar={fileUrl}
           backgroundImage={UserImage}
         />
-        <ActionButtonContainer>
-          {isMyProfile ? (
-            <Button
-              data-qa-anchor="user-info-edit-profile-button"
-              onClick={() => user?.userId && onEditUser?.(user.userId)}
+
+        <ProfileInfo>
+          <ProfileNameWrapper>
+            <Truncate lines={3}>
+              <ProfileName data-qa-anchor="user-info-profile-name">{displayName}</ProfileName>
+            </Truncate>
+
+            {user?.isGlobalBanned ? (
+              <BanIcon style={{ marginLeft: '0.265rem', marginTop: '1px' }} />
+            ) : null}
+          </ProfileNameWrapper>
+          <CountContainer>
+            <ClickableCount
+              onClick={() => {
+                // setActiveTab(UserFeedTabs.FOLLOWERS);
+                // setTimeout(() => setFollowActiveTab(FollowersTabs.FOLLOWINGS), 250);
+                onFollowingCountClick?.();
+              }}
             >
-              <PencilIcon /> <FormattedMessage id="user.editProfile" />
-            </Button>
-          ) : (
-            <>
-              {isPrivateNetwork && isFollowPending && (
-                <Button onClick={() => onFollowDecline?.()}>
-                  <PendingIconContainer>
-                    <PendingIcon />
-                  </PendingIconContainer>
-                  <FormattedMessage id="user.cancel_follow" />
-                </Button>
-              )}
-              {isFollowNone && (
-                <PrimaryButton onClick={() => onFollowRequest?.()}>
-                  <PlusIcon /> <FormattedMessage id="user.follow" />
-                </PrimaryButton>
-              )}
-            </>
-          )}
-        </ActionButtonContainer>
-        <OptionMenu options={allOptions} pullRight={false} />
+              {millify(followingCount)}
+            </ClickableCount>
+            <FormattedMessage id="counter.followings" />
+            <ClickableCount
+              onClick={() => {
+                onFollowerCountClick?.();
+                // setActiveTab(UserFeedTabs.FOLLOWERS);
+                // setTimeout(() => setFollowActiveTab(FollowersTabs.FOLLOWERS), 250);
+              }}
+            >
+              {millify(followerCount)}
+            </ClickableCount>
+            <FormattedMessage id="counter.followers" />
+          </CountContainer>
+          <Description data-qa-anchor="user-info-description">{description}</Description>
+        </ProfileInfo>
       </Header>
-      <ProfileNameWrapper>
-        <Truncate lines={3}>
-          <ProfileName data-qa-anchor="user-info-profile-name">{displayName}</ProfileName>
-        </Truncate>
-
-        {user?.isGlobalBanned ? (
-          <BanIcon style={{ marginLeft: '0.265rem', marginTop: '1px' }} />
-        ) : null}
-      </ProfileNameWrapper>
-      <CountContainer>
-        <ClickableCount
-          onClick={() => {
-            // setActiveTab(UserFeedTabs.FOLLOWERS);
-            // setTimeout(() => setFollowActiveTab(FollowersTabs.FOLLOWINGS), 250);
-            onFollowingCountClick?.();
-          }}
-        >
-          {millify(followingCount)}
-        </ClickableCount>
-        <FormattedMessage id="counter.followings" />
-        <ClickableCount
-          onClick={() => {
-            onFollowerCountClick?.();
-            // setActiveTab(UserFeedTabs.FOLLOWERS);
-            // setTimeout(() => setFollowActiveTab(FollowersTabs.FOLLOWERS), 250);
-          }}
-        >
-          {millify(followerCount)}
-        </ClickableCount>
-        <FormattedMessage id="counter.followers" />
-      </CountContainer>
-      <Description data-qa-anchor="user-info-description">{description}</Description>
-
+      <ActionButtonContainer>
+        {isMyProfile ? (
+          <Button
+            data-qa-anchor="user-info-edit-profile-button"
+            onClick={() => user?.userId && onEditUser?.(user.userId)}
+            fullWidth
+          >
+            <PencilIcon /> <FormattedMessage id="user.editProfile" />
+          </Button>
+        ) : (
+          <>
+            {isPrivateNetwork && isFollowPending && (
+              <Button onClick={() => onFollowDecline?.()} fullWidth>
+                <PendingIconContainer>
+                  <PendingIcon />
+                </PendingIconContainer>
+                <FormattedMessage id="user.cancel_follow" />
+              </Button>
+            )}
+            {isFollowNone && (
+              <PrimaryButton onClick={() => onFollowRequest?.()} fullWidth>
+                <PlusIcon /> <FormattedMessage id="user.follow" />
+              </PrimaryButton>
+            )}
+          </>
+        )}
+        <OptionMenu options={allOptions} pullRight={false} />
+      </ActionButtonContainer>
       {isMyProfile && pendingUsers.length > 0 && isPrivateNetwork && (
         <PendingNotification
           onClick={() => {

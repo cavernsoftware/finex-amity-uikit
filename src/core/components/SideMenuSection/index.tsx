@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const SectionContainer = styled.div`
   border-top: 1px solid #f7f7f8;
   padding: 0 8px;
+  padding-bottom: 10px;
 `;
 
 const ListHeading = styled.h4`

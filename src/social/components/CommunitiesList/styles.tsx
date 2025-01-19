@@ -8,7 +8,7 @@ const CustomInfiniteScroll = (props: React.ComponentProps<typeof InfiniteScroll>
 
 export const CommunityScrollContainer = styled(CustomInfiniteScroll)`
   &.no-scroll {
-    width: 260px;
+    // width: 260px;
   }
 `;
 

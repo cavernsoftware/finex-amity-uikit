@@ -104,7 +104,7 @@ export const Divider = styled.div`
 `;
 
 export const Description = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 `;
 
 export const JoinButton = styled(PrimaryButton)`

@@ -6,6 +6,7 @@ export const SideMenuItemContainer = styled(SecondaryButton)`
   align-items: center;
   width: 100%;
   padding: 5px 8px;
+  border-radius: 8px;
   margin-bottom: 6px;
   color: ${({ theme }) => theme.palette.neutral.main};
   justify-content: left;
@@ -35,7 +36,7 @@ export const IconWrapper = styled.div.withConfig({
 })<{ active?: boolean }>`
   width: 40px;
   height: 40px;
-  border-radius: 4px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
