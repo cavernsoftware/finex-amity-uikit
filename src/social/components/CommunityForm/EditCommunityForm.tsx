@@ -39,7 +39,7 @@ interface FormBlockProps {
 }
 
 const FormBlock = ({ title, children }: FormBlockProps) => (
-  <FormBlockContainer edit>
+  <FormBlockContainer $edit>
     {title && <FormBlockHeader>{title}</FormBlockHeader>}
     <FormBlockBody>{children}</FormBlockBody>
   </FormBlockContainer>
@@ -237,8 +237,8 @@ const EditCommunityForm = ({
           />
         </FormBlock>
       </FormBody>
-      <Footer edit>
-        <SubmitButton data-qa-anchor={`${dataQaAnchor}-save-button`} disabled={disabled} edit>
+      <Footer $edit>
+        <SubmitButton data-qa-anchor={`${dataQaAnchor}-save-button`} disabled={disabled} $edit>
           <FormattedMessage id="save" />
         </SubmitButton>
       </Footer>

@@ -51,7 +51,7 @@ interface CloseCommunityButtonProps extends ExtraActionProps {
 
 const CloseCommunityButton = ({ onClick, ...props }: CloseCommunityButtonProps) => {
   return (
-    <ExtraActionButton {...props} onClick={onClick} destructive>
+    <ExtraActionButton {...props} onClick={onClick} $destructive>
       <FormattedMessage id="close" />
     </ExtraActionButton>
   );

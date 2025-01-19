@@ -112,12 +112,12 @@ export const Form = styled.form`
   // }
 `;
 
-export const SubmitButton = styled(PrimaryButton).attrs<{ edit?: boolean }>({
+export const SubmitButton = styled(PrimaryButton).attrs<{ $edit?: boolean }>({
   type: 'submit',
 })`
   padding: 10px 16px;
   margin-left: 12px;
-  ${({ edit }) =>
+  ${({ $edit: edit }) =>
     edit &&
     css`
       min-width: 100px;
@@ -133,9 +133,9 @@ export const FormBlockHeader = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.palette.base.shade4};
 `;
 
-export const FormBlockContainer = styled.div<{ edit?: boolean }>`
+export const FormBlockContainer = styled.div<{ $edit?: boolean }>`
   background: ${({ theme }) => theme.palette.system.background};
-  ${({ theme, edit }) =>
+  ${({ theme, $edit: edit }) =>
     edit
       ? css`
           border: 1px solid #edeef2;
@@ -202,11 +202,11 @@ export const CommunityPermissionBlock = styled.div`
   flex-direction: column;
 `;
 
-export const Footer = styled.div<{ edit?: boolean }>`
+export const Footer = styled.div<{ $edit?: boolean }>`
   // border-top: 1px solid ${({ theme }) => theme.palette.base.shade4};
-  padding: ${({ edit }) => (edit ? `20px 0` : `12px 16px`)};
+  padding: ${({ $edit: edit }) => (edit ? `20px 0` : `12px 16px`)};
   display: flex;
-  // justify-content: ${({ edit }) => (edit ? 'flex-start' : 'flex-end')};
+  // justify-content: ${({ $edit: edit }) => (edit ? 'flex-start' : 'flex-end')};
   justify-content: flex-end;
 
   @media (max-width: 48em) {

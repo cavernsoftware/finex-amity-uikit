@@ -36,7 +36,7 @@ interface FormBlockProps {
 }
 
 const FormBlock = ({ title, children }: FormBlockProps) => (
-  <FormBlockContainer edit>
+  <FormBlockContainer $edit>
     {title && <FormBlockHeader>{title}</FormBlockHeader>}
     <FormBlockBody>{children}</FormBlockBody>
   </FormBlockContainer>
@@ -128,8 +128,8 @@ const UserProfileForm = ({ user, onSubmit, className }: UserProfileFormProps) =>
           </Field>
         </FormBlock>
       </FormBody>
-      <Footer edit>
-        <SubmitButton data-qa-anchor="user-profile-form-save-button" edit>
+      <Footer $edit>
+        <SubmitButton data-qa-anchor="user-profile-form-save-button" $edit>
           <FormattedMessage id="save" />
         </SubmitButton>
       </Footer>

@@ -41,12 +41,12 @@ export const ExtraActionPrimaryButton = styled(PrimaryButton)`
   width: 100%;
 `;
 
-export const ExtraActionButton = styled(Button)<{ destructive?: boolean }>`
+export const ExtraActionButton = styled(Button)<{ $destructive?: boolean }>`
   padding: 10px 16px;
   justify-content: center;
   width: 100%;
 
-  ${({ destructive, theme }) =>
+  ${({ $destructive: destructive, theme }) =>
     destructive &&
     css`
       color: ${theme.palette.alert.main};

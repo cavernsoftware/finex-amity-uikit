@@ -32,7 +32,7 @@ const UIUserHeader = ({
 }: UIUserHeaderProps) => {
   const onClickUser = () => userId && onClick?.(userId);
   return (
-    <UserHeaderContainer noSubtitle={!!children}>
+    <UserHeaderContainer $noSubtitle={!!children}>
       <UserHeaderAvatar
         avatar={avatarFileUrl}
         backgroundImage={userHeaderBackgroundImage}

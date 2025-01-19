@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div<{ withHeader?: boolean }>`
+const Container = styled.div<{ $withHeader?: boolean }>`
   display: grid;
   grid-template-areas: 'main' 'side';
   grid-template-columns: auto;
 
-  ${({ withHeader }) =>
+  ${({ $withHeader: withHeader }) =>
     withHeader &&
     `
     grid-template-areas: 'header' 'main' 'side';
@@ -22,7 +22,7 @@ const Container = styled.div<{ withHeader?: boolean }>`
 
   @media (max-width: 768px) {
     grid-template-areas:
-      ${({ withHeader }) => (withHeader ? `'header'` : ``)}
+      ${({ $withHeader: withHeader }) => (withHeader ? `'header'` : ``)}
       'main'
       'side';
     grid-template-columns: 1fr;
@@ -77,7 +77,7 @@ interface PageLayoutProps {
 }
 
 const PageLayout = ({ header, aside, children }: PageLayoutProps) => (
-  <Container withHeader={!!header}>
+  <Container $withHeader={!!header}>
     {header && <HeaderContainer>{header}</HeaderContainer>}
     <Main>{children}</Main>
     <Side>{aside}</Side>
