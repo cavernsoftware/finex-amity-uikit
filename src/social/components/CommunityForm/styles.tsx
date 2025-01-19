@@ -101,15 +101,15 @@ export const Form = styled.form`
   //   min-width: 100%;
   // }
 
-  border: 1px solid #edeef2;
-  border-radius: 8px;
-  overflow: hidden;
+  // border: 1px solid #edeef2;
+  // border-radius: 8px;
+  // overflow: hidden;
 
-  @media (max-width: 48em) {
-    border-radius: 0;
-    border-right: none;
-    border-left: none;
-  }
+  // @media (max-width: 48em) {
+  //   border-radius: 0;
+  //   border-right: none;
+  //   border-left: none;
+  // }
 `;
 
 export const SubmitButton = styled(PrimaryButton).attrs<{ edit?: boolean }>({
@@ -139,13 +139,19 @@ export const FormBlockContainer = styled.div<{ edit?: boolean }>`
     edit
       ? css`
           border: 1px solid #edeef2;
-          border-radius: 4px;
+          border-radius: 8px;
         `
       : css`
           > :not(:last-child) {
             border-bottom: 1px solid ${theme.palette.base.shade4};
           }
         `}
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;
 
 export const FormBlockBody = styled.div<{ edit?: boolean }>`
@@ -197,11 +203,16 @@ export const CommunityPermissionBlock = styled.div`
 `;
 
 export const Footer = styled.div<{ edit?: boolean }>`
-  border-top: 1px solid ${({ theme }) => theme.palette.base.shade4};
-  padding: ${({ edit }) => (edit ? `12px 0` : `12px 16px`)};
+  // border-top: 1px solid ${({ theme }) => theme.palette.base.shade4};
+  padding: ${({ edit }) => (edit ? `20px 0` : `12px 16px`)};
   display: flex;
   // justify-content: ${({ edit }) => (edit ? 'flex-start' : 'flex-end')};
   justify-content: flex-end;
+
+  @media (max-width: 48em) {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
 `;
 
 export const UploadOverlay = styled.div`
@@ -301,7 +312,11 @@ export const MembersField = styled(Field)`
   margin-top: 0;
 `;
 
-export const FormBody = styled.div``;
+export const FormBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
 
 export const CategorySelectorInput = styled.textarea`
   outline: none;

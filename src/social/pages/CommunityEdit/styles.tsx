@@ -14,6 +14,12 @@ export const ExtraActionContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
   }
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;
 
 export const ExtraActionContainerHeader = styled.div`

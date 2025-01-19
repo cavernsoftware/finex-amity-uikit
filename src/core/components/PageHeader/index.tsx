@@ -8,9 +8,16 @@ const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 1rem;
-  border-radius: 0.25rem 0.25rem 0px 0px;
+  border-radius: 8px 8px 0px 0px;
   border: 1px solid ${({ theme }) => theme.palette.system.borders};
   background: ${({ theme }) => theme.palette.system.background};
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-top: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;
 
 const LinkAndTitle = styled.div`

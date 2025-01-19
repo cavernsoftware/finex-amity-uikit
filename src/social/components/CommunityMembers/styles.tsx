@@ -22,7 +22,7 @@ export const CommunityMembersContainer = styled.div`
 
 export const CommunityMembersHeader = styled.div`
   ${({ theme }) => theme.typography.title};
-  padding: 16px;
+  padding: 12px 16px;
 `;
 
 export const CommunityMemberContainer = styled.div`

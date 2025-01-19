@@ -51,7 +51,7 @@ export const Avatar = styled(UIAvatar)`
 
 export const ActionButtonContainer = styled.div`
   display: flex;
-  margin-right: 8px;
+  // margin-right: 8px;
   gap: 14px;
 
   > button {

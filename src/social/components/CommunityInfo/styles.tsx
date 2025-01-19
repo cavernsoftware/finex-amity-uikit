@@ -127,7 +127,7 @@ export const PendingPostsBannerContainer = styled.div`
   background: ${({ theme }) => theme.palette.base.shade4};
   padding: 12px;
   margin-top: 8px;
-  border-radius: 4px;
+  border-radius: 8px;
   text-align: center;
 `;
 
