@@ -21,7 +21,7 @@ const Main = styled.div`
   overflow: auto;
   width: 100%;
   min-width: 20rem;
-  max-width: 90.75rem;
+  max-width: 700px;
   margin: 0 auto;
 
   @media (max-width: 768px) {
