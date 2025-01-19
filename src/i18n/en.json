@@ -125,7 +125,7 @@
   "ProfileSettings.editProfile": "Edit profile",
   "ProfileSettings.returnTo": "Return to {displayName}",
 
-  "SideSectionMyCommunity.myCommunity": "My Groups",
+  "SideSectionMyCommunity.myCommunity": "My Debt Payoff Groups",
 
   "file.reUpload": "Click to re-upload the file",
 
@@ -205,7 +205,7 @@
   "files.all": "View all files",
 
   "sidebar.community": "Community",
-  "sidebar.group": "Group",
+  "sidebar.group": "Debt Payoff Group",
   "sidebar.profile": "Profile",
   "sidebar.explore": "Explore",
 

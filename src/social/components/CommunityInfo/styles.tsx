@@ -91,6 +91,11 @@ export const CategoriesList = styled.div`
   margin-bottom: 0;
   line-height: 20px;
   ${({ theme }) => theme.typography.body}
+
+  display: block;
+  @media (max-width: 48em) {
+    display: none;
+  }
 `;
 
 export const Count = styled.span`
