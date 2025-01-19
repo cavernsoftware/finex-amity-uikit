@@ -57,7 +57,7 @@ const PageHeader = ({
   onBack,
 }: PageHeaderProps) => (
   <HeaderContainer>
-    <Avatar avatar={avatarFileUrl} backgroundImage={avatarImage} />
+    <Avatar avatar={avatarFileUrl} backgroundImage={avatarImage} onClick={onBack} />
     <LinkAndTitle>
       {onBack instanceof Function && (
         <BackButton data-qa-anchor="page-header-back-button" onClick={onBack}>

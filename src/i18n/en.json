@@ -123,7 +123,7 @@
   "follow.placeholder.noFollowers": "No followers found",
 
   "ProfileSettings.editProfile": "Edit profile",
-  "ProfileSettings.returnTo": "Return to ",
+  "ProfileSettings.returnTo": "Return to {displayName}",
 
   "SideSectionMyCommunity.myCommunity": "My Groups",
 

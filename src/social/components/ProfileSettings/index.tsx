@@ -1,38 +1,26 @@
 import React, { memo, useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import UserProfileForm from '~/social/components/UserProfileForm';
-import BackLink from '~/core/components/BackLink';
 
-import { backgroundImage as UserImage } from '~/icons/User';
-import ChevronLeftIcon from '~/icons/ChevronLeft';
 import useUser from '~/core/hooks/useUser';
 
 import { useNavigation } from '~/social/providers/NavigationProvider';
 
 import { Tabs, tabs } from './constants';
-import {
-  ProfileSettingsTabs,
-  Container,
-  ActiveTabContent,
-  ActiveTabContainer,
-  PageHeader,
-  PageTitle,
-  Avatar,
-  AvatarContainer,
-} from './styles';
+import { ProfileSettingsTabs, Container, ActiveTabContent, ActiveTabContainer } from './styles';
 import { UserRepository } from '@amityco/ts-sdk';
 import { useCustomComponent } from '~/core/providers/CustomComponentsProvider';
 import useImage from '~/core/hooks/useImage';
 import { useNotifications } from '~/core/providers/NotificationProvider';
+import PageHeader from '~/core/components/PageHeader';
 
 interface ProfileSettingsProps {
   userId?: string;
 }
 
 const ProfileSettings = ({ userId }: ProfileSettingsProps) => {
-  const { formatMessage } = useIntl();
-  const { onClickUser } = useNavigation();
+  const { onClickUser, onBack } = useNavigation();
 
   const [activeTab, setActiveTab] = useState(Tabs.EDIT_PROFILE);
 
@@ -66,22 +54,18 @@ const ProfileSettings = ({ userId }: ProfileSettingsProps) => {
 
   return (
     <Container>
-      <PageHeader>
-        <AvatarContainer>
-          <Avatar avatar={avatarFileUrl} backgroundImage={UserImage} />
-        </AvatarContainer>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <ChevronLeftIcon height=".9em" width=".9em" />
-            <BackLink
-              text={formatMessage({ id: 'ProfileSettings.returnTo' }) + (user?.displayName || '')}
-            />
-          </div>
-          <PageTitle>
-            <FormattedMessage id="profile.setting" />
-          </PageTitle>
-        </div>
-      </PageHeader>
+      <PageHeader
+        title={<FormattedMessage id="profile.setting" />}
+        avatarFileUrl={avatarFileUrl}
+        avatarImage={avatarFileUrl}
+        backLinkText={
+          <FormattedMessage
+            id="ProfileSettings.returnTo"
+            values={{ displayName: user?.displayName }}
+          />
+        }
+        onBack={onBack}
+      />
       <div>
         <ProfileSettingsTabs tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
       </div>
