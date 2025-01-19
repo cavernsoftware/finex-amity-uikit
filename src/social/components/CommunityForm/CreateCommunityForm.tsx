@@ -174,7 +174,7 @@ const CreateCommunityForm = ({
             />
             <ErrorMessage errors={errors} name="description" />
           </Field>
-          <Field error={errors.categoryIds}>
+          {/* <Field error={errors.categoryIds}>
             <Label htmlFor="categoryIds" className="required">
               <FormattedMessage id="community.category" />
             </Label>
@@ -194,7 +194,7 @@ const CreateCommunityForm = ({
               control={control}
             />
             <ErrorMessage errors={errors} name="category" />
-          </Field>
+          </Field> */}
         </FormBlock>
 
         <FormBlock title={<FormattedMessage id="community.categorypermission" />}>
