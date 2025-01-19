@@ -23,6 +23,8 @@ import {
 } from '~/social/components/CommunityForm/styles';
 
 const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
   margin-top: 16px;
 `;
 

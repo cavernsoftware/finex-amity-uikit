@@ -11,7 +11,6 @@ export const Container = styled.div`
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  // min-width: 600px;
 
   @media (max-width: 768px) {
     min-width: 100%;
@@ -21,9 +20,16 @@ export const Container = styled.div`
 export const PageHeader = styled.div`
   display: flex;
   background: ${({ theme }) => theme.palette.system.background};
-  border-radius: 4px 4px 0 0;
   border: 1px solid #edeef2;
-  padding: 10px 10px 20px 10px;
+  padding: 14px 14px 14px 14px;
+  border-radius: 8px 8px 0 0;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+  }
 `;
 
 export const PageTitle = styled.div`
@@ -34,8 +40,8 @@ export const PageTitle = styled.div`
 export const Avatar = styled(UIAvatar).attrs({
   size: 'small',
 })`
-  margin-right: 12px;
-  margin-left: 16px;
+  margin-right: 14px;
+  // margin-left: 14px;
 `;
 
 export const AvatarContainer = styled.div`

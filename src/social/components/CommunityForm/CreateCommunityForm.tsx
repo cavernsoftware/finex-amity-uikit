@@ -211,7 +211,7 @@ const CreateCommunityForm = ({
                   renderer={() => (
                     <CommunityTypeItem
                       type="Public"
-                      description="Anyone can join, view and search the posts in this page."
+                      description="Anyone can join, view and search the posts in this group."
                       icon={<WorldIcon />}
                     />
                   )}
@@ -225,7 +225,7 @@ const CreateCommunityForm = ({
                   renderer={() => (
                     <CommunityTypeItem
                       type="Private"
-                      description="Only members invited by the moderators can join, view, and search the posts in this page."
+                      description="Only members invited by the moderators can join, view, and search the posts in this group."
                       icon={<LockIcon />}
                     />
                   )}

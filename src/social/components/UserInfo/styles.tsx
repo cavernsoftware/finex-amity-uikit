@@ -88,6 +88,10 @@ export const CountContainer = styled.div`
 
 export const Description = styled.div`
   margin: 8px 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export const OptionMenu = styled(UIOptionMenu)`

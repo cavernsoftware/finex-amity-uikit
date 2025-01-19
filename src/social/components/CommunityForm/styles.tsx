@@ -97,8 +97,18 @@ export const Form = styled.form`
   // min-width: 520px;
   width: 100%;
 
-  @media (max-width: 768px) {
-    min-width: 100%;
+  // @media (max-width: 768px) {
+  //   min-width: 100%;
+  // }
+
+  border: 1px solid #edeef2;
+  border-radius: 8px;
+  overflow: hidden;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
   }
 `;
 

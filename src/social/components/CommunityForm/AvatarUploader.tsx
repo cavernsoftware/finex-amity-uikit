@@ -20,14 +20,16 @@ const StyledCameraIcon = styled(CameraIcon).attrs({
 
 const AvatarUploadContainer = styled.div`
   background: ${({ theme }) => theme.palette.base.shade3};
-  border-radius: 4px;
+  border-radius: 100%;
   position: relative;
   display: block;
   width: 100%;
-  height: 16.875rem;
   overflow: hidden;
   align-self: center;
   transition: background 0.2s linear;
+  aspect-ratio: 1/1;
+  max-width: 14rem;
+  margin: 0 auto;
 `;
 
 const AvatarUploadButton = styled.div`
