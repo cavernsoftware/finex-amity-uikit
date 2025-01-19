@@ -20,6 +20,8 @@ import {
   Label,
   LabelCounterWrapper,
   TextField,
+  Footer,
+  SubmitButton,
 } from '~/social/components/CommunityForm/styles';
 
 const ButtonContainer = styled.div`
@@ -34,8 +36,8 @@ interface FormBlockProps {
 }
 
 const FormBlock = ({ title, children }: FormBlockProps) => (
-  <FormBlockContainer>
-    <FormBlockHeader>{title}</FormBlockHeader>
+  <FormBlockContainer edit>
+    {title && <FormBlockHeader>{title}</FormBlockHeader>}
     <FormBlockBody>{children}</FormBlockBody>
   </FormBlockContainer>
 );
@@ -124,13 +126,13 @@ const UserProfileForm = ({ user, onSubmit, className }: UserProfileFormProps) =>
             />
             <ErrorMessage errors={errors} name="description" />
           </Field>
-          <ButtonContainer>
-            <PrimaryButton data-qa-anchor="user-profile-form-save-button" type="submit">
-              <FormattedMessage id="save" />
-            </PrimaryButton>
-          </ButtonContainer>
         </FormBlock>
       </FormBody>
+      <Footer edit>
+        <SubmitButton data-qa-anchor="user-profile-form-save-button" edit>
+          <FormattedMessage id="save" />
+        </SubmitButton>
+      </Footer>
     </Form>
   );
 };

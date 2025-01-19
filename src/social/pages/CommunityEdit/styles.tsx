@@ -5,11 +5,10 @@ import { Plus } from '~/icons';
 
 export const ExtraActionContainer = styled.div`
   border: 1px solid #edeef2;
-  border-radius: 4px;
+  border-radius: 8px;
   background: ${({ theme }) => theme.palette.system.background};
   align-self: flex-start;
   padding: 16px;
-  // width: 330px;
   flex-shrink: 0;
   @media (max-width: 768px) {
     width: 100%;

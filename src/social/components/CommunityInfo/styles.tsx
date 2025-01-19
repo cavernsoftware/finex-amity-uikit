@@ -34,6 +34,7 @@ export const Container = styled.div`
 
   @media (max-width: 48em) {
     border-radius: 0;
+    border-top: none;
     border-right: none;
     border-left: none;
   }
