@@ -234,7 +234,7 @@
   "PostAsCommunity.caption": "Enable this will publish the post on behalf of group account",
 
   "AddMemberAction.title": "Add members",
-  "AddMemberAction.description": "Add your friends to this group to participate in group conversations",
+  "AddMemberAction.description": "Add members to this group to participate in conversations.",
 
   "CloseCommunityAction.closeConfirm.title": "Close group?",
   "CloseCommunityAction.closeConfirm.description": "All members will be removed from the group. All posts, messages, reactions and media shared in group will be deleted. This cannot be undone.",

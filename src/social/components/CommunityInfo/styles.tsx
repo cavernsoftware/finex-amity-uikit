@@ -43,8 +43,10 @@ export const Container = styled.div`
 export const Cover = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== 'backgroundImage',
 })<{ backgroundImage?: string }>`
-  padding-top: 56.25%;
+  // padding-top: 56.25%;
   position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
 
   ${({ backgroundImage, theme }) => `
     background: linear-gradient(360deg, rgba(0, 0, 0, 0.5) -4.5%, rgba(0, 0, 0, 0) 77.17%), ${

@@ -143,6 +143,7 @@ const EditCommunityForm = ({
                   mimeType="image/png, image/jpeg"
                   {...rest}
                   data-qa-anchor={dataQaAnchor}
+                  isCircle={false}
                 />
               )}
             />

@@ -18,17 +18,17 @@ const StyledCameraIcon = styled(CameraIcon).attrs({
   fill: #fff;
 `;
 
-const AvatarUploadContainer = styled.div`
+const AvatarUploadContainer = styled.div<{ $isCircle?: boolean }>`
   background: ${({ theme }) => theme.palette.base.shade3};
-  border-radius: 100%;
+  border-radius: ${({ $isCircle: isCircle = true }) => (isCircle ? '50%' : '0')};
   position: relative;
   display: block;
   width: 100%;
   overflow: hidden;
   align-self: center;
   transition: background 0.2s linear;
-  aspect-ratio: 1/1;
-  max-width: 14rem;
+  aspect-ratio: ${({ $isCircle: isCircle = true }) => (isCircle ? '1/1' : '2/1')};
+  max-width: ${({ $isCircle: isCircle = true }) => (isCircle ? '14rem' : 'none')};
   margin: 0 auto;
 `;
 
@@ -104,6 +104,7 @@ interface AvatarUploaderProps {
   onChange: (fileId: string) => void;
   value?: string | null;
   mimeType?: string;
+  isCircle?: boolean;
 }
 
 const AvatarUploader = ({
@@ -111,6 +112,7 @@ const AvatarUploader = ({
   onChange,
   value: avatarFileId,
   mimeType,
+  isCircle = true,
 }: AvatarUploaderProps) => {
   const [loadedAvatar, setLoadedAvatar] = useState<File[]>([]);
   const [uploadedAvatar, setUploadedAvatar] = useState<Amity.File[]>([]);
@@ -140,7 +142,7 @@ const AvatarUploader = ({
   });
 
   return (
-    <AvatarUploadContainer>
+    <AvatarUploadContainer $isCircle={isCircle}>
       <ImageRenderer uploading={uploading} uploaded={uploaded} progress={progress} />
       <BgImage src={fileUrl ?? communityCoverPlaceholder} />
       <CoverImageLoader
@@ -149,7 +151,8 @@ const AvatarUploader = ({
         onChange={(newAvatar: File[]) => setLoadedAvatar(newAvatar)}
       >
         <AvatarUploadButton>
-          <StyledCameraIcon /> &nbsp; Upload image
+          <StyledCameraIcon />
+          <div>Upload image</div>
         </AvatarUploadButton>
       </CoverImageLoader>
     </AvatarUploadContainer>
