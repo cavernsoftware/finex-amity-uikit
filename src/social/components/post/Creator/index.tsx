@@ -113,7 +113,7 @@ const PostCreatorBar = ({
   maxFiles = MAX_FILES_PER_POST,
 }: PostCreatorBarProps) => {
   const { currentUserId } = useSDK();
-  const { setNavigationBlocker } = useNavigation();
+  const { setNavigationBlocker, onClickUser } = useNavigation();
   const user = useUser(currentUserId);
   const { info } = useConfirmContext();
   const notification = useNotifications();
@@ -264,7 +264,11 @@ const PostCreatorBar = ({
   const backgroundImage = target.targetType === 'community' ? CommunityImage : UserImage;
 
   const CurrentTargetAvatar = (
-    <Avatar avatar={user?.avatar?.fileUrl || undefined} backgroundImage={backgroundImage} />
+    <Avatar
+      avatar={user?.avatar?.fileUrl || undefined}
+      backgroundImage={backgroundImage}
+      onClick={() => currentUserId && onClickUser(currentUserId)}
+    />
   );
   const isDisabled =
     (!text && postImages.length === 0 && postVideos.length === 0 && postFiles.length === 0) ||

@@ -29,7 +29,7 @@ const PlainPostContainer = ({
 
 export const PostContainer = styled(PlainPostContainer)`
   padding: 16px;
-  padding-bottom: 8px;
+  padding-bottom: 2px;
   background: ${({ theme }) => theme.palette.system.background};
   border: 1px solid #edeef2;
   border-radius: 8px;

@@ -31,6 +31,12 @@ export const Container = styled.div`
   align-self: flex-start;
   margin-bottom: 12px;
   overflow: hidden;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;
 
 export const Cover = styled.div.withConfig({

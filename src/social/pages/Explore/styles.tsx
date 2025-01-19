@@ -10,4 +10,8 @@ export const PageContainer = styled.div`
   display: grid;
   grid-template-columns: 100%;
   grid-gap: 1.5rem;
+
+  @media (max-width: 48em) {
+    margin-top: 1em;
+  }
 `;
