@@ -115,7 +115,7 @@ const OptionMenu = ({
   return (
     <OptionMenuContainer ref={dropdownRef}>
       <FrameContainer>
-        <Frame position={currentPosition} align={align} $scrollableHeight={scrollableHeight}>
+        <Frame $position={currentPosition} $align={align} $scrollableHeight={scrollableHeight}>
           {options.map(({ name, action }) => (
             <Option
               key={name}

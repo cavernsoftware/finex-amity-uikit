@@ -19,19 +19,19 @@ export const FrameContainer = styled.div`
 `;
 
 export const Frame = styled.div<{
-  position?: string;
-  align?: string;
-  fullSized?: boolean;
-  scrollable?: boolean;
+  $position?: string;
+  $align?: string;
+  $fullSized?: boolean;
+  $scrollable?: boolean;
   $scrollableHeight?: number;
 }>`
   position: absolute;
   z-index: 10;
-  ${({ position }) => getCssPosition(position)}
-  ${({ align }) => align && getCssPosition(align)}
+  ${({ $position: position }) => getCssPosition(position)}
+  ${({ $align: align }) => align && getCssPosition(align)}
   background: ${({ theme }) => theme.palette.system.background};
-  ${({ fullSized }) => (fullSized ? `width: 100%;` : `min-width: 15rem;`)}
-  ${({ scrollable, $scrollableHeight: scrollableHeight }) =>
+  ${({ $fullSized: fullSized }) => (fullSized ? `width: 100%;` : `min-width: 15rem;`)}
+  ${({ $scrollable: scrollable, $scrollableHeight: scrollableHeight }) =>
     scrollable &&
     `
     max-height: ${scrollableHeight}px;

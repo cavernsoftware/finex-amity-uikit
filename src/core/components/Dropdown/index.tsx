@@ -169,10 +169,10 @@ const Dropdown = ({
       {(isOpen || isOpenInternal) && (
         <FrameContainer>
           <Frame
-            position={currentPosition}
-            align={align}
-            fullSized={fullSized}
-            scrollable={scrollable}
+            $position={currentPosition}
+            $align={align}
+            $fullSized={fullSized}
+            $scrollable={scrollable}
             $scrollableHeight={scrollableHeight}
           >
             {children}
