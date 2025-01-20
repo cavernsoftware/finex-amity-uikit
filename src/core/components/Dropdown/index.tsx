@@ -173,7 +173,7 @@ const Dropdown = ({
             align={align}
             fullSized={fullSized}
             scrollable={scrollable}
-            scrollableHeight={scrollableHeight}
+            $scrollableHeight={scrollableHeight}
           >
             {children}
           </Frame>

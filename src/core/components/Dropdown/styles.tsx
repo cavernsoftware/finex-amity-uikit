@@ -23,7 +23,7 @@ export const Frame = styled.div<{
   align?: string;
   fullSized?: boolean;
   scrollable?: boolean;
-  scrollableHeight?: number;
+  $scrollableHeight?: number;
 }>`
   position: absolute;
   z-index: 10;
@@ -31,7 +31,7 @@ export const Frame = styled.div<{
   ${({ align }) => align && getCssPosition(align)}
   background: ${({ theme }) => theme.palette.system.background};
   ${({ fullSized }) => (fullSized ? `width: 100%;` : `min-width: 15rem;`)}
-  ${({ scrollable, scrollableHeight }) =>
+  ${({ scrollable, $scrollableHeight: scrollableHeight }) =>
     scrollable &&
     `
     max-height: ${scrollableHeight}px;
