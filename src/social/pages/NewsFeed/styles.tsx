@@ -67,3 +67,20 @@ export const StyledCommunitySideMenu = styled(CommunitySideMenu).withConfig({
 export const StyledBarsIcon = styled(BarsIcon)`
   cursor: pointer;
 `;
+
+export const WelcomeBanner = styled.div`
+  background-color: #fff;
+  padding: 14px;
+  margin-bottom: 14px;
+  text-align: center;
+  border: 1px solid #edeef2;
+  border-radius: 8px;
+  font-size: 12px;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+    margin-top: 14px;
+  }
+`;

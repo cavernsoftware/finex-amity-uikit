@@ -11,6 +11,7 @@ import {
   MobileContainer,
   StyledBarsIcon,
   StyledCommunitySideMenu,
+  WelcomeBanner,
   Wrapper,
 } from './styles';
 import { useIntl } from 'react-intl';
@@ -33,6 +34,13 @@ const NewsFeed = ({ isOpen, toggleOpen }: NewsFeedProps) => {
         <StyledBarsIcon onClick={toggleOpen} />
         <HeadTitle>{formatMessage({ id: 'sidebar.community' })}</HeadTitle>
       </MobileContainer>
+      <WelcomeBanner>
+        <i>
+          Welcome to the Finex community! 🎉 Join a debt payoff group and stay motivated on your
+          debt-free journey with others! Only your countdown can be visible - all other debt info is
+          kept private to you.
+        </i>
+      </WelcomeBanner>
       <StoryTab type="globalFeed" />
       <Feed
         targetType={'globalFeed'}
