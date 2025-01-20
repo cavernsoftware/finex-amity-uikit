@@ -86,11 +86,11 @@ const PendingList = ({ userId }: { userId?: string | null }) => {
   return (
     <>
       <Grid>
-        {items.map((item) =>
+        {items.map((item, i) =>
           isLoadingItem(item) ? (
-            <Skeleton style={{ fontSize: 8 }} />
+            <Skeleton key={i} style={{ fontSize: 8 }} />
           ) : (
-            <PendingItem key={`${item.from}-${item.to}`} userId={item.from} />
+            <PendingItem key={`${i}-${item.from}-${item.to}`} userId={item.from} />
           ),
         )}
       </Grid>

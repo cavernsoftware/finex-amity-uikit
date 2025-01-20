@@ -12,7 +12,13 @@ export const CommunityPermissionsContainer = styled.div`
   flex-direction: column;
   background: ${({ theme }) => theme.palette.system.background};
   border: 1px solid #edeef2;
-  border-radius: 4px;
+  border-radius: 8px;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;
 
 export const CommunityPermissionsItem = styled.div`

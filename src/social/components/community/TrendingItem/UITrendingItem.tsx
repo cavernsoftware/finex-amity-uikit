@@ -27,8 +27,10 @@ const Cover = styled.div.withConfig({
   padding-left: 100%;
 
   ${({ backgroundImage, theme }) => `
-    background: ${
-      backgroundImage ? `url(${CSS.escape(backgroundImage)})` : theme.palette.base.shade3
+    background-image: ${
+      backgroundImage
+        ? `url(${CSS.escape(backgroundImage)})`
+        : 'linear-gradient(0deg, rgba(152,158,173,1) 0%, rgba(197,198,209,1) 100%)'
     };
     background-repeat: no-repeat;
     background-position: center;
@@ -124,7 +126,7 @@ const UITrendingItem = ({
             <TrendingCommunityName isOfficial={isOfficial} isPublic={isPublic} name={name} />
 
             <Infos>
-              {categories.length > 0 && (
+              {/* {categories.length > 0 && (
                 <Truncate lines={1}>
                   <Categories>
                     {categories.map((category) => (
@@ -132,7 +134,7 @@ const UITrendingItem = ({
                     ))}
                   </Categories>
                 </Truncate>
-              )}
+              )} */}
 
               <span>
                 {millify(membersCount || 0)}{' '}

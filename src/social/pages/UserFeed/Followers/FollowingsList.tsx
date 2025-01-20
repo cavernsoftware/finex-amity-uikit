@@ -173,12 +173,12 @@ const FollowingsList = ({ userId, onItemClick }: FollowingsListProps) => {
   return (
     <>
       <Grid>
-        {items.map((item) =>
+        {items.map((item, i) =>
           isLoadingItem(item) ? (
-            <Skeleton style={{ fontSize: 8 }} />
+            <Skeleton key={i} style={{ fontSize: 8 }} />
           ) : (
             <UserItem
-              key={`${item.from}-${item.to}`}
+              key={`${i}-${item.from}-${item.to}`}
               userId={item.to}
               profileUserId={userId}
               currentUserId={currentUserId}

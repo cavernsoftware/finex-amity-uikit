@@ -11,7 +11,13 @@ export const Wrapper = styled.div`
 export const DeclineBanner = styled.div`
   background: ${({ theme }) => theme.palette.base.shade4};
   color: ${({ theme }) => theme.palette.base.shade1};
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   padding: 12px 16px;
-  border-radius: 4px;
+  border-radius: 8px;
+
+  @media (max-width: 48em) {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+  }
 `;

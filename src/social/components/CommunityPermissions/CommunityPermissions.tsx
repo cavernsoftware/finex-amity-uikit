@@ -19,7 +19,7 @@ interface CommunityPermissionsProps {
 
 function CommunityPermissions({
   needApprovalOnPostCreation,
-  storyCommentsApproval,
+  storyCommentsApproval = false,
   onNeedApprovalOnPostCreationChange,
   onStoryCommentsApproval,
 }: CommunityPermissionsProps) {
