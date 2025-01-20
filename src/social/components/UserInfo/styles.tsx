@@ -40,7 +40,7 @@ export const Header = styled.div`
   display: flex;
   align-items: flex-start;
   margin-bottom: 16px;
-  gap: 20px;
+  gap: 16px;
 `;
 
 export const Avatar = styled(UIAvatar)`
@@ -158,4 +158,35 @@ export const ProfileInfo = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+`;
+
+export const DebtFreeCountdownContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px 9px 12px;
+  border: 1px solid #ebecef;
+  border-radius: 8px;
+  margin: 6px 0 10px 0;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.05);
+  gap: 6px;
+  line-height: 1;
+`;
+
+export const DebtFreeCountdownLabel = styled.div`
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  color: black;
+`;
+
+export const DebtFreeCountdownDaysLeft = styled.span`
+  color: var(--mantine-color-blue-text);
+  font-weight: 700;
+  line-height: 1;
+  font-size: 14px;
+`;
+
+export const DebtFreeCountdownDate = styled.span`
+  color: var(--mantine-color-dimmed);
+  font-size: 12px;
 `;

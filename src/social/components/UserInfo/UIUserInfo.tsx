@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
+import { format } from 'date-fns';
 import Truncate from 'react-truncate-markup';
 import millify from 'millify';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -29,12 +30,14 @@ import {
   ActionButtonContainer,
   ProfileNameWrapper,
   ProfileInfo,
+  DebtFreeCountdownContainer,
+  DebtFreeCountdownLabel,
+  DebtFreeCountdownDaysLeft,
+  DebtFreeCountdownDate,
 } from './styles';
 
-import { isNonNullable } from '~/helpers/utils';
+import { isNonNullable, getDebtPayoffCountdown } from '~/helpers/utils';
 import useUser from '~/core/hooks/useUser';
-import { UserRepository } from '@amityco/ts-sdk';
-import useFollowersList from '~/core/hooks/useFollowersList';
 import { useCustomComponent } from '~/core/providers/CustomComponentsProvider';
 import useUserFlaggedByMe from '~/social/hooks/useUserFlaggedByMe';
 import useFollowersCollection from '~/core/hooks/collections/useFollowersCollection';
@@ -45,6 +48,7 @@ interface UIUserInfoProps {
   currentUserId?: string | null;
   fileUrl?: string;
   displayName?: string;
+  debtPayoffDate?: string;
   description?: string;
   isMyProfile?: boolean;
   onEditUser?: (userId: string) => void;
@@ -69,6 +73,7 @@ const UIUserInfo = ({
   currentUserId,
   fileUrl,
   displayName,
+  debtPayoffDate,
   description,
   isMyProfile,
   onEditUser,
@@ -132,6 +137,16 @@ const UIUserInfo = ({
       : undefined,
   ].filter(isNonNullable);
 
+  const countdown = useMemo(() => {
+    if (!debtPayoffDate) return null;
+    return getDebtPayoffCountdown(debtPayoffDate);
+  }, [debtPayoffDate]);
+
+  const countdownDate = useMemo(() => {
+    if (!debtPayoffDate) return null;
+    return format(debtPayoffDate, 'MMMM d, yyyy');
+  }, [debtPayoffDate]);
+
   return (
     <Container data-qa-anchor="user-info">
       <Header>
@@ -151,6 +166,17 @@ const UIUserInfo = ({
               <BanIcon style={{ marginLeft: '0.265rem', marginTop: '1px' }} />
             ) : null}
           </ProfileNameWrapper>
+          {countdown && (
+            <DebtFreeCountdownContainer>
+              <DebtFreeCountdownLabel>
+                <FormattedMessage id="user.debtFreeCountdown" />
+              </DebtFreeCountdownLabel>
+              <DebtFreeCountdownDaysLeft>
+                {countdown} <FormattedMessage id="user.daysLeft" />
+              </DebtFreeCountdownDaysLeft>
+              <DebtFreeCountdownDate>{countdownDate}</DebtFreeCountdownDate>
+            </DebtFreeCountdownContainer>
+          )}
           <CountContainer>
             <ClickableCount
               onClick={() => {

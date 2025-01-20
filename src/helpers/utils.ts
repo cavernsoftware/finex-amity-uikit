@@ -5,6 +5,7 @@ import {
   FeedRepository,
 } from '@amityco/ts-sdk';
 import isEmpty from 'lodash/isEmpty';
+import { differenceInDays, parseISO, startOfDay } from 'date-fns';
 
 export type Mentioned = {
   userId: string;
@@ -189,4 +190,27 @@ export function reconstructMentions(
       display,
     };
   });
+}
+
+export const UNLUCKY_NUMBERS = [666];
+
+export function getNonUnluckyNumber(num: number): number {
+  let output = num;
+  if (UNLUCKY_NUMBERS.includes(output)) {
+    output += 1;
+  }
+  return output;
+}
+
+export function getDebtPayoffCountdown(debtPayoffDate: string | null): number | null {
+  if (!debtPayoffDate) {
+    return null;
+  }
+
+  const daysUntilPayoff = differenceInDays(
+    startOfDay(parseISO(debtPayoffDate)),
+    startOfDay(new Date()),
+  );
+
+  return getNonUnluckyNumber(daysUntilPayoff);
 }

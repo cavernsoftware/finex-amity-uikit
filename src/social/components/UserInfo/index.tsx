@@ -85,6 +85,7 @@ const UserInfo = ({
       currentUserId={currentUserId}
       fileUrl={user?.avatarCustomUrl || avatarFileUrl}
       displayName={user?.displayName || formatMessage({ id: 'anonymous' })}
+      debtPayoffDate={user?.metadata?.debtPayoffDate}
       description={user?.description}
       onFollowerCountClick={onFollowerCountClick}
       onFollowingCountClick={onFollowingCountClick}
