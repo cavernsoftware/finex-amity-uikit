@@ -45,6 +45,7 @@ export const DebtPayoffDaysLeft = styled.div`
   font-size: 11px;
   padding: 4px 8px;
   border-radius: 100px;
+  cursor: pointer;
 `;
 
 export const DebtPayoffDaysLeftDot = styled.div`

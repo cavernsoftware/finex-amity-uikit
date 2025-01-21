@@ -1,4 +1,4 @@
-import React, { forwardRef, MutableRefObject, useEffect, useRef, useState } from 'react';
+import React, { useMemo, useEffect, useRef, useState } from 'react';
 import Truncate from 'react-truncate-markup';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -24,8 +24,10 @@ import {
   EditedMark,
   OptionMenuContainer,
   OptionButtonContainer,
+  DebtPayoffDaysLeft,
+  DebtPayoffDaysLeftDot,
 } from './styles';
-import { Mentioned, Metadata, isNonNullable } from '~/helpers/utils';
+import { Mentioned, Metadata, getDebtPayoffCountdown, isNonNullable } from '~/helpers/utils';
 import { QueryMentioneesFnType } from '~/social/hooks/useSocialMention';
 import { Option, OptionsButton, OptionsIcon } from '~/core/components/OptionMenu/styles';
 import useCommentFlaggedByMe from '~/social/hooks/useCommentFlaggedByMe';
@@ -137,6 +139,7 @@ const OptionMenu = ({
 interface StyledCommentProps {
   commentId?: string;
   authorName?: string;
+  authorDebtPayoffDate?: string;
   authorAvatar?: string;
   canDelete?: boolean;
   canEdit?: boolean;
@@ -177,6 +180,7 @@ const StyledComment = (props: StyledCommentProps) => {
   const {
     commentId,
     authorName,
+    authorDebtPayoffDate,
     authorAvatar,
     canLike = true,
     canReply = false,
@@ -214,6 +218,11 @@ const StyledComment = (props: StyledCommentProps) => {
     };
   }, [isMenuOpen]);
 
+  const debtFreeDaysLeft = useMemo(() => {
+    if (!authorDebtPayoffDate) return null;
+    return getDebtPayoffCountdown(authorDebtPayoffDate);
+  }, [authorDebtPayoffDate]);
+
   return (
     <>
       <Avatar onClick={onClickUser} avatar={authorAvatar} backgroundImage={UserImage} />
@@ -244,6 +253,9 @@ const StyledComment = (props: StyledCommentProps) => {
                       marginTop: '1px',
                     }}
                   />
+                )}
+                {debtFreeDaysLeft && (
+                  <DebtPayoffDaysLeft onClick={onClickUser}>{debtFreeDaysLeft}</DebtPayoffDaysLeft>
                 )}
                 <CommentDate date={createdAt?.getTime()} />
                 {(editedAt?.getTime() || 0) - (createdAt?.getTime() || 0) > 0 && (

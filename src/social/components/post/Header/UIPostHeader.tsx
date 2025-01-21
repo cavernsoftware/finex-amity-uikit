@@ -102,7 +102,9 @@ const UIPostHeader = ({
       <AdditionalInfo data-qa-anchor="post-header-additional-info" showTime={!!timeAgo}>
         {debtFreeDaysLeft && (
           <>
-            <DebtPayoffDaysLeft>{debtFreeDaysLeft} days left</DebtPayoffDaysLeft>
+            <DebtPayoffDaysLeft onClick={onClickUser}>
+              {debtFreeDaysLeft} days left
+            </DebtPayoffDaysLeft>
             <DebtPayoffDaysLeftDot>•</DebtPayoffDaysLeftDot>
           </>
         )}

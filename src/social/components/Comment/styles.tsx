@@ -99,6 +99,24 @@ export const AuthorName = styled.span`
   font-weight: 600;
 `;
 
+export const DebtPayoffDaysLeft = styled.span`
+  background-color: var(--mantine-color-blue-light);
+  color: var(--mantine-color-blue-text);
+  font-weight: 700;
+  line-height: 1;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 100px;
+  margin-left: 6px;
+  cursor: pointer;
+`;
+
+export const DebtPayoffDaysLeftDot = styled.span`
+  color: ${({ theme }) => theme.palette.base.shade1};
+  ${({ theme }) => theme.typography.caption}
+  margin: 0 4px;
+`;
+
 export const CommentDate = styled(Time)`
   display: inline;
   margin-left: 5px;
