@@ -248,9 +248,12 @@ const StyledComment = (props: StyledCommentProps) => {
               <>
                 {isBanned && (
                   <BanIcon
+                    width={14}
+                    height={14}
                     style={{
-                      marginLeft: '0.265rem',
-                      marginTop: '1px',
+                      display: 'inline-block',
+                      marginLeft: '4px',
+                      marginTop: '-2px',
                     }}
                   />
                 )}

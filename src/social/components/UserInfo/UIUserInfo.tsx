@@ -163,7 +163,11 @@ const UIUserInfo = ({
             </Truncate>
 
             {user?.isGlobalBanned ? (
-              <BanIcon style={{ marginLeft: '0.265rem', marginTop: '1px' }} />
+              <BanIcon
+                width={18}
+                height={18}
+                style={{ marginLeft: '0.265rem', marginTop: '1px' }}
+              />
             ) : null}
           </ProfileNameWrapper>
           {debtFreeDaysLeft && (

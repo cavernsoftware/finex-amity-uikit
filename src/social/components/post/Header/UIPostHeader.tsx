@@ -79,7 +79,7 @@ const UIPostHeader = ({
           </Name>
         </Truncate>
 
-        {isBanned && <BanIcon />}
+        {isBanned && <BanIcon width={14} height={14} />}
 
         {showTarget && (
           <>

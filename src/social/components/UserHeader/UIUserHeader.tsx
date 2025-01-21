@@ -49,12 +49,10 @@ const UIUserHeader = ({
         backgroundImage={userHeaderBackgroundImage}
         onClick={onClickUser}
       />
-      {/* <UserHeaderTitle title={userId || undefined} onClick={onClickUser}>
-        <div>{displayName}</div> {isBanned && <BanIcon />} {isBrand && <BrandBadge />}
-      </UserHeaderTitle> */}
       <UserNameContainer>
         <UserHeaderTitle title={userId || undefined} onClick={onClickUser}>
-          <div>{displayName}</div> {isBanned && <BanIcon />} {isBrand && <BrandBadge />}
+          <div>{displayName}</div> {isBanned && <BanIcon width={14} height={14} />}{' '}
+          {isBrand && <BrandBadge />}
         </UserHeaderTitle>
         {debtFreeDaysLeft && (
           <DebtPayoffDaysLeft onClick={onClickUser}>

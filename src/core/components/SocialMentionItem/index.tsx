@@ -74,7 +74,9 @@ const SocialMentionItem = ({
     >
       <Avatar avatar={avatarFileUrl} />
       <UserDisplayName>{user?.displayName}</UserDisplayName>
-      <div style={{ marginLeft: '0.5rem' }}>{user?.isGlobalBanned ? <BanIcon /> : null}</div>
+      <div style={{ marginLeft: '0.5rem' }}>
+        {user?.isGlobalBanned ? <BanIcon width={14} height={14} /> : null}
+      </div>
     </Item>
   );
 };
