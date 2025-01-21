@@ -163,6 +163,7 @@ export const ProfileInfo = styled.div`
 export const DebtFreeCountdownContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   padding: 10px 12px 9px 12px;
   border: 1px solid #ebecef;
   border-radius: 8px;
@@ -183,7 +184,10 @@ export const DebtFreeCountdownDaysLeft = styled.span`
   color: var(--mantine-color-blue-text);
   font-weight: 700;
   line-height: 1;
-  font-size: 14px;
+  font-size: 12px;
+  // border-radius: 100px;
+  // padding: 4px 8px;
+  // background-color: var(--mantine-color-blue-light);
 `;
 
 export const DebtFreeCountdownDate = styled.span`
