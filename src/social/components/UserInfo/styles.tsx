@@ -157,6 +157,7 @@ export const ProfileNameWrapper = styled.div`
 export const ProfileInfo = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   flex: 1;
 `;
 
@@ -169,7 +170,7 @@ export const DebtFreeCountdownContainer = styled.div`
   border-radius: 8px;
   margin: 6px 0 10px 0;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.05);
-  gap: 6px;
+  gap: 4px;
   line-height: 1;
 `;
 
@@ -184,7 +185,7 @@ export const DebtFreeCountdownDaysLeft = styled.span`
   color: var(--mantine-color-blue-text);
   font-weight: 700;
   line-height: 1;
-  font-size: 12px;
+  font-size: 14px;
   // border-radius: 100px;
   // padding: 4px 8px;
   // background-color: var(--mantine-color-blue-light);

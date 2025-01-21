@@ -21,6 +21,12 @@ export const UserHeaderAvatar = styled(Avatar)`
   grid-area: avatar;
 `;
 
+export const UserNameContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+`;
+
 export const UserHeaderTitle = styled.div`
   grid-area: title;
   ${({ theme }) => theme.typography.title}
@@ -39,4 +45,15 @@ export const UserHeaderTitle = styled.div`
 export const UserHeaderSubtitle = styled.div`
   grid-area: subtitle;
   ${({ theme }) => theme.typography.body}
+`;
+
+export const DebtPayoffDaysLeft = styled.div`
+  background-color: var(--mantine-color-blue-light);
+  color: var(--mantine-color-blue-text);
+  font-weight: 700;
+  line-height: 1;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 100px;
+  cursor: pointer;
 `;

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 import BanIcon from '~/icons/Ban';
 import { backgroundImage as userHeaderBackgroundImage } from '~/icons/User';
 
@@ -7,12 +7,16 @@ import {
   UserHeaderContainer,
   UserHeaderSubtitle,
   UserHeaderTitle,
+  DebtPayoffDaysLeft,
+  UserNameContainer,
 } from './styles';
 import { useCustomComponent } from '~/core/providers/CustomComponentsProvider';
 import { BrandBadge } from '~/v4/social/internal-components/BrandBadge/BrandBadge';
+import { getDebtPayoffCountdown } from '~/helpers/utils';
 
 interface UIUserHeaderProps {
   userId?: string | null;
+  debtPayoffDate?: string | null;
   displayName?: string | null;
   avatarFileUrl?: string | null;
   children?: ReactNode;
@@ -24,6 +28,7 @@ interface UIUserHeaderProps {
 const UIUserHeader = ({
   userId,
   displayName,
+  debtPayoffDate,
   avatarFileUrl,
   children,
   onClick,
@@ -31,6 +36,12 @@ const UIUserHeader = ({
   isBrand,
 }: UIUserHeaderProps) => {
   const onClickUser = () => userId && onClick?.(userId);
+
+  const debtFreeDaysLeft = useMemo(() => {
+    if (!debtPayoffDate) return null;
+    return getDebtPayoffCountdown(debtPayoffDate);
+  }, [debtPayoffDate]);
+
   return (
     <UserHeaderContainer $noSubtitle={!!children}>
       <UserHeaderAvatar
@@ -38,9 +49,19 @@ const UIUserHeader = ({
         backgroundImage={userHeaderBackgroundImage}
         onClick={onClickUser}
       />
-      <UserHeaderTitle title={userId || undefined} onClick={onClickUser}>
+      {/* <UserHeaderTitle title={userId || undefined} onClick={onClickUser}>
         <div>{displayName}</div> {isBanned && <BanIcon />} {isBrand && <BrandBadge />}
-      </UserHeaderTitle>
+      </UserHeaderTitle> */}
+      <UserNameContainer>
+        <UserHeaderTitle title={userId || undefined} onClick={onClickUser}>
+          <div>{displayName}</div> {isBanned && <BanIcon />} {isBrand && <BrandBadge />}
+        </UserHeaderTitle>
+        {debtFreeDaysLeft && (
+          <DebtPayoffDaysLeft onClick={onClickUser}>
+            {debtFreeDaysLeft} days left
+          </DebtPayoffDaysLeft>
+        )}
+      </UserNameContainer>
       {children && <UserHeaderSubtitle>{children}</UserHeaderSubtitle>}
     </UserHeaderContainer>
   );

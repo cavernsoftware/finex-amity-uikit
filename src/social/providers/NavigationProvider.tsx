@@ -216,6 +216,11 @@ export default function NavigationProvider({
       if (!(await confirmPageChange())) return;
 
       setPages((prevState) => [...prevState, newPage]);
+
+      // Scroll to the top on page change
+      if (typeof window !== 'undefined') {
+        window.scrollTo(0, 0);
+      }
     },
     [confirmPageChange],
   );

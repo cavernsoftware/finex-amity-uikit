@@ -20,6 +20,7 @@ const UserHeader = ({ userId, children, onClick, isBanned = false }: UserHeaderP
     <UIUserHeader
       userId={user?.userId}
       displayName={user?.displayName}
+      debtPayoffDate={user?.metadata?.debtPayoffDate}
       avatarFileUrl={avatarFileUrl}
       isBanned={isBanned}
       isBrand={user?.isBrand}
