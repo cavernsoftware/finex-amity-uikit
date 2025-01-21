@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { FormattedMessage } from 'react-intl';
 import cx from 'clsx';
 import Truncate from 'react-truncate-markup';
@@ -18,15 +18,20 @@ import {
   PostHeaderContainer,
   PostNamesContainer,
   MessageContainer,
+  DebtPayoffDaysLeft,
+  NameContainer,
+  DebtPayoffDaysLeftDot,
 } from './styles';
 import { usePostHeaderProps } from './hooks';
 import { useCustomComponent } from '~/core/providers/CustomComponentsProvider';
+import { getDebtPayoffCountdown } from '~/helpers/utils';
 
 type UIPostHeaderProps = ReturnType<typeof usePostHeaderProps>;
 
 const UIPostHeader = ({
   avatarFileUrl,
   postAuthorName,
+  postAuthorDebtPayoffDate,
   postTargetName,
   timeAgo,
   isModerator,
@@ -43,6 +48,7 @@ const UIPostHeader = ({
     return CustomComponentFn({
       avatarFileUrl,
       postAuthorName,
+      postAuthorDebtPayoffDate,
       postTargetName,
       timeAgo,
       isModerator,
@@ -54,22 +60,24 @@ const UIPostHeader = ({
       isBanned,
     });
 
+  const debtFreeDaysLeft = useMemo(() => {
+    if (!postAuthorDebtPayoffDate) return null;
+    return getDebtPayoffCountdown(postAuthorDebtPayoffDate);
+  }, [postAuthorDebtPayoffDate]);
+
   const renderPostNames = () => {
+    const showTarget = postTargetName && !hidePostTarget;
     return (
       <PostNamesContainer data-qa-anchor="post-header-post-names">
-        <Truncate lines={3}>
-          <Name
-            data-qa-anchor="post-header-post-name"
-            className={cx({ clickable: !!onClickUser })}
-            onClick={onClickUser}
-          >
-            {postAuthorName}
-          </Name>
-        </Truncate>
+        <NameContainer className={cx({ clickable: !!onClickUser })} onClick={onClickUser}>
+          <Truncate lines={3}>
+            <Name data-qa-anchor="post-header-post-name">{postAuthorName}</Name>
+          </Truncate>
+        </NameContainer>
 
         {isBanned && <BanIcon />}
 
-        {postTargetName && !hidePostTarget && (
+        {showTarget && (
           <>
             <ArrowSeparator />
             <Name
@@ -88,6 +96,10 @@ const UIPostHeader = ({
   const renderAdditionalInfo = () => {
     return (
       <AdditionalInfo data-qa-anchor="post-header-additional-info" showTime={!!timeAgo}>
+        {debtFreeDaysLeft && <DebtPayoffDaysLeft>{debtFreeDaysLeft} days left</DebtPayoffDaysLeft>}
+
+        <DebtPayoffDaysLeftDot>•</DebtPayoffDaysLeftDot>
+
         {isModerator && (
           <ModeratorBadge data-qa-anchor="post-header-additional-info-moderator-badge">
             <ShieldIcon /> <FormattedMessage id="moderator" />

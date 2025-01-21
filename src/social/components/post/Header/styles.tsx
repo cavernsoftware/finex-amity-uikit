@@ -11,16 +11,39 @@ export const PostInfo = styled.div`
   margin-left: 8px;
 `;
 
-export const Name = styled.div`
-  ${({ theme }) => theme.typography.title}
-
-  word-break: break-all;
+export const NameContainer = styled.div`
+  display: flex;
+  width: 100%;
+  flex: 1;
+  align-items: center;
+  gap: 4px;
 
   &.clickable {
     &:hover {
       cursor: pointer;
     }
   }
+`;
+
+export const Name = styled.div`
+  ${({ theme }) => theme.typography.title}
+  word-break: break-all;
+`;
+
+export const DebtPayoffDaysLeft = styled.div`
+  background-color: var(--mantine-color-blue-light);
+  color: var(--mantine-color-blue-text);
+  font-weight: 700;
+  line-height: 1;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 100px;
+`;
+
+export const DebtPayoffDaysLeftDot = styled.div`
+  color: ${({ theme }) => theme.palette.base.shade1};
+  ${({ theme }) => theme.typography.caption}
+  margin: 0 4px;
 `;
 
 export const ArrowSeparator = styled(ArrowRight).attrs({

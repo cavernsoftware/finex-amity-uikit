@@ -39,6 +39,7 @@ export const usePostHeaderProps = ({
   return {
     avatarFileUrl: avatarFileUrl,
     postAuthorName: user?.displayName || formatMessage({ id: 'anonymous' }),
+    postAuthorDebtPayoffDate: user?.metadata?.debtPayoffDate,
     postTargetName: postTargetName,
     timeAgo: new Date(post?.createdAt),
     isModerator: isCommunityModerator || isModerator(user?.roles) || isAdmin(user?.roles),

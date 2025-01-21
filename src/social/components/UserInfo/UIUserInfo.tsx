@@ -137,7 +137,7 @@ const UIUserInfo = ({
       : undefined,
   ].filter(isNonNullable);
 
-  const countdown = useMemo(() => {
+  const debtFreeDaysLeft = useMemo(() => {
     if (!debtPayoffDate) return null;
     return getDebtPayoffCountdown(debtPayoffDate);
   }, [debtPayoffDate]);
@@ -166,15 +166,15 @@ const UIUserInfo = ({
               <BanIcon style={{ marginLeft: '0.265rem', marginTop: '1px' }} />
             ) : null}
           </ProfileNameWrapper>
-          {countdown && (
+          {debtFreeDaysLeft && (
             <DebtFreeCountdownContainer>
               <DebtFreeCountdownLabel>
                 <FormattedMessage id="user.debtFreeCountdown" />
               </DebtFreeCountdownLabel>
               <DebtFreeCountdownDaysLeft>
-                {countdown} <FormattedMessage id="user.daysLeft" />
+                {debtFreeDaysLeft} <FormattedMessage id="user.daysLeft" />
               </DebtFreeCountdownDaysLeft>
-              <DebtFreeCountdownDate>{countdownDate}</DebtFreeCountdownDate>
+              {/* <DebtFreeCountdownDate>{countdownDate}</DebtFreeCountdownDate> */}
             </DebtFreeCountdownContainer>
           )}
           <CountContainer>
