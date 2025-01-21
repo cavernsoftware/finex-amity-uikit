@@ -69,11 +69,15 @@ const UIPostHeader = ({
     const showTarget = postTargetName && !hidePostTarget;
     return (
       <PostNamesContainer data-qa-anchor="post-header-post-names">
-        <NameContainer className={cx({ clickable: !!onClickUser })} onClick={onClickUser}>
-          <Truncate lines={3}>
-            <Name data-qa-anchor="post-header-post-name">{postAuthorName}</Name>
-          </Truncate>
-        </NameContainer>
+        <Truncate lines={3}>
+          <Name
+            data-qa-anchor="post-header-post-name"
+            className={cx({ clickable: !!onClickUser })}
+            onClick={onClickUser}
+          >
+            {postAuthorName}
+          </Name>
+        </Truncate>
 
         {isBanned && <BanIcon />}
 
@@ -96,9 +100,12 @@ const UIPostHeader = ({
   const renderAdditionalInfo = () => {
     return (
       <AdditionalInfo data-qa-anchor="post-header-additional-info" showTime={!!timeAgo}>
-        {debtFreeDaysLeft && <DebtPayoffDaysLeft>{debtFreeDaysLeft} days left</DebtPayoffDaysLeft>}
-
-        <DebtPayoffDaysLeftDot>•</DebtPayoffDaysLeftDot>
+        {debtFreeDaysLeft && (
+          <>
+            <DebtPayoffDaysLeft>{debtFreeDaysLeft} days left</DebtPayoffDaysLeft>
+            <DebtPayoffDaysLeftDot>•</DebtPayoffDaysLeftDot>
+          </>
+        )}
 
         {isModerator && (
           <ModeratorBadge data-qa-anchor="post-header-additional-info-moderator-badge">

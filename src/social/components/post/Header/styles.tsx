@@ -27,7 +27,14 @@ export const NameContainer = styled.div`
 
 export const Name = styled.div`
   ${({ theme }) => theme.typography.title}
+
   word-break: break-all;
+
+  &.clickable {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 `;
 
 export const DebtPayoffDaysLeft = styled.div`
