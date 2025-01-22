@@ -178,7 +178,7 @@ const SocialSearch = ({ className, sticky = false, searchBy }: SocialSearchProps
             {isOpen ? (
               <SocialSearchTabs
                 tabs={[
-                  { value: 'communities', label: 'Debt Payoff Groups' },
+                  { value: 'communities', label: 'Communities' },
                   {
                     value: 'accounts',
                     label: 'People',

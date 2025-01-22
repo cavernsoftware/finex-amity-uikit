@@ -36,9 +36,9 @@ const NewsFeed = ({ isOpen, toggleOpen }: NewsFeedProps) => {
       </MobileContainer>
       <WelcomeBanner>
         <i>
-          Welcome to the Finex community! 🎉 Join a debt payoff group and stay motivated on your
-          debt-free journey with others! Only your countdown can be visible - all other debt info is
-          kept private to you.
+          Welcome to the debt-free communities! 🎉 Join or create a community and stay motivated on
+          your debt-free journey with others! Only your countdown can be visible - all other debt
+          info is kept private to you.
         </i>
       </WelcomeBanner>
       <StoryTab type="globalFeed" />

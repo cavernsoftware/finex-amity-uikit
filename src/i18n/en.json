@@ -17,11 +17,11 @@
   "categoryList": "Categories",
   "recommendedList": "Recommended for you",
   "exploreHeader.searchCommunityTitle": "Explore groups",
-  "exploreHeader.searchCommunityPlaceholder": "Search community",
+  "exploreHeader.searchCommunityPlaceholder": "Search communities",
   "exploreHeader.createCommunityTitle": "or create your own!",
   "exploreHeader.createCommunityButton": "Create group",
   "backTitle": "Back",
-  "createCommunity": "Create Group",
+  "createCommunity": "Create Community",
   "moderator": "Moderator",
   "moderatorMenu.promoteToModerator": "Promote to moderator",
   "moderatorMenu.dismissModerator": "Dismiss moderator",
@@ -57,7 +57,7 @@
 
   "community.createSuccess": "Your group was successfully created",
   "community.updateSuccess": "Your group was successfully updated",
-  "community.editProfile": "Edit group",
+  "community.editProfile": "Edit community",
   "community.join": "Join",
   "community.communitySettings": "Group Settings",
   "community.returnTo": "Return to {communityName}",
@@ -127,7 +127,7 @@
   "ProfileSettings.editProfile": "Edit profile",
   "ProfileSettings.returnTo": "Return to {displayName}",
 
-  "SideSectionMyCommunity.myCommunity": "My Debt Payoff Groups",
+  "SideSectionMyCommunity.myCommunity": "My Communities",
 
   "file.reUpload": "Click to re-upload the file",
 

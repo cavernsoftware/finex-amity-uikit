@@ -84,7 +84,7 @@ const UICommunityInfo = ({
             truncate={2}
           />
           {/* <CategoriesList>{(communityCategories || []).join(', ')}</CategoriesList> */}
-          <CategoriesList>Debt Payoff Group</CategoriesList>
+          {/* <CategoriesList>Debt Payoff Group</CategoriesList> */}
         </CoverContent>
       </Cover>
       <Content>
