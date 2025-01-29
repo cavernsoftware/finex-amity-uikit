@@ -59,6 +59,7 @@ interface UiKitProviderProps {
   onDisconnected?: () => void;
   pageBehavior?: Record<string, unknown>;
   getAuthToken?: () => Promise<string>;
+  onIsConnectedChange?: (isConnected: boolean) => void;
 }
 
 const UiKitProvider = ({
@@ -76,6 +77,7 @@ const UiKitProvider = ({
   onConnectionStatusChange,
   onDisconnected,
   getAuthToken,
+  onIsConnectedChange,
 }: UiKitProviderProps) => {
   const queryClient = new QueryClient();
   const [isConnected, setIsConnected] = useState(false);
@@ -152,8 +154,12 @@ const UiKitProvider = ({
     };
   }, [userId]);
 
-  if (client == null) return <></>;
-  if (!isConnected) return <></>;
+  useEffect(() => {
+    onIsConnectedChange?.(isConnected);
+  }, [isConnected]);
+
+  if (client == null) return <>{children}</>;
+  if (!isConnected) return <>{children}</>;
 
   return (
     <QueryClientProvider client={queryClient}>

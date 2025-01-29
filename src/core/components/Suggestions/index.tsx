@@ -111,7 +111,7 @@ const Suggestions = <T,>({
       {items.map((item, index) => (
         <MenuItem
           key={`#${index}`}
-          hover={index === active}
+          $hover={index === active}
           onClick={onClick(index)}
           onMouseEnter={onMouseEnter(index)}
         >
