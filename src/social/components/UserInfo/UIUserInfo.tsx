@@ -232,7 +232,7 @@ const UIUserInfo = ({
             )}
           </>
         )}
-        <OptionMenu options={allOptions} pullRight={false} />
+        <OptionMenu options={allOptions} pullRight={true} />
       </ActionButtonContainer>
       {isMyProfile && pendingUsers.length > 0 && isPrivateNetwork && (
         <PendingNotification
