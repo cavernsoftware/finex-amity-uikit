@@ -187,7 +187,7 @@ const UiKitProvider = ({
                                   }}
                                 >
                                   <PostRendererProvider config={postRendererConfig}>
-                                    <NavigationProvider {...actionHandlers}>
+                                    <NavigationProvider {...actionHandlers} userId={userId}>
                                       {children}
                                     </NavigationProvider>
                                   </PostRendererProvider>

@@ -159,6 +159,7 @@ interface NavigationProviderProps {
   onMessageUser?: (userId: string) => void;
   onBack?: () => void;
   goToDraftStoryPage?: (targetId: string) => void;
+  userId?: string;
 }
 
 export default function NavigationProvider({
@@ -173,9 +174,11 @@ export default function NavigationProvider({
   onEditUser,
   onMessageUser,
   onBack,
+  userId,
 }: NavigationProviderProps) {
   const [pages, setPages] = useState<Page[]>([
     { type: PageTypes.NewsFeed, communityId: undefined },
+    // { type: PageTypes.UserFeed, userId: userId ?? '' },
   ]);
   const currentPage = useMemo(() => pages[pages.length - 1], [pages]);
   const [navigationBlocker, setNavigationBlocker] = useState<

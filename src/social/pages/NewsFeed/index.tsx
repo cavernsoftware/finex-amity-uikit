@@ -39,6 +39,9 @@ const NewsFeed = ({ isOpen, toggleOpen }: NewsFeedProps) => {
           {/* Welcome to the debt&#8209;free communities! 🎉 Join or create a community and stay
           motivated on your debt&#8209;free journey with others! Only your countdown can be visible
           - all other debt info is kept private to you. */}
+          {/* Join or create a debt-free community to share tips, resources, and stay motivated with
+          like-minded people on your debt&#8209;free journey! Only your countdown is visible - all
+          other debt info is kept private to you. */}
           Welcome to the Debt&#8209;Free Communities! 🎉 Join or create a community and stay
           motivated with like-minded people on your debt&#8209;free journey! Only your countdown is
           visible - all other debt info is kept private to you.
