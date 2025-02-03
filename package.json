@@ -1,7 +1,6 @@
 {
   "name": "finex-amity-uikit",
   "originalName": "@amityco/ui-kit-open-source",
-  "type": "module",
   "version": "3.11.6",
   "engines": {
     "node": ">=16",
