@@ -37,7 +37,7 @@ interface UiKitProviderProps {
     mqtt?: string;
   };
   userId: string;
-  displayName: string;
+  displayName?: string;
   customComponents?: CustomComponentType;
   postRendererConfig?: PostRendererConfigType;
   theme?: Record<string, unknown>;
