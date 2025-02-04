@@ -1,5 +1,5 @@
 import './index.css';
-import '~/v4/styles/global.css';
+// import '~/v4/styles/global.css';
 
 import React, { useEffect, useMemo, useState } from 'react';
 import useUser from '~/core/hooks/useUser';
