@@ -27,7 +27,7 @@
   "_types": "dist/index.d.ts",
   "description": "React Ui-Kit for Amity Social Cloud",
   "scripts": {
-    "prepare": "husky install",
+    "_prepare": "husky install",
     "_build": "tsup --minify",
     "build:dev": "tsup --sourcemap --metafile",
     "build:prod:analyze": "pnpm build --metafile",
