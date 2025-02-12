@@ -54,7 +54,7 @@ const UIUserHeader = ({
           <div>{displayName}</div> {isBanned && <BanIcon width={14} height={14} />}{' '}
           {isBrand && <BrandBadge />}
         </UserHeaderTitle>
-        {debtFreeDaysLeft && (
+        {debtFreeDaysLeft !== null && (
           <DebtPayoffDaysLeft onClick={onClickUser}>
             {debtFreeDaysLeft} days left
           </DebtPayoffDaysLeft>

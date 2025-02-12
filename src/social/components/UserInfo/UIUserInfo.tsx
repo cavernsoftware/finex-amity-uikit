@@ -170,7 +170,7 @@ const UIUserInfo = ({
               />
             ) : null}
           </ProfileNameWrapper>
-          {debtFreeDaysLeft && (
+          {debtFreeDaysLeft !== null && (
             <DebtFreeCountdownContainer>
               <DebtFreeCountdownLabel>
                 <FormattedMessage id="user.debtFreeCountdown" />

@@ -257,7 +257,7 @@ const StyledComment = (props: StyledCommentProps) => {
                     }}
                   />
                 )}
-                {debtFreeDaysLeft && (
+                {debtFreeDaysLeft !== null && (
                   <DebtPayoffDaysLeft onClick={onClickUser}>{debtFreeDaysLeft}</DebtPayoffDaysLeft>
                 )}
                 <CommentDate date={createdAt?.getTime()} />

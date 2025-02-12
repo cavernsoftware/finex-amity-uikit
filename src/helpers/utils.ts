@@ -212,5 +212,5 @@ export function getDebtPayoffCountdown(debtPayoffDate: string | null): number | 
     startOfDay(new Date()),
   );
 
-  return getNonUnluckyNumber(daysUntilPayoff);
+  return Math.max(0, getNonUnluckyNumber(daysUntilPayoff));
 }
