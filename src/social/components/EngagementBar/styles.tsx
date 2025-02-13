@@ -32,4 +32,5 @@ export const CommentIcon = styled(Comment).attrs({ width: 16, height: 16 })`
 export const NoInteractionMessage = styled.div`
   color: ${({ theme }) => theme.palette.base.shade2};
   margin-top: 8px;
+  padding: 10px 0 16px 0;
 `;

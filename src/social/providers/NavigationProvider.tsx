@@ -1,9 +1,18 @@
-import React, { createContext, useCallback, useContext, useState, useMemo, ReactNode } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+  useMemo,
+  ReactNode,
+  useEffect,
+} from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useConfirmContext } from '~/core/providers/ConfirmProvider';
 
 import { PageTypes } from '~/social/constants';
 import { AmityStoryMediaType } from '~/v4/social/pages/DraftsPage/DraftsPage';
+import useCommunitiesCollection from '../hooks/collections/useCommunitiesCollection';
 
 type Page =
   | {
@@ -179,6 +188,7 @@ export default function NavigationProvider({
   const [pages, setPages] = useState<Page[]>([
     { type: PageTypes.NewsFeed, communityId: undefined },
     // { type: PageTypes.UserFeed, userId: userId ?? '' },
+    // { type: PageTypes.Explore, communityId: undefined },
   ]);
   const currentPage = useMemo(() => pages[pages.length - 1], [pages]);
   const [navigationBlocker, setNavigationBlocker] = useState<
@@ -397,6 +407,16 @@ export default function NavigationProvider({
     },
     [onChangePage, pushPage],
   );
+
+  const communities = useCommunitiesCollection({ membership: 'member', limit: 1 });
+  const [didCheckCommunities, setDidCheckCommunities] = useState(false);
+
+  useEffect(() => {
+    if (!communities.isLoading && communities.communities.length === 0 && !didCheckCommunities) {
+      pushPage({ type: PageTypes.Explore, communityId: undefined });
+      setDidCheckCommunities(true);
+    }
+  }, [communities.isLoading, communities.communities.length, pushPage, didCheckCommunities]);
 
   return (
     <NavigationContext.Provider

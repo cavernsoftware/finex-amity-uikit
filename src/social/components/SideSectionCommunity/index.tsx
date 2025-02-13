@@ -29,15 +29,6 @@ const SideSectionCommunity = ({ shouldHideExplore, children }: SideSectionCommun
 
   return (
     <SideMenuSection heading={<FormattedMessage id="sidesectioncommunity.community" />}>
-      <SideMenuActionItem
-        data-qa-anchor="side-section-community-side-menu-action-item-news-feed-button"
-        icon={<NewsIcon />}
-        active={page.type === PageTypes.NewsFeed}
-        onClick={() => onChangePage(PageTypes.NewsFeed)}
-      >
-        <FormattedMessage id="sidesectioncommunity.newfeed" />
-      </SideMenuActionItem>
-
       {!shouldHideExplore && (
         <SideMenuActionItem
           data-qa-anchor="side-section-community-side-menu-action-item-explore-button"
@@ -48,6 +39,15 @@ const SideSectionCommunity = ({ shouldHideExplore, children }: SideSectionCommun
           <FormattedMessage id="sidesectioncommunity.explore" />
         </SideMenuActionItem>
       )}
+
+      <SideMenuActionItem
+        data-qa-anchor="side-section-community-side-menu-action-item-news-feed-button"
+        icon={<NewsIcon />}
+        active={page.type === PageTypes.NewsFeed}
+        onClick={() => onChangePage(PageTypes.NewsFeed)}
+      >
+        <FormattedMessage id="sidesectioncommunity.newfeed" />
+      </SideMenuActionItem>
 
       <SideMenuActionItem
         data-qa-anchor="side-section-community-side-menu-action-item-profile-button"
