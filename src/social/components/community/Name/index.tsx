@@ -52,10 +52,8 @@ const CommunityName = ({
       ) : (
         <Truncate lines={truncate}>
           <Name data-qa-anchor={`${dataQaAnchor}-community-name`} title={name}>
-            <>
-              {!isPublic && <PrivateIcon data-qa-anchor={`${dataQaAnchor}-private-icon`} />}
-              {name}
-            </>
+            {!isPublic && <PrivateIcon data-qa-anchor={`${dataQaAnchor}-private-icon`} />}
+            {name}
           </Name>
         </Truncate>
       )}
