@@ -52,3 +52,8 @@ export const WelcomeBanner = styled.div`
     margin: 0 -20px;
   }
 `;
+
+export const WelcomeBannerTextContainer = styled.div`
+  max-width: 450px;
+  margin: 0 auto;
+`;

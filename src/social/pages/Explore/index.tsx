@@ -4,7 +4,13 @@ import RecommendedList from '~/social/components/community/RecommendedList';
 import TrendingList from '~/social/components/community/TrendingList';
 // import CategoriesCard from '~/social/components/category/CategoriesCard';
 
-import { Wrapper, PageContainer, WelcomeBanner, StyledMobileContainer } from './styles';
+import {
+  Wrapper,
+  PageContainer,
+  WelcomeBanner,
+  WelcomeBannerTextContainer,
+  StyledMobileContainer,
+} from './styles';
 import {
   CommunitySideMenuOverlay,
   HeadTitle,
@@ -34,19 +40,14 @@ const ExplorePage = ({ isOpen, toggleOpen, hideSideMenu }: ExplorePageProps) => 
           </StyledMobileContainer>
         </>
       )}
-      <WelcomeBanner>
-        <div
-          style={{
-            maxWidth: '450px',
-            margin: '0 auto',
-          }}
-        >
-          Welcome to the Finex Communities! 🎉 Join a community with like&#8209;minded people on the
-          same debt&#8209;free journey. Share tips, advice, stories, and resources that keep you
-          motivated&nbsp;&&nbsp;inspired!&nbsp;🙌
-        </div>
-      </WelcomeBanner>
       <PageContainer>
+        <WelcomeBanner>
+          <WelcomeBannerTextContainer>
+            Welcome to the Finex Communities! 🎉 Join a community with like&#8209;minded people on
+            the same debt&#8209;free journey. Share tips, advice, stories, and resources that keep
+            you motivated&nbsp;&&nbsp;inspired!&nbsp;🙌
+          </WelcomeBannerTextContainer>
+        </WelcomeBanner>
         <RecommendedList />
         <TrendingList />
         {/* <CategoriesCard /> */}
