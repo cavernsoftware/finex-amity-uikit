@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
 import { CommunityRepository } from '@amityco/ts-sdk';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import Modal from '~/core/components/Modal';
 
@@ -35,7 +35,11 @@ const CommunityCreationModal = ({ isOpen, onClose }: CommunityCreationModalProps
   };
 
   return (
-    <Modal data-qa-anchor="community-creation-modal" title="Create group" onCancel={closeConfirm}>
+    <Modal
+      data-qa-anchor="community-creation-modal"
+      title={<FormattedMessage id="createCommunity" />}
+      onCancel={closeConfirm}
+    >
       <CreateCommunityForm
         data-qa-anchor="community-creation"
         onCancel={closeConfirm}

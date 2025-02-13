@@ -31,7 +31,7 @@ const NewsFeed = ({ isOpen, toggleOpen }: NewsFeedProps) => {
       <StyledCommunitySideMenu isOpen={isOpen} />
       <MobileContainer>
         <StyledBarsIcon onClick={toggleOpen} />
-        <HeadTitle>{formatMessage({ id: 'sidebar.community' })}</HeadTitle>
+        <HeadTitle>{formatMessage({ id: 'sidebar.feed' })}</HeadTitle>
       </MobileContainer>
       <StoryTab type="globalFeed" />
       <Feed

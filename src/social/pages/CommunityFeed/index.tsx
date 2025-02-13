@@ -72,7 +72,7 @@ const CommunityFeed = ({ communityId, isNewCommunity, isOpen, toggleOpen }: Comm
       <MobileContainer>
         <StyledBarsIcon onClick={toggleOpen} />
         <HeadTitle>
-          <FormattedMessage id="sidebar.group" />
+          <FormattedMessage id="sidebar.community" />
         </HeadTitle>
       </MobileContainer>
       <CommunityInfo communityId={communityId} />

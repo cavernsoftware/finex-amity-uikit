@@ -92,7 +92,7 @@
   "EmptyFeed.exploreCommunity": "Explore Community",
 
   "UserFeed.tabs.timeline": "Timeline",
-  "community.exploreCommunities": "Explore Communities",
+  "community.exploreCommunities": "Explore Community",
   "community.permissions.postReview": "Post review",
   "community.permissions.storyComments": "Story comments",
   "community.permissions.approvePosts": "Approve member posts",
@@ -207,7 +207,6 @@
   "files.all": "View all files",
 
   "sidebar.community": "Community",
-  "sidebar.feed": "Feed",
   "sidebar.group": "Community",
   "sidebar.profile": "Profile",
   "sidebar.explore": "Explore",
