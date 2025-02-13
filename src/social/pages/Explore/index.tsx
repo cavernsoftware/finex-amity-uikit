@@ -4,32 +4,14 @@ import RecommendedList from '~/social/components/community/RecommendedList';
 import TrendingList from '~/social/components/community/TrendingList';
 // import CategoriesCard from '~/social/components/category/CategoriesCard';
 
-import { PageContainer } from './styles';
+import { Wrapper, PageContainer, WelcomeBanner, StyledMobileContainer } from './styles';
 import {
   CommunitySideMenuOverlay,
   HeadTitle,
-  MobileContainer,
   StyledCommunitySideMenu,
   StyledBarsIcon,
 } from '../NewsFeed/styles';
 import { useIntl } from 'react-intl';
-import { styled } from 'styled-components';
-
-const StyledMobileContainer = styled(MobileContainer)`
-  background-color: #f7f7f8;
-  padding: 0;
-`;
-
-export const Wrapper = styled.div`
-  height: 100%;
-  margin: 0 auto;
-  overflow-y: auto;
-
-  @media (max-width: 48em) {
-    padding: 20px;
-    padding-top: 0;
-  }
-`;
 
 interface ExplorePageProps {
   isOpen: boolean;
@@ -52,6 +34,17 @@ const ExplorePage = ({ isOpen, toggleOpen, hideSideMenu }: ExplorePageProps) => 
           </StyledMobileContainer>
         </>
       )}
+      <WelcomeBanner>
+        {/* Welcome to the debt&#8209;free communities! 🎉 Join or create a community and stay
+          motivated on your debt&#8209;free journey with others! Only your countdown can be visible
+          - all other debt info is kept private to you. */}
+        {/* Join or create a debt-free community to share tips, resources, and stay motivated with
+          like-minded people on your debt&#8209;free journey! Only your countdown is visible - all
+          other debt info is kept private to you. */}
+        Welcome to the Debt&#8209;Free Communities! 🎉 Join or create a community and connect with
+        like-minded people on the same debt&#8209;free journey! Only your countdown is visible to
+        others - all other debt info is kept private to you.
+      </WelcomeBanner>
       <PageContainer>
         <RecommendedList />
         <TrendingList />
