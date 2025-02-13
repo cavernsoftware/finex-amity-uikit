@@ -40,14 +40,14 @@ const ExplorePage = ({ isOpen, toggleOpen, hideSideMenu }: ExplorePageProps) => 
           </StyledMobileContainer>
         </>
       )}
+      <WelcomeBanner>
+        <WelcomeBannerTextContainer>
+          Welcome to the Finex Communities! 🎉 Join a community with like&#8209;minded people on the
+          same debt&#8209;free journey. Share tips, advice, stories, and resources that keep you
+          motivated&nbsp;&&nbsp;inspired!&nbsp;🙌
+        </WelcomeBannerTextContainer>
+      </WelcomeBanner>
       <PageContainer>
-        <WelcomeBanner>
-          <WelcomeBannerTextContainer>
-            Welcome to the Finex Communities! 🎉 Join a community with like&#8209;minded people on
-            the same debt&#8209;free journey. Share tips, advice, stories, and resources that keep
-            you motivated&nbsp;&&nbsp;inspired!&nbsp;🙌
-          </WelcomeBannerTextContainer>
-        </WelcomeBanner>
         <RecommendedList />
         <TrendingList />
         {/* <CategoriesCard /> */}
