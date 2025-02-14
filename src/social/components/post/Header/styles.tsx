@@ -28,7 +28,8 @@ export const NameContainer = styled.div`
 export const Name = styled.div`
   ${({ theme }) => theme.typography.title}
 
-  word-break: break-all;
+  word-break: break-word;
+  line-height: 1.2;
 
   &.clickable {
     &:hover {
@@ -46,6 +47,7 @@ export const DebtPayoffDaysLeft = styled.div`
   padding: 4px 8px;
   border-radius: 100px;
   cursor: pointer;
+  white-space: nowrap;
 `;
 
 export const DebtPayoffDaysLeftDot = styled.div`
@@ -91,6 +93,7 @@ export const AdditionalInfo = styled.div.withConfig({
 })<{ showTime?: boolean }>`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 
   ${({ showTime }) =>
     showTime &&

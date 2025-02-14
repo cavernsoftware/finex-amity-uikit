@@ -110,7 +110,7 @@
   "community.pendingPostsBanner.needApproval": "{formattedAmount} {amount, plural, one {post needs} other {posts need}} approval",
 
   "communityCreatedModal.title": "Customize your community",
-  "communityCreatedModal.message": "You’ve successfully created a community! Now let's manage permissions that work best for you",
+  "communityCreatedModal.message": "You’ve successfully created a community! Now let's manage permissions that work best for you.",
   "communityCreatedModal.goToSettings": "Community settings",
   "communityCreatedModal.skip": "Skip for now",
 

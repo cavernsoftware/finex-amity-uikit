@@ -48,7 +48,7 @@ const ExplorePage = ({ isOpen, toggleOpen, hideSideMenu }: ExplorePageProps) => 
         </WelcomeBannerTextContainer>
       </WelcomeBanner>
       <PageContainer>
-        <RecommendedList />
+        {/* <RecommendedList /> */}
         <TrendingList />
         {/* <CategoriesCard /> */}
       </PageContainer>
