@@ -43,7 +43,7 @@ const ExplorePage = ({ isOpen, toggleOpen, hideSideMenu }: ExplorePageProps) => 
       <WelcomeBanner>
         <WelcomeBannerTextContainer>
           Welcome to the Finex communities! 🎉 Join a community with like&#8209;minded people on the
-          same debt&#8209;free journey. Share tips, advice, stories, and resources that keep you
+          same debt&#8209;free journey. Share tips, advice, and resources that keep you
           motivated&nbsp;&&nbsp;inspired!&nbsp;🙌
         </WelcomeBannerTextContainer>
       </WelcomeBanner>
