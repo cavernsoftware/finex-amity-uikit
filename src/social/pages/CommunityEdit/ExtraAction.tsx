@@ -52,7 +52,7 @@ interface CloseCommunityButtonProps extends ExtraActionProps {
 const CloseCommunityButton = ({ onClick, ...props }: CloseCommunityButtonProps) => {
   return (
     <ExtraActionButton {...props} onClick={onClick} $destructive>
-      <FormattedMessage id="close" />
+      <FormattedMessage id="CloseCommunityAction.title" />
     </ExtraActionButton>
   );
 };
@@ -89,7 +89,7 @@ export const CloseCommunityAction = ({
       title: formatMessage({ id: 'CloseCommunityAction.closeConfirm.title' }),
       content: formatMessage({ id: 'CloseCommunityAction.closeConfirm.description' }),
       cancelText: formatMessage({ id: 'cancel' }),
-      okText: formatMessage({ id: 'close' }),
+      okText: formatMessage({ id: 'CloseCommunityAction.title' }),
       onOk: async () => {
         if (!communityId) return;
         await CommunityRepository.deleteCommunity(communityId);
