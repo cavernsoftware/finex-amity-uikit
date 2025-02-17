@@ -178,10 +178,13 @@ const SocialSearch = ({ className, sticky = false, searchBy }: SocialSearchProps
             {isOpen ? (
               <SocialSearchTabs
                 tabs={[
-                  { value: 'communities', label: 'Communities' },
+                  {
+                    value: 'communities',
+                    label: <FormattedMessage id="exploreHeader.searchTabCommunities" />,
+                  },
                   {
                     value: 'accounts',
-                    label: 'People',
+                    label: <FormattedMessage id="exploreHeader.searchTabAccounts" />,
                   },
                 ]}
                 activeTab={activeTab}

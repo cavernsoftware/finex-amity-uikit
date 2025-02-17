@@ -18,10 +18,12 @@
   "recommendedList": "Recommended",
   "exploreHeader.searchCommunityTitle": "Explore communities",
   "exploreHeader.searchCommunityPlaceholder": "Search communities",
+  "exploreHeader.searchTabCommunities": "Communities",
+  "exploreHeader.searchTabAccounts": "People",
   "exploreHeader.createCommunityTitle": "or create your own!",
   "exploreHeader.createCommunityButton": "Create community",
   "backTitle": "Back",
-  "createCommunity": "Create Community",
+  "createCommunity": "Create community",
   "moderator": "Moderator",
   "moderatorMenu.promoteToModerator": "Promote to moderator",
   "moderatorMenu.dismissModerator": "Dismiss moderator",
@@ -59,7 +61,7 @@
   "community.updateSuccess": "Your community was successfully updated",
   "community.editProfile": "Edit community",
   "community.join": "Join",
-  "community.communitySettings": "Community Settings",
+  "community.communitySettings": "Community settings",
   "community.returnTo": "Return to {communityName}",
   "community.leaveCommunityTitle": "Leave community?",
   "community.leaveCommunityBody": "You won’t no longer be able to post and interact in this community after leaving.",
@@ -80,7 +82,7 @@
   "community.posts": "posts",
   "community.members": "members",
   "community.settings": "Settings",
-  "community.leaveCommunity": "Leave Community",
+  "community.leaveCommunity": "Leave community",
 
   "CommunityMembers.members": "Members",
   "CommunityMembers.moderators": "Moderators",
@@ -89,10 +91,10 @@
   "EmptyFeed.TargetType.communityFeed": "This community's feed is empty",
   "EmptyFeed.TargetType.userFeed": "This user's feed is empty",
   "EmptyFeed.TargetType.myFeed": "Your feed is empty. Start your first post",
-  "EmptyFeed.exploreCommunity": "Explore Community",
+  "EmptyFeed.exploreCommunity": "Explore community",
 
   "UserFeed.tabs.timeline": "Timeline",
-  "community.exploreCommunities": "Explore Community",
+  "community.exploreCommunities": "Explore Communities",
   "community.permissions.postReview": "Post review",
   "community.permissions.storyComments": "Story comments",
   "community.permissions.approvePosts": "Approve member posts",
@@ -110,7 +112,7 @@
   "community.pendingPostsBanner.needApproval": "{formattedAmount} {amount, plural, one {post needs} other {posts need}} approval",
 
   "communityCreatedModal.title": "Customize your community",
-  "communityCreatedModal.message": "You’ve successfully created a community! Now let's manage permissions that work best for you",
+  "communityCreatedModal.message": "You’ve successfully created a community! Now let's manage permissions that work best for you.",
   "communityCreatedModal.goToSettings": "Community settings",
   "communityCreatedModal.skip": "Skip for now",
 
@@ -127,7 +129,7 @@
   "ProfileSettings.editProfile": "Edit profile",
   "ProfileSettings.returnTo": "Return to {displayName}",
 
-  "SideSectionMyCommunity.myCommunity": "My Communities",
+  "SideSectionMyCommunity.myCommunity": "My communities",
 
   "file.reUpload": "Click to re-upload the file",
 
@@ -207,6 +209,7 @@
   "files.all": "View all files",
 
   "sidebar.community": "Community",
+  "sidebar.feed": "Feed",
   "sidebar.group": "Community",
   "sidebar.profile": "Profile",
   "sidebar.explore": "Explore",
@@ -238,10 +241,10 @@
   "AddMemberAction.title": "Add members",
   "AddMemberAction.description": "Add members to this community to participate in conversations.",
 
-  "CloseCommunityAction.closeConfirm.title": "Close community?",
+  "CloseCommunityAction.closeConfirm.title": "Delete community?",
   "CloseCommunityAction.closeConfirm.description": "All members will be removed from the community. All posts, messages, reactions and media shared in community will be deleted. This cannot be undone.",
-  "CloseCommunityAction.title": "Close community",
-  "CloseCommunityAction.description": "Closing this community will remove the community page and all its content and comments. This cannot be undone.",
+  "CloseCommunityAction.title": "Delete community",
+  "CloseCommunityAction.description": "Deleting this community will remove the community page and all its content and comments. This cannot be undone.",
   "report.doReport": "Report",
   "report.undoReport": "Undo Report",
   "comment.deleteBody": "This comment will be permanently removed.",

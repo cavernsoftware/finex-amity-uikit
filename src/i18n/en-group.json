@@ -17,11 +17,13 @@
   "categoryList": "Categories",
   "recommendedList": "Recommended",
   "exploreHeader.searchCommunityTitle": "Explore groups",
-  "exploreHeader.searchCommunityPlaceholder": "Search groups",
+  "exploreHeader.searchCommunityPlaceholder": "Search community",
+  "exploreHeader.searchTabCommunities": "Groups",
+  "exploreHeader.searchTabAccounts": "People",
   "exploreHeader.createCommunityTitle": "or create your own!",
   "exploreHeader.createCommunityButton": "Create group",
   "backTitle": "Back",
-  "createCommunity": "Create Group",
+  "createCommunity": "Create group",
   "moderator": "Moderator",
   "moderatorMenu.promoteToModerator": "Promote to moderator",
   "moderatorMenu.dismissModerator": "Dismiss moderator",
@@ -57,9 +59,9 @@
 
   "community.createSuccess": "Your group was successfully created",
   "community.updateSuccess": "Your group was successfully updated",
-  "community.editProfile": "Edit community",
+  "community.editProfile": "Edit group",
   "community.join": "Join",
-  "community.communitySettings": "Group Settings",
+  "community.communitySettings": "Group settings",
   "community.returnTo": "Return to {communityName}",
   "community.leaveCommunityTitle": "Leave group?",
   "community.leaveCommunityBody": "You won’t no longer be able to post and interact in this group after leaving.",
@@ -80,7 +82,7 @@
   "community.posts": "posts",
   "community.members": "members",
   "community.settings": "Settings",
-  "community.leaveCommunity": "Leave Group",
+  "community.leaveCommunity": "Leave group",
 
   "CommunityMembers.members": "Members",
   "CommunityMembers.moderators": "Moderators",
@@ -89,10 +91,10 @@
   "EmptyFeed.TargetType.communityFeed": "This group's feed is empty",
   "EmptyFeed.TargetType.userFeed": "This user's feed is empty",
   "EmptyFeed.TargetType.myFeed": "Your feed is empty. Start your first post",
-  "EmptyFeed.exploreCommunity": "Explore Groups",
+  "EmptyFeed.exploreCommunity": "Explore groups",
 
   "UserFeed.tabs.timeline": "Timeline",
-  "community.exploreCommunities": "Explore",
+  "community.exploreCommunities": "Explore groups",
   "community.permissions.postReview": "Post review",
   "community.permissions.storyComments": "Story comments",
   "community.permissions.approvePosts": "Approve member posts",
@@ -110,7 +112,7 @@
   "community.pendingPostsBanner.needApproval": "{formattedAmount} {amount, plural, one {post needs} other {posts need}} approval",
 
   "communityCreatedModal.title": "Customize your group",
-  "communityCreatedModal.message": "You’ve successfully created a group! Now let's manage permissions that work best for you",
+  "communityCreatedModal.message": "You’ve successfully created a group! Now let's manage permissions that work best for you.",
   "communityCreatedModal.goToSettings": "Group settings",
   "communityCreatedModal.skip": "Skip for now",
 
@@ -127,7 +129,7 @@
   "ProfileSettings.editProfile": "Edit profile",
   "ProfileSettings.returnTo": "Return to {displayName}",
 
-  "SideSectionMyCommunity.myCommunity": "My Groups",
+  "SideSectionMyCommunity.myCommunity": "My groups",
 
   "file.reUpload": "Click to re-upload the file",
 
@@ -206,7 +208,8 @@
 
   "files.all": "View all files",
 
-  "sidebar.community": "Feed",
+  "sidebar.community": "Group",
+  "sidebar.feed": "Feed",
   "sidebar.group": "Group",
   "sidebar.profile": "Profile",
   "sidebar.explore": "Explore",
@@ -238,10 +241,10 @@
   "AddMemberAction.title": "Add members",
   "AddMemberAction.description": "Add members to this group to participate in conversations.",
 
-  "CloseCommunityAction.closeConfirm.title": "Close group?",
+  "CloseCommunityAction.closeConfirm.title": "Delete group?",
   "CloseCommunityAction.closeConfirm.description": "All members will be removed from the group. All posts, messages, reactions and media shared in group will be deleted. This cannot be undone.",
-  "CloseCommunityAction.title": "Close group",
-  "CloseCommunityAction.description": "Closing this group will remove the group page and all its content and comments. This cannot be undone.",
+  "CloseCommunityAction.title": "Delete group",
+  "CloseCommunityAction.description": "Deleting this group will remove the group page and all its content and comments. This cannot be undone.",
   "report.doReport": "Report",
   "report.undoReport": "Undo Report",
   "comment.deleteBody": "This comment will be permanently removed.",
