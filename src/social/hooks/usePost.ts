@@ -1,8 +1,14 @@
-import { PostRepository } from '@amityco/ts-sdk';
+import { PostRepository, SubscriptionLevels } from '@amityco/ts-sdk';
 
 import useLiveObject from '~/core/hooks/useLiveObject';
+import usePostSubscription from '~/social/hooks/usePostSubscription';
 
 const usePost = (postId?: string): Amity.Post | null | undefined => {
+  usePostSubscription({
+    postId,
+    level: SubscriptionLevels.POST,
+  });
+
   const post: Amity.Post | null | undefined = useLiveObject({
     fetcher: PostRepository.getPost,
     params: postId as string,
