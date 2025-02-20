@@ -2,7 +2,7 @@
   "preferred_theme": "default",
   "theme": {
     "light": {
-      "primary_color": "#1054DE",
+      "primary_color": "#228be6",
       "secondary_color": "#292B32",
       "base_color": "#292b32",
       "base_shade1_color": "#636878",
@@ -14,7 +14,7 @@
       "base_inverse_color": "#000000"
     },
     "dark": {
-      "primary_color": "#1054DE",
+      "primary_color": "#228be6",
       "secondary_color": "#ebecef",
       "base_color": "#ebecef",
       "base_shade1_color": "#a5a9b5",
@@ -177,7 +177,7 @@
     "live_chat/*/*": {
       "theme": {
         "light": {
-          "primary_color": "#1054de",
+          "primary_color": "#228be6",
           "base_inverse_color": "#fff",
           "base_color": "#ebecef",
           "base_shade1_color": "#a5a9b5",
@@ -191,14 +191,14 @@
           "secondary_shade4_color": "#40434e",
           "secondary_shade5_color": "#292b32",
           "alert_color": "#fa4d30",
-          "highlight_color": "#1054de",
-          "message_bubble_primary_color": "#1054de",
+          "highlight_color": "#228be6",
+          "message_bubble_primary_color": "#228be6",
           "message_bubble_secondary_color": "#292b32",
           "background_color": "#191919",
           "background_shade1_color": "#40434e"
         },
         "dark": {
-          "primary_color": "#1054de",
+          "primary_color": "#228be6",
           "base_inverse_color": "#fff",
           "base_color": "#ebecef",
           "base_shade1_color": "#a5a9b5",
@@ -212,8 +212,8 @@
           "secondary_shade4_color": "#40434e",
           "secondary_shade5_color": "#292b32",
           "alert_color": "#fa4d30",
-          "highlight_color": "#1054de",
-          "message_bubble_primary_color": "#1054de",
+          "highlight_color": "#228be6",
+          "message_bubble_primary_color": "#228be6",
           "message_bubble_secondary_color": "#292b32",
           "background_color": "#191919",
           "background_shade1_color": "#40434e"

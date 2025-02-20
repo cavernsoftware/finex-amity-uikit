@@ -5,7 +5,7 @@ const actionItemActiveStyles = css<{ active?: boolean }>`
   ${({ active, theme }) =>
     active &&
     `
-      background-color: ${theme.palette.primary.shade3};
+      background-color: ${theme.palette.highlight2.main};
       & > .actionItemChild {
         color: ${theme.palette.primary.main};
       }
@@ -21,7 +21,7 @@ const actionItemContainerStyles = css`
   color: ${({ theme }) => theme.palette.neutral.main};
   justify-content: left;
   &:hover:not(:disabled) {
-    background-color: ${({ theme }) => theme.palette.primary.shade3};
+    background-color: ${({ theme }) => theme.palette.highlight2.main};
   }
   &:disabled {
     color: ${({ theme }) => theme.palette.neutral.shade2};
@@ -46,7 +46,7 @@ export const AnchorActionItem = styled.a.withConfig({
     active &&
     css`
       color: ${theme.palette.primary.main};
-      background-color: ${theme.palette.primary.shade3};
+      background-color: ${theme.palette.highlight2.main};
     `};
 `;
 

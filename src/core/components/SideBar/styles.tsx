@@ -13,7 +13,7 @@ export const SideNavContainer = styled.div`
 
 export const MenuName = styled.div`
   display: flex;
-  color: #1054de;
+  color: #228be6;
   font-size: 10px;
   word-break: break-word;
   white-space: normal;
@@ -30,6 +30,6 @@ export const MenuTabContainer = styled.div.withConfig({
   width: 100%;
   height: 64px;
   cursor: pointer;
-  ${({ active }) => active && 'border-left: 2px solid #1054DE;  background-color: #ebecef;'}
+  ${({ active }) => active && 'border-left: 2px solid #228be6;  background-color: #ebecef;'}
   ${({ theme }) => theme.typography.captionBold}
 `;

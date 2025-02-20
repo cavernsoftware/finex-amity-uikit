@@ -91,7 +91,7 @@ const suggestListStyles = {
 
 const mentionStyle = {
   position: 'relative',
-  color: '#1054DE',
+  color: '#228be6',
   pointerEvents: 'none',
   textShadow: '1px 1px 1px white, 1px -1px 1px white, -1px 1px 1px white, -1px -1px 1px white',
   zIndex: 1,

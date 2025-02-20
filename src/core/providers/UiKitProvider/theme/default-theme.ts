@@ -2,11 +2,12 @@ const defaultTheme = {
   palette: {
     alert: '#FA4D30',
     base: '#292B32',
-    primary: '#1054DE',
+    primary: '#228be6',
     secondary: '#FFD400',
     tertiary: '#FF305A',
     neutral: '#17181C',
-    highlight: '#1054DE',
+    highlight: '#228be6',
+    highlight2: '#ebf4fc',
 
     system: {
       borders: '#ebecef',

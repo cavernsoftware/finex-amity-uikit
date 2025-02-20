@@ -26,7 +26,7 @@ export const CommunityHeaderContainer = styled.a.withConfig({
     css`
       &:hover {
         cursor: pointer;
-        background-color: ${({ theme }) => theme.palette.primary.shade3};
+        background-color: ${({ theme }) => theme.palette.highlight2.main};
       }
     `}
 
@@ -34,7 +34,7 @@ export const CommunityHeaderContainer = styled.a.withConfig({
     isActive &&
     css`
       color: ${theme.palette.primary.main};
-      background-color: ${theme.palette.primary.shade3};
+      background-color: ${theme.palette.highlight2.main};
     `};
 
   ${({ children }) =>
