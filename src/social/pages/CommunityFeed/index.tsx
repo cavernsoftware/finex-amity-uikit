@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 
 import { FormattedMessage } from 'react-intl';
 import CommunityCreatedModal from '~/social/components/CommunityCreatedModal';
@@ -59,6 +59,9 @@ const CommunityFeed = ({ communityId, isNewCommunity, isOpen, toggleOpen }: Comm
 
   const [isCreatedModalOpened, setCreatedModalOpened] = useState(isNewCommunity);
 
+  const feedRef = useRef<HTMLDivElement>(null);
+  const membersRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (!tabs.find((tab) => tab.value === activeTab)) {
       setActiveTab(tabs[0].value);
@@ -75,7 +78,21 @@ const CommunityFeed = ({ communityId, isNewCommunity, isOpen, toggleOpen }: Comm
           <FormattedMessage id="sidebar.community" />
         </HeadTitle>
       </MobileContainer>
-      <CommunityInfo communityId={communityId} />
+      <CommunityInfo
+        communityId={communityId}
+        onPostsCountClick={() => {
+          setActiveTab(CommunityFeedTabs.TIMELINE);
+          setTimeout(() => {
+            feedRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 0);
+        }}
+        onMembersCountClick={() => {
+          setActiveTab(CommunityFeedTabs.MEMBERS);
+          setTimeout(() => {
+            membersRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 0);
+        }}
+      />
       <FeedHeaderTabs
         data-qa-anchor="community-feed-header"
         tabs={tabs}
@@ -84,20 +101,26 @@ const CommunityFeed = ({ communityId, isNewCommunity, isOpen, toggleOpen }: Comm
       />
 
       {activeTab === CommunityFeedTabs.TIMELINE && (
-        <Feed
-          targetType={'community'}
-          targetId={communityId}
-          readonly={!isJoined}
-          showPostCreator={isJoined && canCreatePost}
-          feedType={'published'}
-        />
+        <div ref={feedRef}>
+          <Feed
+            targetType={'community'}
+            targetId={communityId}
+            readonly={!isJoined}
+            showPostCreator={isJoined && canCreatePost}
+            feedType={'published'}
+          />
+        </div>
       )}
 
       {activeTab === CommunityFeedTabs.GALLERY && (
         <MediaGallery targetType={'community'} targetId={communityId} grid />
       )}
 
-      {activeTab === CommunityFeedTabs.MEMBERS && <CommunityMembers communityId={communityId} />}
+      {activeTab === CommunityFeedTabs.MEMBERS && (
+        <div ref={membersRef}>
+          <CommunityMembers communityId={communityId} />
+        </div>
+      )}
 
       {activeTab === CommunityFeedTabs.PENDING && (
         <>

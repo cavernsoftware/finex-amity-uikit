@@ -9,9 +9,15 @@ import { useConfirmContext } from '~/core/providers/ConfirmProvider';
 
 interface CommunityInfoProps {
   communityId: string;
+  onPostsCountClick?: () => void;
+  onMembersCountClick?: () => void;
 }
 
-const CommunityInfo = ({ communityId }: CommunityInfoProps) => {
+const CommunityInfo = ({
+  communityId,
+  onPostsCountClick,
+  onMembersCountClick,
+}: CommunityInfoProps) => {
   const {
     community,
     communityCategories,
@@ -66,6 +72,8 @@ const CommunityInfo = ({ communityId }: CommunityInfoProps) => {
           onOk: () => leaveCommunity(),
         })
       }
+      onPostsCountClick={onPostsCountClick}
+      onMembersCountClick={onMembersCountClick}
     />
   );
 };

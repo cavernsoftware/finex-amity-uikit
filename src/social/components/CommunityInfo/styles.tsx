@@ -99,6 +99,8 @@ export const CategoriesList = styled.div`
 `;
 
 export const Count = styled.span`
+  cursor: pointer;
+
   & > .countNumber {
     ${({ theme }) => theme.typography.title};
     color: ${({ theme }) => theme.palette.base.default};

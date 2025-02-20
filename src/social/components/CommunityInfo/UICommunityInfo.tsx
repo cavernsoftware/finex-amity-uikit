@@ -47,6 +47,8 @@ interface UICommunityInfoProps {
   canReviewPosts: boolean;
   name: string;
   postSetting: ValueOf<typeof CommunityPostSettings>;
+  onPostsCountClick?: () => void;
+  onMembersCountClick?: () => void;
 }
 
 const UICommunityInfo = ({
@@ -68,6 +70,8 @@ const UICommunityInfo = ({
   canReviewPosts,
   name,
   postSetting,
+  onPostsCountClick,
+  onMembersCountClick,
 }: UICommunityInfoProps) => {
   const { formatMessage } = useIntl();
 
@@ -90,14 +94,14 @@ const UICommunityInfo = ({
       <Content>
         <Header>
           <CountsContainer>
-            <Count>
+            <Count onClick={onPostsCountClick}>
               <div className="countNumber">{millify(postsCount || 0)}</div>
               <div className="countType">
                 <FormattedMessage id="community.posts" />
               </div>
             </Count>
             <Divider />
-            <Count>
+            <Count onClick={onMembersCountClick}>
               <div className="countNumber">{millify(membersCount || 0)}</div>
               <div className="countType">
                 <FormattedMessage id="community.members" />
