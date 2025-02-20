@@ -9,6 +9,11 @@ const usePost = (postId?: string): Amity.Post | null | undefined => {
     level: SubscriptionLevels.POST,
   });
 
+  usePostSubscription({
+    postId,
+    level: SubscriptionLevels.COMMENT,
+  });
+
   const post: Amity.Post | null | undefined = useLiveObject({
     fetcher: PostRepository.getPost,
     params: postId as string,

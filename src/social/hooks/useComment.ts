@@ -1,7 +1,13 @@
 import { CommentRepository } from '@amityco/ts-sdk';
 import useLiveObject from '~/core/hooks/useLiveObject';
 
+import useCommentSubscription from './useCommentSubscription';
+
 const useComment = (commentId?: string) => {
+  useCommentSubscription({
+    commentId,
+  });
+
   return useLiveObject({
     fetcher: CommentRepository.getComment,
     params: commentId as string,
