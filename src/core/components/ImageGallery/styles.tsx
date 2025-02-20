@@ -7,6 +7,7 @@ export const Container = styled.div`
   z-index: 9999;
   position: fixed;
   overflow: hidden;
+  padding-top: 50px;
 
   align-items: center;
 
@@ -14,8 +15,8 @@ export const Container = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 
   background: rgba(0, 0, 0, 0.75);
   color: ${({ theme }) => theme.palette.system.background};
