@@ -56,7 +56,7 @@ const UIUserHeader = ({
         </UserHeaderTitle>
         {debtFreeDaysLeft !== null && (
           <DebtPayoffDaysLeft onClick={onClickUser}>
-            {debtFreeDaysLeft} days left
+            {debtFreeDaysLeft.toLocaleString()} days left
           </DebtPayoffDaysLeft>
         )}
       </UserNameContainer>

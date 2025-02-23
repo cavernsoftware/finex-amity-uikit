@@ -103,7 +103,7 @@ const UIPostHeader = ({
         {debtFreeDaysLeft !== null && (
           <>
             <DebtPayoffDaysLeft onClick={onClickUser}>
-              {debtFreeDaysLeft} days left
+              {debtFreeDaysLeft.toLocaleString()} days left
             </DebtPayoffDaysLeft>
             <DebtPayoffDaysLeftDot>•</DebtPayoffDaysLeftDot>
           </>

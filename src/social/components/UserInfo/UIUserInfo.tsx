@@ -176,7 +176,7 @@ const UIUserInfo = ({
                 <FormattedMessage id="user.debtFreeCountdown" />
               </DebtFreeCountdownLabel>
               <DebtFreeCountdownDaysLeft>
-                {debtFreeDaysLeft} <FormattedMessage id="user.daysLeft" />
+                {debtFreeDaysLeft.toLocaleString()} <FormattedMessage id="user.daysLeft" />
               </DebtFreeCountdownDaysLeft>
               {/* <DebtFreeCountdownDate>{countdownDate}</DebtFreeCountdownDate> */}
             </DebtFreeCountdownContainer>
