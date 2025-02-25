@@ -145,7 +145,7 @@ const CreateCommunityForm = ({
               )}
             />
           </Field>
-          <Field error={errors.displayName}>
+          <Field $error={!!errors.displayName}>
             <LabelCounterWrapper>
               <Label htmlFor="displayName" className="required">
                 <FormattedMessage id="community.name" />
@@ -159,7 +159,7 @@ const CreateCommunityForm = ({
             />
             <ErrorMessage errors={errors} name="displayName" />
           </Field>
-          <Field error={errors.description}>
+          <Field $error={!!errors.description}>
             <LabelCounterWrapper>
               <Label htmlFor="description">
                 <FormattedMessage id="community.about" />
@@ -239,7 +239,7 @@ const CreateCommunityForm = ({
 
         {!isPublic && (
           <FormBlock title="Group members">
-            <MembersField error={errors.userIds}>
+            <MembersField $error={!!errors.userIds}>
               <Label className="required">
                 <FormattedMessage id="community.addmembers" />
               </Label>

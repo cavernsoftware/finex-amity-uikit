@@ -148,7 +148,7 @@ const EditCommunityForm = ({
               )}
             />
           </Field>
-          <Field error={errors.displayName}>
+          <Field $error={!!errors.displayName}>
             <LabelCounterWrapper>
               <Label htmlFor="displayName" className="required">
                 <FormattedMessage id="community.name" />
@@ -162,7 +162,7 @@ const EditCommunityForm = ({
             />
             <ErrorMessage errors={errors} name="displayName" />
           </Field>
-          <Field error={errors.description}>
+          <Field $error={!!errors.description}>
             <LabelCounterWrapper>
               <Label htmlFor="description">
                 <FormattedMessage id="community.about" />

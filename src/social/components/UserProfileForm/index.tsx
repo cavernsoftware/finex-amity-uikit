@@ -107,7 +107,7 @@ const UserProfileForm = ({ user, onSubmit, className }: UserProfileFormProps) =>
             )}
             control={control}
           />
-          <Field error={errors.displayName}>
+          <Field $error={!!errors.displayName}>
             <LabelCounterWrapper>
               <Label htmlFor="displayName" className="required">
                 <FormattedMessage id="UserProfileForm.displayname" />
@@ -124,7 +124,7 @@ const UserProfileForm = ({ user, onSubmit, className }: UserProfileFormProps) =>
             />
             <ErrorMessage errors={errors} name="displayName" />
           </Field>
-          <Field error={errors.description}>
+          <Field $error={!!errors.description}>
             <LabelCounterWrapper>
               <Label htmlFor="description">
                 <FormattedMessage id="UserProfileForm.about" />

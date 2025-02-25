@@ -69,7 +69,7 @@ export const AddMemberModal = ({ className = '', closeConfirm, onSubmit }: AddMe
         <Form className={className} onSubmit={handleSubmit(validateNameAndSubmit)}>
           <FormBody>
             <FormBlock>
-              <MembersField error={errors.members}>
+              <MembersField $error={!!errors.members}>
                 <Controller
                   name="members"
                   render={({ field }) => (

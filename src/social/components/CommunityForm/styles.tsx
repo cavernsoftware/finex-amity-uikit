@@ -292,15 +292,15 @@ export const SelectIcon = styled(ChevronDown).attrs({ width: 16, height: 16 })`
   margin-left: auto;
 `;
 
-export const Field = styled.div<{ error?: ReactNode }>`
+export const Field = styled.div<{ $error?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding-top: 8px;
   padding-bottom: 8px;
 
-  ${({ error }) =>
-    error &&
+  ${({ $error }) =>
+    $error &&
     css`
       ${AboutTextarea}, ${TextField} {
         border-color: ${({ theme }) => theme.palette.alert.main};
