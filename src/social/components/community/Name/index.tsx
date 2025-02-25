@@ -50,12 +50,14 @@ const CommunityName = ({
           <Skeleton width={120} style={{ fontSize: 12 }} />
         </Name>
       ) : (
-        <Truncate lines={truncate}>
-          <Name data-qa-anchor={`${dataQaAnchor}-community-name`} title={name}>
-            {!isPublic && <PrivateIcon data-qa-anchor={`${dataQaAnchor}-private-icon`} />}
-            {name}
-          </Name>
-        </Truncate>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
+          {!isPublic && <PrivateIcon data-qa-anchor={`${dataQaAnchor}-private-icon`} />}
+          <Truncate lines={truncate}>
+            <Name data-qa-anchor={`${dataQaAnchor}-community-name`} title={name}>
+              {name}
+            </Name>
+          </Truncate>
+        </div>
       )}
 
       {!loading && isOfficial && <VerifiedIcon />}

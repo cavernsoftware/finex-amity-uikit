@@ -3,14 +3,14 @@ import styled, { css } from 'styled-components';
 import { Lock, Verified } from '~/icons';
 
 export const PrivateIcon = styled(Lock).attrs<{ icon?: ReactNode }>({ width: 16, height: 16 })`
-  margin-right: 8px;
+  margin-right: 4px;
 `;
 
 export const VerifiedIcon = styled(Verified).attrs<{ icon?: ReactNode }>({
   width: 16,
   height: 16,
 })`
-  margin-left: 8px;
+  margin-left: 4px;
   fill: #1253de;
 `;
 
