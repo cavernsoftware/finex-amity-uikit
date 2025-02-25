@@ -17,6 +17,7 @@ import { getDebtFreeCountdown } from '~/helpers/utils';
 interface UIUserHeaderProps {
   userId?: string | null;
   debtFreeDate?: string | null;
+  showDebtFreeCountdown?: boolean | null;
   displayName?: string | null;
   avatarFileUrl?: string | null;
   children?: ReactNode;
@@ -29,6 +30,7 @@ const UIUserHeader = ({
   userId,
   displayName,
   debtFreeDate,
+  showDebtFreeCountdown,
   avatarFileUrl,
   children,
   onClick,
@@ -38,9 +40,8 @@ const UIUserHeader = ({
   const onClickUser = () => userId && onClick?.(userId);
 
   const debtFreeDaysLeft = useMemo(() => {
-    if (!debtFreeDate) return null;
-    return getDebtFreeCountdown(debtFreeDate);
-  }, [debtFreeDate]);
+    return getDebtFreeCountdown(debtFreeDate, showDebtFreeCountdown);
+  }, [debtFreeDate, showDebtFreeCountdown]);
 
   return (
     <UserHeaderContainer $noSubtitle={!!children}>

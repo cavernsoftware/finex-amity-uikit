@@ -108,6 +108,7 @@ export const UserItem = ({ profileUserId, currentUserId, userId, onClick }: User
           userId={user?.userId}
           displayName={user?.displayName}
           debtFreeDate={user?.metadata?.debtFreeDate}
+          showDebtFreeCountdown={user?.metadata?.showDebtFreeCountdown}
           avatarFileUrl={avatarFileUrl}
           onClick={onClickUserHeader}
         />

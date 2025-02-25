@@ -32,6 +32,7 @@ const UIPostHeader = ({
   avatarFileUrl,
   postAuthorName,
   postAuthorDebtFreeDate,
+  postAuthorShowDebtFreeCountdown,
   postTargetName,
   timeAgo,
   isModerator,
@@ -49,6 +50,7 @@ const UIPostHeader = ({
       avatarFileUrl,
       postAuthorName,
       postAuthorDebtFreeDate,
+      postAuthorShowDebtFreeCountdown,
       postTargetName,
       timeAgo,
       isModerator,
@@ -61,9 +63,8 @@ const UIPostHeader = ({
     });
 
   const debtFreeDaysLeft = useMemo(() => {
-    if (!postAuthorDebtFreeDate) return null;
-    return getDebtFreeCountdown(postAuthorDebtFreeDate);
-  }, [postAuthorDebtFreeDate]);
+    return getDebtFreeCountdown(postAuthorDebtFreeDate, postAuthorShowDebtFreeCountdown);
+  }, [postAuthorDebtFreeDate, postAuthorShowDebtFreeCountdown]);
 
   const renderPostNames = () => {
     const showTarget = postTargetName && !hidePostTarget;

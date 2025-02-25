@@ -139,6 +139,7 @@ interface StyledCommentProps {
   commentId?: string;
   authorName?: string;
   authorDebtFreeDate?: string;
+  authorShowDebtFreeCountdown?: boolean;
   authorAvatar?: string;
   canDelete?: boolean;
   canEdit?: boolean;
@@ -180,6 +181,7 @@ const StyledComment = (props: StyledCommentProps) => {
     commentId,
     authorName,
     authorDebtFreeDate,
+    authorShowDebtFreeCountdown,
     authorAvatar,
     canLike = true,
     canReply = false,
@@ -218,9 +220,8 @@ const StyledComment = (props: StyledCommentProps) => {
   }, [isMenuOpen]);
 
   const debtFreeDaysLeft = useMemo(() => {
-    if (!authorDebtFreeDate) return null;
-    return getDebtFreeCountdown(authorDebtFreeDate);
-  }, [authorDebtFreeDate]);
+    return getDebtFreeCountdown(authorDebtFreeDate, authorShowDebtFreeCountdown);
+  }, [authorDebtFreeDate, authorShowDebtFreeCountdown]);
 
   return (
     <>

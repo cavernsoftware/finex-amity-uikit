@@ -202,8 +202,11 @@ export function getNonUnluckyNumber(num: number): number {
   return output;
 }
 
-export function getDebtFreeCountdown(debtFreeDate: string | null): number | null {
-  if (!debtFreeDate) return null;
+export function getDebtFreeCountdown(
+  debtFreeDate?: string | null,
+  showDebtFreeCountdown?: boolean | null,
+): number | null {
+  if (!debtFreeDate || showDebtFreeCountdown === false) return null;
 
   const debtFreeCountdown = differenceInDays(
     startOfDay(parseISO(debtFreeDate)),

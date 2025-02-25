@@ -21,6 +21,7 @@ const UserHeader = ({ userId, children, onClick, isBanned = false }: UserHeaderP
       userId={user?.userId}
       displayName={user?.displayName}
       debtFreeDate={user?.metadata?.debtFreeDate}
+      showDebtFreeCountdown={user?.metadata?.showDebtFreeCountdown}
       avatarFileUrl={avatarFileUrl}
       isBanned={isBanned}
       isBrand={user?.isBrand}

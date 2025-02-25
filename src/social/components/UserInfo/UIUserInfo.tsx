@@ -49,6 +49,7 @@ interface UIUserInfoProps {
   fileUrl?: string;
   displayName?: string;
   debtFreeDate?: string;
+  showDebtFreeCountdown?: boolean;
   description?: string;
   isMyProfile?: boolean;
   onEditUser?: (userId: string) => void;
@@ -74,6 +75,7 @@ const UIUserInfo = ({
   fileUrl,
   displayName,
   debtFreeDate,
+  showDebtFreeCountdown,
   description,
   isMyProfile,
   onEditUser,
@@ -138,9 +140,8 @@ const UIUserInfo = ({
   ].filter(isNonNullable);
 
   const debtFreeDaysLeft = useMemo(() => {
-    if (!debtFreeDate) return null;
-    return getDebtFreeCountdown(debtFreeDate);
-  }, [debtFreeDate]);
+    return getDebtFreeCountdown(debtFreeDate, showDebtFreeCountdown);
+  }, [debtFreeDate, showDebtFreeCountdown]);
 
   const debtFreeDateFormatted = useMemo(() => {
     if (!debtFreeDate) return null;
