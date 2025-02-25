@@ -226,7 +226,7 @@ const Comment = ({ commentId, readonly }: CommentProps) => {
       authorName={
         commentAuthor?.displayName || commentAuthor?.userId || formatMessage({ id: 'anonymous' })
       }
-      authorDebtPayoffDate={commentAuthor?.metadata?.debtPayoffDate}
+      authorDebtFreeDate={commentAuthor?.metadata?.debtFreeDate}
       authorAvatar={commentAuthorAvatar?.fileUrl}
       canDelete={canDelete}
       canEdit={canEdit}

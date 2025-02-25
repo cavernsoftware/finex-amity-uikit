@@ -12,11 +12,11 @@ import {
 } from './styles';
 import { useCustomComponent } from '~/core/providers/CustomComponentsProvider';
 import { BrandBadge } from '~/v4/social/internal-components/BrandBadge/BrandBadge';
-import { getDebtPayoffCountdown } from '~/helpers/utils';
+import { getDebtFreeCountdown } from '~/helpers/utils';
 
 interface UIUserHeaderProps {
   userId?: string | null;
-  debtPayoffDate?: string | null;
+  debtFreeDate?: string | null;
   displayName?: string | null;
   avatarFileUrl?: string | null;
   children?: ReactNode;
@@ -28,7 +28,7 @@ interface UIUserHeaderProps {
 const UIUserHeader = ({
   userId,
   displayName,
-  debtPayoffDate,
+  debtFreeDate,
   avatarFileUrl,
   children,
   onClick,
@@ -38,9 +38,9 @@ const UIUserHeader = ({
   const onClickUser = () => userId && onClick?.(userId);
 
   const debtFreeDaysLeft = useMemo(() => {
-    if (!debtPayoffDate) return null;
-    return getDebtPayoffCountdown(debtPayoffDate);
-  }, [debtPayoffDate]);
+    if (!debtFreeDate) return null;
+    return getDebtFreeCountdown(debtFreeDate);
+  }, [debtFreeDate]);
 
   return (
     <UserHeaderContainer $noSubtitle={!!children}>

@@ -24,10 +24,9 @@ import {
   EditedMark,
   OptionMenuContainer,
   OptionButtonContainer,
-  DebtPayoffDaysLeft,
-  DebtPayoffDaysLeftDot,
+  DebtFreeDaysLeft,
 } from './styles';
-import { Mentioned, Metadata, getDebtPayoffCountdown, isNonNullable } from '~/helpers/utils';
+import { Mentioned, Metadata, getDebtFreeCountdown, isNonNullable } from '~/helpers/utils';
 import { QueryMentioneesFnType } from '~/social/hooks/useSocialMention';
 import { Option, OptionsButton, OptionsIcon } from '~/core/components/OptionMenu/styles';
 import useCommentFlaggedByMe from '~/social/hooks/useCommentFlaggedByMe';
@@ -139,7 +138,7 @@ const OptionMenu = ({
 interface StyledCommentProps {
   commentId?: string;
   authorName?: string;
-  authorDebtPayoffDate?: string;
+  authorDebtFreeDate?: string;
   authorAvatar?: string;
   canDelete?: boolean;
   canEdit?: boolean;
@@ -180,7 +179,7 @@ const StyledComment = (props: StyledCommentProps) => {
   const {
     commentId,
     authorName,
-    authorDebtPayoffDate,
+    authorDebtFreeDate,
     authorAvatar,
     canLike = true,
     canReply = false,
@@ -219,9 +218,9 @@ const StyledComment = (props: StyledCommentProps) => {
   }, [isMenuOpen]);
 
   const debtFreeDaysLeft = useMemo(() => {
-    if (!authorDebtPayoffDate) return null;
-    return getDebtPayoffCountdown(authorDebtPayoffDate);
-  }, [authorDebtPayoffDate]);
+    if (!authorDebtFreeDate) return null;
+    return getDebtFreeCountdown(authorDebtFreeDate);
+  }, [authorDebtFreeDate]);
 
   return (
     <>
@@ -258,9 +257,9 @@ const StyledComment = (props: StyledCommentProps) => {
                   />
                 )}
                 {debtFreeDaysLeft !== null && (
-                  <DebtPayoffDaysLeft onClick={onClickUser}>
+                  <DebtFreeDaysLeft onClick={onClickUser}>
                     {debtFreeDaysLeft.toLocaleString()}
-                  </DebtPayoffDaysLeft>
+                  </DebtFreeDaysLeft>
                 )}
                 <CommentDate date={createdAt?.getTime()} />
                 {(editedAt?.getTime() || 0) - (createdAt?.getTime() || 0) > 0 && (

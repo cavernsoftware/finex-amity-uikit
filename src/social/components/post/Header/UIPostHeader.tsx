@@ -24,14 +24,14 @@ import {
 } from './styles';
 import { usePostHeaderProps } from './hooks';
 import { useCustomComponent } from '~/core/providers/CustomComponentsProvider';
-import { getDebtPayoffCountdown } from '~/helpers/utils';
+import { getDebtFreeCountdown } from '~/helpers/utils';
 
 type UIPostHeaderProps = ReturnType<typeof usePostHeaderProps>;
 
 const UIPostHeader = ({
   avatarFileUrl,
   postAuthorName,
-  postAuthorDebtPayoffDate,
+  postAuthorDebtFreeDate,
   postTargetName,
   timeAgo,
   isModerator,
@@ -48,7 +48,7 @@ const UIPostHeader = ({
     return CustomComponentFn({
       avatarFileUrl,
       postAuthorName,
-      postAuthorDebtPayoffDate,
+      postAuthorDebtFreeDate,
       postTargetName,
       timeAgo,
       isModerator,
@@ -61,9 +61,9 @@ const UIPostHeader = ({
     });
 
   const debtFreeDaysLeft = useMemo(() => {
-    if (!postAuthorDebtPayoffDate) return null;
-    return getDebtPayoffCountdown(postAuthorDebtPayoffDate);
-  }, [postAuthorDebtPayoffDate]);
+    if (!postAuthorDebtFreeDate) return null;
+    return getDebtFreeCountdown(postAuthorDebtFreeDate);
+  }, [postAuthorDebtFreeDate]);
 
   const renderPostNames = () => {
     const showTarget = postTargetName && !hidePostTarget;

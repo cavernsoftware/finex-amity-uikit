@@ -99,7 +99,7 @@ export const AuthorName = styled.span`
   font-weight: 600;
 `;
 
-export const DebtPayoffDaysLeft = styled.span`
+export const DebtFreeDaysLeft = styled.span`
   background-color: var(--mantine-color-blue-light);
   color: var(--mantine-color-blue-text);
   font-weight: 700;
@@ -111,7 +111,7 @@ export const DebtPayoffDaysLeft = styled.span`
   cursor: pointer;
 `;
 
-export const DebtPayoffDaysLeftDot = styled.span`
+export const DebtFreeDaysLeftDot = styled.span`
   color: ${({ theme }) => theme.palette.base.shade1};
   ${({ theme }) => theme.typography.caption}
   margin: 0 4px;

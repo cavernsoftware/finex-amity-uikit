@@ -107,7 +107,7 @@ export const UserItem = ({ profileUserId, currentUserId, userId, onClick }: User
         <UIUserHeader
           userId={user?.userId}
           displayName={user?.displayName}
-          debtPayoffDate={user?.metadata?.debtPayoffDate}
+          debtFreeDate={user?.metadata?.debtFreeDate}
           avatarFileUrl={avatarFileUrl}
           onClick={onClickUserHeader}
         />

@@ -202,15 +202,13 @@ export function getNonUnluckyNumber(num: number): number {
   return output;
 }
 
-export function getDebtPayoffCountdown(debtPayoffDate: string | null): number | null {
-  if (!debtPayoffDate) {
-    return null;
-  }
+export function getDebtFreeCountdown(debtFreeDate: string | null): number | null {
+  if (!debtFreeDate) return null;
 
-  const daysUntilPayoff = differenceInDays(
-    startOfDay(parseISO(debtPayoffDate)),
+  const debtFreeCountdown = differenceInDays(
+    startOfDay(parseISO(debtFreeDate)),
     startOfDay(new Date()),
   );
 
-  return Math.max(0, getNonUnluckyNumber(daysUntilPayoff));
+  return Math.max(0, getNonUnluckyNumber(debtFreeCountdown));
 }

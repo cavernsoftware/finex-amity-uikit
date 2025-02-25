@@ -36,7 +36,7 @@ import {
   DebtFreeCountdownDate,
 } from './styles';
 
-import { isNonNullable, getDebtPayoffCountdown } from '~/helpers/utils';
+import { isNonNullable, getDebtFreeCountdown } from '~/helpers/utils';
 import useUser from '~/core/hooks/useUser';
 import { useCustomComponent } from '~/core/providers/CustomComponentsProvider';
 import useUserFlaggedByMe from '~/social/hooks/useUserFlaggedByMe';
@@ -48,7 +48,7 @@ interface UIUserInfoProps {
   currentUserId?: string | null;
   fileUrl?: string;
   displayName?: string;
-  debtPayoffDate?: string;
+  debtFreeDate?: string;
   description?: string;
   isMyProfile?: boolean;
   onEditUser?: (userId: string) => void;
@@ -73,7 +73,7 @@ const UIUserInfo = ({
   currentUserId,
   fileUrl,
   displayName,
-  debtPayoffDate,
+  debtFreeDate,
   description,
   isMyProfile,
   onEditUser,
@@ -138,14 +138,14 @@ const UIUserInfo = ({
   ].filter(isNonNullable);
 
   const debtFreeDaysLeft = useMemo(() => {
-    if (!debtPayoffDate) return null;
-    return getDebtPayoffCountdown(debtPayoffDate);
-  }, [debtPayoffDate]);
+    if (!debtFreeDate) return null;
+    return getDebtFreeCountdown(debtFreeDate);
+  }, [debtFreeDate]);
 
-  const countdownDate = useMemo(() => {
-    if (!debtPayoffDate) return null;
-    return format(debtPayoffDate, 'MMMM d, yyyy');
-  }, [debtPayoffDate]);
+  const debtFreeDateFormatted = useMemo(() => {
+    if (!debtFreeDate) return null;
+    return format(debtFreeDate, 'MMMM d, yyyy');
+  }, [debtFreeDate]);
 
   return (
     <Container data-qa-anchor="user-info">
@@ -178,7 +178,7 @@ const UIUserInfo = ({
               <DebtFreeCountdownDaysLeft>
                 {debtFreeDaysLeft.toLocaleString()} <FormattedMessage id="user.daysLeft" />
               </DebtFreeCountdownDaysLeft>
-              {/* <DebtFreeCountdownDate>{countdownDate}</DebtFreeCountdownDate> */}
+              {/* <DebtFreeCountdownDate>{debtFreeDateFormatted}</DebtFreeCountdownDate> */}
             </DebtFreeCountdownContainer>
           )}
           <CountContainer>
