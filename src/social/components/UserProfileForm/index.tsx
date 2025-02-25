@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { UserRepository } from '@amityco/ts-sdk';
 import styled from 'styled-components';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Controller, useForm } from 'react-hook-form';
@@ -23,6 +24,7 @@ import {
   Footer,
   SubmitButton,
 } from '~/social/components/CommunityForm/styles';
+import SwitchItem from '../CommunityPermissions/SwitchItem';
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -70,6 +72,17 @@ const UserProfileForm = ({ user, onSubmit, className }: UserProfileFormProps) =>
 
   const description = watch('description');
   const displayName = watch('displayName');
+
+  const onShowDebtFreeCountdownChange = async (newValue: boolean) => {
+    await UserRepository.updateUser(user.userId, {
+      metadata: {
+        ...(user.metadata ?? {}),
+        showDebtFreeCountdown: newValue,
+      },
+    });
+  };
+
+  console.log('UserProfileForm:', { user }, user.metadata);
 
   return (
     <Form
@@ -126,6 +139,16 @@ const UserProfileForm = ({ user, onSubmit, className }: UserProfileFormProps) =>
             />
             <ErrorMessage errors={errors} name="description" />
           </Field>
+          <div style={{ marginTop: '10px', marginBottom: '6px' }}>
+            <SwitchItem
+              title={<FormattedMessage id="UserProfileForm.showDebtFreeCountdown" />}
+              promptText={
+                <FormattedMessage id="UserProfileForm.showDebtFreeCountdownDescription" />
+              }
+              value={user.metadata?.showDebtFreeCountdown !== false}
+              onChange={onShowDebtFreeCountdownChange}
+            />
+          </div>
         </FormBlock>
       </FormBody>
       <Footer $edit>
