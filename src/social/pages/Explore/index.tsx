@@ -42,9 +42,11 @@ const ExplorePage = ({ isOpen, toggleOpen, hideSideMenu }: ExplorePageProps) => 
       )}
       <WelcomeBanner>
         <WelcomeBannerTextContainer>
-          Welcome to the <b>debt-free communities</b>! 👋 Join or create a community and connect
-          with like&#8209;minded people on the same debt&#8209;free journey! Share tips, advice, and
-          resources that keep you motivated&nbsp;&&nbsp;inspired!&nbsp;🙌
+          <b>Welcome to the debt-free communities</b>! 👋
+          <br />
+          Join or create a community and connect with like&#8209;minded people on the same
+          debt&#8209;free journey! Share tips, advice, and resources that keep you
+          motivated&nbsp;&&nbsp;inspired!&nbsp;🙌
         </WelcomeBannerTextContainer>
       </WelcomeBanner>
       <PageContainer>
