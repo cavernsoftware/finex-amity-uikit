@@ -135,6 +135,8 @@
 
   "UserProfileForm.displayname": "Display name",
   "UserProfileForm.about": "About",
+  "UserProfileForm.showDebtFreeCountdown": "Show debt-free countdown",
+  "UserProfileForm.showDebtFreeCountdownDescription": "Helps you stay motivated on your debt-free journey with other community members.",
   "UserProfileForm.title": "General",
   "UserProfileForm.namePlaceholder": "Enter user display name",
   "UserProfileForm.requiredDisplayName": "Display name is required",
