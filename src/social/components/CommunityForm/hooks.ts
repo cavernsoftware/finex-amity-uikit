@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
 const baseCommunitySchema = z.object({
-  displayName: z.string().max(30),
+  displayName: z.string().max(40),
   description: z.string().max(180),
   categoryIds: z.string().array(),
   avatarFileId: z.string().nullable().optional(),

@@ -153,7 +153,7 @@ const EditCommunityForm = ({
               <Label htmlFor="displayName" className="required">
                 <FormattedMessage id="community.name" />
               </Label>
-              <Counter>{displayName.length}/30</Counter>
+              <Counter>{displayName.length}/40</Counter>
             </LabelCounterWrapper>
             <TextField
               {...register('displayName')}
