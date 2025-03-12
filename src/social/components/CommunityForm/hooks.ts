@@ -4,7 +4,7 @@ import * as z from 'zod';
 
 const baseCommunitySchema = z.object({
   displayName: z.string().max(40),
-  description: z.string().max(180),
+  description: z.string().max(1000),
   categoryIds: z.string().array(),
   avatarFileId: z.string().nullable().optional(),
   tags: z.string().array().optional(),
