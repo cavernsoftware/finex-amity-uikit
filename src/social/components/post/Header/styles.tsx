@@ -61,6 +61,8 @@ export const ArrowSeparator = styled(ArrowRight).attrs({
   width: '8px',
 })`
   color: ${({ theme }) => theme.palette.base.shade1};
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
 `;
 
 export const ShieldIcon = styled(Shield).attrs<{ icon?: ReactNode }>({
@@ -110,8 +112,6 @@ export const AdditionalInfo = styled.div.withConfig({
 export const PostNamesContainer = styled.div`
   display: flex;
   align-items: center;
-
-  > :not(:first-child) {
-    margin-left: 0.25rem;
-  }
+  flex-wrap: wrap;
+  margin-bottom: 4px;
 `;
