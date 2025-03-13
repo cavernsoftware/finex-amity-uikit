@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { CommunityPostSettings } from '@amityco/ts-sdk';
 import React from 'react';
 import Truncate from 'react-truncate-markup';
@@ -74,6 +75,16 @@ const UICommunityInfo = ({
   onMembersCountClick,
 }: UICommunityInfoProps) => {
   const { formatMessage } = useIntl();
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+  const isDescriptionTooLong = description?.length > 160;
+  const descriptionElement = (
+    <Description
+      data-qa-anchor="community-info-description"
+      style={{ marginBottom: isDescriptionTooLong ? 6 : undefined }}
+    >
+      {description}
+    </Description>
+  );
 
   return (
     <Container data-qa-anchor="community-info">
@@ -132,11 +143,29 @@ const UICommunityInfo = ({
           )}
         </Header>
 
-        {description && (
-          <Truncate lines={3}>
-            <Description data-qa-anchor="community-info-description">{description}</Description>
-          </Truncate>
-        )}
+        {description ? (
+          <>
+            {!isDescriptionExpanded && isDescriptionTooLong ? (
+              <Truncate lines={3}>{descriptionElement}</Truncate>
+            ) : (
+              descriptionElement
+            )}
+          </>
+        ) : null}
+
+        {isDescriptionTooLong ? (
+          <button
+            onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
+            data-qa-anchor="community-info-description-toggle-button"
+            style={{ fontSize: '14px', fontWeight: 500 }}
+          >
+            {isDescriptionExpanded ? (
+              <FormattedMessage id="community.showLess" />
+            ) : (
+              <FormattedMessage id="community.showMore" />
+            )}
+          </button>
+        ) : null}
 
         {!isJoined && (
           <JoinButton

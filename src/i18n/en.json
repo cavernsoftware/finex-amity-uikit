@@ -83,6 +83,8 @@
   "community.members": "members",
   "community.settings": "Settings",
   "community.leaveCommunity": "Leave community",
+  "community.showMore": "Show more",
+  "community.showLess": "Show less",
 
   "CommunityMembers.members": "Members",
   "CommunityMembers.moderators": "Moderators",

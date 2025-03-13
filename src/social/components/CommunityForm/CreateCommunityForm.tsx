@@ -164,7 +164,7 @@ const CreateCommunityForm = ({
               <Label htmlFor="description">
                 <FormattedMessage id="community.about" />
               </Label>
-              <Counter>{description?.length || 0}/1000</Counter>
+              <Counter>{description?.length || 0}/3000</Counter>
             </LabelCounterWrapper>
             <AboutTextarea
               {...register('description', {

@@ -122,6 +122,8 @@ export const Divider = styled.div`
 
 export const Description = styled.div`
   margin-bottom: 14px;
+
+  white-space: pre-line;
 `;
 
 export const JoinButton = styled(PrimaryButton)`
