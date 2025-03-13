@@ -91,11 +91,12 @@ export const CategoriesList = styled.div`
   margin-bottom: 0;
   line-height: 20px;
   ${({ theme }) => theme.typography.body}
+  opacity: 0.8;
 
   display: block;
-  @media (max-width: 48em) {
-    display: none;
-  }
+  // @media (max-width: 48em) {
+  //   display: none;
+  // }
 `;
 
 export const Count = styled.span`
