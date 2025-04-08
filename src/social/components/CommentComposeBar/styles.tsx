@@ -29,6 +29,7 @@ export const CommentComposeBarInput = styled(InputText).attrs<{ rows?: number; m
 
 export const AddCommentButton = styled(PrimaryButton)`
   height: 40px;
-  padding: 10px 16px;
+  padding: 10px 12px;
   margin-left: 12px;
+  line-height: 1;
 `;
