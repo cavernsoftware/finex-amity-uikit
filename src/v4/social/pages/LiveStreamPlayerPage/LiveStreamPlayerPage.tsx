@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Plyr from 'plyr';
+// FINEX: Commented out Plyr since it's unnecessary for Finex
+// and causes "ReferenceError: document is not defined" build errors.
+// import Plyr from 'plyr';
 import { Typography } from '~/v4/core/components';
 import { useAmityPage } from '~/v4/core/hooks/uikit';
 import useStream from '~/v4/social/hooks/useStream';
@@ -15,7 +17,7 @@ import { LiveStreamLiveBadge } from '~/v4/social/internal-components/LiveStreamL
 import { LiveStreamEndThumbnail } from '~/v4/social/internal-components/LiveStreamEndThumbnail/';
 import { LiveStreamIdleThumbnail } from '~/v4/social/internal-components/LiveStreamIdleThumbnail';
 import { LiveStreamTerminatedThumbnail } from '~/v4/social/internal-components/LiveStreamTerminatedThumbnail';
-import 'plyr/dist/plyr.css';
+// import 'plyr/dist/plyr.css';
 import styles from './LiveStreamPlayer.module.css';
 
 export type LiveStreamPlayerPageProps = {
@@ -47,7 +49,7 @@ const useLiveStreamPlayer = ({ post }: { post: Amity.Post }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [playerInitialized, setPlayerInitialized] = useState(false);
   const loadingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const plyrRef = useRef<Plyr | null>(null);
+  // const plyrRef = useRef<Plyr | null>(null);
 
   const getLiveStreamPlayer = async (streamId: string) => {
     const player = await LiveStreamPlayer.getPlayer({ streamId });
@@ -96,10 +98,10 @@ const useLiveStreamPlayer = ({ post }: { post: Amity.Post }) => {
     videoRef.current = player;
 
     if (stream?.status === 'live' && player) {
-      plyrRef.current = new Plyr(player, {
-        controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'pip'],
-        fullscreen: { enabled: false },
-      });
+      // plyrRef.current = new Plyr(player, {
+      //   controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'pip'],
+      //   fullscreen: { enabled: false },
+      // });
     }
 
     setPlayerInitialized(true);
@@ -164,9 +166,9 @@ const useLiveStreamPlayer = ({ post }: { post: Amity.Post }) => {
       if (loadingTimerRef.current) {
         clearTimeout(loadingTimerRef.current);
       }
-      if (plyrRef.current) {
-        plyrRef.current.destroy();
-      }
+      // if (plyrRef.current) {
+      //   plyrRef.current.destroy();
+      // }
     };
   }, [stream?.streamId]);
 

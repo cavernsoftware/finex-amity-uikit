@@ -1,13 +1,15 @@
 {
-  "name": "@amityco/ui-kit-open-source",
+  "name": "finex-amity-uikit",
+  "originalName": "@amityco/ui-kit-open-source",
   "version": "4.6.1",
   "engines": {
     "node": ">=20",
     "pnpm": "9"
   },
-  "module": "dist/esm/index.js",
-  "main": "dist/index.js",
-  "exports": {
+  "_module": "dist/esm/index.js",
+  "_main": "dist/index.js",
+  "main": "./index.ts",
+  "_exports": {
     "./package.json": "./package.json",
     ".": {
       "types": "./dist/index.d.ts",
@@ -19,14 +21,14 @@
       "default": "./dist/index.css"
     }
   },
-  "files": [
+  "_files": [
     "dist/"
   ],
-  "types": "dist/index.d.ts",
+  "_types": "dist/index.d.ts",
   "description": "React Ui-Kit for Amity Social Cloud",
   "scripts": {
-    "prepare": "husky install",
-    "build": "tsup --minify",
+    "_prepare": "husky install",
+    "_build": "tsup --minify",
     "build:dev": "tsup --sourcemap --metafile",
     "build:prod:analyze": "pnpm build --metafile",
     "test": "jest",
@@ -66,8 +68,8 @@
     "@types/jest": "^29.5.11",
     "@types/lodash": "^4.14.202",
     "@types/prop-types": "^15.7.11",
-    "@types/react": "^17.0.74",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.0",
     "@types/react-helmet": "^6.1.11",
     "@types/react-infinite-scroller": "^1.2.5",
     "@types/react-mentions": "^4.1.13",
@@ -91,8 +93,8 @@
     "lint-staged": "^13.3.0",
     "postcss": "^8.4.38",
     "prettier": "3.3.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-router-dom": "^6.21.1",
     "standard-version": "^9.5.0",
     "storybook": "^7.6.7",
@@ -110,6 +112,9 @@
     "vite-tsconfig-paths": "^4.2.3"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^3.3.4",
     "@internationalized/date": "^3.6.0",
@@ -118,6 +123,7 @@
     "@tanstack/react-query": "^5.28.14",
     "clsx": "^2.1.0",
     "colorthief": "^2.4.0",
+    "date-fns": "^4.1.0",
     "dayjs": "^1.11.11",
     "filesize": "^9.0.11",
     "framer-motion": "^11.1.7",
@@ -163,5 +169,5 @@
     }
   },
   "license": "LGPL-2.1-only",
-  "packageManager": "pnpm@9.5.0"
+  "packageManager": "pnpm@9.9.0"
 }

@@ -82,7 +82,7 @@ export const GlobalFeed = ({
   const filteredItems = items.filter((item) => {
     // Only apply this filter to posts (not ads)
     if (!isAmityAd(item)) {
-      return !featuredPostIds.has(item.postId);
+      return item && !featuredPostIds.has(item.postId); // FINEX: Revisit with better improvement (see change history)
     }
     // Keep all ads
     return true;
