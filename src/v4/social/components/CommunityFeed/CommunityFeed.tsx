@@ -150,10 +150,10 @@ export const CommunityFeed = ({ pageId = '*', communityId }: CommunityFeedProps)
                 post?.placement === 'default' ? AmityPostCategory.PIN : AmityPostCategory.GENERAL;
 
               return (
-                <Button
+                <div
                   key={post.postId}
                   className={styles.communityFeed__postContent}
-                  onPress={() => handlePostNavigation(post.postId, category)}
+                  onClick={() => handlePostNavigation(post.postId, category)}
                 >
                   <PostContent
                     pageId={pageId}
@@ -164,7 +164,7 @@ export const CommunityFeed = ({ pageId = '*', communityId }: CommunityFeedProps)
                     hideTarget
                     onClick={() => handlePostNavigation(post.postId, category)}
                   />
-                </Button>
+                </div>
               );
             })}
         {isLoading &&
