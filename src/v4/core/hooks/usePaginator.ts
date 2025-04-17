@@ -174,7 +174,13 @@ export const usePaginator = <TCallback, TParams>({
     shouldCall,
   });
 
-  const itemWithAds = useMemo(() => combineItemsWithAds(items).flatMap((item) => item), [items]);
+  const itemWithAds = useMemo(
+    () =>
+      combineItemsWithAds(items)
+        .flatMap((item) => item)
+        .filter((item) => item !== undefined),
+    [items],
+  );
 
   return {
     ...rest,
