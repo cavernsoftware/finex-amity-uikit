@@ -116,14 +116,6 @@ export class AmityUIKitManager {
     sessionHandler: SessionHandler,
     authToken?: string,
   ): Promise<void> {
-    await ASCClient.login(
-      { userId, displayName, authToken },
-      {
-        sessionWillRenewAccessToken:
-          sessionHandler.sessionWillRenewAccessToken.bind(sessionHandler),
-      },
-    );
-
     this.stateChangeHandler = ASCClient.onSessionStateChange((state: Amity.SessionStates) => {
       this.onConnectionStatusChange?.(state);
     });
@@ -131,6 +123,14 @@ export class AmityUIKitManager {
     this.disconnectedHandler = ASCClient.onClientDisconnected(() => {
       this.onDisconnected && this.onDisconnected();
     });
+
+    await ASCClient.login(
+      { userId, displayName, authToken },
+      {
+        sessionWillRenewAccessToken:
+          sessionHandler.sessionWillRenewAccessToken.bind(sessionHandler),
+      },
+    );
 
     this.onConnected && this.onConnected();
   }
