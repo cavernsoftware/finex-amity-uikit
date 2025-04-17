@@ -156,7 +156,7 @@ const InternalComponent = ({
     setup();
   }, [userId, displayName, onConnectionStatusChange, onDisconnected]);
 
-  if (!client || isNetworkConfigLoading) return null;
+  if (!client || isNetworkConfigLoading) return <>{children}</>;
 
   return (
     <div className="asc-uikit">
