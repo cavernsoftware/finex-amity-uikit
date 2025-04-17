@@ -39,7 +39,7 @@ export const NotificationContext = createContext<NotificationContextProps>({
 
 const DEFAULT_NOTIFICATION_DURATION = 3000;
 
-export const NotificationProvider: React.FC = ({ children }) => {
+export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [notifications, setNotifications] = useState<Notification[]>([]);
 
   const removeNotification = (id: number) =>

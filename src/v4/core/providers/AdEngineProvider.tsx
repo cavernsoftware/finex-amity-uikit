@@ -27,7 +27,7 @@ export const AdEngineContext = createContext<{
   getItemsPaginationCache: () => undefined,
 });
 
-export const AdEngineProvider: React.FC = ({ children }) => {
+export const AdEngineProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [networkAds, setNetworkAds] = useState<Amity.NetworkAds | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 

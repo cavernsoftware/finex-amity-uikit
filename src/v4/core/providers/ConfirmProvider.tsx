@@ -34,7 +34,7 @@ export const ConfirmContext = createContext<ConfirmContextProps>({
 
 export const useConfirmContext = () => useContext(ConfirmContext);
 
-export const ConfirmProvider: React.FC = ({ children }) => {
+export const ConfirmProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [confirmData, setConfirmData] = useState<ConfirmType | null>(null);
 
   const closeConfirm = () => {

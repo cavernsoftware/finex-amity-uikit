@@ -16,7 +16,7 @@ export const DrawerContext = createContext<DrawerContextProps>({
   removeDrawerData: () => {},
 });
 
-export const DrawerProvider: React.FC = ({ children }) => {
+export const DrawerProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [drawerData, setDrawerData] = useState<DrawerData | null>(null);
 
   return (

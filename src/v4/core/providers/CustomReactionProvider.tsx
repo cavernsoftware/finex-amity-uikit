@@ -13,7 +13,7 @@ export const useCustomReaction = () => {
   return { config };
 };
 
-export const CustomReactionProvider: React.FC = ({ children }) => {
+export const CustomReactionProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { config } = useCustomization();
   const [reactions, setReactions] = React.useState<AmityReactionType[]>([]);
 

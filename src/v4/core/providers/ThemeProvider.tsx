@@ -85,7 +85,7 @@ export const ThemeContext = createContext<{
   toggleTheme: () => {},
 });
 
-export const ThemeProvider: React.FC = ({ children }) => {
+export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
   const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>(
