@@ -99,6 +99,16 @@ export const CommentComposer = ({
         ...params,
         mentionees: params.mentionees as Amity.UserMention[],
       });
+
+      // // FINEX: Update commentsUpdatedAt in post metadata as a workaround
+      // // to trigger a live update at the post level.
+      // // TODO: Ensure that existing post metadata is included in the edit
+      // // to avoid overwriting other metadata.
+      // await PostRepository.editPost(referenceId, {
+      //   metadata: {
+      //     commentsUpdatedAt: new Date().toISOString(),
+      //   },
+      // });
     },
     onError: (error) => {
       if (error.message.includes(ERROR_RESPONSE.CONTAIN_BLOCKED_WORD)) {

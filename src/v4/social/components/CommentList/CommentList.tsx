@@ -63,6 +63,8 @@ export const CommentList = ({
       referenceType,
       limit,
       includeDeleted,
+      // FINEX: Sort comments by first created
+      sortBy: 'firstCreated',
     },
     placement: 'comment' as Amity.AdPlacement,
     pageSize: 5,

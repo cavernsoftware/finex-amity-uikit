@@ -21,6 +21,7 @@ import { TextWithMention } from '~/v4/social/internal-components/TextWithMention
 import millify from 'millify';
 import useCommunityPostPermission from '~/v4/social/hooks/useCommunityPostPermission';
 import { useResponsive } from '~/v4/core/hooks/useResponsive';
+import useCommentSubscription from '~/v4/core/hooks/subscriptions/useCommentSubscription';
 import { Popover } from '~/v4/core/components/AriaPopover';
 import { PageTypes, useNavigation } from '~/v4/core/providers/NavigationProvider';
 import { BrandBadge } from '~/v4/social/internal-components/BrandBadge';
@@ -98,6 +99,11 @@ export const Comment = ({
   const notification = useNotifications();
   const { online } = useNetworkState();
   const { page } = useNavigation();
+
+  // FINEX: Add comment subscription for live updates
+  useCommentSubscription({
+    commentId: comment.commentId,
+  });
 
   const { isModerator: isModeratorUser } = useCommunityPostPermission({
     community,

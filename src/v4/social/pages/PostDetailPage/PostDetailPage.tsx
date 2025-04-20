@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { SubscriptionLevels } from '@amityco/ts-sdk';
 import { Typography } from '~/v4/core/components';
 import { PostContent, PostContentSkeleton } from '~/v4/social/components/PostContent';
 import { PostMenu } from '~/v4/social/internal-components/PostMenu/PostMenu';
@@ -17,6 +18,7 @@ import useCommunity from '~/v4/core/hooks/collections/useCommunity';
 import { Popover } from '~/v4/core/components/AriaPopover';
 import styles from './PostDetailPage.module.css';
 import { useResponsive } from '~/v4/core/hooks/useResponsive';
+import usePostSubscription from '~/v4/core/hooks/subscriptions/usePostSubscription';
 import { ErrorPostDetail } from '~/v4/social/internal-components/ErrorPostDetail/ErrorPostDetail';
 
 interface PostDetailPageProps {
@@ -27,6 +29,12 @@ interface PostDetailPageProps {
 
 export function PostDetailPage({ id, hideTarget, category }: PostDetailPageProps) {
   const pageId = 'post_detail_page';
+
+  // FINEX: Add post subscription for live updates
+  usePostSubscription({
+    postId: id,
+    level: SubscriptionLevels.POST,
+  });
 
   const [replyComment, setReplyComment] = useState<Amity.Comment | undefined>();
 
@@ -73,17 +81,11 @@ export function PostDetailPage({ id, hideTarget, category }: PostDetailPageProps
             />
           ) : null}
         </div>
-        <div className={styles.postDetailPage__comments__divider} data-is-loading={isPostLoading} />
-        {post && isDesktop && !isNotJoinedCommunity && (
-          <CommentComposer
-            pageId={pageId}
-            referenceId={post.postId}
-            referenceType={'post'}
-            onCancelReply={() => setReplyComment(undefined)}
-            community={community}
-            containerClassName={
-              post?.commentsCount <= 0 ? styles.postDetailPage__commentList__container : undefined
-            }
+        {/* // FINEX: Hide animated loading bar if post is not loading */}
+        {isPostLoading && (
+          <div
+            className={styles.postDetailPage__comments__divider}
+            data-is-loading={isPostLoading}
           />
         )}
         {post?.commentsCount > 0 && (
@@ -110,9 +112,24 @@ export function PostDetailPage({ id, hideTarget, category }: PostDetailPageProps
                     );
                   }
                 }}
+                // FINEX: Exclude deleted comments
+                includeDeleted={false}
               />
             )}
           </div>
+        )}
+        {/* // FINEX: Move composer below comment list */}
+        {post && isDesktop && !isNotJoinedCommunity && (
+          <CommentComposer
+            pageId={pageId}
+            referenceId={post.postId}
+            referenceType={'post'}
+            onCancelReply={() => setReplyComment(undefined)}
+            community={community}
+            containerClassName={
+              post?.commentsCount <= 0 ? styles.postDetailPage__commentList__container : undefined
+            }
+          />
         )}
       </div>
       <div className={styles.postDetailPage__topBar}>
