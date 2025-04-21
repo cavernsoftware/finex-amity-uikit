@@ -27,12 +27,13 @@ export function CommunityDisplayName({
   if (isExcluded) return null;
 
   return (
-    <Typography.BodyBold
+    // FINEX: Use body medium
+    <Typography.BodyMedium
       style={themeStyles}
       data-testid={accessibilityId}
       className={clsx(styles.communityDisplayName, className)}
     >
       {community?.displayName ?? 'My Timeline'}
-    </Typography.BodyBold>
+    </Typography.BodyMedium>
   );
 }

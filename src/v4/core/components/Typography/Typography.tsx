@@ -34,6 +34,13 @@ Typography.BodyBold = function ({ as = 'div', className, ...props }: TypographyP
   return <Typography as={as} className={clsx(styles.typography__bodyBold, className)} {...props} />;
 };
 
+// FINEX: Add a body medium font weight
+Typography.BodyMedium = function ({ as = 'div', className, ...props }: TypographyProps) {
+  return (
+    <Typography as={as} className={clsx(styles.typography__bodyMedium, className)} {...props} />
+  );
+};
+
 Typography.Body = function ({ as = 'div', className, ...props }: TypographyProps) {
   return <Typography as={as} className={clsx(styles.typography__body, className)} {...props} />;
 };

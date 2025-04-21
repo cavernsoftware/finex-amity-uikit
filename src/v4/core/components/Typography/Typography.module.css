@@ -2,7 +2,8 @@
   margin: 0;
   padding: 0;
   color: inherit;
-  font-family: 'Inter var', sans-serif;
+  /* // FINEX: Inherit font family from Finex app */
+  /* font-family: 'Inter var', sans-serif; */
 }
 
 .typography__headline {
@@ -27,6 +28,13 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 600;
+}
+
+/* // FINEX: Add a body medium font weight */
+.typography__bodyMedium {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
 }
 
 .typography__body {

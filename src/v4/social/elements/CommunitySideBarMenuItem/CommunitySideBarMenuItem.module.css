@@ -54,7 +54,8 @@
 
 .communitySideBarMenuItem__label {
   font-size: var(--asc-text-font-size-sm);
-  font-weight: var(--asc-text-font-weight-bold);
+  /* // FINEX: Change to medium weight */
+  font-weight: var(--asc-text-font-weight-medium);
 }
 
 .communitySideBarMenuItem__label[data-active='true'] {
