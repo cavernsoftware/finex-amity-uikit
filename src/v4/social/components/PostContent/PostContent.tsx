@@ -103,22 +103,25 @@ const PostTitle = ({ pageId, componentId, post, hideTarget }: PostTitleProps) =>
           data-show-target={showTarget === true}
         >
           <Button
+            className={styles.postTitle__userButton}
             onPress={() => onClickUser(post.creator.userId)}
             data-testid={`${pageId}/${componentId}/username`}
           >
-            <Typography.BodyBold className={styles.postTitle__text}>
+            {/* // FINEX: Rename class name  */}
+            <Typography.BodyBold className={styles.postTitle__userName}>
               {post.creator.displayName}
             </Typography.BodyBold>
           </Button>
           {showBrandBadge ? <BrandBadge className={styles.postTitle__brandIcon} /> : null}
-          {showTarget ? (
-            <AngleRight
-              data-testid={`${pageId}/${componentId}/arrow_right`}
-              className={styles.postTitle__icon}
-            />
-          ) : null}
         </div>
       )}
+      {/* // FINEX: Move angle icon to be in same container as user and community */}
+      {post.creator && showTarget ? (
+        <AngleRight
+          data-testid={`${pageId}/${componentId}/arrow_right`}
+          className={styles.postTitle__icon}
+        />
+      ) : null}
       {showTargetCommunity && (
         <div
           className={styles.postTitle__community}
@@ -127,11 +130,15 @@ const PostTitle = ({ pageId, componentId, post, hideTarget }: PostTitleProps) =>
         >
           {showPrivateBadge && <CommunityPrivateBadge />}
           <Button
-            className={styles.postTitle__communityText}
+            // FINEX: Rename class
+            className={styles.postTitle__communityButton}
             data-testid={`${pageId}/${componentId}/community_name`}
             onPress={() => goToCommunityProfilePage(targetCommunity.communityId)}
           >
-            <Typography.BodyBold>{targetCommunity.displayName}</Typography.BodyBold>
+            {/* // FINEX: Rename class name */}
+            <Typography.BodyBold className={styles.postTitle__communityName}>
+              {targetCommunity.displayName}
+            </Typography.BodyBold>
           </Button>
           {showOfficialBadge && <CommunityOfficialBadge />}
         </div>

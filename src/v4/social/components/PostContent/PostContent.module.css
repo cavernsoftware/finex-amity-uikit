@@ -4,7 +4,8 @@
 }
 
 .postContent__bar {
-  display: grid;
+  /* FINEX: Change to flex */
+  display: flex;
   grid-template-columns: min-content minmax(0, 1fr) min-content;
   align-items: center;
   gap: 0.5rem;
@@ -18,6 +19,8 @@
 
 .postContent__bar__detail {
   overflow: hidden;
+  /* FINEX: Add flex 1 to fill out remaining space */
+  flex: 1;
 }
 
 .postContent__bar__information__subtitle {
@@ -101,18 +104,27 @@
 }
 
 .postTitle {
-  display: grid;
+  /* // FINEX: Change to flex */
+  display: flex;
   align-items: center;
-  grid-template-columns: minmax(0, max-content);
-  grid-auto-flow: column;
+  /* // FINEX: Comment out grid styles */
+  /* grid-template-columns: minmax(0, max-content);
+  grid-auto-flow: column; */
   gap: 0.25rem;
 }
 
-.postTitle[data-show-target-community='true'] {
+/* // FINEX: Comment out grid styles */
+/* .postTitle[data-show-target-community='true'] {
   grid-template-columns: minmax(0, max-content) minmax(50%, 1fr);
+} */
+
+/* // FINEX: Add userButton class */
+.postTitle__userButton {
+  width: 100%;
 }
 
-.postTitle__text {
+/* // FINEX: Rename class name */
+.postTitle__userName {
   color: var(--asc-color-base-default);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -123,25 +135,32 @@
   fill: var(--asc-color-base-shade1);
   height: 0.75rem;
   width: 1rem;
+  /* // FINEX: Prevent icon from shrinking */
+  flex-shrink: 0;
 }
 
 .postTitle__user__container {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  grid-auto-flow: column;
+  /* // FINEX: Change to flex */
+  display: flex;
+  /* // FINEX: Comment out grid styles */
+  /* grid-template-columns: minmax(0, 1fr);
+  grid-auto-flow: column; */
   gap: 0.25rem;
   align-items: center;
   max-width: 100%;
+  /* // FINEX: Add min-width 0 for flex child width workaround */
+  min-width: 0;
 }
 
-.postTitle__user__container[data-show-brand-badge='true'][data-show-target='true'] {
+/* // FINEX: Comment out grid styles */
+/* .postTitle__user__container[data-show-brand-badge='true'][data-show-target='true'] {
   grid-template-columns: minmax(0, min-content) min-content min-content;
 }
 
 .postTitle__user__container[data-show-brand-badge='false'][data-show-target='true'],
 .postTitle__user__container[data-show-brand-badge='true'][data-show-target='false'] {
   grid-template-columns: minmax(0, min-content) min-content;
-}
+} */
 
 .postTitle__brandIcon {
   width: 1.125rem;
@@ -149,15 +168,22 @@
 }
 
 .postTitle__community {
-  display: grid;
-  grid-template-columns: minmax(0, min-content);
-  grid-auto-flow: column;
+  /* // FINEX: Change to flex */
+  display: flex;
+  /* // FINEX: Comment out grid styles */
+  /* grid-template-columns: minmax(0, min-content);
+  grid-auto-flow: column; */
   gap: 0.25rem;
   align-items: center;
   max-width: 100%;
+  /* // FINEX: Add flex 1 */
+  flex: 1;
+  /* // FINEX: Add min-width 30% to ensure community name takes up only 30% of truncated space */
+  min-width: 30%;
 }
 
-.postTitle__community[data-show-private-badge='true'][data-show-official-badge='true'] {
+/* // FINEX: Comment out grid styles */
+/* .postTitle__community[data-show-private-badge='true'][data-show-official-badge='true'] {
   grid-template-columns: min-content minmax(0, min-content) min-content;
 }
 
@@ -167,14 +193,25 @@
 
 .postTitle__community[data-show-private-badge='false'][data-show-official-badge='true'] {
   grid-template-columns: minmax(0, min-content) min-content;
-}
+} */
 
-.postTitle__communityText {
+/* // FINEX: Rename class */
+.postTitle__communityButton {
   color: var(--asc-color-base-default);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 100%;
+}
+
+/* // FINEX: Add class to truncate community name */
+.postTitle__communityName {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  min-width: 0;
 }
 
 .postContent__comment {
