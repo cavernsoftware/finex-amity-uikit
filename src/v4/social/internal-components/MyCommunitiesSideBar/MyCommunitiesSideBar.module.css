@@ -1,5 +1,9 @@
 .myCommunitiesList {
-  display: grid;
+  /* // FINEX: Use flex instead of grid */
+  /* display: grid; */
+  display: flex;
+  /* // FINEX: Use flex-direction column */
+  flex-direction: column;
   gap: 0.5rem;
   overflow-y: scroll;
   padding-bottom: 2rem;
