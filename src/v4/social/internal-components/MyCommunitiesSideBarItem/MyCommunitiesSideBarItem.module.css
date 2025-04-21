@@ -2,16 +2,20 @@
   gap: 1rem;
   /* // FINEX: Change to flex */
   display: flex;
-  padding: 0.5rem 1rem;
+  /* // FINEX: Reduce horizontal padding from 1rem to 0.5rem */
+  padding: 0.5rem 0.5rem;
   /* // FINEX: Comment out grid template columns */
   /* grid-template-columns: 2rem 12.5rem; */
   /* // FINEX: Add border-radius */
   border-radius: 0.5rem;
+  /* // FINEX: Add margin-left */
+  margin-left: 0.5rem;
 }
 
 .myCommunitiesSideBarItem:hover,
 .myCommunitiesSideBarItem:focus-within {
   /* // FINEX: Use gray shade to be similar to Finex styling */
+  /* background-color: var(--asc-color-background-shade1); */
   background-color: #f5f5f5;
 }
 
