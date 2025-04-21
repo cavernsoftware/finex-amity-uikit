@@ -82,8 +82,9 @@ export type NetworkConfig = {
 export interface Config {
   preferred_theme?: 'light' | 'dark' | 'default';
   theme?: {
-    light?: Theme['light'];
-    dark?: Theme['dark'];
+    // FINEX: Allow partial theme
+    light?: Partial<Theme['light']>;
+    dark?: Partial<Theme['dark']>;
   };
   excludes?: string[];
   message_reactions?: AmityReactionType[];

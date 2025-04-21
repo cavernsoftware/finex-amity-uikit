@@ -25,6 +25,11 @@ const generateShades = (hexColor?: string, isDarkMode = false): string[] => {
     }
   });
 
+  // FINEX: Force shade3 to be certain color
+  if (hexColor === '#228be6') {
+    shades[2] = '#ebf4fc';
+  }
+
   return shades;
 };
 
