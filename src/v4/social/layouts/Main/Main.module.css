@@ -4,9 +4,7 @@
   display: grid;
   overflow: hidden;
   grid-template-columns: auto 1fr;
-
   /* // FINEX: Use transparent background */
-
   /* background: var(--asc-color-background-shade1); */
 }
 

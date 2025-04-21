@@ -2,13 +2,9 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-
   /* // FINEX: Don't use border-right */
-
   /* border-right: 1px solid var(--asc-color-base-shade4); */
-
   /* // FINEX: Don't use background-color */
-
   /* background-color: var(--asc-color-background-default); */
 }
 

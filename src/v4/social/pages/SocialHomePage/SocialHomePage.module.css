@@ -7,9 +7,7 @@
 
 .socialHomePage__topBar {
   top: 0;
-
   /* // FINEX: Don't use absolute position to allow for topbar to sit within layout flow */
-
   /* position: absolute; */
   width: 100%;
   height: 7.5rem;
@@ -38,7 +36,6 @@
 
 .socialHomePage__contents {
   /* // FINEX: Don't use absolute position to allow for natural overflow scrolling */
-
   /* position: absolute; */
   top: 7.5rem;
   width: 100%;

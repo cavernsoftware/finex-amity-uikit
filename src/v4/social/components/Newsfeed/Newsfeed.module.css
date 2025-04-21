@@ -2,9 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-
   /* // FINEX: Make background transparent */
-
   /* background-color: var(--asc-color-background-default); */
 }
 
@@ -50,7 +48,6 @@
 @media (width >= 48em) {
   .newsfeed {
     /* // FINEX: Make background transparent */
-
     /* background-color: var(--asc-color-background-shade1); */
   }
 }
