@@ -2,7 +2,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: var(--asc-color-background-default);
+
+  /* // FINEX: Make background transparent */
+
+  /* background-color: var(--asc-color-background-default); */
 }
 
 .newsfeed__postList {
@@ -46,6 +49,8 @@
 
 @media (width >= 48em) {
   .newsfeed {
-    background-color: var(--asc-color-background-shade1);
+    /* // FINEX: Make background transparent */
+
+    /* background-color: var(--asc-color-background-shade1); */
   }
 }

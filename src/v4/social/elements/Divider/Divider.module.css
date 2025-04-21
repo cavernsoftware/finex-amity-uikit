@@ -1,12 +1,30 @@
 .divider {
   width: 100%;
   min-height: 0.5rem;
-  background-color: var(--asc-color-base-shade4);
+
+  /* // FINEX: Make background transparent */
+
+  /* background-color: var(--asc-color-base-shade4); */
 }
 
 @media (width >= 48em) {
   .divider {
     min-height: 0.75rem;
-    background-color: var(--asc-color-background-shade1);
+
+    /* // FINEX: Make background transparent */
+
+    /* background-color: var(--asc-color-background-shade1); */
+  }
+
+  /* // FINEX: Create isShownOnlyInMobile class */
+  .divider__isShownOnlyInMobile {
+    display: none;
+  }
+}
+
+@media (width < 48em) {
+  .divider {
+    /* // FINEX: Make background shade4 only in mobile */
+    background-color: var(--asc-color-base-shade4);
   }
 }

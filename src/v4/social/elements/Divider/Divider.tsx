@@ -4,8 +4,18 @@ import clsx from 'clsx';
 
 type DividerProps = ComponentPropsWithoutRef<'div'> & {
   isShown?: boolean;
+  isShownOnlyInMobile?: boolean;
 };
 
-export function Divider({ isShown = true, className }: DividerProps) {
-  return isShown ? <div className={clsx(styles.divider, className)} /> : null;
+export function Divider({ isShown = true, isShownOnlyInMobile = false, className }: DividerProps) {
+  return isShown ? (
+    <div
+      className={clsx(
+        styles.divider,
+        // FINEX: Implement isShownOnlyInMobile prop
+        isShownOnlyInMobile && styles.divider__isShownOnlyInMobile,
+        className,
+      )}
+    />
+  ) : null;
 }

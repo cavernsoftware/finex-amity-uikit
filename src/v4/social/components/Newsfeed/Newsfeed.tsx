@@ -40,9 +40,11 @@ export const Newsfeed = ({ pageId = '*' }: NewsfeedProps) => {
 
   return (
     <PullToRefresh className={styles.newsfeed} style={themeStyles} onTouchEndCallback={refetch}>
-      <Divider />
-      <StoryTab type="globalFeed" pageId={pageId} />
-      <Divider />
+      {/* // FINEX: Comment out Divider and StoryTab for now since stories aren't used */}
+      {/* <Divider /> */}
+      {/* <StoryTab type="globalFeed" pageId={pageId} /> */}
+      {/* // FINEX: Show top Divider only in mobile */}
+      <Divider isShownOnlyInMobile />
       <PostComposer pageId={pageId} />
       <GlobalFeed
         pageId={pageId}

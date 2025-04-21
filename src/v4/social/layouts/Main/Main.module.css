@@ -4,7 +4,10 @@
   display: grid;
   overflow: hidden;
   grid-template-columns: auto 1fr;
-  background: var(--asc-color-background-shade1);
+
+  /* // FINEX: Comment out dark background */
+
+  /* background: var(--asc-color-background-shade1); */
 }
 
 .layout__aside {
