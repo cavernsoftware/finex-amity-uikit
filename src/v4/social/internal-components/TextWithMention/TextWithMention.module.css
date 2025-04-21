@@ -2,7 +2,8 @@
   width: 100%;
   background-color: inherit;
   overflow-wrap: break-word;
-  word-break: break-all;
+  /* // FINEX: Don't use break-all */
+  /* word-break: break-all; */
   color: var(--asc-color-base-default);
 }
 
