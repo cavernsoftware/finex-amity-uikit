@@ -74,12 +74,14 @@
 @media (width >= 48em) {
   .explore {
     height: auto;
-    background-color: var(--asc-color-background-shade1);
+    /* // FINEX: Use transparent background */
+    /* background-color: var(--asc-color-background-shade1); */
   }
 
   .explore__divider {
     display: block;
-    background-color: var(--asc-color-background-shade1);
+    /* // FINEX: Use transparent background */
+    /* background-color: var(--asc-color-background-shade1); */
   }
 
   .explore__exploreCategories {

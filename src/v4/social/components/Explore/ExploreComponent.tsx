@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { ExploreCommunityCategories } from '~/v4/social/components/ExploreCommunityCategories';
 import { RecommendedCommunities } from '~/v4/social/components/RecommendedCommunities';
 import { TrendingCommunities } from '~/v4/social/components/TrendingCommunities';
 import { useExplore } from '~/v4/social/providers/ExploreProvider';
@@ -25,9 +24,14 @@ export function Explore({ pageId = '*' }: ExploreProps) {
     noRecommendedCommunities,
     noTrendingCommunities,
     error,
+    fetchCommunityCategories,
   } = useExplore();
 
   useEffect(() => {
+    // FINEX: Fetch community categories here since it's needed to fetch communities.
+    // It was previously fetched in the ExploreCommunityCategories component, which
+    // is now commented out.
+    fetchCommunityCategories();
     refresh();
   }, []);
 
@@ -38,7 +42,8 @@ export function Explore({ pageId = '*' }: ExploreProps) {
   if (isEmpty) {
     return (
       <PullToRefresh className={styles.explore} onTouchEndCallback={refresh}>
-        <Divider />
+        {/* // FINEX: Only show divider in mobile */}
+        <Divider isShownOnlyInMobile />
         <ExploreEmpty pageId={pageId} />
       </PullToRefresh>
     );
@@ -47,11 +52,13 @@ export function Explore({ pageId = '*' }: ExploreProps) {
   if (isCommunityEmpty) {
     return (
       <PullToRefresh className={styles.explore} onTouchEndCallback={refresh}>
-        <Divider />
-        <div className={styles.explore__exploreCategories}>
+        {/* // FINEX: Only show divider in mobile */}
+        <Divider isShownOnlyInMobile />
+        {/* // FINEX: Hide community categories */}
+        {/* <div className={styles.explore__exploreCategories}>
           <ExploreCommunityCategories pageId={pageId} />
         </div>
-        <Divider className={styles.explore__divider} />
+        <Divider className={styles.explore__divider} /> */}
         <ExploreCommunityEmpty pageId={pageId} />
       </PullToRefresh>
     );
@@ -59,11 +66,12 @@ export function Explore({ pageId = '*' }: ExploreProps) {
 
   return (
     <PullToRefresh className={styles.explore} onTouchEndCallback={refresh}>
-      <Divider />
-      <div className={styles.explore__exploreCategories}>
+      <Divider isShownOnlyInMobile />
+      {/* // FINEX: Hide community categories and divider */}
+      {/* <div className={styles.explore__exploreCategories}>
         <ExploreCommunityCategories pageId={pageId} />
       </div>
-      <Divider className={styles.explore__divider} />
+      <Divider className={styles.explore__divider} /> */}
       {!noRecommendedCommunities ? (
         <div className={styles.explore__recommendedForYou} data-is-loading={!!isLoading}>
           {isLoading ? (
@@ -74,7 +82,8 @@ export function Explore({ pageId = '*' }: ExploreProps) {
           <RecommendedCommunities pageId={pageId} />
         </div>
       ) : null}
-      <Divider className={styles.explore__divider} />
+      {/* // FINEX: Hide divider */}
+      {/* <Divider className={styles.explore__divider} /> */}
       {!noTrendingCommunities ? (
         <div className={styles.explore__trendingNow}>
           {isLoading ? (
