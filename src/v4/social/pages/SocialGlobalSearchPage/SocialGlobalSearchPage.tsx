@@ -130,7 +130,8 @@ export function SocialGlobalSearchPage() {
               );
             }}
           />
-          <div className={styles.socialGlobalSearchPage__searchResultContainer__footer} />
+          {/* // FINEX: Don't use footer since it doesn't seem valuable */}
+          {/* <div className={styles.socialGlobalSearchPage__searchResultContainer__footer} /> */}
         </div>
       )}
     </div>

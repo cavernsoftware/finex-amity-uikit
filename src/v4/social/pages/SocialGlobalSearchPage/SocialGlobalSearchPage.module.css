@@ -44,9 +44,10 @@
     position: relative;
   }
 
-  .socialGlobalSearchPage__tabPanel {
+  /* // FINEX: Don't use this styling since results already have padding */
+  /* .socialGlobalSearchPage__tabPanel {
     padding: 3rem 0;
-  }
+  } */
 
   .socialGlobalSearchPage__searchResultContainer {
     left: 0;
@@ -62,11 +63,12 @@
     background-color: var(--asc-color-background-default);
   }
 
-  .socialGlobalSearchPage__tabs {
+  /* // FINEX: Don't use this styling so it's not floating outside its container */
+  /* .socialGlobalSearchPage__tabs {
     width: 20rem;
     position: fixed;
     padding: 0 1rem;
-  }
+  } */
 
   .socialGlobalSearchPage__searchResultContainer__footer {
     display: initial;
