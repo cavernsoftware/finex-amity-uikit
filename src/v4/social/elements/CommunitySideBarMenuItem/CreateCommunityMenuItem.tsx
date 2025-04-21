@@ -2,6 +2,7 @@ import React from 'react';
 import { Plus } from '~/v4/icons/Plus';
 import { useAmityElement } from '~/v4/core/hooks/uikit';
 import { IconComponent } from '~/v4/core/IconComponent';
+import { PageTypes, useNavigation } from '~/v4/core/providers/NavigationProvider';
 import { CommunitySideBarMenuItem } from '~/v4/social/elements/CommunitySideBarMenuItem';
 
 type CreateCommunityMenuItemProps = {
@@ -16,6 +17,7 @@ export function CreateCommunityMenuItem({
   componentId = '*',
 }: CreateCommunityMenuItemProps) {
   const elementId = 'create_community_sidebar_menu_item';
+  const { page } = useNavigation();
   const { accessibilityId, config, isExcluded, uiReference, defaultConfig } = useAmityElement({
     pageId,
     componentId,
@@ -28,6 +30,8 @@ export function CreateCommunityMenuItem({
     <CommunitySideBarMenuItem
       onPress={onPress}
       accessibilityId={accessibilityId}
+      // FINEX: Implement isActive to highlight when on create community page
+      isActive={page.type === PageTypes.CommunitySetupPage}
       icon={(props) => (
         <IconComponent
           configIconName={config.icon}

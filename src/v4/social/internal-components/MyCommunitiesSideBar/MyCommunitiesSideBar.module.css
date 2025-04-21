@@ -6,5 +6,8 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   min-height: 10rem;
-  background-color: var(--asc-color-background-default);
+
+  /* // FINEX: Use transparent background */
+
+  /* background-color: var(--asc-color-background-default); */
 }

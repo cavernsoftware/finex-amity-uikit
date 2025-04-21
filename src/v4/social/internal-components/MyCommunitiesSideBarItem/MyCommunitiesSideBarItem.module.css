@@ -7,7 +7,10 @@
 
 .myCommunitiesSideBarItem:hover,
 .myCommunitiesSideBarItem:focus-within {
-  background-color: var(--asc-color-background-shade1);
+  /* FINEX: Use primary-shade3 instead of background-shade1 */
+
+  /* background-color: var(--asc-color-background-shade1); */
+  background-color: var(--asc-color-primary-shade3);
 }
 
 .myCommunitiesSideBarItem[data-selected='true'] {
@@ -29,7 +32,13 @@
 .myCommunitiesSideBarItem__content {
   gap: 0.25rem;
   width: 100%;
-  display: grid;
+
+  /* // FINEX: Don't use grid */
+
+  /* display: grid; */
+
+  /* // Finex: Set line-height of 1 */
+  line-height: 1;
 }
 
 .myCommunitiesSideBarItem__communityName {
@@ -37,6 +46,9 @@
   width: 12.5rem;
   align-items: center;
   justify-content: start;
+
+  /* // FINEX: Set height to 1rem */
+  height: 1rem;
 }
 
 .myCommunitiesSideBarItem__communityName__private {
