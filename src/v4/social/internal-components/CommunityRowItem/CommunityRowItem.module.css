@@ -2,9 +2,19 @@
   width: 100%;
   gap: 0.75rem;
   display: flex;
-  padding: 0.5rem 0;
+  /* // FINEX: Remove padding */
+  /* padding: 0.5rem 0; */
   align-items: center;
   justify-content: space-between;
+  /* // FINEX: Add pointer */
+  cursor: pointer;
+  /* // FINEX: Add border-radius */
+  border-radius: 0.5rem;
+}
+
+/* // FINEX: Add hover state */
+.communityRowItem:hover {
+  background-color: rgba(0, 0, 0, 0.01);
 }
 
 .communityRowItem__image {
@@ -41,5 +51,6 @@
 .communityRowItem__joinButton {
   flex-shrink: 0;
   margin-left: auto;
-  align-self: flex-end;
+  /* // FINEX: Don't use flex-end */
+  /* align-self: flex-end; */
 }

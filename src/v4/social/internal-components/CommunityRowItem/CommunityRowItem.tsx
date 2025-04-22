@@ -1,6 +1,5 @@
 import React from 'react';
 import { Typography } from '~/v4/core/components';
-import { Button } from '~/v4/core/natives/Button';
 import { useImage } from '~/v4/core/hooks/useImage';
 import { useAmityElement } from '~/v4/core/hooks/uikit';
 import { CommunityRowImage } from '~/v4/social/elements/CommunityRowImage/CommunityRowImage';
@@ -56,12 +55,13 @@ export const CommunityRowItem = <T extends boolean | undefined>({
   const avatarUrl = useImage({ fileId: community.avatarFileId, imageSize: 'medium' });
 
   return (
-    <Button
-      type="button"
+    // FINEX: Change from <Button /> to <div /> to resolve nested button issue
+    <div
       style={themeStyles}
       key={community.communityId}
       className={styles.communityRowItem}
-      onPress={() => onClick(community.communityId)}
+      // FINEX: Change from onPress to onClick since <div /> does not support onPress
+      onClick={() => onClick(community.communityId)}
       data-has-categories={community.categoryIds.length > 0}
     >
       <div className={styles.communityRowItem__image}>
@@ -118,6 +118,6 @@ export const CommunityRowItem = <T extends boolean | undefined>({
             onClick={() => onJoinButtonClick?.(community.communityId)}
           />
         ))}
-    </Button>
+    </div>
   );
 };

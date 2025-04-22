@@ -2,10 +2,13 @@
   width: 100%;
   display: flex;
   min-height: 20rem;
-  padding: 0.5rem 0;
+  /* // FINEX: Change to just padding-top since there is a trailing gap due to the invisible intersection node */
+  padding-top: 1rem;
   align-items: start;
   flex-direction: column;
   background-color: var(--asc-color-background-default);
+  /* // FINEX: Add gap */
+  gap: 1rem;
 }
 
 .communitySearchResult__communityItem {
