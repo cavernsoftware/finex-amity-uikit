@@ -43,9 +43,10 @@
   display: none;
 }
 
-.postComposer__button {
+/* // FINEX: Don't use this background color */
+/* .postComposer__button {
   background-color: var(--asc-color-background-shade1);
-}
+} */
 
 @media (width >= 48em) {
   .postComposer {

@@ -10,7 +10,9 @@
   width: 2rem;
   height: 2rem;
   color: var(--asc-color-base-default);
-  background-color: var(--asc-color-background-shade1);
+  /* // FINEX: Use lighter gray background color */
+  /* background-color: var(--asc-color-background-shade1); */
+  background: var(--asc-color-base-shade4);
   border-radius: 50%;
   padding: 0.25rem;
 }
