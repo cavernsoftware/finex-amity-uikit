@@ -29,7 +29,8 @@ export const MyCommunitiesSideBarTitle = ({
       data-testid={accessibilityId}
       className={styles.myCommunitiesSideBarTitle}
     >
-      {config.text}
+      {/* // FINEX: Add placeholder text */}
+      {config.text ?? 'My Communities'}
     </Typography.TitleBold>
   );
 };

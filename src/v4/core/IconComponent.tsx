@@ -15,5 +15,7 @@ export const IconComponent = ({
     return defaultIcon();
   }
 
-  return imgIcon();
+  // FINEX: Hide this since it looks ugly while initalizing
+  // return imgIcon();
+  return null;
 };

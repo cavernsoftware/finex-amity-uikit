@@ -42,7 +42,7 @@ export function NewsFeedMenuItem({ pageId = '*', componentId = '*' }: NewsFeedMe
         />
       )}
     >
-      {config.text}
+      {config.text ?? 'Newsfeed'}
     </CommunitySideBarMenuItem>
   );
 }

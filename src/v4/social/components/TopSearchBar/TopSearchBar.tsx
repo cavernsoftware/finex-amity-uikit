@@ -31,17 +31,21 @@ export function TopSearchBar({ pageId = '*', search, onFocus }: TopSearchBarProp
   return (
     <div className={styles.topSearchBar} style={themeStyles} data-testid={accessibilityId}>
       <div className={styles.topSearchBar__inputBar}>
-        <SearchIcon
-          pageId={pageId}
-          componentId={componentId}
-          defaultClassName={styles.topSearchBar__searchIcon}
-          imgClassName={styles.topSearchBar__searchIcon_img}
-        />
+      {/* // FINEX: Create container to keep size of search icon during initial page load */}
+        <div className={styles.topSearchBar__searchIconContainer}>
+          <SearchIcon
+            pageId={pageId}
+            componentId={componentId}
+            defaultClassName={styles.topSearchBar__searchIcon}
+            imgClassName={styles.topSearchBar__searchIcon_img}
+          />
+        </div>
         <Input
           type="text"
           onFocus={onFocus}
           value={searchValue}
-          placeholder={config.text}
+          // FINEX: Add placeholder text
+          placeholder={config.text ?? 'Search community and user'}
           className={styles.topSearchBar__textInput}
           onChange={(ev) => setSearchValue(ev.target.value)}
         />

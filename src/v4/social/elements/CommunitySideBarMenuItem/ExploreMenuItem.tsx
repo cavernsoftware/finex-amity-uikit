@@ -42,7 +42,7 @@ export function ExploreMenuItem({ pageId = '*', componentId = '*' }: ExploreMenu
         />
       )}
     >
-      {config.text}
+      {config.text ?? 'Explore'}
     </CommunitySideBarMenuItem>
   );
 }

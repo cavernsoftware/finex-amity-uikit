@@ -41,7 +41,8 @@ export function CreateCommunityMenuItem({
         />
       )}
     >
-      {config.text}
+      {/* // FINEX: Add placeholder text */}
+      {config.text ?? 'Create community'}
     </CommunitySideBarMenuItem>
   );
 }

@@ -137,10 +137,13 @@ type CustomConfiguration = {
 };
 
 export const defaultConfig: DefaultConfig = {
-  preferred_theme: 'default',
+  // FINEX: Set preferred theme to light
+  preferred_theme: 'light',
   theme: {
     light: {
-      primary_color: '#1054de',
+      // FINEX: Change primary color to match Finex
+      // primary_color: '#1054de',
+      primary_color: '#228be6',
       secondary_color: '#292b32',
       secondary_shade1_color: '#636878',
       secondary_shade2_color: '#898e9e',

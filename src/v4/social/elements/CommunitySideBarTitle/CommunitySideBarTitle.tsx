@@ -27,7 +27,8 @@ export function CommunitySideBarTitle({
       data-testid={accessibilityId}
       className={styles.community_sideBar__title}
     >
-      {config.text}
+      {/* // FINEX: Add placeholder text */}
+      {config.text ?? 'Community'}
     </Typography.TitleBold>
   );
 }

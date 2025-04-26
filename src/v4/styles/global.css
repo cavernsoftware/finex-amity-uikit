@@ -28,7 +28,9 @@
   /* color palette */
   --asc-color-black: #000;
   --asc-color-white: #fff;
-  --asc-color-primary-default: #1054de;
+  /* // FINEX: Change color to match Finex */
+  /* --asc-color-primary-default: #1054de; */
+  --asc-color-primary-default: #228be6;
   --asc-color-primary-shade1: #4a82f2;
   --asc-color-primary-shade2: #a9c4f9;
   --asc-color-primary-shade3: #d9e5fc;
@@ -47,8 +49,11 @@
   --asc-color-secondary-shade5: #f9f9fa;
   --asc-color-alert-default: #fa4d30;
   --asc-color-live: #ff305a;
-  --asc-color-highlight-default: #1054de;
-  --asc-color-message-bubble-primary: #1054de;
+  /* // FINEX: Change colors to match Finex */
+  /* --asc-color-highlight-default: #1054de;
+  --asc-color-message-bubble-primary: #1054de; */
+  --asc-color-highlight-default: #228be6;
+  --asc-color-message-bubble-primary: #228be6;
   --asc-color-message-bubble-secondary: #ebecef;
   --asc-color-background-default: #fff;
   --asc-color-background-shade1: #f6f7f8;
@@ -132,7 +137,9 @@
   :root {
     --asc-color-black: #000;
     --asc-color-white: #fff;
-    --asc-color-primary-default: #1054de;
+    /* // FINEX: Change colors to match Finex */
+    /* --asc-color-primary-default: #1054de; */
+    --asc-color-primary-default: #228be6;
     --asc-color-primary-shade1: #4a82f2;
     --asc-color-primary-shade2: #a9c4f9;
     --asc-color-primary-shade3: #d9e5fc;
@@ -151,8 +158,11 @@
     --asc-color-secondary-shade5: #f9f9fa;
     --asc-color-alert-default: #fa4d30;
     --asc-color-live: #ff305a;
-    --asc-color-highlight-default: #1054de;
-    --asc-color-message-bubble-primary: #1054de;
+    /* // FINEX: Change colors to match Finex */
+    /* --asc-color-highlight-default: #1054de;
+    --asc-color-message-bubble-primary: #1054de; */
+    --asc-color-highlight-default: #228be6;
+    --asc-color-message-bubble-primary: #228be6;
     --asc-color-message-bubble-secondary: #ebecef;
     --asc-color-background-default: #fff;
     --asc-color-background-shade1: #f6f7f8;
@@ -166,7 +176,8 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* // FINEX: Comment out dark theme colors since it's overriding light theme colors */
+/* @media (prefers-color-scheme: dark) {
   :root {
     --asc-color-black: #000;
     --asc-color-white: #fff;
@@ -202,7 +213,7 @@
     --plyr-color-main: #f6f7f8;
     --plyr-video-control-background-hover: rgb(0 0 0 / 30%);
   }
-}
+} */
 
 /* vaul */
 .asc-uikit {
