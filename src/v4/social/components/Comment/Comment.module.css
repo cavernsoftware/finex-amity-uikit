@@ -74,12 +74,17 @@
   display: flex;
   gap: 0.75rem;
   align-items: center;
+  /* // FINEX: Align line heights */
+  line-height: 1;
 }
 
 .postComment__secondRow__timestamp {
   display: flex;
   color: var(--asc-color-base-shade2);
   white-space: pre;
+  /* // FINEX: Nudge timestamp down */
+  position: relative;
+  top: 1px;
 }
 
 .postComment__secondRow__rightPane {

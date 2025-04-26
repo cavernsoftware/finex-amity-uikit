@@ -19,7 +19,7 @@
 
 .postContent__bar__detail {
   overflow: hidden;
-  /* FINEX: Add flex 1 to fill out remaining space */
+  /* // FINEX: Add flex 1 to fill out remaining space */
   flex: 1;
 }
 
@@ -45,6 +45,9 @@
 
 .postContent__bar__information__subtitle__separator {
   color: var(--asc-color-base-shade2);
+  /* // FINEX: Nudge separator up */
+  position: relative;
+  top: -2px;
 }
 
 .postContent__bar__actionButton {
