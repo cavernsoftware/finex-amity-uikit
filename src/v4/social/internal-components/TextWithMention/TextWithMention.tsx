@@ -25,6 +25,8 @@ type TextWithMentionProps = {
   data: { text: string };
   mentionees: Mentionees;
   metadata?: { mentioned?: Mentioned[] };
+  // FINEX: Add isAlwaysExpanded prop
+  isAlwaysExpanded?: boolean;
 };
 
 export const TextWithMention = ({
@@ -35,9 +37,13 @@ export const TextWithMention = ({
   maxLines = 8,
   isBold = false,
   componentId = '*',
+  // FINEX: Add isAlwaysExpanded prop
+  isAlwaysExpanded = false,
 }: TextWithMentionProps) => {
   const { goToUserProfilePage } = useNavigation();
-  const [isExpanded, setIsExpanded] = useState(false);
+  // FINEX: Use isAlwaysExpanded prop as starting value
+  // const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(isAlwaysExpanded);
 
   const Component = isBold ? Typography.BodyBold : Typography.Body;
 

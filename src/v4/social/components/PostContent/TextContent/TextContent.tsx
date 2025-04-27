@@ -14,6 +14,8 @@ type TextContentProps = {
   componentId?: string;
   mentioned?: Mentioned[];
   mentionees?: Mentionees;
+  // FINEX: Add isAlwaysExpanded prop
+  isAlwaysExpanded?: boolean;
 };
 
 export const TextContent = ({
@@ -23,6 +25,8 @@ export const TextContent = ({
   pageId = '*',
   componentId = '*',
   mentionees = [],
+  // FINEX: Add isAlwaysExpanded prop
+  isAlwaysExpanded = false,
 }: TextContentProps) => {
   if (!text) return null;
 
@@ -72,6 +76,8 @@ export const TextContent = ({
           data={{ text: text }}
           mentionees={mentionees}
           metadata={{ mentioned }}
+          // FINEX: Add isAlwaysExpanded prop
+          isAlwaysExpanded={isAlwaysExpanded}
         />
       )}
       {canPreviewShown && (

@@ -78,6 +78,8 @@ export function PostDetailPage({ id, hideTarget, category }: PostDetailPageProps
               style={AmityPostContentComponentStyle.DETAIL}
               hideTarget={hideTarget}
               disabledContent={isNotJoinedCommunity}
+              // FINEX: Add isAlwaysExpanded prop
+              isAlwaysExpanded={true}
             />
           ) : null}
         </div>

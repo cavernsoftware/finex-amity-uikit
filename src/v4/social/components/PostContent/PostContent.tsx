@@ -219,6 +219,8 @@ interface PostContentProps {
   disabledContent?: boolean;
   isGlobalFeaturePost?: boolean;
   className?: string;
+  // FINEX: Add isAlwaysExpanded prop
+  isAlwaysExpanded?: boolean;
 }
 
 export const PostContent = ({
@@ -233,6 +235,8 @@ export const PostContent = ({
   disabledContent = false,
   isGlobalFeaturePost = false,
   className,
+  // FINEX: Add isAlwaysExpanded prop
+  isAlwaysExpanded,
 }: PostContentProps) => {
   const componentId = 'post_content';
   const { themeStyles, accessibilityId } = useAmityComponent({
@@ -499,6 +503,8 @@ export const PostContent = ({
             mentioned={post?.metadata?.mentioned}
             mentionees={post?.mentioness}
             post={post}
+            // FINEX: Add isAlwaysExpanded prop
+            isAlwaysExpanded={isAlwaysExpanded}
           />
           {post.children.length > 0 ? (
             <ChildrenPostContent
