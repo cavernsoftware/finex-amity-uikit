@@ -12,12 +12,16 @@ export interface TopNavigationProps {
   pageId?: string;
   selectedTab?: HomePageTab;
   onClickPostCreationButton?: () => void;
+  // FINEX: Add defaultText
+  defaultText?: string;
 }
 
 export function TopNavigation({
   pageId = '*',
   selectedTab,
   onClickPostCreationButton,
+  // FINEX: Add defaultText
+  defaultText,
 }: TopNavigationProps) {
   const componentId = 'top_navigation';
   const { goToSocialGlobalSearchPage, goToMyCommunitiesSearchPage, goToCreateCommunityPage } =
@@ -44,26 +48,33 @@ export function TopNavigation({
   return (
     <div className={styles.topNavigation} style={themeStyles}>
       <div className={styles.topNavigationLeftPane}>
-        <HeaderLabel pageId={pageId} componentId={componentId} />
+        {/* // FINEX: Add defaultText */}
+        <HeaderLabel pageId={pageId} componentId={componentId} defaultText={defaultText} />
       </div>
       <div className={styles.topNavigationRightPane}>
-        <GlobalSearchButton
-          pageId={pageId}
-          componentId={componentId}
-          onPress={handleGlobalSearchClick}
-        />
-        {selectedTab !== HomePageTab.Explore && (
-          <PostCreationButton
+        {/* // FINEX: Add button placeholder */}
+        <div className={styles.topNavigationRightPane__buttonPlaceholder}>
+          <GlobalSearchButton
             pageId={pageId}
             componentId={componentId}
-            onClick={() =>
-              selectedTab == HomePageTab.MyCommunities
-                ? goToCreateCommunityPage?.({
-                    mode: AmityCommunitySetupPageMode.CREATE,
-                  })
-                : onClickPostCreationButton?.()
-            }
+            onPress={handleGlobalSearchClick}
           />
+        </div>
+        {selectedTab !== HomePageTab.Explore && (
+          // FINEX: Add button placeholder
+          <div className={styles.topNavigationRightPane__buttonPlaceholder}>
+            <PostCreationButton
+              pageId={pageId}
+              componentId={componentId}
+              onClick={() =>
+                selectedTab == HomePageTab.MyCommunities
+                  ? goToCreateCommunityPage?.({
+                      mode: AmityCommunitySetupPageMode.CREATE,
+                    })
+                  : onClickPostCreationButton?.()
+              }
+            />
+          </div>
         )}
       </div>
     </div>

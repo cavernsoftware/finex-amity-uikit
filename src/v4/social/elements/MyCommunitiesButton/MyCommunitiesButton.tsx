@@ -35,7 +35,8 @@ export function MyCommunitiesButton({
       isActive={isActive}
       onPress={() => onClick?.()}
     >
-      {config.text}
+      {/* // FINEX: Add default text */}
+      {config.text ?? 'My Communities'}
     </TabButton>
   );
 }

@@ -6,9 +6,11 @@ import { useAmityElement } from '~/v4/core/hooks/uikit';
 export interface HeaderLabelProps {
   pageId?: string;
   componentId?: string;
+  defaultText?: string;
 }
 
-export function HeaderLabel({ pageId = '*', componentId = '*' }: HeaderLabelProps) {
+// FINEX: Add default text
+export function HeaderLabel({ pageId = '*', componentId = '*', defaultText }: HeaderLabelProps) {
   const elementId = 'header_label';
   const { accessibilityId, config, defaultConfig, isExcluded, uiReference, themeStyles } =
     useAmityElement({
@@ -25,7 +27,8 @@ export function HeaderLabel({ pageId = '*', componentId = '*' }: HeaderLabelProp
       style={themeStyles}
       data-testid={accessibilityId}
     >
-      {config.text}
+      {/* // FINEX: Add default text */}
+      {config.text ?? defaultText}
     </Typography.Headline>
   );
 }

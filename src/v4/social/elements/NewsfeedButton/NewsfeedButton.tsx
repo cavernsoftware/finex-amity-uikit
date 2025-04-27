@@ -35,7 +35,9 @@ export function NewsfeedButton({
       isActive={isActive}
       onPress={() => onClick?.()}
     >
-      {config.text}
+      {/* // FINEX: Change from "Newsfeed" to "Feed" */}
+      {/* {config.text} */}
+      Feed
     </TabButton>
   );
 }

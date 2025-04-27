@@ -1,7 +1,9 @@
 .tabButton {
   display: flex;
   align-items: center;
-  padding: var(--asc-spacing-s1) var(--asc-spacing-s2);
+  /* // FINEX: Change padding */
+  /* padding: var(--asc-spacing-s1) var(--asc-spacing-s2); */
+  padding: 6px 14px;
   background: var(--asc-color-background-default, #fff);
   border: 1px solid var(--asc-color-base-shade4);
   border-radius: 1.5rem;
@@ -17,7 +19,9 @@
 }
 
 .tabButton__text {
-  font-size: 1.0625rem;
+  /* // FINEX: Change font size */
+  /* font-size: 1.0625rem; */
+  font-size: var(--asc-text-font-size-md);
 }
 
 .tabButton__text[data-active='true'] {

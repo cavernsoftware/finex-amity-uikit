@@ -70,6 +70,8 @@ export function SocialHomePage() {
             pageId={pageId}
             selectedTab={activeTab}
             onClickPostCreationButton={handleClickButton}
+            // FINEX: Add default text
+            defaultText="Community"
           />
         </div>
         <div className={styles.socialHomePage__tabs}>

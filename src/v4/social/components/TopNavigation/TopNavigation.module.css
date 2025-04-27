@@ -19,3 +19,11 @@
   justify-content: center;
   align-items: center;
 }
+
+/* // FINEX: Add button placeholder styling */
+.topNavigationRightPane__buttonPlaceholder {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--asc-color-secondary-shade4);
+}

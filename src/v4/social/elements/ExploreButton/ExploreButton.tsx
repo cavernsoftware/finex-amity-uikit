@@ -34,7 +34,8 @@ export function ExploreButton({
       onPress={() => onClick?.()}
       data-testid={accessibilityId}
     >
-      {config.text}
+      {/* // FINEX: Add default text */}
+      {config.text ?? 'Explore'}
     </TabButton>
   );
 }
