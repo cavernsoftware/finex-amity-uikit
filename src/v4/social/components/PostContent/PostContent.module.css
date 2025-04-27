@@ -27,12 +27,18 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  /* // FINEX: Add margin-top */
+  margin-top: 1px;
 }
 
 /* // FINEX: Add timestamp styling */
 .postContent__bar__information__subtitle__timestamp {
+  position: relative;
+  top: -1px;
   line-height: 1;
 }
+
+/* // FINEX: Add timestamp hover styling */
 .postContent__bar__information__subtitle__timestamp:hover {
   cursor: pointer;
   text-decoration: underline;
@@ -43,6 +49,8 @@
   justify-content: center;
   align-items: center;
   gap: 0.25rem;
+  /* // FINEX: Add line-height */
+  line-height: 1;
 }
 
 .postContent__bar__information__subtitle__brand {
