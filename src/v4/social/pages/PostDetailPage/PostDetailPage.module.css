@@ -137,6 +137,9 @@
 
   .postDetailPage__comments {
     border-top: 1px solid var(--asc-color-base-shade4);
+    /* // FINEX: Remove bottom border radius */
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
   }
 
   .postDetailPage__notMember {

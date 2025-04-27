@@ -33,6 +33,9 @@
   background-color: var(--asc-color-background-default);
   width: 100%;
   flex-direction: row;
+  /* // FINEX: Add bottom border radius */
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .commentComposer__avatar {
