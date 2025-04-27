@@ -29,7 +29,8 @@
 @media (width < 48em) {
   .layout {
     grid-template-columns: 1fr;
-    background: var(--asc-color-background-default);
+    /* // FINEX: Use transparent background */
+    /* background: var(--asc-color-background-default); */
   }
 
   .layout__aside {

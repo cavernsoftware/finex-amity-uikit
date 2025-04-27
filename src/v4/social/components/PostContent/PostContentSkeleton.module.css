@@ -5,6 +5,9 @@
   height: 10rem;
   flex-direction: column;
   background-color: var(--asc-color-background-default);
+  /* // FINEX: Add top and bottom border for mobile */
+  border-top: 1px solid var(--asc-color-base-shade4);
+  border-bottom: 1px solid var(--asc-color-base-shade4);
 }
 
 .postContentSkeleton__bar {

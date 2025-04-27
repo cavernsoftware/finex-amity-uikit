@@ -1,6 +1,7 @@
 .divider {
   width: 100%;
-  min-height: 0.5rem;
+  /* // FINEX: Change height from 0.5rem to 0.75rem */
+  min-height: 0.75rem;
   /* // FINEX: Make background transparent */
   /* background-color: var(--asc-color-base-shade4); */
 }
@@ -20,7 +21,7 @@
 
 @media (width < 48em) {
   .divider {
-    /* // FINEX: Make background shade4 only in mobile */
-    background-color: var(--asc-color-base-shade4);
+    /* // FINEX: Make background transparent */
+    /* background-color: var(--asc-color-base-shade4); */
   }
 }

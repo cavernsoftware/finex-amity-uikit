@@ -2,7 +2,8 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: var(--asc-color-background-default);
+  /* // FINEX: Use transparent background */
+  /* background-color: var(--asc-color-background-default); */
 }
 
 .socialHomePage__topBar {
@@ -13,6 +14,8 @@
   /* // FINEX: Comment out height */
   /* height: 7.5rem; */
   background-color: var(--asc-color-background-default);
+  /* // FINEX: Add bottom border */
+  border-bottom: 1px solid var(--asc-color-base-shade4);
 }
 
 .socialHomePage__topNavigation {

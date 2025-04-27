@@ -5,6 +5,9 @@
 
 .global_feed__postContainer {
   width: 100%;
+  /* // FINEX: Add top and bottom border for mobile */
+  border-top: 1px solid var(--asc-color-base-shade4);
+  border-bottom: 1px solid var(--asc-color-base-shade4);
 }
 
 .global_feed__pullToRefresh {
