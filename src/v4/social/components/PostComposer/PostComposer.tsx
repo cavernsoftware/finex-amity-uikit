@@ -129,7 +129,9 @@ export function PostComposer({
         textPlaceholderClassName={styles.postComposer__avatarPlaceholder}
       />
       <Button className={styles.postComposer__input} onPress={handlePostClick}>
-        What's going on?
+        {/* // FINEX: Replace placeholder text */}
+        {/* What's going on? */}
+        How's your debt-free journey going?
       </Button>
       <ImageButton
         onPress={handlePostClick}

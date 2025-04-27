@@ -193,7 +193,9 @@ export const PostTextField = ({
           contentEditable={<ContentEditable />}
           placeholder={
             <div className={clsx(styles.editorPlaceholder, placeholderClassName)}>
-              {placeholder ?? "What's going on..."}
+              {/* // FINEX: Replace placeholder text */}
+              {/* {placeholder ?? "What's going on..."} */}
+              How's your debt-free journey going?
             </div>
           }
           ErrorBoundary={LexicalErrorBoundary}
