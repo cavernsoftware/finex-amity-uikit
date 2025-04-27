@@ -5,13 +5,17 @@
   top: 0;
   user-select: none;
   pointer-events: none;
+  /* // FINEX: Change line-height and font-size to sm */
+  line-height: var(--asc-line-height-sm);
+  font-size: var(--asc-text-font-size-sm);
 }
 
 .editorParagraph {
   width: 100%;
   color: var(--asc-color-base-default);
-  line-height: var(--asc-line-height-md);
-  font-size: var(--asc-text-font-size-md);
+  /* // FINEX: Change line-height and font-size to sm */
+  line-height: var(--asc-line-height-sm);
+  font-size: var(--asc-text-font-size-sm);
   margin: 0;
 }
 
