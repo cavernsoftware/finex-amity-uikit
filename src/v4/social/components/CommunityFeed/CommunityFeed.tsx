@@ -153,7 +153,8 @@ export const CommunityFeed = ({ pageId = '*', communityId }: CommunityFeedProps)
                 <div
                   key={post.postId}
                   className={styles.communityFeed__postContent}
-                  onClick={() => handlePostNavigation(post.postId, category)}
+                  // FINEX: Comment out onClick to prevent navigation
+                  // onClick={() => handlePostNavigation(post.postId, category)}
                 >
                   <PostContent
                     pageId={pageId}
@@ -199,9 +200,14 @@ export const CommunityFeed = ({ pageId = '*', communityId }: CommunityFeedProps)
               : AmityPostCategory.ANNOUNCEMENT;
 
             return (
-              <Button
+              // FINEX: Use div instead of button to prevent navigation
+              // <Button
+              //   key={post.postId}
+              //   onPress={() => handlePostNavigation(post.postId, category)}
+              //   className={styles.communityFeed__announcePost}
+              // >
+              <div
                 key={post.postId}
-                onPress={() => handlePostNavigation(post.postId, category)}
                 className={styles.communityFeed__announcePost}
               >
                 <PostContent
@@ -214,7 +220,8 @@ export const CommunityFeed = ({ pageId = '*', communityId }: CommunityFeedProps)
                   onClick={() => handlePostNavigation(post.postId, category)}
                   onPostDeleted={() => refreshPinnedPosts()}
                 />
-              </Button>
+              </div>
+              // </Button>
             );
           })
       : null;

@@ -93,7 +93,8 @@ export const GlobalFeed = ({
       {globalFeaturedPosts &&
         globalFeaturedPosts.map((item) => (
           <React.Fragment key={item.post.postId}>
-            <ClickableArea
+              {/* // FINEX: Use div instead of ClickableArea to prevent navigation */}
+              {/* <ClickableArea
               elementType="div"
               className={styles.global_feed__postContainer}
               onPress={() =>
@@ -103,7 +104,8 @@ export const GlobalFeed = ({
                   category: AmityPostCategory.ANNOUNCEMENT,
                 })
               }
-            >
+            > */}
+            <div className={styles.global_feed__postContainer}>
               <PostContent
                 pageId={pageId}
                 post={item.post}
@@ -119,7 +121,8 @@ export const GlobalFeed = ({
                   });
                 }}
               />
-            </ClickableArea>
+            </div>
+            {/* </ClickableArea> */}
             <Divider />
           </React.Fragment>
         ))}
@@ -129,13 +132,15 @@ export const GlobalFeed = ({
           {isAmityAd(item) ? (
             <PostAd ad={item} />
           ) : (
-            <ClickableArea
-              elementType="div"
-              className={styles.global_feed__postContainer}
-              onPress={() =>
-                AmityGlobalFeedComponentBehavior?.goToPostDetailPage?.({ postId: item.postId })
-              }
-            >
+            // FINEX: Use div instead of ClickableArea to prevent navigation
+            // <ClickableArea
+            //   elementType="div"
+            //   className={styles.global_feed__postContainer}
+            //   onPress={() =>
+            //     AmityGlobalFeedComponentBehavior?.goToPostDetailPage?.({ postId: item.postId })
+            //   }
+            // >
+            <div className={styles.global_feed__postContainer}>
               <PostContent
                 pageId={pageId}
                 post={item}
@@ -146,7 +151,8 @@ export const GlobalFeed = ({
                 }}
                 onPostDeleted={onPostDeleted}
               />
-            </ClickableArea>
+            </div>
+            // </ClickableArea>
           )}
         </React.Fragment>
       ))}

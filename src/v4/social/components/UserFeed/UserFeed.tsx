@@ -92,14 +92,19 @@ export const UserFeed = ({ pageId = '*', userId }: UserFeedProps) => {
       return <EmptyUserFeed pageId={pageId} componentId={componentId} />;
 
     return posts.map((post) => (
-      <Button
+      // FINEX: Use div instead of button to prevent navigation
+      // <Button
+      //   key={post.postId}
+      //   className={styles.userFeed__postContent}
+      //   onPress={() =>
+      //     AmityUserFeedComponentBehavior?.goToPostDetailPage?.({
+      //       postId: post.postId,
+      //     })
+      //   }
+      // >
+      <div 
         key={post.postId}
         className={styles.userFeed__postContent}
-        onPress={() =>
-          AmityUserFeedComponentBehavior?.goToPostDetailPage?.({
-            postId: post.postId,
-          })
-        }
       >
         <PostContent
           category={AmityPostCategory.GENERAL}
@@ -113,7 +118,8 @@ export const UserFeed = ({ pageId = '*', userId }: UserFeedProps) => {
             })
           }
         />
-      </Button>
+      </div>
+      // </Button>
     ));
   };
 

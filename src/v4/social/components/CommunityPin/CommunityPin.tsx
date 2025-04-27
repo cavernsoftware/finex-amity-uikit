@@ -70,15 +70,20 @@ export const CommunityPin = ({ pageId = '*', communityId }: CommunityPinProps) =
           if (!post || !post.postId) return null;
 
           return (
-            <Button
+            // FINEX: Use div instead of button to prevent navigation
+            // <Button
+            //   key={post.postId}
+            //   onPress={() => {
+            //     AmityCommunityProfilePageBehavior?.goToPostDetailPage?.({
+            //       postId: post.postId,
+            //       hideTarget: true,
+            //       category: AmityPostCategory.PIN_AND_ANNOUNCEMENT,
+            //     });
+            //   }}
+            //   className={styles.communityPin__feed}
+            // >
+            <div
               key={post.postId}
-              onPress={() => {
-                AmityCommunityProfilePageBehavior?.goToPostDetailPage?.({
-                  postId: post.postId,
-                  hideTarget: true,
-                  category: AmityPostCategory.PIN_AND_ANNOUNCEMENT,
-                });
-              }}
               className={styles.communityPin__feed}
             >
               <PostContent
@@ -96,7 +101,8 @@ export const CommunityPin = ({ pageId = '*', communityId }: CommunityPinProps) =
                 }
                 onPostDeleted={handlePostDeleted}
               />
-            </Button>
+            </div>
+            // </Button>
           );
         })
     );
@@ -113,15 +119,20 @@ export const CommunityPin = ({ pageId = '*', communityId }: CommunityPinProps) =
             if (!post || !post.postId) return null;
 
             return (
-              <Button
-                key={post.postId}
-                onPress={() => {
-                  AmityCommunityProfilePageBehavior?.goToPostDetailPage?.({
-                    postId: post.postId,
-                    hideTarget: true,
-                    category: AmityPostCategory.PIN,
-                  });
-                }}
+              // FINEX: Use div instead of button to prevent navigation
+              // <Button
+              //   key={post.postId}
+              //   onPress={() => {
+              //     AmityCommunityProfilePageBehavior?.goToPostDetailPage?.({
+              //       postId: post.postId,
+              //       hideTarget: true,
+              //       category: AmityPostCategory.PIN,
+              //     });
+              //   }}
+              //   className={styles.communityPin__feed}
+              // >
+              <div
+                key={post.postId} 
                 className={styles.communityPin__feed}
               >
                 <PostContent
@@ -139,7 +150,8 @@ export const CommunityPin = ({ pageId = '*', communityId }: CommunityPinProps) =
                   }
                   onPostDeleted={handlePostDeleted}
                 />
-              </Button>
+              </div>
+              // </Button>
             );
           })}
         {isLoading && <CommunityFeedPostContentSkeleton />}
