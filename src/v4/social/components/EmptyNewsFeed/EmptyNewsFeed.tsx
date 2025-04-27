@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCustomization } from '~/v4/core/providers/CustomizationProvider';
+import { Divider } from '~/v4/social/elements/Divider';
 import { Illustration } from '~/v4/social/elements/Illustration';
 import { Description } from '~/v4/social/elements/Description';
 import { Title } from '~/v4/social/elements/Title';
@@ -29,17 +30,22 @@ export function EmptyNewsfeed({ pageId = '*' }: EmptyNewsfeedProps) {
 
   return (
     <div className={styles.emptyNewsfeed} style={themeStyles} data-testid={accessibilityId}>
-      <Illustration pageId={pageId} componentId={componentId} />
-      <div className={styles.emptyNewsfeed__text}>
-        <Title pageId={pageId} componentId={componentId} />
-        <Description pageId={pageId} componentId={componentId} />
+      {/* // FINEX: Show top Divider only in mobile */}
+      <Divider isShownOnlyInMobile />
+      {/* // FINEX: Add container */}
+      <div className={styles.emptyNewsfeed__container}>
+        {/* <Illustration pageId={pageId} componentId={componentId} /> */}
+        <div className={styles.emptyNewsfeed__text}>
+          <Title pageId={pageId} componentId={componentId} />
+          <Description pageId={pageId} componentId={componentId} />
+        </div>
+        <ExploreCommunitiesButton pageId={pageId} componentId={componentId} />
+        <CreateCommunityButton
+          pageId={pageId}
+          componentId={componentId}
+          onClick={() => goToCreateCommunityPage?.({ mode: AmityCommunitySetupPageMode.CREATE })}
+        />
       </div>
-      <ExploreCommunitiesButton pageId={pageId} componentId={componentId} />
-      <CreateCommunityButton
-        pageId={pageId}
-        componentId={componentId}
-        onClick={() => goToCreateCommunityPage?.({ mode: AmityCommunitySetupPageMode.CREATE })}
-      />
     </div>
   );
 }

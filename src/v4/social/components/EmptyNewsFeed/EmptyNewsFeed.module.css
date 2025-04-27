@@ -4,8 +4,14 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
-  background-color: var(--asc-color-background-default);
+  /* // FINEX: Comment out height and background-color */
+  /* height: 100%;
+  background-color: var(--asc-color-background-default); */
+}
+
+/* // FINEX: Add container */
+.emptyNewsfeed__container {
+  padding: 20px 0;
 }
 
 .emptyNewsfeed__text {

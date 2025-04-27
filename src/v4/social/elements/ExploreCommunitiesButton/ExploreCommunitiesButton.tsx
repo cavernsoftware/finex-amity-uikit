@@ -41,7 +41,9 @@ export function ExploreCommunitiesButton({ pageId = '*', componentId = '*' }: De
     >
       <Globe className={styles.exploreCommunitiesButton__icon} />
       <Typography.BodyBold className={styles.exploreCommunitiesButton__text}>
-        {config.text}
+        {/* // FINEX: Change from "Explore Community" to "Explore" */}
+        {/* {config.text} */}
+        Explore
       </Typography.BodyBold>
     </div>
   );

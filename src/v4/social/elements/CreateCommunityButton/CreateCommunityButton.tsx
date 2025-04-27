@@ -38,7 +38,8 @@ export function CreateCommunityButton({
         configIconName={config.icon}
         defaultIconName={defaultConfig.icon}
       />
-      <Typography.Body>Create Community</Typography.Body>
+      {/* // FINEX: Make "community" lowercase */}
+      <Typography.Body>Create community</Typography.Body>
     </div>
   );
 }
