@@ -14,6 +14,8 @@ export const DrawerContainer = () => {
       <Drawer.Portal>
         <Drawer.Overlay className={styles.drawer__overlay} />
         <Drawer.Content className={styles.drawer__content}>
+          {/* // FINEX: Add empty drawer title component to fix accessibility issue */}
+          <Drawer.Title></Drawer.Title>
           <div className={styles.drawer__innerContent}>
             <div className={styles.drawer__placeholder} />
             {drawerData?.content}
