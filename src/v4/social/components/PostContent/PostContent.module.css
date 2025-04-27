@@ -29,7 +29,10 @@
   gap: 0.25rem;
 }
 
-/* // FINEX: Add timestamp hover styling */
+/* // FINEX: Add timestamp styling */
+.postContent__bar__information__subtitle__timestamp {
+  line-height: 1;
+}
 .postContent__bar__information__subtitle__timestamp:hover {
   cursor: pointer;
   text-decoration: underline;

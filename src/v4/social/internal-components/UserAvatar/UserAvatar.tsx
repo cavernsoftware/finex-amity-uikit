@@ -46,9 +46,10 @@ export function UserAvatar({
 
   if (!user || !userId || !userImage) {
     return (
-      <Button
+    // FINEX: Change from <Button /> to <div /> to resolve nested button issue
+    <div
         className={clsx(styles.userAvatar__placeholder, className)}
-        onPress={() => {
+        onClick={() => {
           if (!userId) return;
           if (userId && shouldRedirectToUserProfile) {
             closePopup();
@@ -64,13 +65,14 @@ export function UserAvatar({
           {firstChar}
         </Typography.TitleBold>
         {isShowModeratorBadge && <Badge className={styles.userAvatar__badge} />}
-      </Button>
+      </div>
     );
   }
 
   return (
-    <Button
-      onPress={() => {
+    // FINEX: Change from <Button /> to <div /> to resolve nested button issue
+    <div
+      onClick={() => {
         if (!userId) return;
         if (userId && shouldRedirectToUserProfile) {
           closePopup();
@@ -87,6 +89,6 @@ export function UserAvatar({
         className={clsx(styles.userAvatar__img, className)}
       />
       {isShowModeratorBadge && <Badge className={styles.userAvatar__badge} />}
-    </Button>
+    </div>
   );
 }
