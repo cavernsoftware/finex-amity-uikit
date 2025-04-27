@@ -420,7 +420,13 @@ export const PostContent = ({
                 <span className={styles.postContent__bar__information__subtitle__separator}>•</span>
               </div>
             ) : null}
-            <Timestamp timestamp={post.createdAt} />
+            {/* // FINEX: Make timestamp clickable if onClick is provided */}
+            <div
+              className={onClick ? styles.postContent__bar__information__subtitle__timestamp : undefined}
+              onClick={onClick}
+            >
+              <Timestamp timestamp={post.createdAt} />
+            </div>
             {post.createdAt !== post.editedAt && (
               <Typography.Caption
                 data-testid={`${pageId}/${componentId}/post_edited_text`}

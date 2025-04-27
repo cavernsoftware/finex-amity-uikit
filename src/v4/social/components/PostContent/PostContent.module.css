@@ -29,6 +29,12 @@
   gap: 0.25rem;
 }
 
+/* // FINEX: Add timestamp hover styling */
+.postContent__bar__information__subtitle__timestamp:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .postContent__bar__information__subtitle__moderator {
   display: flex;
   justify-content: center;
