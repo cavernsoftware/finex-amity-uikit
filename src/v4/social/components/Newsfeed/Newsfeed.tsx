@@ -6,6 +6,7 @@ import { GlobalFeed } from '~/v4/social/components/GlobalFeed';
 import { PullToRefresh } from '~/v4/core/components/PullToRefresh';
 import { PostComposer } from '~/v4/social/components/PostComposer';
 import { EmptyNewsfeed } from '~/v4/social/components/EmptyNewsFeed';
+import { PostContentSkeleton } from '~/v4/social/components/PostContent/PostContentSkeleton';
 import { useGlobalFeedContext } from '~/v4/social/providers/GlobalFeedProvider';
 import styles from './Newsfeed.module.css';
 
@@ -26,6 +27,8 @@ export const Newsfeed = ({ pageId = '*' }: NewsfeedProps) => {
     loadMore,
     refetch,
     removeItem,
+    // FINEX: Add fetchHasBeenCalled
+    fetchHasBeenCalled,
   } = useGlobalFeedContext();
 
   useEffect(() => {
@@ -36,7 +39,25 @@ export const Newsfeed = ({ pageId = '*' }: NewsfeedProps) => {
     if (hasMore && !isLoading) loadMore();
   };
 
-  if (itemWithAds.length === 0 && !isLoading) return <EmptyNewsfeed pageId={pageId} />;
+  // FINEX: Show skeleton loading screen if fetch has not been called or is loading
+  if (!fetchHasBeenCalled || isLoading) {
+    return (
+      <div className={styles.newsfeed} style={themeStyles}>
+        <Divider isShownOnlyInMobile />
+        {Array.from({ length: 5 }).map((_, index) => (
+          <div key={index}>
+            <PostContentSkeleton />
+            <Divider isShown={index !== 5} />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // FINEX: Show empty newsfeed if no posts
+  if (itemWithAds.length === 0) {
+    return <EmptyNewsfeed pageId={pageId} />;
+  }
 
   return (
     <PullToRefresh className={styles.newsfeed} style={themeStyles} onTouchEndCallback={refetch}>

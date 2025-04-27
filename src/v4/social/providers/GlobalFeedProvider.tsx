@@ -10,6 +10,8 @@ const useGlobalFeed = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [queryToken, setQueryToken] = useState<string | null>(null);
   const [loadMoreHasBeenCalled, setLoadMoreHasBeenCalled] = useState(false);
+  // FINEX: Add fetchHasBeenCalled
+  const [fetchHasBeenCalled, setFetchHasBeenCalled] = useState(false);
   const [hasBeenFetched, setHasBeenFetched] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const limit = 10;
@@ -138,6 +140,8 @@ const useGlobalFeed = () => {
   };
 
   const refetch = () => {
+    // FINEX: Add fetchHasBeenCalled
+    setFetchHasBeenCalled(true);
     setItems((prevItems) => {
       const prependedItemCount = prevItems.length % limit;
       return prependedItemCount ? prevItems.slice(0, prependedItemCount) : prevItems;
@@ -163,6 +167,8 @@ const useGlobalFeed = () => {
     scrollPosition,
     onScroll,
     isGlobalFeaturedPostsLoading,
+    // FINEX: Add fetchHasBeenCalled
+    fetchHasBeenCalled,
   };
 };
 
@@ -184,6 +190,8 @@ const GlobalFeedContext = createContext<GlobalFeedContextType>({
   onScroll: () => {},
   isGlobalFeaturedPostsLoading: false,
   globalFeaturedPostsItems: [],
+  // FINEX: Add fetchHasBeenCalled
+  fetchHasBeenCalled: false,
 });
 
 export const useGlobalFeedContext = () => {
