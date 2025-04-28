@@ -338,6 +338,8 @@ export function CreatePost({ community, targetType, targetId }: AmityPostCompose
                 >
                   <Drawer.Portal container={drawerRef.current}>
                     <Drawer.Content className={styles.createPost__attachmentDrawer__content}>
+                      {/* // FINEX: Add empty drawer title component to fix accessibility issue */}
+                      <Drawer.Title></Drawer.Title>
                       <div
                         ref={drawerContentRef}
                         className={styles.createPost__attachmentDrawer__contentContainer}

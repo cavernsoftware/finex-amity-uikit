@@ -371,6 +371,8 @@ export function EditPost({ post }: AmityPostComposerEditOptions) {
                 >
                   <Drawer.Portal container={drawerRef.current}>
                     <Drawer.Content className={styles.editPost__attachmentDrawer__content}>
+                      {/* // FINEX: Add empty drawer title component to fix accessibility issue */}
+                      <Drawer.Title></Drawer.Title>
                       <div
                         ref={drawerContentRef}
                         className={styles.editPost__attachmentDrawer__contentContainer}
