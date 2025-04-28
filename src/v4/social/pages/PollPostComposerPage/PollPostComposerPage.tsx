@@ -404,7 +404,8 @@ export const PollPostComposerPage = ({ targetId, targetType }: PollPostComposerP
             <PollOptionsDesc pageId={pageId} />
           </Label>
           {options.map((option, index) => (
-            <div className={styles.pollPostComposerPage__pollOptions__options}>
+            // FINEX: Add index as key
+            <div className={styles.pollPostComposerPage__pollOptions__options} key={index}>
               <div className={styles.pollPostComposerPage__pollOptions__optionsWrapper}>
                 <TextArea
                   data-isvalid={option.data.length <= MAX_OPTION_LENGTH}
