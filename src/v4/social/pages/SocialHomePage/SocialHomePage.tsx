@@ -8,6 +8,7 @@ import { ExploreButton } from '~/v4/social/elements/ExploreButton';
 import { MyCommunitiesButton } from '~/v4/social/elements/MyCommunitiesButton';
 import { Newsfeed } from '~/v4/social/components/Newsfeed';
 import { useAmityPage } from '~/v4/core/hooks/uikit';
+import { useDrawer } from '~/v4/core/providers/DrawerProvider';
 import { CreatePostMenu } from '~/v4/social/components/CreatePostMenu';
 import { useGlobalFeedContext } from '~/v4/social/providers/GlobalFeedProvider';
 import { Explore } from '~/v4/social/components/Explore';
@@ -24,7 +25,11 @@ export function SocialHomePage() {
   const { scrollPosition, onScroll } = useGlobalFeedContext();
 
   const { activeTab, setActiveTab } = useLayoutContext();
+  
+  // FINEX: Use drawer
+  const { setDrawerData } = useDrawer();
 
+  // FINEX: Comment out since drawer is used now
   const [isShowCreatePostMenu, setIsShowCreatePostMenu] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const initialLoad = useRef(true);
@@ -38,9 +43,10 @@ export function SocialHomePage() {
     }, 100);
   }, [containerRef.current, activeTab]);
 
-  const handleClickButton = () => {
-    setIsShowCreatePostMenu((prev) => !prev);
-  };
+  // FINEX: Comment out since drawer is used now
+  // const handleClickButton = () => {
+  //   setIsShowCreatePostMenu((prev) => !prev);
+  // };
 
   const handleScroll = (event: React.UIEvent<HTMLDivElement, UIEvent>) => {
     if (activeTab !== HomePageTab.Newsfeed) return;
@@ -48,19 +54,20 @@ export function SocialHomePage() {
     onScroll(event);
   };
 
-  useEffect(() => {
-    const handleClickOutside = () => {
-      if (isShowCreatePostMenu) {
-        setIsShowCreatePostMenu(false);
-      }
-    };
+  // FINEX: Comment out since drawer is used now
+  // useEffect(() => {
+  //   const handleClickOutside = () => {
+  //     if (isShowCreatePostMenu) {
+  //       setIsShowCreatePostMenu(false);
+  //     }
+  //   };
 
-    if (isShowCreatePostMenu) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-  }, [isShowCreatePostMenu]);
+  //   if (isShowCreatePostMenu) {
+  //     document.addEventListener('mousedown', handleClickOutside);
+  //   } else {
+  //     document.removeEventListener('mousedown', handleClickOutside);
+  //   }
+  // }, [isShowCreatePostMenu]);
 
   return (
     <div className={styles.socialHomePage} style={themeStyles}>
@@ -69,7 +76,11 @@ export function SocialHomePage() {
           <TopNavigation
             pageId={pageId}
             selectedTab={activeTab}
-            onClickPostCreationButton={handleClickButton}
+            // FINEX: Change onClick to use drawer
+            // onClickPostCreationButton={handleClickButton}
+            onClickPostCreationButton={() =>
+              setDrawerData({ content: <CreatePostMenu pageId={pageId} /> })
+            }
             // FINEX: Add default text
             defaultText="Community"
           />
@@ -100,11 +111,12 @@ export function SocialHomePage() {
         </div>
       </NoInternetConnectionHoc>
 
-      {isShowCreatePostMenu && (
+      {/* // FINEX: Comment out since drawer is used now */}
+      {/* {isShowCreatePostMenu && (
         <div className={styles.socialHomePage__createPostMenu}>
           <CreatePostMenu pageId={pageId} />
         </div>
-      )}
+      )} */}
     </div>
   );
 }

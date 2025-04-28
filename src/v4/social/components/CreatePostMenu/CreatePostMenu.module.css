@@ -1,7 +1,10 @@
 .createPostMenu {
   background-color: var(--asc-color-background-default);
-  padding: 0.75rem 1rem;
+  /* // FINEX: Change padding */
+  /* padding: 0.75rem 1rem; */
+  padding: 0 1rem;
   border-radius: 0.75rem;
   width: 100%;
-  box-shadow: var(--asc-box-shadow-03);
+  /* // FINEX: Comment out shadow */
+  /* box-shadow: var(--asc-box-shadow-03); */
 }
