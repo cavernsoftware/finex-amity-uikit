@@ -26,20 +26,23 @@
 
 .typography__bodyBold {
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  /* // FINEX: Change line-height from 1.25rem to 1.3rem */
+  line-height: 1.3rem;
   font-weight: 600;
 }
 
 /* // FINEX: Add a body medium font weight */
 .typography__bodyMedium {
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  /* // FINEX: Change line-height from 1.25rem to 1.3rem */
+  line-height: 1.3rem;
   font-weight: 500;
 }
 
 .typography__body {
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  /* // FINEX: Change line-height from 1.25rem to 1.3rem */
+  line-height: 1.3rem;
   font-weight: 400;
 }
 

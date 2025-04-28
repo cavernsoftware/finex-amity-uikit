@@ -3,10 +3,12 @@
   width: 100%;
   /* // FINEX: Remove padding so divider can be full width */
   /* padding: 0 1rem; */
-  background-color: var(--asc-color-background-default);
 }
 
-/* // FINEX: Add separate container with padding */
-.myCommunitiesListContainer {
+/* // FINEX: Add separate container */
+.myCommunitiesList__container {
   padding: 0 1rem;
+  background-color: var(--asc-color-background-default);
+  border-top: 1px solid var(--asc-color-base-shade4);
+  border-bottom: 1px solid var(--asc-color-base-shade4);
 }

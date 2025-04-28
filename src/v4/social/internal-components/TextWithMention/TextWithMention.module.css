@@ -29,4 +29,6 @@
 
 .textWithMention__seeMore {
   color: var(--asc-color-primary-default);
+  /* // FINEX: Add font-weight */
+  font-weight: 500;
 }

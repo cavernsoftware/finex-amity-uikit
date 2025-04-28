@@ -42,6 +42,8 @@
   object-fit: cover;
   width: 2rem;
   height: 2rem;
+  /* // FINEX: Add background color */
+  background-color: var(--asc-color-base-shade4);
 }
 
 .userAvatar__badge {

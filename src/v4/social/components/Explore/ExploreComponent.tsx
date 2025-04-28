@@ -67,33 +67,36 @@ export function Explore({ pageId = '*' }: ExploreProps) {
   return (
     <PullToRefresh className={styles.explore} onTouchEndCallback={refresh}>
       <Divider isShownOnlyInMobile />
-      {/* // FINEX: Hide community categories and divider */}
-      {/* <div className={styles.explore__exploreCategories}>
-        <ExploreCommunityCategories pageId={pageId} />
+      {/* // FINEX: Add container */}
+      <div className={styles.explore__container}>
+        {/* // FINEX: Hide community categories and divider */}
+        {/* <div className={styles.explore__exploreCategories}>
+          <ExploreCommunityCategories pageId={pageId} />
+        </div>
+        <Divider className={styles.explore__divider} /> */}
+        {!noRecommendedCommunities ? (
+          <div className={styles.explore__recommendedForYou} data-is-loading={!!isLoading}>
+            {isLoading ? (
+              <div className={styles.explore__trendingTitleSkeleton} />
+            ) : (
+              <ExploreRecommendedTitle pageId={pageId} />
+            )}
+            <RecommendedCommunities pageId={pageId} />
+          </div>
+        ) : null}
+        {/* // FINEX: Hide divider */}
+        {/* <Divider className={styles.explore__divider} /> */}
+        {!noTrendingCommunities ? (
+          <div className={styles.explore__trendingNow}>
+            {isLoading ? (
+              <div className={styles.explore__trendingTitleSkeleton} />
+            ) : (
+              <ExploreTrendingTitle pageId={pageId} />
+            )}
+            <TrendingCommunities pageId={pageId} />
+          </div>
+        ) : null}
       </div>
-      <Divider className={styles.explore__divider} /> */}
-      {!noRecommendedCommunities ? (
-        <div className={styles.explore__recommendedForYou} data-is-loading={!!isLoading}>
-          {isLoading ? (
-            <div className={styles.explore__trendingTitleSkeleton} />
-          ) : (
-            <ExploreRecommendedTitle pageId={pageId} />
-          )}
-          <RecommendedCommunities pageId={pageId} />
-        </div>
-      ) : null}
-      {/* // FINEX: Hide divider */}
-      {/* <Divider className={styles.explore__divider} /> */}
-      {!noTrendingCommunities ? (
-        <div className={styles.explore__trendingNow}>
-          {isLoading ? (
-            <div className={styles.explore__trendingTitleSkeleton} />
-          ) : (
-            <ExploreTrendingTitle pageId={pageId} />
-          )}
-          <TrendingCommunities pageId={pageId} />
-        </div>
-      ) : null}
     </PullToRefresh>
   );
 }

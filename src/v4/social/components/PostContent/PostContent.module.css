@@ -81,6 +81,8 @@
   flex-direction: column;
   gap: 1rem;
   padding: 0.5rem 0;
+  /* // FINEX: Add margin top and bottom */
+  margin: 6px 0;
 }
 
 .postContent__content_and_reactions {

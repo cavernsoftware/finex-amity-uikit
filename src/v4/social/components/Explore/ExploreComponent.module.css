@@ -1,8 +1,16 @@
 .explore {
   height: 100%;
   display: flex;
-  padding-bottom: 2rem;
+  /* // FINEX: Comment out padding-bottom */
+  /* padding-bottom: 2rem; */
   flex-direction: column;
+}
+
+/* // FINEX: Add container class */
+.explore__container {
+  background-color: var(--asc-color-background-default);
+  border-top: 1px solid var(--asc-color-base-shade4);
+  border-bottom: 1px solid var(--asc-color-base-shade4);
 }
 
 .explore__recommendedForYou {
@@ -76,6 +84,12 @@
     height: auto;
     /* // FINEX: Use transparent background */
     /* background-color: var(--asc-color-background-shade1); */
+  }
+
+  /* // FINEX: Add container class for desktop */
+  .explore__container {
+    background-color: transparent;
+    border: none;
   }
 
   .explore__divider {

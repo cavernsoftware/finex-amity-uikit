@@ -26,7 +26,7 @@ export const MyCommunities = ({ pageId = '*' }: MyCommunitiesProps) => {
       {/* // FINEX: Add divider only in mobile */}
       <Divider isShownOnlyInMobile />
       {/* // FINEX: Add separate container with padding */}
-      <div style={themeStyles} className={styles.myCommunitiesListContainer}>
+      <div style={themeStyles} className={styles.myCommunitiesList__container}>
         <CommunitySearchResult
           pageId={pageId}
           communityCollection={communities}
