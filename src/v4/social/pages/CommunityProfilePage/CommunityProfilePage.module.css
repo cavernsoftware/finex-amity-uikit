@@ -29,6 +29,12 @@
   z-index: 1;
 }
 
+/* // FINEX: Add active styling */
+.communityProfilePage__createPostButton:active {
+  transform: scale(0.9);
+  transition: transform 0.05s ease-in-out;
+}
+
 .communityProfile__divider {
   width: 100%;
   height: 1px;
