@@ -23,7 +23,7 @@ const Balloon = (props: React.SVGProps<SVGSVGElement>) => (
         clipRule="evenodd"
       />
       <path
-        fill="#1054DE"
+        fill="#228be6"
         d="M24 61c3 0 6 2 7 4 2-2 4-4 7-4 5 0 9 4 9 8 0 11-16 17-16 17s-15-6-15-17c0-4 4-8 8-8z"
       />
     </g>
