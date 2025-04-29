@@ -26,14 +26,17 @@
   justify-content: space-around;
 }
 
-@media (width >= 48em) {
+/* // FINEX: Comment out media query to use desktop styling in mobile */
+/* @media (width >= 48em) { */
   .mediaAttachment__wrapMedia,
   .mediaAttachment__wrapMedia_2items {
     justify-content: flex-start;
-    gap: 0.5rem;
+    /* // FINEX: Increase gap between media buttons */
+    /* gap: 0.5rem; */
+    gap: 1rem;
   }
 
   .mediaAttachment__swipeDown {
     display: none;
   }
-}
+/* } */

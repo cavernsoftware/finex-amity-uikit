@@ -6,6 +6,8 @@
   left: 1rem;
   user-select: none;
   pointer-events: none;
+  /* // FINEX : Use sm font size */
+  font-size: var(--asc-text-font-size-sm);
 }
 
 .editorParagraph {
@@ -13,11 +15,15 @@
   width: 100%;
   color: var(--asc-color-base-default);
   background-color: var(--asc-color-background-default);
+  /* // FINEX : Use sm font size */
+  font-size: var(--asc-text-font-size-sm);
 }
 
 .editorContainer {
   height: 100%;
-  font-size: var(--asc-text-font-size-md);
+  /* // FINEX : Use sm font size */
+  /* font-size: var(--asc-text-font-size-md); */
+  font-size: var(--asc-text-font-size-sm);
   color: var(--asc-color-base-default);
   background-color: var(--asc-color-background-default);
   padding: 0 1rem;

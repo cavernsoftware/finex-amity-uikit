@@ -13,4 +13,7 @@
   width: 1.5rem;
   height: 1.5rem;
   color: var(--asc-color-base-default);
+  /* // FINEX: Use relative position to nudge icon to the left by 1px to align with back button */
+  position: relative;
+  left: -1px;
 }
