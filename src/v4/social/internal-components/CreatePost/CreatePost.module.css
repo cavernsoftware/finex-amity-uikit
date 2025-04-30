@@ -1,7 +1,6 @@
 .createPost {
   /* // FINEX: Adjust height to account for bottom nav */
   /* height: 100%; */
-  /* height: calc(100dvh); */
   position: relative;
   background-color: var(--asc-color-background-default);
   /* // FINEX: Raise z-index above bottom nav */

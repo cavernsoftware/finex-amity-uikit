@@ -1,7 +1,10 @@
 .editPost {
-  height: 100%;
+  /* // FINEX: Adjust height to account for bottom nav */
+  /* height: 100%; */
   position: relative;
   background-color: var(--asc-color-background-default);
+  /* // FINEX: Raise z-index above bottom nav */
+  z-index: 1001;
 }
 
 .editPost__form {
@@ -62,12 +65,17 @@
   position: absolute;
   overflow-y: scroll;
   max-height: 12.5rem;
-  bottom: var(--asc-mention-bottom, 0);
+  /* // FINEX: Set bottom to be above bottom nav */
+  /* bottom: var(--asc-mention-bottom, 0); */
+  bottom: 60px;
   background-color: var(--asc-color-background-default);
 }
 
 .editPost__mention::-webkit-scrollbar {
-  display: none;
+  /* // FINEX: Comment out display: none */
+  /* display: none; */
+  /* // FINEX: Add padding */
+  padding: 0.5rem 1.5rem;
 }
 
 .editPost__notificationWrapper {
@@ -173,16 +181,19 @@
   padding: 0.75rem 1rem 2rem;
 }
 
-@media (width >= 48em) {
+/* // FINEX: Comment out media query to use desktop styling in mobile */
+/* @media (width >= 48em) { */
   .editPost {
-    width: 30rem;
+    /* // FINEX: Comment out width here, set below */
+    /* width: 30rem; */
     position: static;
     border-radius: 0.75rem;
   }
 
-  .editPost__topBar {
+  /* // FINEX: Comment out this styling, set below */
+  /* .editPost__topBar {
     display: none;
-  }
+  } */
 
   .editPost__formContent {
     overflow-y: auto;
@@ -195,16 +206,23 @@
     gap: 0.5rem;
     display: flex;
     align-items: center;
-    padding: 0.5rem 1.5rem;
+    /* // FINEX: Change padding */
+    /* padding: 0.5rem 1.5rem; */
+    padding: 1.5rem 1.5rem;
     background-color: var(--asc-color-background-default);
   }
 
   .editPost__input {
-    padding: 1rem 1.5rem;
+    /* // FINEX: Change padding */
+    /* padding: 1rem 1.5rem; */
+    padding: 1.5rem 1.5rem;
   }
 
   .editPost__placeholder {
-    top: 1rem;
+    /* // FINEX: Update placeholder position */
+    /* top: 1rem;
+    left: 1.5rem; */
+    top: 1.5rem;
     left: 1.5rem;
   }
 
@@ -220,19 +238,21 @@
     background-color: var(--asc-color-background-default);
   }
 
-  .editPost__ctaWrapper {
+  /* // FINEX: Comment out this styling, set below */
+  /* .editPost__ctaWrapper {
     display: block;
     padding: 1rem 1.5rem;
-  }
+  } */
 
   .editPost__cta {
     width: 100%;
     display: block;
   }
 
-  .editPost__mention {
+  /* // FINEX: Comment out this styling, set below */
+  /* .editPost__mention {
     display: none;
-  }
+  } */
 
   .editPost__notificationContainer {
     top: 1.75rem;
@@ -249,7 +269,25 @@
     position: static;
   }
 
-  .editPost__attachmentDrawer {
+  /* // FINEX: Comment out this styling, set below */
+  /* .editPost__attachmentDrawer {
+    display: none;
+  } */
+/* } */
+
+/* // FINEX: Add new media query block for Finex styling */
+@media (width >= 48em) {
+  .editPost {
+    width: 30rem;
+  }
+
+  .editPost__topBar {
     display: none;
   }
+
+  .editPost__ctaWrapper {
+    display: block;
+    padding: 1.5rem 1.5rem;
+    padding-top: 0;
+  }  
 }

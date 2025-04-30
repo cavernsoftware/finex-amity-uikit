@@ -317,6 +317,7 @@ export function CreatePost({ community, targetType, targetId }: AmityPostCompose
           style={{ '--asc-mention-bottom': `${drawerHeight ?? 0}px` } as React.CSSProperties}
         />
       </form>
+      {/* // FINEX: Comment out the mobile attachment drawer since we're using the desktop style attachment buttons */}
       {/* {!isDesktop && (
         <div className={styles.createPost__attachmentDrawer}>
           <div ref={drawerRef}></div>

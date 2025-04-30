@@ -350,7 +350,8 @@ export function EditPost({ post }: AmityPostComposerEditOptions) {
           style={{ '--asc-mention-bottom': `${drawerHeight ?? 0}px` } as React.CSSProperties}
         />
       </form>
-      {!isDesktop && (
+      {/* // FINEX: Comment out the mobile attachment drawer since we're using the desktop style attachment buttons */}
+      {/* {!isDesktop && (
         <div className={styles.editPost__attachmentDrawer}>
           <div ref={drawerRef}></div>
           {drawerRef.current
@@ -371,7 +372,7 @@ export function EditPost({ post }: AmityPostComposerEditOptions) {
                 >
                   <Drawer.Portal container={drawerRef.current}>
                     <Drawer.Content className={styles.editPost__attachmentDrawer__content}>
-                      {/* // FINEX: Add empty drawer title component to fix accessibility issue */}
+                      // FINEX: Add empty drawer title component to fix accessibility issue
                       <Drawer.Title></Drawer.Title>
                       <div
                         ref={drawerContentRef}
@@ -447,7 +448,7 @@ export function EditPost({ post }: AmityPostComposerEditOptions) {
             </Typography.Body>
           )}
         </div>
-      )}
+      )} */}
 
       <div className={styles.editPost__notificationContainer}>
         {(isPending || !online) && (
