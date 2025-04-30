@@ -451,7 +451,9 @@ export const defaultConfig: DefaultConfig = {
     },
     'select_post_target_page/*/my_timeline_avatar': {},
     'select_post_target_page/*/title': {
-      text: 'Post to',
+      // FINEX: Change text
+      // text: 'Post to',
+      text: 'Create a post in:',
     },
     'select_post_target_page/*/my_timeline_text': {
       text: 'My Timeline',
@@ -905,7 +907,9 @@ export const defaultConfig: DefaultConfig = {
     },
     'select_poll_target_page/*/my_timeline_avatar': {},
     'select_poll_target_page/*/title': {
-      text: 'Post to',
+      // FINEX: Change text
+      // text: 'Post to',
+      text: 'Create a poll in:',
     },
     'select_poll_target_page/*/my_timeline_text': {
       text: 'My Timeline',
