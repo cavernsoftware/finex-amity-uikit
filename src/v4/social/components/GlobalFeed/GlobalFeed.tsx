@@ -123,12 +123,14 @@ export const GlobalFeed = ({
               />
             </div>
             {/* </ClickableArea> */}
-            <Divider />
+            {/* // FINEX: Comment out divider */}
+            {/* <Divider /> */}
           </React.Fragment>
         ))}
       {filteredItems.map((item, index) => (
         <React.Fragment key={getItemKey(item, filteredItems[Math.max(0, index - 1)])}>
-          <Divider isShown={index !== 0} />
+          {/* // FINEX: Comment out divider */}
+          {/* <Divider isShown={index !== 0} /> */}
           {isAmityAd(item) ? (
             <PostAd ad={item} />
           ) : (
@@ -156,12 +158,15 @@ export const GlobalFeed = ({
           )}
         </React.Fragment>
       ))}
-      <Divider isShown={filteredItems.length > 0} />
+      {/* // FINEX: Comment out divider */}
+      {/* <Divider isShown={filteredItems.length > 0} /> */}
       {isLoading
         ? Array.from({ length: 5 }).map((_, index) => (
-            <div key={index}>
+            // FINEX: Use flex gap instead of divider
+            <div key={index} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               <PostContentSkeleton />
-              <Divider isShown={index !== 5} />
+              {/* // FINEX: Comment out divider */}
+              {/* <Divider isShown={index !== 5} /> */}
             </div>
           ))
         : null}

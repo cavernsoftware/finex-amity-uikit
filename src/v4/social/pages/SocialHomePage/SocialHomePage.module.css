@@ -16,6 +16,8 @@
   background-color: var(--asc-color-background-default);
   /* // FINEX: Add bottom border */
   border-bottom: 1px solid var(--asc-color-base-shade4);
+  /* // FINEX: Add margin-bottom since not using divider */
+  margin-bottom: 0.75rem;
 }
 
 .socialHomePage__topNavigation {

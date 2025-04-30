@@ -1,6 +1,10 @@
 .global_feed {
   display: flex;
   flex-direction: column;
+  /* // FINEX: Add gap */
+  gap: 0.75rem;
+  /* // FINEX: Add bottom padding */
+  padding-bottom: 4rem;
 }
 
 .global_feed__postContainer {
@@ -59,6 +63,8 @@
 
 .global_feed__intersection {
   height: 1px;
+  /* // FINEX: Add negative margin top that is same as gap to prevent space at footer */
+  margin-top: -0.75rem;
 }
 
 .global_feed__commentContainer {

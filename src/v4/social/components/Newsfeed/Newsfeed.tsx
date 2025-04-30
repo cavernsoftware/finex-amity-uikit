@@ -42,12 +42,13 @@ export const Newsfeed = ({ pageId = '*' }: NewsfeedProps) => {
   // FINEX: Show skeleton loading screen if fetch has not been called or is loading
   if (!fetchHasBeenCalled || isLoading) {
     return (
-      <div className={styles.newsfeed} style={themeStyles}>
-        <Divider isShownOnlyInMobile />
+      // FINEX: Use flex gap instead of divider
+      <div className={styles.newsfeed} style={{ ...themeStyles, display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {/* // FINEX: Comment out divider */}
+        {/* <Divider isShownOnlyInMobile /> */}
         {Array.from({ length: 5 }).map((_, index) => (
           <div key={index}>
             <PostContentSkeleton />
-            <Divider isShown={index !== 5} />
           </div>
         ))}
       </div>
@@ -64,8 +65,8 @@ export const Newsfeed = ({ pageId = '*' }: NewsfeedProps) => {
       {/* // FINEX: Comment out Divider and StoryTab for now since stories aren't used */}
       {/* <Divider /> */}
       {/* <StoryTab type="globalFeed" pageId={pageId} /> */}
-      {/* // FINEX: Show top Divider only in mobile */}
-      <Divider isShownOnlyInMobile />
+      {/* // FINEX: Comment out top Divider */}
+      {/* <Divider isShownOnlyInMobile /> */}
       <PostComposer pageId={pageId} />
       <GlobalFeed
         pageId={pageId}
