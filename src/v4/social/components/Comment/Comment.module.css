@@ -39,21 +39,26 @@
 .postComment__content {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  /* // FINEX: Comment out gap */
+  /* gap: 0.25rem; */
   justify-content: center;
   align-items: start;
   background-color: var(--asc-color-base-shade4);
   border-radius: 0 0.75rem 0.75rem;
   padding: 0.75rem;
   width: max-content;
-  max-width: 100%;
+  /* // FINEX: Use full width */
+  /* max-width: 100%; */
+  width: 100%;
 }
 
-/* // FINEX: Create header to display elements in a row */
+/* // FINEX: Create header styling to display elements in a row */
 .postComment__content__header {
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  line-height: 1;
+  margin-bottom: 0.6rem;
 }
 
 .postComment__content__username {
@@ -75,14 +80,14 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  /* // FINEX: Align line heights */
+  line-height: 1;
 }
 
 .postComment__secondRow__leftPane {
   display: flex;
   gap: 0.75rem;
   align-items: center;
-  /* // FINEX: Align line heights */
-  line-height: 1;
 }
 
 .postComment__secondRow__timestamp {

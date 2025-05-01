@@ -30,6 +30,8 @@ import { ERROR_RESPONSE } from '~/v4/social/constants/errorResponse';
 import { useNotifications } from '~/v4/core/providers/NotificationProvider';
 import { useNavigation } from '~/v4/core/providers/NavigationProvider';
 import styles from './ReplyComment.module.css';
+// FINEX: Import new DebtFreeCountdownBadge component
+import { DebtFreeCountdownBadge } from '~/v4/social/elements/DebtFreeCountdownBadge';
 
 type ReplyCommentProps = {
   pageId?: string;
@@ -198,7 +200,18 @@ const PostReplyComment = ({ pageId = '*', community, comment }: ReplyCommentProp
                 </Typography.BodyBold>
                 {isBrandUser && <BrandBadge className={styles.postReplyComment__brandBadge} />}
               </div>
-              {isModeratorUser && <ModeratorBadge pageId={pageId} componentId={componentId} />}
+
+              {/* // FINEX: Create header to display elements in a row */}
+              <div className={styles.postReplyComment__content__header}>
+                {/* // FINEX: Add new DebtFreeCountdownBadge component */}
+                <DebtFreeCountdownBadge
+                  user={comment.creator}
+                  showLeftSeparator={false}
+                  showRightSeparator={false}
+                />
+                {isModeratorUser && <ModeratorBadge pageId={pageId} componentId={componentId} />}
+              </div>
+
               <TextWithMention
                 pageId={pageId}
                 componentId={componentId}

@@ -35,6 +35,9 @@
 .userAvatar__container {
   position: relative;
   cursor: pointer;
+  /* // FINEX: Add width and height */
+  width: 2rem;
+  height: 2rem;
 }
 
 .userAvatar__img {
