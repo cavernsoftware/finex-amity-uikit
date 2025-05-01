@@ -11,6 +11,8 @@ import {
   ExploreMenuItem,
   NewsFeedMenuItem,
   CreateCommunityMenuItem,
+  // FINEX: Import new ProfileMenuItem component
+  ProfileMenuItem,
 } from '~/v4/social/elements/CommunitySideBarMenuItem';
 import styles from './CommunitySideBar.module.css';
 
@@ -42,6 +44,8 @@ export const CommunitySideBar = ({
       </div>
       <div className={styles.communitySideBar__menuSection}>
         <NewsFeedMenuItem pageId={pageId} componentId={componentId} />
+        {/* // FINEX: Add new ProfileMenuItem component */}
+        <ProfileMenuItem pageId={pageId} componentId={componentId} />
         {!isExploreHidden && <ExploreMenuItem pageId={pageId} componentId={componentId} />}
       </div>
       <div className={styles.communitySideBar__myCommunitiesSection}>

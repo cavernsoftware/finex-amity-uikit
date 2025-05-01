@@ -1,22 +1,24 @@
+// FINEX: Create new ProfileMenuItem component
+
 import React from 'react';
-import Global from '~/v4/icons/Global';
+import UserRegular from '~/v4/icons/UserRegular';
 import { useAmityElement } from '~/v4/core/hooks/uikit';
-import { HomePageTab } from '~/v4/social/constants/HomePageTab';
-import { useLayoutContext } from '~/v4/social/providers/LayoutProvider';
+import { IconComponent } from '~/v4/core/IconComponent';
 import { PageTypes, useNavigation } from '~/v4/core/providers/NavigationProvider';
 import { CommunitySideBarMenuItem } from '~/v4/social/elements/CommunitySideBarMenuItem';
-import { IconComponent } from '~/v4/core/IconComponent';
+import useSDK from '~/v4/core/hooks/useSDK';
 
-type ExploreMenuItemProps = {
+type ProfileMenuItemProps = {
   pageId?: string;
   componentId?: string;
 };
 
-export function ExploreMenuItem({ pageId = '*', componentId = '*' }: ExploreMenuItemProps) {
-  const elementId = 'explore_sidebar_menu_item';
+export function ProfileMenuItem({ pageId = '*', componentId = '*' }: ProfileMenuItemProps) {
+  const elementId = 'profile_sidebar_menu_item';
 
-  const { onChangePage, page } = useNavigation();
-  const { activeTab, setActiveTab } = useLayoutContext();
+  const userId = useSDK().currentUserId;
+
+  const { page, onClickUser } = useNavigation();
   const { accessibilityId, config, isExcluded, defaultConfig, uiReference } = useAmityElement({
     pageId,
     componentId,
@@ -28,22 +30,20 @@ export function ExploreMenuItem({ pageId = '*', componentId = '*' }: ExploreMenu
   return (
     <CommunitySideBarMenuItem
       accessibilityId={accessibilityId}
-      isActive={page.type === PageTypes.SocialHomePage && activeTab === HomePageTab.Explore}
+      isActive={page.type === PageTypes.UserProfilePage && page.context.userId === userId}
       onPress={() => {
-        setActiveTab(HomePageTab.Explore);
-        onChangePage(PageTypes.SocialHomePage);
+        userId && onClickUser(userId);
       }}
       icon={(props) => (
         <IconComponent
           configIconName={config.icon}
           defaultIconName={defaultConfig.icon}
-          // FINEX: Scale up icon
-          defaultIcon={() => <Global {...props} style={{ transform: 'scale(1.2)' }} />}
+          defaultIcon={() => <UserRegular {...props} style={{ padding: 1 }} />}
           imgIcon={() => <img src={config.icon} alt={uiReference} />}
         />
       )}
     >
-      {config.text ?? 'Explore'}
+      Profile
     </CommunitySideBarMenuItem>
   );
 }
