@@ -35,6 +35,8 @@ import { ERROR_RESPONSE } from '~/v4/social/constants/errorResponse';
 import styles from './Comment.module.css';
 // FINEX: Import new DebtFreeCountdownBadge component
 import { DebtFreeCountdownBadge } from '~/v4/social/elements/DebtFreeCountdownBadge';
+// FINEX: Import new useDebtFreeCountdown hook
+import { useDebtFreeCountdown } from '~/v4/social/hooks/useDebtFreeCountdown';
 
 const Like = ({ ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -121,6 +123,9 @@ export const Comment = ({
   const isLiked = (comment.myReactions || []).some((reaction) => reaction === 'like');
 
   const replyAmount = comment.childrenNumber;
+
+  // FINEX: Add debt free countdown hook
+  const debtFreeDaysLeft = useDebtFreeCountdown({ user: comment.creator });
 
   if (isExcluded) return null;
 
@@ -290,15 +295,11 @@ export const Comment = ({
               {/* // FINEX: Create header to display elements in a row */}
               <div className={styles.postComment__content__header}>
                 {/* // FINEX: Add new DebtFreeCountdownBadge component */}
-                <DebtFreeCountdownBadge
-                  user={comment.creator}
-                  showLeftSeparator={false}
-                  showRightSeparator={false}
-                />
+                <DebtFreeCountdownBadge userId={comment.creator?.userId} daysLeft={debtFreeDaysLeft} />
 
-                {isModeratorUser && !isBrandUser && (
+                {isModeratorUser && !isBrandUser ? (
                   <ModeratorBadge pageId={pageId} componentId={componentId} />
-                )}
+                ) : null}
               </div>
 
               <TextWithMention

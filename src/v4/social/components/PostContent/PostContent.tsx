@@ -49,6 +49,8 @@ import { LiveStreamContent } from './LiveStreamContent';
 import useCommunityModeratorsCollection from '~/v4/social/hooks/collections/useCommunityModeratorsCollection';
 // FINEX: Import new DebtFreeCountdownBadge component
 import { DebtFreeCountdownBadge } from '~/v4/social/elements/DebtFreeCountdownBadge';
+// FINEX: Import new useDebtFreeCountdown hook
+import { useDebtFreeCountdown } from '~/v4/social/hooks/useDebtFreeCountdown';
 
 export enum AmityPostContentComponentStyle {
   FEED = 'feed',
@@ -391,6 +393,9 @@ export const PostContent = ({
     }
   }, [post, isVisible, page.type]);
 
+  // FINEX: Add debt free countdown hook
+  const debtFreeDaysLeft = useDebtFreeCountdown({ user: post.creator });
+
   return (
     <div
       data-testid={accessibilityId}
@@ -417,13 +422,21 @@ export const PostContent = ({
           </div>
           <div className={styles.postContent__bar__information__subtitle}>
             {/* // FINEX: Add new DebtFreeCountdownBadge component */}
-            <DebtFreeCountdownBadge user={post.creator} showRightSeparator={!isCommunityModerator} />
+            {post.creator?.userId && debtFreeDaysLeft ? (
+              <DebtFreeCountdownBadge userId={post.creator?.userId} daysLeft={debtFreeDaysLeft} />
+            ) : null}
+
             {isCommunityModerator ? (
               <div className={styles.postContent__bar__information__subtitle__moderator}>
                 <ModeratorBadge pageId={pageId} componentId={componentId} />
-                <span className={styles.postContent__bar__information__subtitle__separator}>•</span>
               </div>
             ) : null}
+
+            {/* // FINEX: Move separator here and add conditionals */}
+            {(post.creator?.userId && debtFreeDaysLeft) || isCommunityModerator ? (
+              <span className={styles.postContent__bar__information__subtitle__separator}>•</span>
+            ) : null}
+
             {/* // FINEX: Make timestamp clickable if onClick is provided */}
             <div
               className={onClick ? styles.postContent__bar__information__subtitle__timestamp : undefined}
@@ -431,6 +444,7 @@ export const PostContent = ({
             >
               <Timestamp timestamp={post.createdAt} />
             </div>
+
             {post.createdAt !== post.editedAt && (
               <Typography.Caption
                 data-testid={`${pageId}/${componentId}/post_edited_text`}

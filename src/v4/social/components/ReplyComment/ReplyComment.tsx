@@ -32,6 +32,8 @@ import { useNavigation } from '~/v4/core/providers/NavigationProvider';
 import styles from './ReplyComment.module.css';
 // FINEX: Import new DebtFreeCountdownBadge component
 import { DebtFreeCountdownBadge } from '~/v4/social/elements/DebtFreeCountdownBadge';
+// FINEX: Import new useDebtFreeCountdown hook
+import { useDebtFreeCountdown } from '~/v4/social/hooks/useDebtFreeCountdown';
 
 type ReplyCommentProps = {
   pageId?: string;
@@ -61,6 +63,9 @@ const PostReplyComment = ({ pageId = '*', community, comment }: ReplyCommentProp
     community,
     userId: comment.creator?.userId,
   });
+
+  // FINEX: Add debt free countdown hook
+  const debtFreeDaysLeft = useDebtFreeCountdown({ user: comment.creator });
 
   const isLiked = (comment.myReactions || []).some((reaction) => reaction === 'like');
 
@@ -204,11 +209,7 @@ const PostReplyComment = ({ pageId = '*', community, comment }: ReplyCommentProp
               {/* // FINEX: Create header to display elements in a row */}
               <div className={styles.postReplyComment__content__header}>
                 {/* // FINEX: Add new DebtFreeCountdownBadge component */}
-                <DebtFreeCountdownBadge
-                  user={comment.creator}
-                  showLeftSeparator={false}
-                  showRightSeparator={false}
-                />
+                <DebtFreeCountdownBadge userId={comment.creator?.userId} daysLeft={debtFreeDaysLeft} />
                 {isModeratorUser && <ModeratorBadge pageId={pageId} componentId={componentId} />}
               </div>
 

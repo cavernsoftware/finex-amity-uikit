@@ -1,11 +1,11 @@
-.debtFreeCountdownBadge {
+/* .debtFreeCountdownBadge {
   display: flex;
   align-items: center;
   gap: 0.25rem;
   line-height: 1;
-}
+} */
 
-.debtFreeCountdownBadge__badge {
+.debtFreeCountdownBadge {
   background-color: var(--asc-color-primary-shade3);
   color: var(--asc-color-primary-default);
   font-weight: 700;
@@ -16,9 +16,9 @@
   cursor: pointer;
 }
 
-.debtFreeCountdownBadge__separator {
-  color: var(--asc-color-base-shade2);
+/* .debtFreeCountdownBadge__separator {
+  color: var(--asc-color-base-shade2); */
   /* // FINEX: Nudge separator up */
-  position: relative;
+  /* position: relative;
   top: -2px;
-}
+} */

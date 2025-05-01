@@ -1,27 +1,21 @@
 // FINEX: Create new DebtFreeCountdown component
 
-import React, { useMemo } from 'react';
+import React from 'react';
 import styles from './DebtFreeCountdown.module.css';
-import clsx from 'clsx';
 import { Typography } from '~/v4/core/components/Typography/Typography';
-import { getDebtFreeCountdown } from '~/v4/helpers/utils';
+import { useDebtFreeCountdown } from '~/v4/social/hooks/useDebtFreeCountdown';
 
 interface DebtFreeCountdownProps {
   user?: Amity.User | null;
 }
 
 export function DebtFreeCountdown({ user }: DebtFreeCountdownProps) {
-  const debtFreeDate = user?.metadata?.debtFreeDate;
-  const showDebtFreeCountdown = user?.metadata?.showDebtFreeCountdown;
-
-  const debtFreeDaysLeft = useMemo(() => {
-    return getDebtFreeCountdown(debtFreeDate, showDebtFreeCountdown);
-  }, [debtFreeDate, showDebtFreeCountdown]);
+  const debtFreeDaysLeft = useDebtFreeCountdown({ user });
 
   if (!debtFreeDaysLeft) return null;
 
   return (
-    <div className={clsx(styles.debtFreeCountdown)}>
+    <div className={styles.debtFreeCountdown}>
       <Typography.BodyMedium>
         Debt-Free Countdown
       </Typography.BodyMedium>
