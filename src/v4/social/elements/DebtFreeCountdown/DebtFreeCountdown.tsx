@@ -16,7 +16,7 @@ export function DebtFreeCountdown({ user }: DebtFreeCountdownProps) {
 
   return (
     <div className={styles.debtFreeCountdown}>
-      <Typography.BodyMedium>
+      <Typography.BodyMedium className={styles.debtFreeCountdown__title}>
         Debt-Free Countdown
       </Typography.BodyMedium>
       <Typography.BodyBold className={styles.debtFreeCountdown__daysLeft}>
