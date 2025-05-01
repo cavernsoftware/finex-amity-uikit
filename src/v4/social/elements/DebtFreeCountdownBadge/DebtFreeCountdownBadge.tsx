@@ -7,9 +7,11 @@ import { useNavigation } from '~/v4/core/providers/NavigationProvider';
 
 interface DebtFreeCountdownBadgeProps {
   user?: Amity.User | null;
+  showLeftSeparator?: boolean;
+  showRightSeparator?: boolean;
 }
 
-export function DebtFreeCountdownBadge({ user }: DebtFreeCountdownBadgeProps) {
+export function DebtFreeCountdownBadge({ user, showLeftSeparator = false, showRightSeparator = true }: DebtFreeCountdownBadgeProps) {
   const debtFreeDate = user?.metadata?.debtFreeDate;
   const showDebtFreeCountdown = user?.metadata?.showDebtFreeCountdown;
   const userId = user?.userId;
@@ -24,10 +26,11 @@ export function DebtFreeCountdownBadge({ user }: DebtFreeCountdownBadgeProps) {
 
   return (
     <div className={styles.debtFreeCountdownBadge}>
+      {showLeftSeparator && <span className={styles.debtFreeCountdownBadge__separator}>•</span>}
       <div className={styles.debtFreeCountdownBadge__badge} onClick={() => onClickUser(userId)}>
         {debtFreeDaysLeft.toLocaleString()} days left
       </div>
-      <span className={styles.debtFreeCountdownBadge__separator}>•</span>
+      {showRightSeparator && <span className={styles.debtFreeCountdownBadge__separator}>•</span>}
     </div>
   );
 }

@@ -33,6 +33,8 @@ import { useNotifications } from '~/v4/core/providers/NotificationProvider';
 import { useNetworkState } from 'react-use';
 import { ERROR_RESPONSE } from '~/v4/social/constants/errorResponse';
 import styles from './Comment.module.css';
+// FINEX: Import new DebtFreeCountdownBadge component
+import { DebtFreeCountdownBadge } from '~/v4/social/elements/DebtFreeCountdownBadge';
 
 const Like = ({ ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -269,25 +271,35 @@ export const Comment = ({
               className={styles.postComment__content}
               onClick={() => onClickUser(comment.creator?.userId ?? '')}
             >
-              <Button
-                onPress={() => {
-                  closePopup();
-                  goToUserProfilePage(comment.creator?.userId as string);
-                }}
-                className={styles.postComment__userInfo}
-              >
-                <Typography.BodyBold
-                  data-testid={`${pageId}/${componentId}/username`}
-                  className={styles.postComment__content__username}
+              {/* // FINEX: Create header to display elements in a row */}
+              <div className={styles.postComment__content__header}>
+                <Button
+                  onPress={() => {
+                    closePopup();
+                    goToUserProfilePage(comment.creator?.userId as string);
+                  }}
+                  className={styles.postComment__userInfo}
                 >
-                  {comment.creator?.displayName}
-                </Typography.BodyBold>
-                {isBrandUser && <BrandBadge className={styles.postComment__brandBadge} />}
-              </Button>
+                  <Typography.BodyBold
+                    data-testid={`${pageId}/${componentId}/username`}
+                    className={styles.postComment__content__username}
+                  >
+                    {comment.creator?.displayName}
+                  </Typography.BodyBold>
+                  {isBrandUser && <BrandBadge className={styles.postComment__brandBadge} />}
+                </Button>
 
-              {isModeratorUser && !isBrandUser && (
-                <ModeratorBadge pageId={pageId} componentId={componentId} />
-              )}
+                {/* // FINEX: Add new DebtFreeCountdownBadge component */}
+                <DebtFreeCountdownBadge
+                  user={comment.creator}
+                  showLeftSeparator={true}
+                  showRightSeparator={false}
+                />
+
+                {isModeratorUser && !isBrandUser && (
+                  <ModeratorBadge pageId={pageId} componentId={componentId} />
+                )}
+              </div>
 
               <TextWithMention
                 pageId={pageId}

@@ -417,7 +417,7 @@ export const PostContent = ({
           </div>
           <div className={styles.postContent__bar__information__subtitle}>
             {/* // FINEX: Add new DebtFreeCountdownBadge component */}
-            <DebtFreeCountdownBadge user={post.creator} />
+            <DebtFreeCountdownBadge user={post.creator} showRightSeparator={!isCommunityModerator} />
             {isCommunityModerator ? (
               <div className={styles.postContent__bar__information__subtitle__moderator}>
                 <ModeratorBadge pageId={pageId} componentId={componentId} />

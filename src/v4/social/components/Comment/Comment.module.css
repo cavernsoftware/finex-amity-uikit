@@ -49,6 +49,13 @@
   max-width: 100%;
 }
 
+/* // FINEX: Create header to display elements in a row */
+.postComment__content__header {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
 .postComment__content__username {
   color: var(--asc-color-base-default);
   cursor: pointer;
