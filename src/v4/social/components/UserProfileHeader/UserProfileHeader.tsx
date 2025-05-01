@@ -26,6 +26,8 @@ import { Popover } from '~/v4/core/components/AriaPopover';
 import { useResponsive } from '~/v4/core/hooks/useResponsive';
 import { useNetworkState } from 'react-use';
 import { useNotifications } from '~/v4/core/providers/NotificationProvider';
+// FINEX: Implement new DebtFreeCountdown component
+import { DebtFreeCountdown } from '~/v4/social/elements/DebtFreeCountdown';
 
 interface UserProfileHeaderProps {
   user?: Amity.User | null;
@@ -167,6 +169,9 @@ export const UserProfileHeader: React.FC<UserProfileHeaderProps> = ({ user, page
       <UserDescription description={user.description} pageId={pageId} componentId={componentId} />
 
       <div className={styles.userProfileHeader__relationship}>
+        {/* // FINEX: Add new DebtFreeCountdown component */}
+        <DebtFreeCountdown user={user} />
+        <div className={styles.userProfileHeader__relationship__separator}></div>
         <UserFollowing userId={user.userId} pageId={pageId} componentId={componentId} />
         <div className={styles.userProfileHeader__relationship__separator}></div>
         <UserFollower userId={user.userId} pageId={pageId} componentId={componentId} />

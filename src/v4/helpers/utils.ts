@@ -1,5 +1,7 @@
 import { CommunityPostSettings } from '@amityco/ts-sdk';
 import isEmpty from 'lodash/isEmpty';
+// FINEX: Import date-fns functions
+import { differenceInDays, parseISO, startOfDay } from 'date-fns';
 
 export type Mentioned = {
   userId?: string;
@@ -233,4 +235,31 @@ export function validateUrl(url: string): boolean {
   // TODO Fix UI for link insertion; it should never default to an invalid URL such as https://.
   // Maybe show a dialog where they user can type the URL before inserting it.
   return url === 'https://' || urlRegExp.test(url);
+}
+
+// FINEX: Set unlucky numbers
+export const UNLUCKY_NUMBERS = [666];
+
+// FINEX: Create get non unlucky number function
+export function getNonUnluckyNumber(num: number): number {
+  let output = num;
+  if (UNLUCKY_NUMBERS.includes(output)) {
+    output += 1;
+  }
+  return output;
+}
+
+// FINEX: Create get debt free countdown function
+export function getDebtFreeCountdown(
+  debtFreeDate?: string | null,
+  showDebtFreeCountdown?: boolean | null,
+): number | null {
+  if (!debtFreeDate || showDebtFreeCountdown === false) return null;
+
+  const debtFreeCountdown = differenceInDays(
+    startOfDay(parseISO(debtFreeDate)),
+    startOfDay(new Date()),
+  );
+
+  return Math.max(0, getNonUnluckyNumber(debtFreeCountdown));
 }

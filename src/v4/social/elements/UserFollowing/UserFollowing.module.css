@@ -1,5 +1,9 @@
 .userFollowing__container {
-  display: inline-block;
+  /* display: inline-block; */
+  /* // FINEX: Use flex column with gap  */
+  display: flex;
+  flex-direction: column;
+  gap: 2;
 }
 
 .userFollowing__count {

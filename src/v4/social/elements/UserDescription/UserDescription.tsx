@@ -30,6 +30,9 @@ export const UserDescription: React.FC<UserDescriptionProps> = ({
 
   if (isExcluded) return null;
 
+  // FINEX: Hide if description is empty
+  if (!description) return null;
+
   return (
     <div className={styles.userDescription__description} data-testid={accessibilityId}>
       <Typography.Body className={styles.userDescription__description__text}>
