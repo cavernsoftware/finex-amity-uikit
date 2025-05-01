@@ -17,7 +17,8 @@ export const Spinner = (props: React.SVGProps<SVGSVGElement>) => {
         cy="10.5"
         r="9"
         fill="none"
-        stroke="#1054DE"
+        // FINEX: Change color to match Finex theme
+        stroke="#228BE6"
         strokeWidth="2"
         strokeDasharray="46.75"
         strokeDashoffset="21"

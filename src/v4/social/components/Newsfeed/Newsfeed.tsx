@@ -39,8 +39,8 @@ export const Newsfeed = ({ pageId = '*' }: NewsfeedProps) => {
     if (hasMore && !isLoading) loadMore();
   };
 
-  // FINEX: Show skeleton loading screen if fetch has not been called or is loading
-  if (!fetchHasBeenCalled || isLoading) {
+  // FINEX: Show skeleton loading screen if fetch has not been called or is loading and no posts
+  if ((!fetchHasBeenCalled || isLoading) && itemWithAds.length === 0) {
     return (
       // FINEX: Use flex gap instead of divider
       <div className={styles.newsfeed} style={{ ...themeStyles, display: 'flex', flexDirection: 'column', gap: 12, paddingBottom: '4rem' }}>
@@ -72,6 +72,8 @@ export const Newsfeed = ({ pageId = '*' }: NewsfeedProps) => {
         pageId={pageId}
         items={itemWithAds}
         isLoading={isLoading}
+        // FINEX: Pass in hasMore
+        hasMore={hasMore}
         componentId={componentId}
         onFeedReachBottom={() => onFeedReachBottom()}
         onPostDeleted={(post) => {

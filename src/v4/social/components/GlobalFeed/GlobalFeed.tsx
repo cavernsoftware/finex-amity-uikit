@@ -13,6 +13,8 @@ import { ClickableArea } from '~/v4/core/natives/ClickableArea';
 import styles from './GlobalFeed.module.css';
 import { Divider } from '~/v4/social/elements/Divider';
 import useGlobalPinnedPostsCollection from '~/v4/social/hooks/collections/useGlobalPinnedPostsCollection';
+// FINEX: Import new FinexSpinner component
+import { FinexSpinner } from '~/v4/social/elements/FinexSpinner';
 
 interface GlobalFeedProps {
   pageId?: string;
@@ -20,6 +22,8 @@ interface GlobalFeedProps {
   items: Array<Amity.Post | Amity.Ad>;
   globalFeaturedPosts?: Array<Amity.Post>;
   isLoading: boolean;
+  // FINEX: Add hasMore prop
+  hasMore?: boolean;
   isGlobalFeaturedPostsLoading?: boolean;
   onFeedReachBottom: () => void;
   onPostDeleted?: (post: Amity.Post) => void;
@@ -34,6 +38,8 @@ export const GlobalFeed = ({
   componentId = '*',
   items,
   isLoading,
+  // FINEX: Add hasMore prop
+  hasMore,
   globalFeaturedPosts,
   isGlobalFeaturedPostsLoading,
   onFeedReachBottom,
@@ -158,24 +164,31 @@ export const GlobalFeed = ({
           )}
         </React.Fragment>
       ))}
-      {/* // FINEX: Comment out divider */}
-      {/* <Divider isShown={filteredItems.length > 0} /> */}
-      {isLoading
+      {/* // FINEX: Comment out divider and skeleton */}
+      {/* <Divider isShown={filteredItems.length > 0} />
+      {isLoading && false
         ? Array.from({ length: 5 }).map((_, index) => (
             // FINEX: Use flex gap instead of divider
             <div key={index} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               <PostContentSkeleton />
-              {/* // FINEX: Comment out divider */}
-              {/* <Divider isShown={index !== 5} /> */}
+              // FINEX: Comment out divider
+              <Divider isShown={index !== 5} />
             </div>
           ))
-        : null}
+        : null} */}
+      {/* // FINEX: Move intersection observer above spinner */}
       {!isLoading && (
         <div
           ref={(node) => setIntersectionNode(node)}
           className={styles.global_feed__intersection}
         />
       )}
+      {/* // FINEX: Add Finex spinner */}
+      {isLoading || hasMore ? (
+        <div className={styles.global_feed__spinner_container}>
+          <FinexSpinner />
+        </div>
+      ) : null}
     </div>
   );
 };

@@ -61,6 +61,20 @@
   justify-content: center;
 }
 
+/* // FINEX: Add spinner container styling */
+.global_feed__spinner_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+/* // FINEX: Add spinner styling */
+.global_feed__spinner {
+  width: 40px;
+  height: 40px;
+}
+
 .global_feed__intersection {
   height: 1px;
   /* // FINEX: Add negative margin top that is same as gap to prevent space at footer */
