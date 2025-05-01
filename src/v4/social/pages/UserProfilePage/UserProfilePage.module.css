@@ -6,6 +6,11 @@
   background-color: var(--asc-color-background-default);
 }
 
+/* // FINEX: Use inline-block on svgs so their text-center centers them */
+.userProfilePage svg {
+  display: inline-block;
+}
+
 .userProfilePage__container {
   flex: 1;
   margin-top: 3.62rem;

@@ -22,10 +22,10 @@ export function DebtFreeCountdown({ user }: DebtFreeCountdownProps) {
 
   return (
     <div className={clsx(styles.debtFreeCountdown)}>
-      <Typography.BodyMedium className={styles.debtFreeCountdown__title}>
+      <Typography.BodyMedium>
         Debt-Free Countdown
       </Typography.BodyMedium>
-      <Typography.BodyBold className={styles.debtFreeCountdown__body}>
+      <Typography.BodyBold className={styles.debtFreeCountdown__daysLeft}>
         {debtFreeDaysLeft.toLocaleString()} days left
       </Typography.BodyBold>
     </div>
