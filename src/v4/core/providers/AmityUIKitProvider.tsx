@@ -124,7 +124,9 @@ const InternalComponent = ({
         // Register the device and get the client instance
         await AmityUIKitManager.registerDevice(
           userId,
-          displayName || userId,
+          // FINEX: Make displayName optional
+          // displayName || userId,
+          displayName,
           {
             sessionWillRenewAccessToken: (renewal) => {
               // Handle access token renewal

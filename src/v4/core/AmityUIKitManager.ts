@@ -67,7 +67,8 @@ export class AmityUIKitManager {
    */
   public static async registerDevice(
     userId: string,
-    displayName: string,
+    // FINEX: Make displayName optional
+    displayName: string | undefined,
     sessionHandler: SessionHandler,
     authToken?: string,
     onConnectionStatusChange?: (state: Amity.SessionStates) => void,
@@ -112,7 +113,8 @@ export class AmityUIKitManager {
    */
   private async connectAndLogin(
     userId: string,
-    displayName: string,
+    // FINEX: Make displayName optional
+    displayName: string | undefined,
     sessionHandler: SessionHandler,
     authToken?: string,
   ): Promise<void> {
