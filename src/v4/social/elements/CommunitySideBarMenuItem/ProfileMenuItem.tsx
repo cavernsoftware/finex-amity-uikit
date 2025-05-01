@@ -17,7 +17,6 @@ export function ProfileMenuItem({ pageId = '*', componentId = '*' }: ProfileMenu
   const elementId = 'profile_sidebar_menu_item';
 
   const userId = useSDK().currentUserId;
-
   const { page, onClickUser } = useNavigation();
   const { accessibilityId, config, isExcluded, defaultConfig, uiReference } = useAmityElement({
     pageId,

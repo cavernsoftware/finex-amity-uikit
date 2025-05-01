@@ -15,6 +15,10 @@ import { Explore } from '~/v4/social/components/Explore';
 import { HomePageTab } from '~/v4/social/constants/HomePageTab';
 import { useLayoutContext } from '~/v4/social/providers/LayoutProvider';
 import { NoInternetConnectionHoc } from '~/v4/social/internal-components/NoInternetConnection/NoInternetConnectionHoc';
+// FINEX: Import ProfileButton, useNavigation, and useSDK
+import { ProfileButton } from '~/v4/social/elements/ProfileButton';
+import { useNavigation } from '~/v4/core/providers/NavigationProvider';
+import useSDK from '~/v4/core/hooks/useSDK';
 
 export function SocialHomePage() {
   const pageId = 'social_home_page';
@@ -30,9 +34,13 @@ export function SocialHomePage() {
   const { setDrawerData } = useDrawer();
 
   // FINEX: Comment out since drawer is used now
-  const [isShowCreatePostMenu, setIsShowCreatePostMenu] = useState(false);
+  // const [isShowCreatePostMenu, setIsShowCreatePostMenu] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const initialLoad = useRef(true);
+
+  // FINEX: Get userId and onClickUserer
+  const userId = useSDK().currentUserId;
+  const { onClickUser } = useNavigation();
 
   useEffect(() => {
     if (activeTab !== HomePageTab.Newsfeed) return;
@@ -100,6 +108,11 @@ export function SocialHomePage() {
             pageId={pageId}
             isActive={activeTab === HomePageTab.MyCommunities}
             onClick={() => setActiveTab(HomePageTab.MyCommunities)}
+          />
+          {/* // FINEX: Add new ProfileButton component */}
+          <ProfileButton
+            pageId={pageId}
+            onClick={() => { userId && onClickUser(userId); }}
           />
         </div>
       </div>
