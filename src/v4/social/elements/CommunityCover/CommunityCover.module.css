@@ -6,6 +6,9 @@
   background-position: center;
   background-repeat: no-repeat;
   background-image: var(--background-image);
+  /* // FINEX: Add border without bottom */
+  border: 1px solid var(--asc-color-base-shade4);
+  border-bottom: none;
 }
 
 .communityCover__topBar {
