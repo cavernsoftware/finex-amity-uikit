@@ -2,10 +2,6 @@
   color: var(--asc-color-base-default);
 }
 
-.debtFreeCountdown__title {
-  line-height: 1;
-}
-
 .debtFreeCountdown__daysLeft {
   font-weight: 700;
   color: var(--asc-color-primary-default);
