@@ -42,8 +42,8 @@ export function Explore({ pageId = '*' }: ExploreProps) {
   if (isEmpty) {
     return (
       <PullToRefresh className={styles.explore} onTouchEndCallback={refresh}>
-        {/* // FINEX: Only show divider in mobile */}
-        <Divider isShownOnlyInMobile />
+        {/* // FINEX: Hide divider */}
+        {/* <Divider isShownOnlyInMobile /> */}
         <ExploreEmpty pageId={pageId} />
       </PullToRefresh>
     );
@@ -52,8 +52,8 @@ export function Explore({ pageId = '*' }: ExploreProps) {
   if (isCommunityEmpty) {
     return (
       <PullToRefresh className={styles.explore} onTouchEndCallback={refresh}>
-        {/* // FINEX: Only show divider in mobile */}
-        <Divider isShownOnlyInMobile />
+        {/* // FINEX: Hide divider */}
+        {/* <Divider isShownOnlyInMobile /> */}
         {/* // FINEX: Hide community categories */}
         {/* <div className={styles.explore__exploreCategories}>
           <ExploreCommunityCategories pageId={pageId} />
@@ -66,7 +66,8 @@ export function Explore({ pageId = '*' }: ExploreProps) {
 
   return (
     <PullToRefresh className={styles.explore} onTouchEndCallback={refresh}>
-      <Divider isShownOnlyInMobile />
+      {/* // FINEX: Hide divider */}
+      {/* <Divider isShownOnlyInMobile /> */}
       {/* // FINEX: Add container */}
       <div className={styles.explore__container}>
         {/* // FINEX: Hide community categories and divider */}

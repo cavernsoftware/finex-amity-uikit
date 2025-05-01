@@ -43,7 +43,7 @@ export const Newsfeed = ({ pageId = '*' }: NewsfeedProps) => {
   if (!fetchHasBeenCalled || isLoading) {
     return (
       // FINEX: Use flex gap instead of divider
-      <div className={styles.newsfeed} style={{ ...themeStyles, display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div className={styles.newsfeed} style={{ ...themeStyles, display: 'flex', flexDirection: 'column', gap: 12, paddingBottom: '4rem' }}>
         {/* // FINEX: Comment out divider */}
         {/* <Divider isShownOnlyInMobile /> */}
         {Array.from({ length: 5 }).map((_, index) => (
