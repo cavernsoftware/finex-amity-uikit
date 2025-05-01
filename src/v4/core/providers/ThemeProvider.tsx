@@ -12,7 +12,9 @@ const generateShades = (hexColor?: string, isDarkMode = false): string[] => {
   }
 
   if (isDarkMode === false && hexColor === defaultConfig.theme.light.primary_color) {
-    return ['#4a82f2', '#a9c4f9', '#d9e5fc', '#ffffff'];
+    // FINEX: Change colors to match Finex
+    // return ['#4a82f2', '#a9c4f9', '#d9e5fc', '#ffffff'];
+    return ['var(--mantine-primary-color-filled)', '#a9c4f9', 'var(--mantine-primary-color-light)', '#ffffff'];
   }
 
   const hslColor = parseToHsl(hexColor);
@@ -25,7 +27,7 @@ const generateShades = (hexColor?: string, isDarkMode = false): string[] => {
     }
   });
 
-  // FINEX: Force shade3 to be certain color
+  // FINEX: Force shade3 to match Finex color
   if (hexColor === '#228be6') {
     shades[2] = '#ebf4fc';
   }

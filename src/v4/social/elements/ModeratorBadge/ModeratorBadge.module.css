@@ -20,9 +20,13 @@
 .moderatorBadge__text {
   color: var(--asc-color-primary-default);
   text-align: center;
-  font-size: 0.625rem;
+  /* // FINEX: Change font size */
+  /* font-size: 0.625rem; */
+  font-size: 0.65rem;
   font-style: normal;
-  font-weight: 400;
+  /* // FINEX: Change font weight */
+  /* font-weight: 400; */
+  font-weight: 600;
   line-height: 1.125rem;
   letter-spacing: -0.0063rem;
 }

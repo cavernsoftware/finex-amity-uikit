@@ -30,10 +30,12 @@
   --asc-color-white: #fff;
   /* // FINEX: Change color to match Finex */
   /* --asc-color-primary-default: #1054de; */
-  --asc-color-primary-default: #228be6;
+  --asc-color-primary-default: var(--mantine-primary-color-filled);
   --asc-color-primary-shade1: #4a82f2;
   --asc-color-primary-shade2: #a9c4f9;
-  --asc-color-primary-shade3: #d9e5fc;
+  /* // FINEX: Change color to match Finex */
+  /* --asc-color-primary-shade3: #d9e5fc; */
+  --asc-color-primary-shade3: var(--mantine-primary-color-light);
   --asc-color-primary-shade4: #fff;
   --asc-color-base-inverse: #000;
   --asc-color-base-default: #292b32;
@@ -52,8 +54,8 @@
   /* // FINEX: Change colors to match Finex */
   /* --asc-color-highlight-default: #1054de;
   --asc-color-message-bubble-primary: #1054de; */
-  --asc-color-highlight-default: #228be6;
-  --asc-color-message-bubble-primary: #228be6;
+  --asc-color-highlight-default: var(--mantine-primary-color-filled);
+  --asc-color-message-bubble-primary: var(--mantine-primary-color-filled);
   --asc-color-message-bubble-secondary: #ebecef;
   --asc-color-background-default: #fff;
   --asc-color-background-shade1: #f6f7f8;
@@ -61,7 +63,9 @@
   --asc-color-background-transparent-white: #fffc;
   --asc-color-primary-background-hover: #0d47ba;
   --asc-color-primary-background-pressed: #0b3997;
-  --asc-color-primary-background-disabled: #d9e5fc;
+  /* // FINEX: Change color to match Finex */
+  /* --asc-color-primary-background-disabled: #d9e5fc; */
+  --asc-color-primary-background-disabled: var(--mantine-primary-color-light);
   --plyr-color-main: #f6f7f8;
   --plyr-video-control-background-hover: rgb(0 0 0 / 30%);
 
@@ -139,10 +143,12 @@
     --asc-color-white: #fff;
     /* // FINEX: Change colors to match Finex */
     /* --asc-color-primary-default: #1054de; */
-    --asc-color-primary-default: #228be6;
+    --asc-color-primary-default: var(--mantine-primary-color-filled);
     --asc-color-primary-shade1: #4a82f2;
     --asc-color-primary-shade2: #a9c4f9;
-    --asc-color-primary-shade3: #d9e5fc;
+    /* // FINEX: Change color to match Finex */
+    /* --asc-color-primary-shade3: #d9e5fc; */
+    --asc-color-primary-shade3: var(--mantine-primary-color-light);
     --asc-color-primary-shade4: #fff;
     --asc-color-base-inverse: #000;
     --asc-color-base-default: #292b32;
@@ -161,8 +167,8 @@
     /* // FINEX: Change colors to match Finex */
     /* --asc-color-highlight-default: #1054de;
     --asc-color-message-bubble-primary: #1054de; */
-    --asc-color-highlight-default: #228be6;
-    --asc-color-message-bubble-primary: #228be6;
+    --asc-color-highlight-default: var(--mantine-primary-color-filled);
+    --asc-color-message-bubble-primary: var(--mantine-primary-color-filled);
     --asc-color-message-bubble-secondary: #ebecef;
     --asc-color-background-default: #fff;
     --asc-color-background-shade1: #f6f7f8;
@@ -170,7 +176,9 @@
     --asc-color-background-transparent-white: #fffc;
     --asc-color-primary-background-hover: #0d47ba;
     --asc-color-primary-background-pressed: #0b3997;
-    --asc-color-primary-background-disabled: #d9e5fc;
+    /* // FINEX: Change color to match Finex */
+    /* --asc-color-primary-background-disabled: #d9e5fc; */
+    --asc-color-primary-background-disabled: var(--mantine-primary-color-light);
     --plyr-color-main: #f6f7f8;
     --plyr-video-control-background-hover: rgb(0 0 0 / 30%);
   }

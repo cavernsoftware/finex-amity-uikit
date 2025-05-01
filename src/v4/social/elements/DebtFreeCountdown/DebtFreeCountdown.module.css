@@ -3,5 +3,6 @@
 }
 
 .debtFreeCountdown__daysLeft {
+  font-weight: 700;
   color: var(--asc-color-primary-default);
 }
