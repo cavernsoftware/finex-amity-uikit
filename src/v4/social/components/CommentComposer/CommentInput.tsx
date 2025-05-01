@@ -232,7 +232,8 @@ export const CommentInput = forwardRef<CommentInputRef, CommentInputProps>(
             }}
           />
           <HistoryPlugin />
-          <AutoFocusPlugin />
+          {/* // FINEX: Comment out auto-focus plugin */}
+          {/* <AutoFocusPlugin /> */}
           <LinkPlugin />
           <AutoLinkPlugin />
           <EditorRefPlugin editorRef={editorRef} />
