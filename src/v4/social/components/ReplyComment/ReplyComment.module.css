@@ -1,6 +1,8 @@
 .postReplyComment {
   width: 100%;
-  display: grid;
+  /* // FINEX: Use flex instead of grid */
+  /* display: grid; */
+  display: flex;
   grid-template-columns: min-content 1fr;
   gap: 0.5rem;
   align-items: start;
@@ -15,6 +17,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  /* // FINEX: Stretch to full width */
+  flex: 1;
 }
 
 .postReplyComment__content {
@@ -27,9 +31,8 @@
   background-color: var(--asc-color-base-shade4);
   border-radius: 0 0.75rem 0.75rem;
   padding: 0.75rem;
-  /* // FINEX: Use full width */
+  /* // FINEX: Comment out max-width */
   /* max-width: max-content; */
-  width: 100%;
 }
 
 /* // FINEX: Create header styling to display elements in a row */
