@@ -396,6 +396,9 @@ export const PostContent = ({
   // FINEX: Add debt free countdown hook
   const debtFreeDaysLeft = useDebtFreeCountdown({ user: post.creator });
 
+  // FINEX: Create showDebtFreeBadge boolean
+  const showDebtFreeBadge = post.creator?.userId && debtFreeDaysLeft;
+
   return (
     <div
       data-testid={accessibilityId}
@@ -420,9 +423,13 @@ export const PostContent = ({
               componentId={componentId}
             />
           </div>
-          <div className={styles.postContent__bar__information__subtitle}>
+          <div
+            className={styles.postContent__bar__information__subtitle}
+            // FINEX: Add padding-top conditionally
+            style={{ paddingTop: showDebtFreeBadge || isCommunityModerator ? 2 : 0 }}
+          >
             {/* // FINEX: Add new DebtFreeCountdownBadge component */}
-            {post.creator?.userId && debtFreeDaysLeft ? (
+            {showDebtFreeBadge ? (
               <DebtFreeCountdownBadge userId={post.creator?.userId} daysLeft={debtFreeDaysLeft} />
             ) : null}
 
@@ -433,7 +440,7 @@ export const PostContent = ({
             ) : null}
 
             {/* // FINEX: Move separator here and add conditionals */}
-            {(post.creator?.userId && debtFreeDaysLeft) || isCommunityModerator ? (
+            {showDebtFreeBadge || isCommunityModerator ? (
               <span className={styles.postContent__bar__information__subtitle__separator}>•</span>
             ) : null}
 

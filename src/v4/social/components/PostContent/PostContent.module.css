@@ -27,8 +27,6 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  /* // FINEX: Add margin-top */
-  margin-top: 1px;
   /* // FINEX: Add line-height */
   line-height: 1;
 }
