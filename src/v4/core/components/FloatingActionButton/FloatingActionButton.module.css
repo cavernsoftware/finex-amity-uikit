@@ -9,6 +9,10 @@
   justify-content: center;
   box-shadow: var(--asc-box-shadow-04);
   background-color: var(--asc-color-primary-default);
+  /* // FINEX: Use fixed and adjust bottom */
+  position: fixed;
+  bottom: 5rem;
+  right: 1.4rem;
 }
 
 .floatingActionButton__icon {
