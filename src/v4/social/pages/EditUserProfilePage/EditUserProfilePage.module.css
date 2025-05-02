@@ -6,6 +6,11 @@
   background-color: var(--asc-color-background-default);
 }
 
+/* // FINEX: Use inline-block for svg so that their text-align property centers them */
+.editUserProfilePage svg {
+  display: inline-block;
+}
+
 .editUserProfilePage__container {
   padding: 1rem;
   flex: 1;

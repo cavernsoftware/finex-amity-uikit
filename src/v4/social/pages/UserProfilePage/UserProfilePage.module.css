@@ -53,6 +53,7 @@
   z-index: 1;
 }
 
+/* // FINEX: Use inline-block for svg so that their text-align property centers them */
 .userProfilePage__feedTabs svg {
   display: inline-block;
 }

@@ -3,6 +3,7 @@
   padding: 5rem 0.5rem;
 }
 
+/* // FINEX: Use inline-block for svg so that their text-align property centers them */
 .emptyContent svg {
   display: inline-block;
 }
