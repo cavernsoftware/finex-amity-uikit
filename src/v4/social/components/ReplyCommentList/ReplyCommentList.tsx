@@ -41,7 +41,8 @@ export const ReplyCommentList = ({
       {isLoading && <CommentSkeleton numberOfSkeletons={3} />}
       {comments.map((comment) => {
         return (
-          <ReplyComment pageId={pageId} community={community} comment={comment as Amity.Comment} />
+          // FINEX: Add key
+          <ReplyComment key={comment.commentId} pageId={pageId} community={community} comment={comment as Amity.Comment} />
         );
       })}
       {hasMore && (
