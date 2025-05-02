@@ -17,6 +17,10 @@ import { UnderlineInput } from '~/v4/social/internal-components/UnderlineInput';
 import { useConfirmContext } from '~/v4/core/providers/ConfirmProvider';
 import { ERROR_RESPONSE } from '~/v4/social/constants/errorResponse';
 import { useNetworkState } from 'react-use';
+// FINEX: Import Label, Typography, and Switch for switch
+import { Label } from 'react-aria-components';
+import { Typography } from '~/v4/core/components';
+import { Switch } from '~/v4/core/components/AriaSwitch';
 
 interface EditUserProfilePageProps {
   userId: string;
@@ -38,13 +42,17 @@ export const EditUserProfilePage: React.FC<EditUserProfilePageProps> = ({ userId
 
   const [displayName, setDisplayName] = useState(user?.displayName || undefined);
   const [description, setDescription] = useState(user?.description || undefined);
+  // FINEX: Add showDebtFreeCountdown state
+  const [showDebtFreeCountdown, setShowDebtFreeCountdown] = useState(user?.metadata?.showDebtFreeCountdown || false);
   const [image, setImage] = useState<File | null>(null);
   const [newImage, setNewImage] = useState<Amity.File<'image'> | null>(null);
 
   useEffect(() => {
     user?.displayName && setDisplayName(user.displayName);
     user?.description && setDescription(user.description);
-  }, [user?.displayName, user?.description]);
+    // FINEX: Update showDebtFreeCountdown state
+    user?.metadata?.showDebtFreeCountdown && setShowDebtFreeCountdown(user.metadata.showDebtFreeCountdown);
+  }, [user?.displayName, user?.description, user?.metadata?.showDebtFreeCountdown]);
 
   const uploadImage = async (image: File) => {
     const formData = new FormData();
@@ -111,6 +119,13 @@ export const EditUserProfilePage: React.FC<EditUserProfilePageProps> = ({ userId
       displayName: displayName !== user?.displayName ? displayName : undefined,
       description: description !== user?.description ? description : undefined,
       avatarFileId: newImage?.fileId,
+      // FINEX: Add updated metadata for showDebtFreeCountdown
+      metadata: {
+        ...(user?.metadata ?? {}),
+        showDebtFreeCountdown: showDebtFreeCountdown !== user?.metadata?.showDebtFreeCountdown ? 
+          showDebtFreeCountdown : 
+          undefined,
+      },
     };
     e.preventDefault();
     if (!online) {
@@ -136,7 +151,9 @@ export const EditUserProfilePage: React.FC<EditUserProfilePageProps> = ({ userId
     ((user?.displayName === displayName || (user?.displayName == undefined && displayName == '')) &&
       (user?.description === description ||
         (user?.description == undefined && description == '')) &&
-      !newImage);
+      !newImage &&
+      // FINEX: Add check for showDebtFreeCountdown
+      showDebtFreeCountdown === user?.metadata?.showDebtFreeCountdown);
 
   const onPressBackButton = () => {
     if (!isNoEditing)
@@ -168,6 +185,8 @@ export const EditUserProfilePage: React.FC<EditUserProfilePageProps> = ({ userId
           componentId={userId}
           titleClassName={styles.editUserProfilePage__topSection__title}
         />
+        {/* // FINEX: Add empty space to balance the top bar layout */}
+        <div className={styles.editUserProfilePage__topSection__emptySpace} />
       </div>
       <div className={styles.editUserProfilePage__container}>
         <div className={styles.editUserProfilePage__avatarContainer}>
@@ -224,6 +243,22 @@ export const EditUserProfilePage: React.FC<EditUserProfilePageProps> = ({ userId
               showCounter={true}
               optional={true}
             />
+            {/* // FINEX: Add new switch for showDebtFreeCountdown */}
+            <div className={styles.editUserProfilePage__switch}>
+              <Label>
+                <Typography.BodyBold className={styles.editUserProfilePage__switchLabelText}>
+                  Show debt-free countdown
+                </Typography.BodyBold>
+                <Typography.Caption className={styles.editUserProfilePage__switchLabelDescription}>
+                  Helps you stay motivated on your debt-free journey with other community members.
+                </Typography.Caption>
+              </Label>
+              <Switch
+                data-testid={pageId}
+                onChange={(value) => setShowDebtFreeCountdown(value)}
+                isSelected={showDebtFreeCountdown}
+              />
+            </div>
           </div>
           <UpdateUserProfileButton pageId={pageId} disabled={isNoEditing || isPending} />
         </Form>

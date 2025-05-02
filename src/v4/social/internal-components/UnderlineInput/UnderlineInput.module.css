@@ -1,5 +1,7 @@
 .underlineInput {
   margin-top: 1.5rem;
+  /* // FINEX: Use sm font-size */
+  font-size: var(--asc-text-font-size-sm);
 }
 
 .underlineInput__label {
