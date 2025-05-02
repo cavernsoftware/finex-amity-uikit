@@ -30,8 +30,8 @@ export function CreateCommunityMenuItem({
     <CommunitySideBarMenuItem
       onPress={onPress}
       accessibilityId={accessibilityId}
-      // FINEX: Implement isActive to highlight when on create community page
-      isActive={page.type === PageTypes.CommunitySetupPage}
+      // FINEX: Implement isActive to highlight when on create community page and no community is selected
+      isActive={page.type === PageTypes.CommunitySetupPage && !page.context.community}
       icon={(props) => (
         <IconComponent
           configIconName={config.icon}

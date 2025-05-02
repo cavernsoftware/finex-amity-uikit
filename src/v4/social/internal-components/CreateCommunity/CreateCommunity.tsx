@@ -395,7 +395,8 @@ export function CreateCommunity({ mode }: CreateCommunityProps) {
             />
           </TextField>
         </div>
-        <div className={styles.createCommunity__formContent}>
+        {/* // FINEX: Comment out category section */}
+        {/* <div className={styles.createCommunity__formContent}>
           <label className={styles.createCommunity__label}>
             <CommunityCategoryTitle pageId={pageId} />
           </label>
@@ -468,7 +469,7 @@ export function CreateCommunity({ mode }: CreateCommunityProps) {
           >
             <CommunityAddCategoryPage />
           </Popover>
-        </div>
+        </div> */}
         <RadioGroup
           onChange={handlePrivacyChange}
           value={isPublic ? 'true' : 'false'}

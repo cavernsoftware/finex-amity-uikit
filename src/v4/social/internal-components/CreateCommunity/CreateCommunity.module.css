@@ -298,7 +298,9 @@
   }
 
   .createCommunity__overlay {
-    border-radius: 0.5rem;
+    /* // FINEX: Change border radius */
+    /* border-radius: 0.5rem; */
+    border-radius: 0.5rem 0.5rem 0 0;
   }
 
   .createCommunity__cameraIcon {

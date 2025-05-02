@@ -347,7 +347,8 @@ export const EditCommunity = ({ mode, community }: EditCommunityProps) => {
             />
           </TextField>
         </div>
-        <div className={styles.editCommunity__formContent}>
+        {/* // FINEX: Comment out category section */}
+        {/* <div className={styles.editCommunity__formContent}>
           <label className={styles.editCommunity__label}>
             <CommunityCategoryTitle pageId={pageId} />
           </label>
@@ -424,7 +425,7 @@ export const EditCommunity = ({ mode, community }: EditCommunityProps) => {
           >
             <CommunityAddCategoryPage />
           </Popover>
-        </div>
+        </div> */}
         <RadioGroup
           onChange={handlePrivacyChange}
           value={isPublic ? 'true' : 'false'}
