@@ -156,7 +156,9 @@ export const UserProfilePage: React.FC<UserProfilePageProps> = ({ userId }) => {
                 className={styles.userProfilePage__displayName}
                 data-show={isScroll}
               >
-                {user?.displayName}
+                {/* // FINEX: Use "Profile" instead of user's displayName */}
+                {/* {user?.displayName} */}
+                Profile
               </Typography.TitleBold>
               <Popover
                 trigger={{

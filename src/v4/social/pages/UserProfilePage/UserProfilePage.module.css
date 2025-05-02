@@ -22,21 +22,24 @@
   justify-content: space-between;
   align-items: center;
   height: 3.625rem;
-  padding-inline: 0.75rem 1rem;
+  /* // FINEX: Change padding-inline */
+  /* padding-inline: 0.75rem 1rem; */
+  padding-inline: 1rem;
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
 }
 
-.userProfilePage__displayName {
+/* FINEX: Comment out displayName styling */
+/* .userProfilePage__displayName {
   transition: opacity 0.3s;
   opacity: 0;
 }
 
 .userProfilePage__displayName[data-show='true'] {
   opacity: 1;
-}
+} */
 
 .userProfilePage__feedTabs {
   background-color: var(--asc-color-background-default);
@@ -82,9 +85,10 @@
     overflow: hidden;
   }
 
-  .userProfilePage__displayName {
+  /* // FINEX: Comment out displayName styling */
+  /* .userProfilePage__displayName {
     display: none;
-  }
+  } */
 
   .userProfilePage__container {
     margin-top: 0;

@@ -41,6 +41,11 @@
   cursor: pointer;
 }
 
+/* // FINEX: Remove padding-top */
+.postDetailPage__postContent {
+  padding-top: 0;
+}
+
 .postDetailPage__backIcon {
   fill: var(--asc-color-base-default);
   cursor: pointer;
