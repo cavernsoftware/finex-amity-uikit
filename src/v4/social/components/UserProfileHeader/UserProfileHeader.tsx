@@ -26,8 +26,9 @@ import { Popover } from '~/v4/core/components/AriaPopover';
 import { useResponsive } from '~/v4/core/hooks/useResponsive';
 import { useNetworkState } from 'react-use';
 import { useNotifications } from '~/v4/core/providers/NotificationProvider';
-// FINEX: Implement new DebtFreeCountdown component
+// FINEX: Implement new DebtFreeCountdown component and useDebtFreeCountdown hook
 import { DebtFreeCountdown } from '~/v4/social/elements/DebtFreeCountdown';
+import { useDebtFreeCountdown } from '~/v4/social/hooks/useDebtFreeCountdown';
 
 interface UserProfileHeaderProps {
   user?: Amity.User | null;
@@ -66,6 +67,9 @@ export const UserProfileHeader: React.FC<UserProfileHeaderProps> = ({ user, page
   const { setDrawerData, removeDrawerData } = useDrawer();
   const { online } = useNetworkState();
   const notification = useNotifications();
+
+  // FINEX: Add debt free countdown hook
+  const debtFreeDaysLeft = useDebtFreeCountdown({ user });
 
   const unFollowUserButton = ({
     onClickButton,
@@ -170,8 +174,12 @@ export const UserProfileHeader: React.FC<UserProfileHeaderProps> = ({ user, page
 
       <div className={styles.userProfileHeader__relationship}>
         {/* // FINEX: Add new DebtFreeCountdown component */}
-        <DebtFreeCountdown user={user} />
-        <div className={styles.userProfileHeader__relationship__separator}></div>
+        {debtFreeDaysLeft && (
+          <>
+            <DebtFreeCountdown daysLeft={debtFreeDaysLeft} />
+            <div className={styles.userProfileHeader__relationship__separator}></div>
+          </>
+        )}
         <UserFollowing userId={user.userId} pageId={pageId} componentId={componentId} />
         <div className={styles.userProfileHeader__relationship__separator}></div>
         <UserFollower userId={user.userId} pageId={pageId} componentId={componentId} />
