@@ -49,8 +49,11 @@ type EditCommunityProps = {
 };
 
 export const EditCommunity = ({ mode, community }: EditCommunityProps) => {
-  const MAX_LENGTH_DESC = 180;
-  const MAX_LENGTH_COMMUNITY_NAME = 30;
+  // FINEX: Change character limits for community name and description
+  // const MAX_LENGTH_DESC = 180;
+  // const MAX_LENGTH_COMMUNITY_NAME = 30;
+  const MAX_LENGTH_COMMUNITY_NAME = 40;
+  const MAX_LENGTH_DESC = 3000;
   const pageId = 'community_setup_page';
 
   const { isDesktop } = useResponsive();

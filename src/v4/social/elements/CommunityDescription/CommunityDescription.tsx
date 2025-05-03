@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Truncate from 'react-truncate-markup';
 import { Typography } from '~/v4/core/components';
 import { Button } from '~/v4/core/natives/Button';
@@ -24,6 +24,11 @@ export const CommunityDescription: React.FC<CommunityDescriptionProps> = ({
     elementId,
     componentId,
   });
+
+  // FINEX: Reset expanded state when description changes
+  useEffect(() => {
+    setIsExpanded(false);
+  }, [description]);
 
   const expandText = () => setIsExpanded(true);
 

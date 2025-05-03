@@ -57,8 +57,11 @@ export function CreateCommunity({ mode }: CreateCommunityProps) {
     pageId,
   });
 
-  const MAX_LENGTH_COMMUNITY_NAME = 30;
-  const MAX_LENGTH_DESC = 180;
+  // FINEX: Change character limits for community name and description
+  // const MAX_LENGTH_COMMUNITY_NAME = 30;
+  // const MAX_LENGTH_DESC = 180;
+  const MAX_LENGTH_COMMUNITY_NAME = 40;
+  const MAX_LENGTH_DESC = 3000;
 
   const { isDesktop } = useResponsive();
   const { openPopup } = usePopupContext();
