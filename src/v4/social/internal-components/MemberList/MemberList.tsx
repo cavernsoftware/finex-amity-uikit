@@ -107,6 +107,8 @@ export const MemberList = ({ pageId = '*', community }: MemberListProps) => {
           : []
       ).map(({ user, roles }) => (
         <CommunityMemberItem
+          // FINEX: Add key
+          key={user?.userId}
           user={user}
           roles={roles}
           pageId={pageId}

@@ -158,18 +158,20 @@ export function CreateCommunity({ mode }: CreateCommunityProps) {
 
   // to set default value
   useEffect(() => {
-    if (communityName && !displayName) {
-      setValue('displayName', communityName);
-    }
-    if (about && !description) {
-      setValue('description', about);
-    }
-    if (categories.length > 0) {
-      setCategories(categories);
-    }
-    if (coverImages.length > 0 && coverImage.length === 0) {
-      setCoverImage(coverImages);
-    }
+    // FINEX: Commenting these conditionals out. The reason is that when going from edit community to create,
+    // the values are not being reset and the previous community's values are being pre-populated in create.
+    // if (communityName && !displayName) {
+    //   setValue('displayName', communityName);
+    // }
+    // if (about && !description) {
+    //   setValue('description', about);
+    // }
+    // if (categories.length > 0) {
+    //   setCategories(categories);
+    // }
+    // if (coverImages.length > 0 && coverImage.length === 0) {
+    //   setCoverImage(coverImages);
+    // }
 
     return () => {
       setSubmitting(false);
