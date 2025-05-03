@@ -154,7 +154,9 @@ export const defaultConfig: DefaultConfig = {
       base_shade2_color: '#898e9e',
       base_shade3_color: '#a5a9b5',
       base_shade4_color: '#ebecef',
-      base_shade5_color: '#F9F9FA',
+      // FINEX: Modify shade5
+      // base_shade5_color: '#F9F9FA',
+      base_shade5_color: '#f0f0f5',
       alert_color: '#FA4D30',
       background_color: '#FFFFFF',
       base_inverse_color: '#000000',
@@ -171,7 +173,9 @@ export const defaultConfig: DefaultConfig = {
       base_shade2_color: '#6e7487',
       base_shade3_color: '#40434e',
       base_shade4_color: '#292b32',
-      base_shade5_color: '#f9f9fa',
+      // FINEX: Modify shade5
+      // base_shade5_color: '#f9f9fa',
+      base_shade5_color: '#f0f0f5',
       alert_color: '#FA4D30',
       background_color: '#191919',
       base_inverse_color: '#FFFFFF',

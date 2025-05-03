@@ -48,7 +48,9 @@
   --asc-color-secondary-shade2: #898e9e;
   --asc-color-secondary-shade3: #a5a9b5;
   --asc-color-secondary-shade4: #ebecef;
-  --asc-color-secondary-shade5: #f9f9fa;
+  /* // FINEX: Modify shade5 */
+  /* --asc-color-secondary-shade5: #f9f9fa; */
+  --asc-color-secondary-shade5: #f0f0f5;
   --asc-color-alert-default: #fa4d30;
   --asc-color-live: #ff305a;
   /* // FINEX: Change colors to match Finex */
@@ -161,7 +163,9 @@
     --asc-color-secondary-shade2: #898e9e;
     --asc-color-secondary-shade3: #a5a9b5;
     --asc-color-secondary-shade4: #ebecef;
-    --asc-color-secondary-shade5: #f9f9fa;
+    /* // FINEX: Modify shade5 */
+    /* --asc-color-secondary-shade5: #f9f9fa; */
+    --asc-color-secondary-shade5: #f0f0f5;
     --asc-color-alert-default: #fa4d30;
     --asc-color-live: #ff305a;
     /* // FINEX: Change colors to match Finex */
