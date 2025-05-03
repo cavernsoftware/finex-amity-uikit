@@ -3,6 +3,8 @@
   width: 100%;
   /* // FINEX: Remove padding so divider can be full width */
   /* padding: 0 1rem; */
+  /* // FINEX: Add padding-bottom */
+  padding-bottom: 4rem;
 }
 
 /* // FINEX: Add separate container */

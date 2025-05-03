@@ -218,7 +218,9 @@
   .editCommunity {
     gap: 0.75rem;
     display: grid;
-    padding-bottom: 2rem;
+    /* // FINEX: Increase padding-bottom in desktop */
+    /* padding-bottom: 2rem; */
+    padding-bottom: 4rem;
   }
 
   .editCommunity__topBar {

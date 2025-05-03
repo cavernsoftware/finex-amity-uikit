@@ -1,6 +1,8 @@
 .communityFeed__container {
   display: flex;
   flex-direction: column;
+  /* // FINEX: Set padding-bottom */
+  padding-bottom: 4rem;
 }
 
 .communityFeed__loadingIndicator {
@@ -12,6 +14,8 @@
 .communityFeed__observerTarget {
   height: var(--asc-spacing-m1);
   width: 100%;
+  /* FINEX: Add negative margin-top to offset */
+  margin-top: -2rem;
 }
 
 .communityFeed__post {
@@ -154,7 +158,8 @@
   .communityFeed__container {
     gap: 0.75rem;
     margin-top: 0.75rem;
-    padding-bottom: 1rem;
+    /* // FINEX: Use 4rem padding-bottom set above */
+    /* padding-bottom: 1rem; */
   }
 
   .communityFeed__postContent {

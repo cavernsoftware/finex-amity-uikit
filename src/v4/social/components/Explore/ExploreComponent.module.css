@@ -1,8 +1,9 @@
 .explore {
   height: 100%;
   display: flex;
-  /* // FINEX: Comment out padding-bottom */
+  /* // FINEX: Change padding-bottom */
   /* padding-bottom: 2rem; */
+  padding-bottom: 4rem;
   flex-direction: column;
 }
 
