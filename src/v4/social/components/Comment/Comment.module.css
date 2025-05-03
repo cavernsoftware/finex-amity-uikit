@@ -47,7 +47,9 @@
   /* gap: 0.25rem; */
   justify-content: center;
   align-items: start;
-  background-color: var(--asc-color-base-shade4);
+  /* // FINEX: Change to shade5 */
+  /* background-color: var(--asc-color-base-shade4); */
+  background-color: var(--asc-color-base-shade5);
   border-radius: 0 0.75rem 0.75rem;
   padding: 0.75rem;
   /* // FINEX: Comment out width and max-width */

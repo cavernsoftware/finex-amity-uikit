@@ -16,7 +16,7 @@
 .myCommunitiesSideBarItem:focus-within {
   /* // FINEX: Use gray shade to be similar to Finex styling */
   /* background-color: var(--asc-color-background-shade1); */
-  background-color: #f5f5f5;
+  background-color: var(--asc-color-base-shade5);
 }
 
 .myCommunitiesSideBarItem[data-selected='true'] {

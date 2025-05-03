@@ -64,7 +64,9 @@
 
 .commentComposer__input {
   width: 100%;
-  background-color: var(--asc-color-base-shade4);
+  /* // FINEX: Change to shade5 */
+  /* background-color: var(--asc-color-base-shade4); */
+  background-color: var(--asc-color-base-shade5);
   border-radius: 1.25rem;
   padding: 0.625rem 0.75rem;
 }
@@ -75,7 +77,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.625rem 1rem;
-  background-color: var(--asc-color-base-shade4);
+  /* // FINEX: Change to shade5 */
+  /* background-color: var(--asc-color-base-shade4); */
+  background-color: var(--asc-color-base-shade5);
 }
 
 .commentComposer__replyContainer__text {
@@ -103,6 +107,8 @@
   gap: var(--asc-spacing-m1);
   align-items: center;
   border-top: 1px solid var(--asc-color-base-shade4);
+  /* // FINEX: Change border color to shade5 */
+  border-color: var(--asc-color-base-shade5);
   color: var(--asc-color-base-shade2);
 }
 
