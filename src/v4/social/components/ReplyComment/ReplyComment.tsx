@@ -45,9 +45,12 @@ const PostReplyComment = ({ pageId = '*', community, comment }: ReplyCommentProp
   const componentId = 'post_comment';
   const { confirm } = useConfirmContext();
   const { isDesktop } = useResponsive();
-  const { openPopup } = usePopupContext();
+  // FINEX: Get closePopup function from PopupContext
+  const { openPopup, closePopup } = usePopupContext();
   const { setDrawerData } = useDrawer();
   const notification = useNotifications();
+  // FINEX: Get goToUserProfilePage function from NavigationProvider
+  const { goToUserProfilePage } = useNavigation();
 
   const { accessibilityId, config, defaultConfig, isExcluded, uiReference, themeStyles } =
     useAmityComponent({
@@ -196,7 +199,15 @@ const PostReplyComment = ({ pageId = '*', community, comment }: ReplyCommentProp
           <UserAvatar pageId={pageId} componentId={componentId} userId={comment.userId} />
           <div className={styles.postReplyComment__details}>
             <div className={styles.postReplyComment__content}>
-              <div className={styles.postReplyComment__userInfo}>
+              {/* // FINEX: Change div to Button, add onClick to navigate to user profile */}
+              {/* <div className={styles.postReplyComment__userInfo}> */}
+              <Button
+                onPress={() => {
+                  closePopup();
+                  goToUserProfilePage(comment.creator?.userId as string);
+                }}
+               className={styles.postReplyComment__userInfo}
+              >
                 <Typography.BodyBold
                   data-testid={`${pageId}/${componentId}/username`}
                   className={styles.postReplyComment__content__username}
@@ -204,7 +215,8 @@ const PostReplyComment = ({ pageId = '*', community, comment }: ReplyCommentProp
                   {comment.creator?.displayName}
                 </Typography.BodyBold>
                 {isBrandUser && <BrandBadge className={styles.postReplyComment__brandBadge} />}
-              </div>
+              {/* </div> */}
+              </Button>
 
               {/* // FINEX: Create header to display elements in a row */}
               <div className={styles.postReplyComment__content__header}>
