@@ -104,6 +104,9 @@
   justify-content: center;
   align-items: center;
   color: var(--asc-color-primary-shade4);
+  /* // FINEX: Add margin top and bottom */
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .communityProfile__joinButton {
