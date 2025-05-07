@@ -42,9 +42,14 @@ const RecommendedCommunityCard = ({
   const avatarUrl = useImage({ fileId: community.avatarFileId, imageSize: 'medium' });
 
   return (
-    <Button
+    // FINEX: Replace Button with div
+    // <Button
+    //   className={styles.recommendedCommunityCard}
+    //   onPress={() => onClick(community.communityId)}
+    // >
+    <div
       className={styles.recommendedCommunityCard}
-      onPress={() => onClick(community.communityId)}
+      onClick={() => onClick(community.communityId)}
     >
       <div className={styles.recommendedCommunityCard__imageWrapper}>
         <CommunityCardImage
@@ -98,7 +103,8 @@ const RecommendedCommunityCard = ({
           </div>
         </div>
       </div>
-    </Button>
+    {/* </Button> */}
+    </div>
   );
 };
 
