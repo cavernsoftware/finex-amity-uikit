@@ -35,6 +35,11 @@
   scrollbar-width: none;
 }
 
+/* // FINEX: Add empty styling to fix wierd height issue after clearing editor state on submit */
+.editorEditableContent:empty {
+  height: 18px;
+}
+
 .editorEditableContent::-webkit-scrollbar {
   display: none;
 }

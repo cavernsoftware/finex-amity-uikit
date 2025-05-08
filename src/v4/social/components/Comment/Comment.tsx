@@ -37,6 +37,8 @@ import styles from './Comment.module.css';
 import { DebtFreeCountdownBadge } from '~/v4/social/elements/DebtFreeCountdownBadge';
 // FINEX: Import new useDebtFreeCountdown hook
 import { useDebtFreeCountdown } from '~/v4/social/hooks/useDebtFreeCountdown';
+// FINEX: Import new updateParentPostOfComment function
+import { updateParentPostOfComment } from '~/v4/social/utils/updateParentPostOfComment';
 
 const Like = ({ ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -75,6 +77,8 @@ interface CommentProps {
   community?: Amity.Community | null;
   onClickReply: (comment: Amity.Comment) => void;
   shouldAllowInteraction?: boolean;
+  // FINEX: Add parentPost prop
+  parentPost?: Amity.Post;
 }
 
 export const Comment = ({
@@ -84,6 +88,8 @@ export const Comment = ({
   community,
   onClickReply,
   shouldAllowInteraction = true,
+  // FINEX: Add parentPost prop
+  parentPost,
 }: CommentProps) => {
   const { accessibilityId, isExcluded, themeStyles } = useAmityComponent({
     pageId,
@@ -129,8 +135,15 @@ export const Comment = ({
 
   if (isExcluded) return null;
 
-  const deleteComment = async () =>
-    comment.commentId && CommentRepository.deleteComment(comment.commentId);
+  // FINEX: Refactor deleteComment function to also call updateParentPostOfComment
+  // const deleteComment = async () =>
+  //   comment.commentId && CommentRepository.deleteComment(comment.commentId);
+  const deleteComment = async () => {
+    if (!comment.commentId) return;
+    await CommentRepository.deleteComment(comment.commentId);
+    if (!parentPost) return;
+    await updateParentPostOfComment(parentPost);
+  };
 
   const handleEditComment = () => {
     setIsEditing(true);
@@ -409,6 +422,8 @@ export const Comment = ({
                 referenceId={comment.referenceId}
                 referenceType={comment.referenceType}
                 parentId={comment.commentId}
+                // FINEX: Add parentPost prop
+                parentPost={parentPost}
               />
             )}
           </div>

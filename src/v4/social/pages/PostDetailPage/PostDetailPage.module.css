@@ -92,6 +92,12 @@
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
+/* // FINEX: Add reply comment composer container styling */
+.postDetailPage__comments__replyCommentComposer__container {
+  margin-top: 0.5rem;
+  margin-left: 1.75rem;
+}
+
 .postDetailPage__divider {
   width: 100%;
   background-color: var(--asc-color-base-shade4);

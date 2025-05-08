@@ -13,6 +13,8 @@ interface ReplyCommentProps {
   referenceId: string;
   referenceType: string;
   parentId: string;
+  // FINEX: Add parentPost prop
+  parentPost?: Amity.Post;
 }
 
 export const ReplyCommentList = ({
@@ -22,6 +24,8 @@ export const ReplyCommentList = ({
   referenceType,
   community,
   parentId,
+  // FINEX: Add parentPost prop
+  parentPost,
 }: ReplyCommentProps) => {
   const { comments, hasMore, isLoading, loadMore } = useCommentsCollection({
     referenceId,
@@ -29,7 +33,9 @@ export const ReplyCommentList = ({
     parentId,
     limit: 10,
     shouldCall: true,
-    includeDeleted: true,
+    // FINEX: Set includeDeleted to false to prevent deleted comments from showing up
+    // includeDeleted: true,
+    includeDeleted: false,
   });
 
   const handleClickLoadMore = () => {
@@ -41,8 +47,8 @@ export const ReplyCommentList = ({
       {isLoading && <CommentSkeleton numberOfSkeletons={3} />}
       {comments.map((comment) => {
         return (
-          // FINEX: Add key
-          <ReplyComment key={comment.commentId} pageId={pageId} community={community} comment={comment as Amity.Comment} />
+          // FINEX: Add key, parentPost prop
+          <ReplyComment key={comment.commentId} pageId={pageId} community={community} comment={comment as Amity.Comment} parentPost={parentPost} />
         );
       })}
       {hasMore && (

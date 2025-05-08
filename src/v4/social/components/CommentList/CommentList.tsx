@@ -25,6 +25,8 @@ type CommentListProps = {
   shouldAllowInteraction?: boolean;
   commentCount?: number;
   renderReplyComment?: (comment: Amity.Comment) => React.ReactNode;
+  // FINEX: Add parentPost prop
+  parentPost?: Amity.Post;
 };
 
 const isAmityAd = (item: Amity.Comment | Amity.InternalComment | Amity.Ad): item is Amity.Ad => {
@@ -42,6 +44,8 @@ export const CommentList = ({
   shouldAllowInteraction = true,
   commentCount = 0,
   renderReplyComment,
+  // FINEX: Add parentPost prop
+  parentPost,
 }: CommentListProps) => {
   const componentId = 'comment_tray_component';
   const { online } = useNetworkState();
@@ -124,6 +128,8 @@ export const CommentList = ({
               componentId={componentId}
               community={community}
               shouldAllowInteraction={shouldAllowInteraction}
+              // FINEX: Add parentPost prop
+              parentPost={parentPost}
             />
             {renderReplyComment?.(item as Amity.Comment)}
           </div>

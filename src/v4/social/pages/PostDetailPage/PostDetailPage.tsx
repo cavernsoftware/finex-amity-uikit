@@ -96,21 +96,26 @@ export function PostDetailPage({ id, hideTarget, category }: PostDetailPageProps
                 renderReplyComment={(comment) => {
                   if (replyComment && comment.commentId === replyComment.commentId && isDesktop) {
                     return (
-                      <CommentComposer
-                        pageId={pageId}
-                        referenceId={post.postId}
-                        referenceType={'post'}
-                        replyTo={replyComment}
-                        onCancelReply={() => setReplyComment(undefined)}
-                        community={community}
-                        // FINEX: Add parentPost prop
-                        parentPost={post}
-                      />
+                      // FINEX: Add reply comment composer container
+                      <div className={styles.postDetailPage__comments__replyCommentComposer__container}>
+                        <CommentComposer
+                          pageId={pageId}
+                          referenceId={post.postId}
+                          referenceType={'post'}
+                          replyTo={replyComment}
+                          onCancelReply={() => setReplyComment(undefined)}
+                          community={community}
+                          // FINEX: Add parentPost prop
+                          parentPost={post}
+                        />
+                      </div>
                     );
                   }
                 }}
                 // FINEX: Exclude deleted comments
                 includeDeleted={false}
+                // FINEX: Add parentPost prop
+                parentPost={post}
               />
             )}
           </div>

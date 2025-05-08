@@ -27,6 +27,8 @@ export default function useCommentsCollection({
       referenceType,
       limit,
       includeDeleted,
+      // FINEX: Sort comments by first created
+      sortBy: 'firstCreated',
     },
     shouldCall: !!referenceId && !!referenceType && shouldCall,
   });

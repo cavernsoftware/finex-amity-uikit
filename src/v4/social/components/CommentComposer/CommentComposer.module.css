@@ -31,7 +31,8 @@
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
   background-color: var(--asc-color-background-default);
-  width: 100%;
+  /* // FINEX: Comment out width 100% */
+  /* width: 100%; */
   flex-direction: row;
   /* // FINEX: Add bottom border radius */
   border-bottom-right-radius: 8px;

@@ -30,6 +30,8 @@ import useSDK from '~/v4/core/hooks/useSDK';
 
 import styles from './Comment.module.css';
 import { isModerator } from '~/v4/utils/permissions';
+// FINEX: Import new updateParentPostOfComment function
+import { updateParentPostOfComment } from '~/v4/social/utils/updateParentPostOfComment';
 
 const REPLIES_PER_PAGE = 5;
 
@@ -54,6 +56,8 @@ interface CommentProps {
   ) => void;
   style?: React.CSSProperties;
   shouldAllowInteraction?: boolean;
+  // FINEX: Add parentPost prop
+  parentPost?: Amity.Post;
 }
 
 export const Comment = ({
@@ -62,6 +66,8 @@ export const Comment = ({
   commentId,
   readonly,
   onClickReply,
+  // FINEX: Add parentPost prop
+  parentPost,
 }: CommentProps) => {
   const comment = useComment(commentId);
 
@@ -122,7 +128,14 @@ export const Comment = ({
       mentionees: mentionees as Amity.UserMention[],
     });
 
-  const handleDeleteComment = async () => commentId && CommentRepository.deleteComment(commentId);
+  // FINEX: Refactor handleDeleteComment function to also call updateParentPostOfComment
+  // const handleDeleteComment = async () => commentId && CommentRepository.deleteComment(commentId);
+  const handleDeleteComment = async () => {
+    if (!commentId) return;
+    await CommentRepository.deleteComment(commentId);
+    if (!parentPost) return;
+    await updateParentPostOfComment(parentPost);
+  };
 
   const onReportClick = async () => {
     try {

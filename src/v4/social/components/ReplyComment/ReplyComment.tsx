@@ -34,14 +34,19 @@ import styles from './ReplyComment.module.css';
 import { DebtFreeCountdownBadge } from '~/v4/social/elements/DebtFreeCountdownBadge';
 // FINEX: Import new useDebtFreeCountdown hook
 import { useDebtFreeCountdown } from '~/v4/social/hooks/useDebtFreeCountdown';
+// FINEX: Import new updateParentPostOfComment function
+import { updateParentPostOfComment } from '~/v4/social/utils/updateParentPostOfComment';
 
 type ReplyCommentProps = {
   pageId?: string;
   community?: Amity.Community;
   comment: Amity.Comment;
+  // FINEX: Add parentPost prop
+  parentPost?: Amity.Post;
 };
 
-const PostReplyComment = ({ pageId = '*', community, comment }: ReplyCommentProps) => {
+// FINEX: Add parentPost prop
+const PostReplyComment = ({ pageId = '*', community, comment, parentPost }: ReplyCommentProps) => {
   const componentId = 'post_comment';
   const { confirm } = useConfirmContext();
   const { isDesktop } = useResponsive();
@@ -76,8 +81,15 @@ const PostReplyComment = ({ pageId = '*', community, comment }: ReplyCommentProp
 
   const toggleBottomSheet = () => setBottomSheetOpen((prev) => !prev);
 
-  const deleteComment = async () =>
-    comment.commentId && CommentRepository.deleteComment(comment.commentId);
+  // FINEX: Refactor deleteComment function to also call updateParentPostOfComment
+  // const deleteComment = async () =>
+  //   comment.commentId && CommentRepository.deleteComment(comment.commentId);
+  const deleteComment = async () => {
+    if (!comment.commentId) return;
+    await CommentRepository.deleteComment(comment.commentId);
+    if (!parentPost) return;
+    await updateParentPostOfComment(parentPost);
+  };
 
   const handleEditComment = () => {
     setIsEditing(true);

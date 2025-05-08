@@ -156,15 +156,21 @@
 
 .postReplyComment__deleteComment_container {
   display: flex;
-  padding: 0.31rem 0.5rem;
+  /* // FINEX: Change padding */
+  /* padding: 0.31rem 0.5rem; */
+  padding: 0.5rem 0.75rem;
   gap: 0.25rem;
-  background-color: var(--asc-color-secondary-shade4);
-  border-radius: var(--asc-border-radius-sm);
+  /* // FINEX: Change background color to shade5 */
+  /* background-color: var(--asc-color-secondary-shade4); */
+  background-color: var(--asc-color-secondary-shade5);
+  border-radius: 0.5rem;
   width: max-content;
 
   /* justify-content: center; */
   align-items: center;
   margin-bottom: var(--asc-spacing-s2);
+  /* // FINEX: Add margin-left */
+  margin-left: 2.5rem;
 }
 
 .postReplyComment__deleteComment_icon {

@@ -21,6 +21,8 @@ import { useNetworkState } from 'react-use';
 import ExclamationCircle from '~/v4/icons/ExclamationCircle';
 import { ERROR_RESPONSE } from '~/v4/social/constants/errorResponse';
 import styles from './CommentComposer.module.css';
+// FINEX: Import new updateParentPostOfComment function
+import { updateParentPostOfComment } from '~/v4/social/utils/updateParentPostOfComment';
 
 const LockSvg = () => {
   return (
@@ -105,18 +107,8 @@ export const CommentComposer = ({
         mentionees: params.mentionees as Amity.UserMention[],
       });
 
-      // FINEX: Add or update commentsUpdatedAt in post metadata as a workaround
-      // to trigger a live update at the post level.
-      // TODO: Ensure that existing post metadata is included in the edit
-      // to avoid overwriting other metadata.
-      if (parentPost) {
-        await PostRepository.editPost(parentPost.postId, {
-          metadata: {
-            ...parentPost.metadata,
-            commentsUpdatedAt: new Date().toISOString(),
-          },
-        });
-      }
+      // FINEX: Trigger a live update at the parent post level
+      await updateParentPostOfComment(parentPost);
     },
     onError: (error) => {
       if (error.message.includes(ERROR_RESPONSE.CONTAIN_BLOCKED_WORD)) {
