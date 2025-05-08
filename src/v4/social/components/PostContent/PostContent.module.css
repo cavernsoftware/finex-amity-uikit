@@ -387,6 +387,8 @@
   padding-top: 0.25rem;
   line-height: 1.25rem;
   color: var(--asc-color-base-shade2);
+  /* // FINEX: Add margin top */
+  margin-top: 0.25rem;
 }
 
 .postContent__wrapRightMenu {

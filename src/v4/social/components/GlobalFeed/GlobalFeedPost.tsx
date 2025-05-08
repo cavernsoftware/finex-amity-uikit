@@ -8,6 +8,7 @@ import {
   PostContent,
 } from '~/v4/social/components/PostContent/PostContent';
 import { PostContentSkeleton } from '~/v4/social/components/PostContent/PostContentSkeleton';
+import styles from './GlobalFeed.module.css';
 
 interface GlobalFeedPostProps {
   pageId?: string;
@@ -36,12 +37,11 @@ export const GlobalFeedPost = ({
 }: GlobalFeedPostProps) => {
   const [post, setPost] = useState(inputPost);
 
+  // FINEX: Add live object for post
   const { post: liveObjectPost } = usePost(inputPost.postId);
-
   useEffect(() => {
     if (inputPost) setPost(inputPost);
   }, [inputPost]);
-
   useEffect(() => {
     if (liveObjectPost) setPost(liveObjectPost);
   }, [liveObjectPost]);
@@ -50,15 +50,21 @@ export const GlobalFeedPost = ({
     return <PostContentSkeleton pageId={pageId} />;
   }
 
+  if (post.isDeleted) {
+    return null;
+  }
+
   return (
-    <PostContent
-      pageId={pageId}
-      post={post}
-      category={category}
-      style={style}
-      onClick={onClick}
-      onPostDeleted={onPostDeleted}
-      isGlobalFeaturePost={isGlobalFeaturePost}
-    />
+    <div className={styles.global_feed__postContainer}>
+      <PostContent
+        pageId={pageId}
+        post={post}
+        category={category}
+        style={style}
+        onClick={onClick}
+        onPostDeleted={onPostDeleted}
+        isGlobalFeaturePost={isGlobalFeaturePost}
+      />
+    </div>
   );
 };

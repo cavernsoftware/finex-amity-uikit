@@ -150,19 +150,19 @@ export const GlobalFeed = ({
             //     AmityGlobalFeedComponentBehavior?.goToPostDetailPage?.({ postId: item.postId })
             //   }
             // >
-            <div className={styles.global_feed__postContainer}>
-              {/* // FINEX: Replace PostContent with GlobalFeedPost */}
-              <GlobalFeedPost
-                pageId={pageId}
-                inputPost={item}
-                category={AmityPostCategory.GENERAL}
-                style={AmityPostContentComponentStyle.FEED}
-                onClick={() => {
-                  AmityGlobalFeedComponentBehavior?.goToPostDetailPage?.({ postId: item.postId });
-                }}
-                onPostDeleted={onPostDeleted}
-              />
-            </div>
+            // <div className={styles.global_feed__postContainer}>
+            // FINEX: Replace PostContent with GlobalFeedPost
+            <GlobalFeedPost
+              pageId={pageId}
+              inputPost={item}
+              category={AmityPostCategory.GENERAL}
+              style={AmityPostContentComponentStyle.FEED}
+              onClick={() => {
+                AmityGlobalFeedComponentBehavior?.goToPostDetailPage?.({ postId: item.postId });
+              }}
+              onPostDeleted={onPostDeleted}
+            />
+            // </div>
             // </ClickableArea>
           )}
         </React.Fragment>

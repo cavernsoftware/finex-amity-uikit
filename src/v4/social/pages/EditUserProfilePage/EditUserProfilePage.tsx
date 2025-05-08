@@ -122,9 +122,7 @@ export const EditUserProfilePage: React.FC<EditUserProfilePageProps> = ({ userId
       // FINEX: Add updated metadata for showDebtFreeCountdown
       metadata: {
         ...(user?.metadata ?? {}),
-        showDebtFreeCountdown: showDebtFreeCountdown !== user?.metadata?.showDebtFreeCountdown ? 
-          showDebtFreeCountdown : 
-          undefined,
+        showDebtFreeCountdown,
       },
     };
     e.preventDefault();

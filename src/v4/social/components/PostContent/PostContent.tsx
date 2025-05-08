@@ -52,8 +52,10 @@ import useCommunityModeratorsCollection from '~/v4/social/hooks/collections/useC
 import { DebtFreeCountdownBadge } from '~/v4/social/elements/DebtFreeCountdownBadge';
 // FINEX: Import new useDebtFreeCountdown hook
 import { useDebtFreeCountdown } from '~/v4/social/hooks/useDebtFreeCountdown';
-// FINEX: Import usePostSubscription
+// FINEX: Import usePostSubscription, useUserSubscription, useCommunitySubscription
 import usePostSubscription from '~/v4/core/hooks/subscriptions/usePostSubscription';
+import useUserSubscription from '~/v4/core/hooks/subscriptions/useUserSubscription';
+import useCommunitySubscription from '~/v4/core/hooks/subscriptions/useCommunitySubscription';
 
 export enum AmityPostContentComponentStyle {
   FEED = 'feed',
@@ -72,9 +74,12 @@ interface PostTitleProps {
   pageId?: string;
   componentId?: string;
   hideTarget?: boolean;
+  // FINEX: Add creatorUser prop to PostTitle
+  creatorUser: Amity.User;
 }
 
-const PostTitle = ({ pageId, componentId, post, hideTarget }: PostTitleProps) => {
+// FINEX: Add creatorUser prop to PostTitle
+const PostTitle = ({ pageId, componentId, post, hideTarget, creatorUser }: PostTitleProps) => {
   const shouldCallCommunity = useMemo(() => post?.targetType === 'community', [post?.targetType]);
   const shouldCallUser = useMemo(
     () => post?.targetType === 'user' && post?.postedUserId !== post?.targetId,
@@ -95,7 +100,9 @@ const PostTitle = ({ pageId, componentId, post, hideTarget }: PostTitleProps) =>
 
   const showTargetCommunity = targetCommunity && !hideTarget;
   const showTargetUser = targetUser && !hideTarget;
-  const showBrandBadge = post.creator.isBrand;
+  // FINEX: Use creatorUser instead of post.creator
+  // const showBrandBadge = post.creator.isBrand;
+  const showBrandBadge = creatorUser.isBrand;
   const showPrivateBadge = targetCommunity?.isPublic === false;
   const showOfficialBadge = targetCommunity?.isOfficial === true;
 
@@ -103,7 +110,9 @@ const PostTitle = ({ pageId, componentId, post, hideTarget }: PostTitleProps) =>
 
   return (
     <div className={styles.postTitle} data-show-target-community={showTargetCommunity === true}>
-      {post.creator && (
+      {/* // FINEX: Use creatorUser instead of post.creator */}
+      {/* {post.creator && ( */}
+      {creatorUser && (
         <div
           className={styles.postTitle__user__container}
           data-show-brand-badge={showBrandBadge === true}
@@ -111,19 +120,23 @@ const PostTitle = ({ pageId, componentId, post, hideTarget }: PostTitleProps) =>
         >
           <Button
             className={styles.postTitle__userButton}
-            onPress={() => onClickUser(post.creator.userId)}
+            // FINEX: Use creatorUser instead of post.creator
+            // onPress={() => onClickUser(post.creator.userId)}
+            onPress={() => onClickUser(creatorUser.userId)}
             data-testid={`${pageId}/${componentId}/username`}
           >
             {/* // FINEX: Rename class name  */}
             <Typography.BodyBold className={styles.postTitle__userName}>
-              {post.creator.displayName}
+              {/* // FINEX: Use creatorUser instead of post.creator */}
+              {/* {post.creator.displayName} */}
+              {creatorUser.displayName}
             </Typography.BodyBold>
           </Button>
           {showBrandBadge ? <BrandBadge className={styles.postTitle__brandIcon} /> : null}
         </div>
       )}
-      {/* // FINEX: Move angle icon to be in same container as user and community */}
-      {post.creator && showTarget ? (
+      {/* // FINEX: Move angle icon to be in same container as user and community. Also, use creatorUser instead of post.creator */}
+      {creatorUser && showTarget ? (
         <AngleRight
           data-testid={`${pageId}/${componentId}/arrow_right`}
           className={styles.postTitle__icon}
@@ -289,6 +302,29 @@ export const PostContent = ({
     level: SubscriptionLevels.POST,
   });
 
+  // FINEX: Add user subscription for live updates
+  useUserSubscription({
+    userId: post?.creator?.userId,
+    level: SubscriptionLevels.USER,
+  });
+
+  // FINEX: Add community subscription for live updates
+  useCommunitySubscription({
+    communityId: post?.targetId,
+    level: SubscriptionLevels.COMMUNITY,
+    shouldSubscribe: shouldCall,
+  });
+
+  // FINEX: Add live object for creator user
+  const [creatorUser, setCreatorUser] = useState(post?.creator);
+  const { user: liveObjectCreatorUser } = useUser({userId: post?.creator?.userId});
+  useEffect(() => {
+    if (post?.creator) setCreatorUser(post?.creator);
+  }, [post]);
+  useEffect(() => {
+    if (liveObjectCreatorUser) setCreatorUser(liveObjectCreatorUser);
+  }, [liveObjectCreatorUser]);
+
   useEffect(() => {
     if (post == null) return;
     setReactionByMe(post.myReactions?.[0] || null);
@@ -407,10 +443,10 @@ export const PostContent = ({
   }, [post, isVisible, page.type]);
 
   // FINEX: Add debt free countdown hook
-  const debtFreeDaysLeft = useDebtFreeCountdown({ user: post.creator });
+  const debtFreeDaysLeft = useDebtFreeCountdown({ user: creatorUser });
 
   // FINEX: Create showDebtFreeBadge boolean
-  const showDebtFreeBadge = post.creator?.userId && debtFreeDaysLeft;
+  const showDebtFreeBadge = creatorUser?.userId && debtFreeDaysLeft;
 
   return (
     <div
@@ -434,6 +470,7 @@ export const PostContent = ({
               hideTarget={hideTarget}
               pageId={pageId}
               componentId={componentId}
+              creatorUser={creatorUser}
             />
           </div>
           <div
@@ -443,7 +480,7 @@ export const PostContent = ({
           >
             {/* // FINEX: Add new DebtFreeCountdownBadge component */}
             {showDebtFreeBadge ? (
-              <DebtFreeCountdownBadge userId={post.creator?.userId} daysLeft={debtFreeDaysLeft} />
+              <DebtFreeCountdownBadge userId={creatorUser?.userId} daysLeft={debtFreeDaysLeft} />
             ) : null}
 
             {isCommunityModerator ? (
