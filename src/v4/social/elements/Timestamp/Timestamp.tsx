@@ -41,7 +41,8 @@ function getTimeAgo(date: Date): string {
 }
 
 export function CustomTimeAgo({ date }: { date: Date }) {
-  const [, setUpdate] = useState(0);
+  const [timeAgo, setTimeAgo] = useState(getTimeAgo(date));
+  const formatted = useMemo(() => dayjs(date).format('dddd, MMMM D, YYYY h:mm A'), [date]);
 
   // Determine update interval based on time difference
   const updateInterval = useMemo(() => {
@@ -54,15 +55,13 @@ export function CustomTimeAgo({ date }: { date: Date }) {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setUpdate((prev) => prev + 1);
+      setTimeAgo(getTimeAgo(date));
     }, updateInterval);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+    }
   }, [updateInterval]);
-
-  const timeAgo = useMemo(() => getTimeAgo(date), [date, updateInterval]);
-
-  const formatted = useMemo(() => dayjs(date).format('dddd, MMMM D, YYYY h:mm A'), [date]);
 
   return <span title={formatted}>{timeAgo}</span>;
 }
