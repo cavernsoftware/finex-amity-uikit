@@ -55,14 +55,26 @@ export const TextWithMention = ({
   const convertSerializedToText = (child: SerializedLexicalNode, childIndex: number) => {
     if ($isSerializedMentionNode<MentionData>(child)) {
       return (
-        <Button
+        // FINEX: Replace Button with normal html button since Truncate does not work with React components
+        // <Button
+        //   key={uuidv4()}
+        //   data-testid={`${pageId}/${componentId}/mention`}
+        //   className={clsx(styles.textWithMention__mention)}
+        //   onPress={() => goToUserProfilePage(child.data.userId)}
+        // >
+        //   {child.text}
+        // </Button>
+        <button
           key={uuidv4()}
           data-testid={`${pageId}/${componentId}/mention`}
           className={clsx(styles.textWithMention__mention)}
-          onPress={() => goToUserProfilePage(child.data.userId)}
+          onClick={(e) => {
+            e.stopPropagation();
+            goToUserProfilePage(child.data.userId);
+          }}
         >
           {child.text}
-        </Button>
+        </button>
       );
     }
 
