@@ -15,6 +15,7 @@ import { Divider } from '~/v4/social/elements/Divider';
 import useGlobalPinnedPostsCollection from '~/v4/social/hooks/collections/useGlobalPinnedPostsCollection';
 // FINEX: Import new FinexSpinner component
 import { FinexSpinner } from '~/v4/social/elements/FinexSpinner';
+import { GlobalFeedPost } from './GlobalFeedPost';
 
 interface GlobalFeedProps {
   pageId?: string;
@@ -112,9 +113,10 @@ export const GlobalFeed = ({
               }
             > */}
             <div className={styles.global_feed__postContainer}>
-              <PostContent
+              {/* // FINEX: Replace PostContent with GlobalFeedPost */}
+              <GlobalFeedPost
                 pageId={pageId}
-                post={item.post}
+                inputPost={item.post}
                 category={AmityPostCategory.ANNOUNCEMENT}
                 style={AmityPostContentComponentStyle.FEED}
                 isGlobalFeaturePost={true}
@@ -149,9 +151,10 @@ export const GlobalFeed = ({
             //   }
             // >
             <div className={styles.global_feed__postContainer}>
-              <PostContent
+              {/* // FINEX: Replace PostContent with GlobalFeedPost */}
+              <GlobalFeedPost
                 pageId={pageId}
-                post={item}
+                inputPost={item}
                 category={AmityPostCategory.GENERAL}
                 style={AmityPostContentComponentStyle.FEED}
                 onClick={() => {
