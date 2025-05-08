@@ -7,7 +7,8 @@ import User from '~/v4/icons/User';
 import { Button } from '~/v4/core/components/AriaButton';
 import { CommentInput, CommentInputRef } from './CommentInput';
 import { useMutation } from '@tanstack/react-query';
-import { CommentRepository } from '@amityco/ts-sdk';
+// FINEX: Import PostRepository
+import { CommentRepository, PostRepository } from '@amityco/ts-sdk';
 import Close from '~/v4/icons/Close';
 import { Mentionees, Metadata } from '~/v4/helpers/utils';
 
@@ -49,6 +50,8 @@ interface CommentComposerProps {
   shouldAllowCreation?: boolean;
   community?: Amity.Community | null;
   containerClassName?: string;
+  // FINEX: Add parentPost prop
+  parentPost?: Amity.Post;
 }
 
 export const CommentComposer = ({
@@ -60,6 +63,8 @@ export const CommentComposer = ({
   shouldAllowCreation = true,
   community,
   containerClassName,
+  // FINEX: Add parentPost prop
+  parentPost,
 }: CommentComposerProps) => {
   const userId = useSDK().currentUserId;
   const { user } = useUser({ userId });
@@ -100,15 +105,18 @@ export const CommentComposer = ({
         mentionees: params.mentionees as Amity.UserMention[],
       });
 
-      // // FINEX: Update commentsUpdatedAt in post metadata as a workaround
-      // // to trigger a live update at the post level.
-      // // TODO: Ensure that existing post metadata is included in the edit
-      // // to avoid overwriting other metadata.
-      // await PostRepository.editPost(referenceId, {
-      //   metadata: {
-      //     commentsUpdatedAt: new Date().toISOString(),
-      //   },
-      // });
+      // FINEX: Add or update commentsUpdatedAt in post metadata as a workaround
+      // to trigger a live update at the post level.
+      // TODO: Ensure that existing post metadata is included in the edit
+      // to avoid overwriting other metadata.
+      if (parentPost) {
+        await PostRepository.editPost(parentPost.postId, {
+          metadata: {
+            ...parentPost.metadata,
+            commentsUpdatedAt: new Date().toISOString(),
+          },
+        });
+      }
     },
     onError: (error) => {
       if (error.message.includes(ERROR_RESPONSE.CONTAIN_BLOCKED_WORD)) {

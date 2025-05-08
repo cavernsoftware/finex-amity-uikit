@@ -103,6 +103,8 @@ export function PostDetailPage({ id, hideTarget, category }: PostDetailPageProps
                         replyTo={replyComment}
                         onCancelReply={() => setReplyComment(undefined)}
                         community={community}
+                        // FINEX: Add parentPost prop
+                        parentPost={post}
                       />
                     );
                   }
@@ -124,6 +126,8 @@ export function PostDetailPage({ id, hideTarget, category }: PostDetailPageProps
             containerClassName={
               post?.commentsCount <= 0 ? styles.postDetailPage__commentList__container : undefined
             }
+            // FINEX: Add parentPost prop
+            parentPost={post}
           />
         )}
       </div>
@@ -189,6 +193,8 @@ export function PostDetailPage({ id, hideTarget, category }: PostDetailPageProps
             replyTo={replyComment}
             onCancelReply={() => setReplyComment(undefined)}
             community={community}
+            // FINEX: Add parentPost prop
+            parentPost={post}
           />
         )
       )}
