@@ -11,11 +11,10 @@ export const IconComponent = ({
   defaultIconName,
   configIconName,
 }: IconComponentProps) => {
-  if (defaultIconName === configIconName) {
-    return defaultIcon();
-  }
-
-  // FINEX: Hide this since it looks ugly while initalizing
+  // FINEX: Always use default icon since it looks ugly while initalizing
+  // if (defaultIconName === configIconName) {
+  //   return defaultIcon();
+  // }
   // return imgIcon();
-  return null;
+  return defaultIcon();
 };

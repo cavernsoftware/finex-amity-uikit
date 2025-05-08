@@ -5,7 +5,8 @@
   display: flex;
   padding: 1rem;
   flex-direction: column;
-  background-color: var(--asc-color-background-default);
+  /* // FINEX: Comment out background color */
+  /* background-color: var(--asc-color-background-default); */
 }
 
 .socialGlobalSearchPage__tabs {

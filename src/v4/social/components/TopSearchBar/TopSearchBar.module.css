@@ -3,16 +3,17 @@
   grid-template-columns: minmax(0, 1fr) min-content;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--asc-color-background-default);
+  /* // FINEX: Comment out background color */
+  /* background-color: var(--asc-color-background-default); */
 }
 
 .topSearchBar__inputBar {
   display: grid;
   grid-template-columns: min-content minmax(0, 1fr) min-content;
   align-items: center;
-  /* // FINEX: Change to shade5 */
+  /* // FINEX: Change to shade5 with fallback of #f0f0f5 */
   /* background-color: var(--asc-color-base-shade4); */
-  background-color: var(--asc-color-base-shade5);
+  background-color: var(--asc-color-base-shade5, #f0f0f5);
   gap: 0.5rem;
   padding: 0.62rem 0.75rem;
   border-radius: 0.5rem;
@@ -20,9 +21,9 @@
 
 .topSearchBar__textInput {
   border: none;
-  /* // FINEX: Change to shade5 */
+  /* // FINEX: Change background color to transparent */
   /* background-color: var(--asc-color-base-shade4); */
-  background-color: var(--asc-color-base-shade5);
+  background-color: transparent;
   outline: none;
   font-size: 1rem;
   color: var(--asc-color-base-default);
