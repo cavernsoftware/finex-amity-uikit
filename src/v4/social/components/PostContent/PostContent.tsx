@@ -501,8 +501,9 @@ export const PostContent = ({
             >
               <Timestamp timestamp={post.createdAt} />
             </div>
-
-            {post.createdAt !== post.editedAt && (
+            {/* // FINEX: Use custom editAt in metadata since we edit the parent post when a comment is added or deleted. See updateParentPostOfComment function. */}
+            {/* {post.createdAt !== post.editedAt && ( */}
+            {post.metadata?.editedAt && (
               <Typography.Caption
                 data-testid={`${pageId}/${componentId}/post_edited_text`}
                 className={styles.postContent__bar__information__editedTag}

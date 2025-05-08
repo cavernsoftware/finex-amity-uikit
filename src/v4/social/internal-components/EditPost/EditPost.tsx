@@ -35,6 +35,8 @@ import ExclamationCircle from '~/v4/icons/ExclamationCircle';
 import { useResizeObserver } from '~/v4/social/hooks/useResizeObserver';
 import { Typography } from '~/v4/core/components';
 import styles from './EditPost.module.css';
+// FINEX: Import new updatePostWithCustomEditedAtDate function
+import { updatePostWithCustomEditedAtDate } from '~/v4/social/utils/updatePostWithCustomEditAtDate';
 
 export function EditPost({ post }: AmityPostComposerEditOptions) {
   const pageId = 'post_composer_page';
@@ -96,7 +98,9 @@ export function EditPost({ post }: AmityPostComposerEditOptions) {
   const useMutateUpdatePost = () =>
     useMutation({
       mutationFn: async (params: Parameters<typeof PostRepository.editPost>[0]) => {
-        return await PostRepository.editPost(post.postId, params);
+        // FINEX: Use updatePostWithCustomEditedAtDate instead of PostRepository.editPost
+        // return await PostRepository.editPost(post.postId, params);
+        return await updatePostWithCustomEditedAtDate(post, params);
       },
       onMutate: () => {
         setIsUpdating(true);

@@ -163,7 +163,9 @@ export const PendingPostContent = ({
               </Typography.BodyBold>
               <div className={styles.pendingPostContent__information__subtitle}>
                 <Timestamp timestamp={post.createdAt} />
-                {post.createdAt !== post.editedAt && (
+                {/* // FINEX: Use custom editAt in metadata since we edit the parent post when a comment is added or deleted. See updateParentPostOfComment function. */}
+                {/* {post.createdAt !== post.editedAt && ( */}
+                {post.metadata?.editedAt && (
                   <Typography.Caption
                     data-testid={`${pageId}/${componentId}/post_edited_text`}
                     className={styles.pendingPostContent__editedTag}
