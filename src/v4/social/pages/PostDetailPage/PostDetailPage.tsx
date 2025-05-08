@@ -18,7 +18,6 @@ import useCommunity from '~/v4/core/hooks/collections/useCommunity';
 import { Popover } from '~/v4/core/components/AriaPopover';
 import styles from './PostDetailPage.module.css';
 import { useResponsive } from '~/v4/core/hooks/useResponsive';
-import usePostSubscription from '~/v4/core/hooks/subscriptions/usePostSubscription';
 import { ErrorPostDetail } from '~/v4/social/internal-components/ErrorPostDetail/ErrorPostDetail';
 
 interface PostDetailPageProps {
@@ -29,12 +28,6 @@ interface PostDetailPageProps {
 
 export function PostDetailPage({ id, hideTarget, category }: PostDetailPageProps) {
   const pageId = 'post_detail_page';
-
-  // FINEX: Add post subscription for live updates
-  usePostSubscription({
-    postId: id,
-    level: SubscriptionLevels.POST,
-  });
 
   const [replyComment, setReplyComment] = useState<Amity.Comment | undefined>();
 

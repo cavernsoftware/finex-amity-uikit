@@ -11,7 +11,8 @@ import { UserAvatar } from '~/v4/social/internal-components/UserAvatar';
 import { CommentButton } from '~/v4/social/elements/CommentButton';
 import { useDrawer } from '~/v4/core/providers/DrawerProvider';
 import { useMutation } from '@tanstack/react-query';
-import { ReactionRepository } from '@amityco/ts-sdk';
+// FINEX: Import SubscriptionLevels
+import { ReactionRepository, SubscriptionLevels } from '@amityco/ts-sdk';
 import { PollContent } from './PollContent/PollContent';
 import Crying from './Crying';
 import Happy from './Happy';
@@ -51,6 +52,8 @@ import useCommunityModeratorsCollection from '~/v4/social/hooks/collections/useC
 import { DebtFreeCountdownBadge } from '~/v4/social/elements/DebtFreeCountdownBadge';
 // FINEX: Import new useDebtFreeCountdown hook
 import { useDebtFreeCountdown } from '~/v4/social/hooks/useDebtFreeCountdown';
+// FINEX: Import usePostSubscription
+import usePostSubscription from '~/v4/core/hooks/subscriptions/usePostSubscription';
 
 export enum AmityPostContentComponentStyle {
   FEED = 'feed',
@@ -278,6 +281,12 @@ export const PostContent = ({
   const { isCommunityModerator } = usePostedUserInformation({
     post,
     community: targetCommunity,
+  });
+
+  // FINEX: Add post subscription for live updates
+  usePostSubscription({
+    postId: post?.postId,
+    level: SubscriptionLevels.POST,
   });
 
   useEffect(() => {
