@@ -283,12 +283,16 @@ export const PostContent = ({
   useEffect(() => {
     if (post == null) return;
     setReactionByMe(post.myReactions?.[0] || null);
-  }, [post?.myReactions]);
+  // FINEX: Include post in dependency array
+  // }, [post?.myReactions]);
+  }, [post, post?.myReactions]);
 
   useEffect(() => {
     if (post == null) return;
     setReactionsCount(post?.reactionsCount || 0);
-  }, [post?.reactionsCount]);
+  // FINEX: Include post in dependency array
+  // }, [post?.reactionsCount]);
+  }, [post, post?.reactionsCount]);
 
   const { mutateAsync: mutateAddReactionAsync } = useMutation({
     mutationFn: async (reactionKey: string) => {
