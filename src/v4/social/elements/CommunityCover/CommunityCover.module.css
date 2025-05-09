@@ -6,9 +6,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-image: var(--background-image);
-  /* // FINEX: Add border without bottom */
-  border: 1px solid var(--asc-color-base-shade4);
-  border-bottom: none;
 }
 
 .communityCover__topBar {
@@ -75,6 +72,9 @@
   .communityCover {
     aspect-ratio: 2 / 1;
     border-radius: 0.5rem 0.5rem 0 0;
+    /* // FINEX: Add border without bottom */
+    border: 1px solid var(--asc-color-base-shade4);
+    border-bottom: none;
   }
 
   .communityCover__topBar {

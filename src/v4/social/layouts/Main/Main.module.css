@@ -28,6 +28,8 @@
 
 @media (width < 48em) {
   .layout {
+    /* // FINEX: Set display to block in mobile to fix scrolling issues */
+    display: block;
     grid-template-columns: 1fr;
     /* // FINEX: Use transparent background */
     /* background: var(--asc-color-background-default); */
