@@ -49,7 +49,9 @@ export const MyCommunitiesSideBar = ({ pageId = '*' }: MyCommunitiesSideBarProps
           key={community.communityId}
           isSelected={
             page.type === PageTypes.CommunityProfilePage &&
-            selectedCommunityId === community.communityId
+            // FINEX: Use page context communityId instead of selectedCommunityId
+            // selectedCommunityId === community.communityId
+            page.context.communityId === community.communityId
           }
           onCategoryClick={(categoryId) => {
             goToCommunitiesByCategoryPage({ categoryId });
