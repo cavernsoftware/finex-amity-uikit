@@ -11,7 +11,7 @@
   background-color: var(--asc-color-primary-default);
   /* // FINEX: Use fixed and adjust bottom */
   position: fixed;
-  bottom: 5rem;
+  bottom: calc(5rem + var(--safe-area-bottom));
   right: 1.4rem;
 }
 

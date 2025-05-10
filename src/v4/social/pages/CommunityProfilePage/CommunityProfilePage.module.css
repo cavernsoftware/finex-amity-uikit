@@ -24,7 +24,7 @@
   position: fixed;
   /* // FINEX: Increase bottom */
   /* bottom: 1rem; */
-  bottom: 4rem;
+  bottom: calc(4rem + var(--safe-area-bottom));
   right: 1rem;
   z-index: 1;
 }
