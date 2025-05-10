@@ -3,6 +3,7 @@ import { CommunitySearchResult } from '~/v4/social/components/CommunitySearchRes
 import useCommunitiesCollection from '~/v4/social/hooks/collections/useCommunitiesCollection';
 import { Divider } from '~/v4/social/elements/Divider';
 import { useAmityComponent } from '~/v4/core/hooks/uikit';
+import { useSortedCommunities } from '~/v4/social/hooks/useSortedCommunities';
 
 import styles from './MyCommunities.module.css';
 
@@ -21,6 +22,9 @@ export const MyCommunities = ({ pageId = '*' }: MyCommunitiesProps) => {
     queryParams: { limit: 20, membership: 'member' },
   });
 
+  // FINEX: Use new useSortedCommunities hook
+  const sortedCommunities = useSortedCommunities({ communities });
+
   return (
     <div style={themeStyles} className={styles.myCommunitiesList}>
       {/* // FINEX: Hide divider */}
@@ -29,7 +33,9 @@ export const MyCommunities = ({ pageId = '*' }: MyCommunitiesProps) => {
       <div style={themeStyles} className={styles.myCommunitiesList__container}>
         <CommunitySearchResult
           pageId={pageId}
-          communityCollection={communities}
+          // FINEX: Use sortedCommunities
+          // communityCollection={communities}
+          communityCollection={sortedCommunities}
           isLoading={isLoading}
           onLoadMore={() => {
             if (hasMore && isLoading === false) {

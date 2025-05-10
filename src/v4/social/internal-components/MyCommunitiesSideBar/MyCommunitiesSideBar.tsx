@@ -8,6 +8,7 @@ import {
   MyCommunitiesSideBarItemSkeleton,
 } from '~/v4/social/internal-components/MyCommunitiesSideBarItem';
 import styles from './MyCommunitiesSideBar.module.css';
+import { useSortedCommunities } from '~/v4/social/hooks/useSortedCommunities';
 
 type MyCommunitiesSideBarProps = {
   pageId?: string;
@@ -32,9 +33,14 @@ export const MyCommunitiesSideBar = ({ pageId = '*' }: MyCommunitiesSideBarProps
     },
   });
 
+  // FINEX: Use new useSortedCommunities hook
+  const sortedCommunities = useSortedCommunities({ communities });
+
   return (
     <div style={themeStyles} className={styles.myCommunitiesList} data-testid={accessibilityId}>
-      {communities.map((community) => (
+      {/* // FINEX: Use sortedCommunities */}
+      {/* {communities.map((community) => ( */}
+      {sortedCommunities.map((community) => (
         <MyCommunitiesSideBarItem
           pageId={pageId}
           community={community}
