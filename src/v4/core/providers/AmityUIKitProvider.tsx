@@ -63,6 +63,8 @@ const InternalComponent = ({
   onRouteChange,
   seoOptimizationEnabled = false,
   syncNetworkConfig = false,
+  // FINEX: Add officialAmityCommunityId prop
+  officialAmityCommunityId,
 }: AmityUIKitProviderProps) => {
   const currentUser = useUser(userId);
   const { error } = useNotifications();
@@ -174,6 +176,8 @@ const InternalComponent = ({
                       config={{
                         socialCommunityCreationButtonVisible:
                           socialCommunityCreationButtonVisible || true,
+                        // FINEX: Add officialAmityCommunityId prop
+                        officialAmityCommunityId,
                       }}
                     >
                       <PostRendererProvider config={postRendererConfig}>
@@ -252,6 +256,8 @@ interface AmityUIKitProviderProps {
   onRouteChange?: (route: AmityRoute) => void;
   seoOptimizationEnabled?: boolean;
   syncNetworkConfig?: boolean;
+  // FINEX: Add officialAmityCommunityId prop
+  officialAmityCommunityId?: string;
 }
 
 const queryClient = new QueryClient();

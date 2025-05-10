@@ -944,7 +944,8 @@ export default function NavigationProvider({
       },
     };
 
-    pushPage(next);
+    // FINEX: Prevent navigation to create community page
+    // pushPage(next);
   }, [onChangePage, pushPage]);
 
   const goToEditCommunityPage = useCallback(

@@ -34,17 +34,19 @@ export function EmptyNewsfeed({ pageId = '*' }: EmptyNewsfeedProps) {
       <Divider isShownOnlyInMobile />
       {/* // FINEX: Add container */}
       <div className={styles.emptyNewsfeed__container}>
+        {/* // FINEX: Hide illustration */}
         {/* <Illustration pageId={pageId} componentId={componentId} /> */}
         <div className={styles.emptyNewsfeed__text}>
           <Title pageId={pageId} componentId={componentId} />
           <Description pageId={pageId} componentId={componentId} />
         </div>
-        <ExploreCommunitiesButton pageId={pageId} componentId={componentId} />
+        {/* // FINEX: Hide explore and create community buttons */}
+        {/* <ExploreCommunitiesButton pageId={pageId} componentId={componentId} />
         <CreateCommunityButton
           pageId={pageId}
           componentId={componentId}
           onClick={() => goToCreateCommunityPage?.({ mode: AmityCommunitySetupPageMode.CREATE })}
-        />
+        /> */}
       </div>
     </div>
   );

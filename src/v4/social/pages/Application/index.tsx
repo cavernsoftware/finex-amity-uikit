@@ -40,11 +40,17 @@ import { PollPostComposerPage } from '~/v4/social/pages/PollPostComposerPage';
 import { LivestreamTerminatedPage } from '~/v4/social/pages/LivestreamTerminatedPage';
 import { LiveStreamPlayerPage } from '~/v4/social/pages/LiveStreamPlayerPage';
 import { useLayoutContext } from '~/v4/social/providers/LayoutProvider';
+// FINEX: Import useConfig, useCommunity, useCommunitiesCollection, FinexSpinner
+import { useConfig } from '~/v4/social/providers/ConfigProvider';
+import useCommunity from '~/v4/core/hooks/collections/useCommunity';
+import useCommunitiesCollection from '~/v4/social/hooks/collections/useCommunitiesCollection';
+import { FinexSpinner } from '~/v4/social/elements/FinexSpinner';
 
 const Application = () => {
   const { isDesktop } = useResponsive();
   const [open, setOpen] = useState(false);
-  const { page, goToSocialHomePage } = useNavigation();
+  // FINEX: Get goToCommunityProfilePage from NavigationProvider
+  const { page, goToSocialHomePage, goToCommunityProfilePage } = useNavigation();
   const { liveStreamPlayer } = useLayoutContext();
   const toggleOpen = () => setOpen((open) => !open);
 
@@ -58,6 +64,51 @@ const Application = () => {
       goToSocialHomePage();
     }
   }, [isDesktop]);
+
+  /* --------------------------------------------------------------------- */
+  // FINEX: Implement logic to default to official community as needed
+  const [isReady, setIsReady] = useState(false);
+  const config = useConfig();
+  const { community: officialCommunity, isLoading: isOfficialCommunityLoading } = useCommunity({ communityId: config.officialAmityCommunityId });
+  const { communities, isLoading: isCommunitiesLoading } = useCommunitiesCollection({
+    queryParams: { limit: 20, membership: 'member' },
+  });
+
+  useEffect(() => {
+    console.log('Loaded config:', {config});
+  }, [config]);
+
+  useEffect(() => {
+    if (!isOfficialCommunityLoading) {
+      console.log('Loaded official community:', {officialCommunity});
+    }
+  }, [isOfficialCommunityLoading, officialCommunity]);
+
+  useEffect(() => {
+    if (!isCommunitiesLoading) {
+      console.log('Loaded communities:', {communities});
+    }
+  }, [isCommunitiesLoading, communities]);
+
+  useEffect(() => {
+    if (!isReady && !isOfficialCommunityLoading && !isCommunitiesLoading) {
+      if (communities.length === 1 && officialCommunity?.isJoined) {
+        goToCommunityProfilePage(officialCommunity.communityId);
+      } else {
+        goToSocialHomePage();
+      }
+      setIsReady(true);
+    }
+  }, [isReady, isOfficialCommunityLoading, isCommunitiesLoading]);
+
+  if (!isReady) {
+    return (
+      <div className={styles.application__loadingContainer}>
+        <FinexSpinner />
+      </div>
+    );
+  }
+  /* --------------------------------------------------------------------- */
 
   return (
     <div className={styles.applicationContainer}>

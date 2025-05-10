@@ -1,7 +1,17 @@
 import React, { PropsWithChildren, createContext, useContext, useMemo } from 'react';
 
-const defaultConfig = {
+// FINEX: Create DefaultConfig type
+type DefaultConfig = {
+  socialCommunityCreationButtonVisible: boolean;
+  officialAmityCommunityId?: string;
+};
+
+// FINEX: Use DefaultConfig type
+// const defaultConfig = {
+const defaultConfig: DefaultConfig = {
   socialCommunityCreationButtonVisible: true,
+  // FINEX: Add officialAmityCommunityId
+  officialAmityCommunityId: undefined,
 };
 
 const ConfigContext = createContext(defaultConfig);
