@@ -75,24 +75,11 @@ const Application = () => {
   });
 
   useEffect(() => {
-    console.log('Loaded config:', {config});
-  }, [config]);
-
-  useEffect(() => {
-    if (!isOfficialCommunityLoading) {
-      console.log('Loaded official community:', {officialCommunity});
-    }
-  }, [isOfficialCommunityLoading, officialCommunity]);
-
-  useEffect(() => {
-    if (!isCommunitiesLoading) {
-      console.log('Loaded communities:', {communities});
-    }
-  }, [isCommunitiesLoading, communities]);
-
-  useEffect(() => {
     if (!isReady && !isOfficialCommunityLoading && !isCommunitiesLoading) {
-      if (communities.length === 1 && officialCommunity?.isJoined) {
+      if (
+        (officialCommunity && !communities.length) || 
+        (officialCommunity?.isJoined && communities.length === 1)
+      ) {
         goToCommunityProfilePage(officialCommunity.communityId);
       } else {
         goToSocialHomePage();
