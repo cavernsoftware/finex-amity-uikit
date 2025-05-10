@@ -99,11 +99,12 @@ export function SocialHomePage() {
             isActive={activeTab === HomePageTab.Newsfeed}
             onClick={() => setActiveTab(HomePageTab.Newsfeed)}
           />
-          <ExploreButton
+          {/* // FINEX: Hide explore button */}
+          {/* <ExploreButton
             pageId={pageId}
             isActive={activeTab === HomePageTab.Explore}
             onClick={() => setActiveTab(HomePageTab.Explore)}
-          />
+          /> */}
           <MyCommunitiesButton
             pageId={pageId}
             isActive={activeTab === HomePageTab.MyCommunities}

@@ -46,17 +46,19 @@ export const CommunitySideBar = ({
         <NewsFeedMenuItem pageId={pageId} componentId={componentId} />
         {/* // FINEX: Add new ProfileMenuItem component */}
         <ProfileMenuItem pageId={pageId} componentId={componentId} />
-        {!isExploreHidden && <ExploreMenuItem pageId={pageId} componentId={componentId} />}
+        {/* // FINEX: Hide explore button */}
+        {/* {!isExploreHidden && <ExploreMenuItem pageId={pageId} componentId={componentId} />} */}
       </div>
       <div className={styles.communitySideBar__myCommunitiesSection}>
-        <MyCommunitiesSideBarTitle pageId={pageId} componentId={componentId} />
+        {/* // FINEX: Hide my communities title and create community button */}
+        {/* <MyCommunitiesSideBarTitle pageId={pageId} componentId={componentId} />
         {socialCommunityCreationButtonVisible && (
           <CreateCommunityMenuItem
             pageId={pageId}
             componentId={componentId}
             onPress={() => goToCreateCommunityPage?.({ mode: AmityCommunitySetupPageMode.CREATE })}
           />
-        )}
+        )} */}
         <MyCommunitiesSideBar pageId={pageId} />
       </div>
     </div>

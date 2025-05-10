@@ -38,7 +38,9 @@ export function TopNavigation({
         goToSocialGlobalSearchPage();
         break;
       case HomePageTab.MyCommunities:
-        goToMyCommunitiesSearchPage();
+        // FINEX: Go to global search page instead of my communities search page
+        // goToMyCommunitiesSearchPage();
+        goToSocialGlobalSearchPage();
         break;
     }
   };
@@ -66,13 +68,15 @@ export function TopNavigation({
             <PostCreationButton
               pageId={pageId}
               componentId={componentId}
-              onClick={() =>
-                selectedTab == HomePageTab.MyCommunities
-                  ? goToCreateCommunityPage?.({
-                      mode: AmityCommunitySetupPageMode.CREATE,
-                    })
-                  : onClickPostCreationButton?.()
-              }
+              // FINEX: Prevent going to create community page
+              // onClick={() =>
+              //   selectedTab == HomePageTab.MyCommunities
+              //     ? goToCreateCommunityPage?.({
+              //         mode: AmityCommunitySetupPageMode.CREATE,
+              //       })
+              //     : onClickPostCreationButton?.()
+              // }
+              onClick={() => onClickPostCreationButton?.()}
             />
           </div>
         )}
