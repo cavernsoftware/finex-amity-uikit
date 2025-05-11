@@ -6,6 +6,10 @@
   gap: 0.0625rem;
   background-color: var(--asc-color-primary-shade3);
   border-radius: 1.25rem;
+  /* // FINEX: Add line-height, border, height */
+  line-height: 1;
+  border: 1px solid transparent;
+  height: 20px;
 }
 
 .moderatorBadge__icon {
