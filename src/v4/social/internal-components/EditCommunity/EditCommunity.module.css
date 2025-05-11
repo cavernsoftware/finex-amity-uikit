@@ -81,7 +81,9 @@
   line-height: 1.25rem;
   letter-spacing: -0.015rem;
   color: var(--asc-color-base-default);
-  background-color: var(--asc-color-background-default);
+  /* // FINEX: Change background-color to transparent */
+  /* background-color: var(--asc-color-background-default); */
+  background-color: transparent;
   border-bottom: 1px solid var(--asc-color-base-shade4);
 }
 
@@ -109,10 +111,13 @@
   font-size: var(--asc-text-font-size-sm);
   line-height: 1.25rem;
   field-sizing: content;
-  word-break: break-all;
+  /* // FINEX: Don't use break-all */
+  /* word-break: break-all; */
   letter-spacing: -0.015rem;
   color: var(--asc-color-base-default);
-  background-color: var(--asc-color-background-default);
+  /* // FINEX: Change background-color to transparent */
+  /* background-color: var(--asc-color-background-default); */
+  background-color: transparent;
   border-bottom: 1px solid var(--asc-color-base-shade4);
 }
 

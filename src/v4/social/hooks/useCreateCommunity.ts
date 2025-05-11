@@ -3,8 +3,11 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
 const baseCommunitySchema = z.object({
-  displayName: z.string().max(30),
-  description: z.string().max(180).optional(),
+  // FINEX: Change character limits for community name and description
+  // displayName: z.string().max(30),
+  // description: z.string().max(180).optional(),
+  displayName: z.string().max(40),
+  description: z.string().max(3000).optional(),
   categoryIds: z.string().array().optional(),
   avatarFileId: z.string().nullable().optional(),
   tags: z.string().array().optional(),
