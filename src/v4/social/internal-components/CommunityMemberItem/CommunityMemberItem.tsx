@@ -20,6 +20,9 @@ import GoldenBadge from '~/v4/icons/GoldenBadge';
 import { Popover } from '~/v4/core/components/AriaPopover';
 import { TrashIcon } from '~/v4/icons/Trash';
 import { useNetworkState } from 'react-use';
+// FINEX: Import DebtFreeCountdownBadge, useDebtFreeCountdown
+import { DebtFreeCountdownBadge } from '~/v4/social/elements/DebtFreeCountdownBadge';
+import { useDebtFreeCountdown } from '~/v4/social/hooks/useDebtFreeCountdown';
 
 const { COMMUNITY_MODERATOR, CHANNEL_MODERATOR } = MemberRoles;
 
@@ -169,6 +172,12 @@ export const CommunityMemberItem = ({
       : null,
   ].filter(isNonNullable);
 
+  // FINEX: Add debt free countdown hook
+  const debtFreeDaysLeft = useDebtFreeCountdown({ user });
+
+  // FINEX: Create showDebtFreeBadge boolean
+  const showDebtFreeBadge = user?.userId && debtFreeDaysLeft;
+
   return (
     <div className={styles.communityMemberItem} key={user?.userId}>
       <Button onPress={onClick} className={styles.communityMemberItem__leftSide}>
@@ -179,7 +188,8 @@ export const CommunityMemberItem = ({
             className={styles.communityMemberItem__memberAvatar}
           />
         </div>
-        <Typography.BodyBold className={styles.communityMemberItem__memberName}>
+        {/* // FINEX: Refactor with a left side container to show debt-free countdown */}
+        {/* <Typography.BodyBold className={styles.communityMemberItem__memberName}>
           {user?.displayName}
         </Typography.BodyBold>
         {user?.isBrand && (
@@ -195,7 +205,33 @@ export const CommunityMemberItem = ({
             imgIcon={() => <Banned className={styles.communityMemberItem__bannedIcon} />}
             defaultIcon={() => <Banned className={styles.communityMemberItem__bannedIcon} />}
           />
-        )}
+        )} */}
+        <div className={styles.communityMemberItem__rightSide}>
+          <div className={styles.communityMemberItem__memberNameContainer}>
+            <Typography.BodyBold className={styles.communityMemberItem__memberName}>
+              {user?.displayName}
+            </Typography.BodyBold>
+            {user?.isBrand && (
+              <IconComponent
+                defaultIconName="badge icon"
+                imgIcon={() => <GoldenBadge className={styles.communityMemberItem__badge} />}
+                defaultIcon={() => <GoldenBadge className={styles.communityMemberItem__badge} />}
+              />
+            )}
+            {isGlobalBanned && (
+              <IconComponent
+                defaultIconName="banned icon"
+                imgIcon={() => <Banned className={styles.communityMemberItem__bannedIcon} />}
+                defaultIcon={() => <Banned className={styles.communityMemberItem__bannedIcon} />}
+              />
+            )}
+          </div>
+          {showDebtFreeBadge ? (
+            <div className={styles.communityMemberItem__debtFreeCountdownBadgeContainer}>
+              <DebtFreeCountdownBadge userId={user?.userId} daysLeft={debtFreeDaysLeft} />
+            </div>
+          ) : null}
+        </div>
       </Button>
       {!isCurrentUser && community?.isJoined && (
         <Popover

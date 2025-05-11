@@ -46,7 +46,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1rem 1rem 0;
+  /* // FINEX: Change padding */
+  /* padding: 1rem 1rem 0; */
+  padding: 1rem;
   align-items: flex-start;
   overflow: hidden;
   background: var(--asc-color-background-default);

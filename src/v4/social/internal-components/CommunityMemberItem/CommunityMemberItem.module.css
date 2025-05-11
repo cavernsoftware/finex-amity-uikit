@@ -14,6 +14,20 @@
   align-items: center;
 }
 
+/* // FINEX: Add right side styling */
+.communityMemberItem__rightSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* // FINEX: Add member name container styling */
+.communityMemberItem__memberNameContainer {
+  display: flex;
+  gap: 0.75rem;
+  line-height: 1;
+}
+
 .communityMemberItem__memberAvatar {
   display: flex;
   width: 2.5rem;
@@ -30,7 +44,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: var(--asc-text-font-size-md);
-  padding: 0.5rem 0.13rem 0.5rem 0;
+  /* // FINEX: Comment out padding */
+  /* padding: 0.5rem 0.13rem 0.5rem 0; */
 }
 
 .communityMemberItem__menuWrapper {

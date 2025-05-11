@@ -476,7 +476,7 @@ export const PostContent = ({
           <div
             className={styles.postContent__bar__information__subtitle}
             // FINEX: Add padding-top conditionally
-            style={{ paddingTop: showDebtFreeBadge || isCommunityModerator ? 2 : 0 }}
+            // style={{ paddingTop: showDebtFreeBadge || isCommunityModerator ? 2 : 0 }}
           >
             {/* // FINEX: Add new DebtFreeCountdownBadge component */}
             {showDebtFreeBadge ? (
