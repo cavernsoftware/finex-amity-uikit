@@ -5,6 +5,9 @@ import { useNavigation } from '~/v4/core/providers/NavigationProvider';
 import { BrandBadge } from '~/v4/social/internal-components/BrandBadge';
 import { UserAvatar } from '~/v4/social/internal-components/UserAvatar/UserAvatar';
 import styles from './UserSearchItem.module.css';
+// FINEX: Import DebtFreeCountdownBadge and useDebtFreeCountdown
+import { DebtFreeCountdownBadge } from '~/v4/social/elements/DebtFreeCountdownBadge';
+import { useDebtFreeCountdown } from '~/v4/social/hooks/useDebtFreeCountdown';
 
 interface UserSearchItemProps {
   pageId?: string;
@@ -20,6 +23,12 @@ export const UserSearchItem = ({
   componentId = '*',
 }: UserSearchItemProps) => {
   const { onClickUser } = useNavigation();
+
+  // FINEX: Add debt free countdown hook
+  const debtFreeDaysLeft = useDebtFreeCountdown({ user });
+
+  // FINEX: Create showDebtFreeBadge boolean
+  const showDebtFreeBadge = user?.userId && debtFreeDaysLeft;
 
   return (
     <Button
@@ -55,6 +64,12 @@ export const UserSearchItem = ({
             </div>
           ) : null}
         </div>
+        {/* // FINEX: Add debt free countdown badge */}
+        {showDebtFreeBadge ? (
+          <div className={styles.communityMemberItem__debtFreeCountdownBadgeContainer}>
+            <DebtFreeCountdownBadge userId={user?.userId} daysLeft={debtFreeDaysLeft} />
+          </div>
+        ) : null}
       </div>
     </Button>
   );

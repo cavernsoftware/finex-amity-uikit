@@ -1,10 +1,20 @@
 .userItem {
-  gap: 1rem;
+  /* // FINEX: Change gap */
+  /* gap: 1rem; */
+  gap: 0.75rem;
   width: 100%;
   display: grid;
   cursor: pointer;
   padding: 0.5rem 0;
   grid-template-columns: 2.5rem minmax(0, 1fr);
+  /* // FINEX: Add border-radius and transition */
+  border-radius: 0.5rem;
+  transition: background-color 0.1s ease-in-out;
+}
+
+/* // FINEX: Add hover effect */
+.userItem:hover {
+  background-color: var(--asc-color-background-shade1);
 }
 
 .userItem[data-focus-visible] {
@@ -20,9 +30,14 @@
 .userItem__rightPane {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* // FINEX: Change align-items to start */
+  /* align-items: center; */
+  align-items: start;
+  /* // FINEX: Add flex-direction column */
+  flex-direction: column;
   width: 100%;
-  gap: 0.25rem;
+  /* FINEX: Comment out gap */
+  /* gap: 0.25rem; */
 }
 
 .userItem__avatar {
