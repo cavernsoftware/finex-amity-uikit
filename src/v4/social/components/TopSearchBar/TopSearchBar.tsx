@@ -10,21 +10,23 @@ import styles from './TopSearchBar.module.css';
 export type TopSearchBarProps = {
   pageId?: string;
   onFocus?: () => void;
-  search: (keyword: string) => void;
+  // FINEX: Comment out search function, add search value state
+  // search: (keyword: string) => void;
+  searchValue: string;
+  setSearchValue: (value: string) => void;
 };
 
-export function TopSearchBar({ pageId = '*', search, onFocus }: TopSearchBarProps) {
+// FINEX: Change props
+// export function TopSearchBar({ pageId = '*', search, onFocus }: TopSearchBarProps) {
+export function TopSearchBar({ pageId = '*', onFocus, searchValue, setSearchValue }: TopSearchBarProps) {
   const componentId = 'top_search_bar';
   const { onBack } = useNavigation();
-  const [searchValue, setSearchValue] = useState('');
+  // FINEX: Comment out this state, use state from parent component
+  // const [searchValue, setSearchValue] = useState('');
   const { config, isExcluded, themeStyles, accessibilityId } = useAmityComponent({
     pageId,
     componentId,
   });
-
-  useEffect(() => {
-    search(searchValue);
-  }, [searchValue]);
 
   if (isExcluded) return null;
 
@@ -47,7 +49,9 @@ export function TopSearchBar({ pageId = '*', search, onFocus }: TopSearchBarProp
           // FINEX: Add placeholder text
           placeholder={config.text ?? 'Search community and user'}
           className={styles.topSearchBar__textInput}
-          onChange={(ev) => setSearchValue(ev.target.value)}
+          // FINEX: Trim right-side of value
+          // onChange={(ev) => setSearchValue(ev.target.value)}
+          onChange={(ev) => setSearchValue(ev.target.value?.trimStart())}
         />
         {searchValue != '' ? (
           <ClearButton

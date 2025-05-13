@@ -4,7 +4,8 @@ import { useClickAway } from 'react-use';
 import { useAmityPage } from '~/v4/core/hooks/uikit';
 import { SecondaryTab } from '~/v4/core/components/SecondaryTab';
 import { TopSearchBar } from '~/v4/social/components/TopSearchBar';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+// FINEX: Import useEffect
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { UserSearchResult } from '~/v4/social/components/UserSearchResult';
 import { CommunitySearchResult } from '~/v4/social/components/CommunitySearchResult';
 import { useUserQueryByDisplayName } from '~/v4/core/hooks/collections/useUsersCollection';
@@ -56,6 +57,8 @@ const useGlobalSearchViewModel = () => {
     searchType,
     search,
     searchValue: searchKeyword,
+    // FINEX: Pass setSearchKeyword as setSearchValue
+    setSearchValue: setSearchKeyword,
     setSearchType,
   };
 };
@@ -67,7 +70,10 @@ export function SocialGlobalSearchPage() {
   const { themeStyles } = useAmityPage({ pageId });
   const [activeTab, setActiveTab] = useState<Key>('communities');
   const [openSearchResult, setOpenSearchResult] = useState<boolean>(false);
-  const { userCollection, communityCollection, search, searchValue, setSearchType } =
+  // FINEX: Refactor useGlobalSearchViewModel props
+  // const { userCollection, communityCollection, search, searchValue, setSearchType } =
+  //   useGlobalSearchViewModel();
+  const { userCollection, communityCollection, searchValue, setSearchValue, setSearchType } =
     useGlobalSearchViewModel();
 
   useClickAway(ref, () => setOpenSearchResult(false));
@@ -81,7 +87,12 @@ export function SocialGlobalSearchPage() {
         <CommunitySearchResult
           pageId={pageId}
           isLoading={communityCollection.isLoading}
-          onClosePopover={() => setOpenSearchResult(false)}
+          // FINEX: Clear search value as well as close search result
+          // onClosePopover={() => setOpenSearchResult(false)}
+          onClosePopover={() => {
+            setSearchValue('');
+            setOpenSearchResult(false);
+          }}
           communityCollection={communityCollection.communities}
           onLoadMore={() => {
             if (communityCollection.hasMore && communityCollection.isLoading === false) {
@@ -100,7 +111,12 @@ export function SocialGlobalSearchPage() {
           pageId={pageId}
           isLoading={userCollection.isLoading}
           userCollection={userCollection.users}
-          onClosePopover={() => setOpenSearchResult(false)}
+          // FINEX: Clear search value as well as close search result
+          // onClosePopover={() => setOpenSearchResult(false)}
+          onClosePopover={() => {
+            setSearchValue('');
+            setOpenSearchResult(false);
+          }}
           onLoadMore={() => {
             if (userCollection.hasMore && userCollection.isLoading === false) {
               userCollection.loadMore();
@@ -111,9 +127,21 @@ export function SocialGlobalSearchPage() {
     },
   ];
 
+  // FINEX: Open search result when search value changes
+  useEffect(() => {
+    setOpenSearchResult(searchValue.length > 0);
+  }, [searchValue]);
+
   return (
     <div className={styles.socialGlobalSearchPage} style={themeStyles}>
-      <TopSearchBar pageId={pageId} search={search} onFocus={() => setOpenSearchResult(true)} />
+      {/* FINEX: Refactor props */}
+      {/* <TopSearchBar pageId={pageId} search={search} onFocus={() => setOpenSearchResult(true)} /> */}
+      <TopSearchBar
+        pageId={pageId}
+        onFocus={() => setOpenSearchResult(true)}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
       {searchValue.length > 0 && openSearchResult && (
         <div className={styles.socialGlobalSearchPage__searchResultContainer} ref={ref}>
           <SecondaryTab

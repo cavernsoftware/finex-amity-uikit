@@ -24,7 +24,13 @@ export function MyCommunitiesSearchPage() {
 
   return (
     <div className={styles.myCommunitiesSearchPage} style={themeStyles}>
-      <TopSearchBar pageId={pageId} search={(newSearchValue) => setSearchValue(newSearchValue)} />
+      {/* FINEX: Refactor props */}
+      {/* <TopSearchBar pageId={pageId} search={(newSearchValue) => setSearchValue(newSearchValue)} /> */}
+      <TopSearchBar
+        pageId={pageId}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
       {searchValue.length > 0 && (
         <CommunitySearchResult
           pageId={pageId}
