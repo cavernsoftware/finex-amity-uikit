@@ -102,29 +102,30 @@ export function SocialGlobalSearchPage() {
         />
       ),
     },
-    {
-      value: 'users',
-      label: 'Users',
-      accessibilityId: `${pageId}/top_search_bar/users`,
-      content: () => (
-        <UserSearchResult
-          pageId={pageId}
-          isLoading={userCollection.isLoading}
-          userCollection={userCollection.users}
-          // FINEX: Clear search value as well as close search result
-          // onClosePopover={() => setOpenSearchResult(false)}
-          onClosePopover={() => {
-            setSearchValue('');
-            setOpenSearchResult(false);
-          }}
-          onLoadMore={() => {
-            if (userCollection.hasMore && userCollection.isLoading === false) {
-              userCollection.loadMore();
-            }
-          }}
-        />
-      ),
-    },
+    // FINEX: Comment out users search tab
+    // {
+    //   value: 'users',
+    //   label: 'Users',
+    //   accessibilityId: `${pageId}/top_search_bar/users`,
+    //   content: () => (
+    //     <UserSearchResult
+    //       pageId={pageId}
+    //       isLoading={userCollection.isLoading}
+    //       userCollection={userCollection.users}
+    //       // FINEX: Clear search value as well as close search result
+    //       // onClosePopover={() => setOpenSearchResult(false)}
+    //       onClosePopover={() => {
+    //         setSearchValue('');
+    //         setOpenSearchResult(false);
+    //       }}
+    //       onLoadMore={() => {
+    //         if (userCollection.hasMore && userCollection.isLoading === false) {
+    //           userCollection.loadMore();
+    //         }
+    //       }}
+    //     />
+    //   ),
+    // },
   ];
 
   // FINEX: Open search result when search value changes

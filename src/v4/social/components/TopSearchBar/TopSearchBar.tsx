@@ -18,7 +18,12 @@ export type TopSearchBarProps = {
 
 // FINEX: Change props
 // export function TopSearchBar({ pageId = '*', search, onFocus }: TopSearchBarProps) {
-export function TopSearchBar({ pageId = '*', onFocus, searchValue, setSearchValue }: TopSearchBarProps) {
+export function TopSearchBar({
+  pageId = '*',
+  onFocus,
+  searchValue,
+  setSearchValue,
+}: TopSearchBarProps) {
   const componentId = 'top_search_bar';
   const { onBack } = useNavigation();
   // FINEX: Comment out this state, use state from parent component
@@ -33,7 +38,7 @@ export function TopSearchBar({ pageId = '*', onFocus, searchValue, setSearchValu
   return (
     <div className={styles.topSearchBar} style={themeStyles} data-testid={accessibilityId}>
       <div className={styles.topSearchBar__inputBar}>
-      {/* // FINEX: Create container to keep size of search icon during initial page load */}
+        {/* // FINEX: Create container to keep size of search icon during initial page load */}
         <div className={styles.topSearchBar__searchIconContainer}>
           <SearchIcon
             pageId={pageId}
@@ -47,7 +52,7 @@ export function TopSearchBar({ pageId = '*', onFocus, searchValue, setSearchValu
           onFocus={onFocus}
           value={searchValue}
           // FINEX: Add placeholder text
-          placeholder={config.text ?? 'Search community and user'}
+          placeholder={config.text ?? 'Search community'}
           className={styles.topSearchBar__textInput}
           // FINEX: Trim right-side of value
           // onChange={(ev) => setSearchValue(ev.target.value)}
