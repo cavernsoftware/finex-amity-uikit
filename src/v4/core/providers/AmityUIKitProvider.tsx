@@ -149,11 +149,22 @@ const InternalComponent = ({
         const newClient = AmityUIKitManager.getClient();
         setClient(newClient);
       } catch (_error) {
-        console.error('Error setting up AmityUIKitManager:', _error);
+        // FINEX: Comment out this catch block logic and replace with different logic
+        // console.error('Error setting up AmityUIKitManager:', _error);
+        // if (_error instanceof Error) {
+        //   error({
+        //     content: _error.message,
+        //   });
+        // }
         if (_error instanceof Error) {
-          error({
-            content: _error.message,
+          console.error('Error setting up AmityUIKitManager. Serialized error object:', {
+            message: _error.message,
+            stack: _error.stack,
+            name: _error.name,
+            cause: _error.cause,
           });
+        } else {
+          console.error('Error setting up AmityUIKitManager. Non-error object:', _error);
         }
       }
     };
