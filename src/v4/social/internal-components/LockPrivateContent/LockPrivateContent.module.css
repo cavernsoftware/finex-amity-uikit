@@ -1,6 +1,14 @@
 .lockPrivateContent__wrap {
   margin: 5rem auto 3rem;
   text-align: center;
+  /* // FINEX: Add styles below to match desktop */
+  margin: 0;
+  gap: 0.25rem;
+  display: grid;
+  padding: 3.5rem;
+  place-items: center;
+  border: 1px solid var(--asc-color-base-shade4);
+  background-color: var(--asc-color-background-default);
 }
 
 .lockPrivateContent__lockIcon {
