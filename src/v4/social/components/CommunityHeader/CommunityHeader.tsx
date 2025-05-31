@@ -105,7 +105,8 @@ export const CommunityHeader: React.FC<CommunityProfileHeaderProps> = ({
           description={community.description || ''}
         />
 
-        <div className={styles.communityProfile__communityInfo__container}>
+        {/* // FINEX: Hide community info counts */}
+        {/* <div className={styles.communityProfile__communityInfo__container}>
           <CommunityInfo
             pageId={pageId}
             componentId={componentId}
@@ -124,7 +125,7 @@ export const CommunityHeader: React.FC<CommunityProfileHeaderProps> = ({
               });
             }}
           />
-        </div>
+        </div> */}
 
         {!community.isJoined && community.isPublic && (
           <div className={styles.communityProfile__joinButton__container}>
@@ -145,9 +146,10 @@ export const CommunityHeader: React.FC<CommunityProfileHeaderProps> = ({
             />
           </div>
         )}
-        <div>
+        {/* // FINEX: Hide story tab */}
+        {/* <div>
           <StoryTab type="communityFeed" pageId={pageId} communityId={community.communityId} />
-        </div>
+        </div> */}
 
         {isShowPendingPost && (
           <div className={styles.communityProfile__pendingPost__container}>

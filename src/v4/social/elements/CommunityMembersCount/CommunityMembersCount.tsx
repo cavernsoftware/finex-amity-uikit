@@ -26,13 +26,15 @@ export function CommunityMembersCount({
 
   if (isExcluded) return null;
 
-  return (
-    <Typography.Caption
-      className={styles.communityMembersCount}
-      style={themeStyles}
-      data-testid={accessibilityId}
-    >{`${millify(memberCount) || 0} ${
-      memberCount !== 1 ? 'members' : 'member'
-    }`}</Typography.Caption>
-  );
+  // FINEX: Hide members count and return null
+  // return (
+  //   <Typography.Caption
+  //     className={styles.communityMembersCount}
+  //     style={themeStyles}
+  //     data-testid={accessibilityId}
+  //   >{`${millify(memberCount) || 0} ${
+  //     memberCount !== 1 ? 'members' : 'member'
+  //   }`}</Typography.Caption>
+  // );
+  return null;
 }

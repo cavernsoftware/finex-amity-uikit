@@ -49,6 +49,9 @@
   min-width: 0;
   /* // FINEX: Use flex 1 */
   flex: 1;
+  /* // FINEX: Use flex and align-items to center */
+  display: flex;
+  align-items: center;
 }
 
 .myCommunitiesSideBarItem__communityName {

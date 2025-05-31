@@ -135,10 +135,11 @@ export const CommunitySettingPage = ({ community }: CommunitySettingPageProps) =
               }
             />
           )}
-          <Members
+          {/* // FINEX: Hide members */}
+          {/* <Members
             pageId={pageId}
             onClick={() => AmityCommunitySettingPageBehavior?.goToMembershipPage?.({ community })}
-          />
+          /> */}
         </div>
         {(checkReviewPostPermission(client, community?.communityId) ||
           checkEditCommunityPermission(client, community?.communityId) ||

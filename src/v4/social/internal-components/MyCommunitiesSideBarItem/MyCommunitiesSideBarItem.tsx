@@ -86,13 +86,14 @@ export const MyCommunitiesSideBarItem = ({
           maxCategoryCharacters={maxCategoryCharacters}
           className={styles.myCommunitiesSideBarItem__categories}
         />
-        <div className={styles.myCommunitiesSideBarItem__member}>
+        {/* // FINEX: Hide members count */}
+        {/* <div className={styles.myCommunitiesSideBarItem__member}>
           <CommunityMembersCount
             pageId={pageId}
             componentId={componentId}
             memberCount={community.membersCount}
           />
-        </div>
+        </div> */}
       </div>
     </Button>
   );
