@@ -177,12 +177,14 @@ export const UserProfileHeader: React.FC<UserProfileHeaderProps> = ({ user, page
         {debtFreeDaysLeft && (
           <>
             <DebtFreeCountdown daysLeft={debtFreeDaysLeft} />
-            <div className={styles.userProfileHeader__relationship__separator}></div>
+            {/* FINEX: Hide separator since following and followers are hidden */}
+            {/* <div className={styles.userProfileHeader__relationship__separator}></div> */}
           </>
         )}
-        <UserFollowing userId={user.userId} pageId={pageId} componentId={componentId} />
+        {/* // FINEX: Hide following and followers */}
+        {/* <UserFollowing userId={user.userId} pageId={pageId} componentId={componentId} />
         <div className={styles.userProfileHeader__relationship__separator}></div>
-        <UserFollower userId={user.userId} pageId={pageId} componentId={componentId} />
+        <UserFollower userId={user.userId} pageId={pageId} componentId={componentId} /> */}
       </div>
       {pendingCount > 0 && (
         <Button
