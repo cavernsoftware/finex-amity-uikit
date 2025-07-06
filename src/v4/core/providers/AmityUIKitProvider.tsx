@@ -170,7 +170,9 @@ const InternalComponent = ({
     };
 
     setup();
-  }, [userId, displayName, onConnectionStatusChange, onDisconnected]);
+    // FINEX: Remove dependency array to prevent multiple initializations
+    // }, [userId, displayName, onConnectionStatusChange, onDisconnected]);
+  }, []);
 
   if (!client || isNetworkConfigLoading) return <>{children}</>;
 
