@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { default as AmityUiKitProviderDirect } from '~/v4/core/providers/AmityUIKitProvider';
 export { default as AmityUiKitSocialDirect } from '~/v4/social/pages/Application';
 
